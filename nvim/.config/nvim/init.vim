@@ -392,6 +392,10 @@ nnoremap <leader>tg <cmd>Goyo<cr>
 
 function! s:goyo_enter()
   set scrolloff=999
+  set nolazyredraw
+  " ^ I've found flickering when creating newlines in zen mode when lazyredraw
+  " is present
+
   " augroup autoCenter
   "   autocmd!
   "   autocmd InsertCharPre,InsertEnter * if (winline() * 3 >= (winheight(0) * 2))
@@ -403,6 +407,7 @@ endfunction
 
 function! s:goyo_leave()
   " au! autoCenter
+  set lazyredraw
   set scrolloff=3
 endfunction
 
