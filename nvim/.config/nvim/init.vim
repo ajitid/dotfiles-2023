@@ -396,6 +396,10 @@ function! s:goyo_enter()
   " ^ I've found flickering when creating newlines in zen mode when lazyredraw
   " is present
 
+  " InsertCharPre causes issue as it is consumed by compe, when compe wasn't
+  " disabled it said `pattern not found: lsp`, now when I have disabled it, it
+  " says it is compe instead of lsp.
+  " Auto-scrolls to center when cursor is at end
   " augroup autoCenter
   "   autocmd!
   "   autocmd InsertCharPre,InsertEnter * if (winline() * 3 >= (winheight(0) * 2))
