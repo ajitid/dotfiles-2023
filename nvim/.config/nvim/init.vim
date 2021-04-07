@@ -12,7 +12,7 @@ set hidden
 
 " By default typing space goes to next character
 " This needs to be defined before leader commands are defined
-nnoremap <space> <nop> 
+nnoremap <space> <nop>
 let mapleader = "\<Space>" " map leader to space
 
 if has('termguicolors')
@@ -94,10 +94,25 @@ autocmd Filetype help nnoremap <buffer> q :q<cr>
 " For a wrapped line which is lets say wrapped to 2 lines, vim will still
 " treat it as a single line and so will jump over that 2nd line when navigated
 " using j or k. This fixes that.
-nmap k gk
-nmap j gj
-set wrap
-set linebreak
+" nmap k gk
+" nmap j gj
+nnoremap <expr> j v:count == 0 ? 'gj' : "\<Esc>".v:count.'j'
+nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
+
+" https://ddrscott.github.io/blog/2016/sidescroll/
+" oddly, nvim or polygot set wrap but not linebreak
+" set wrap
+" set linebreak
+set nowrap
+set sidescroll=6
+" ^ for horizontal scrolling refer to this
+" https://stackoverflow.com/questions/5989739/horizontal-navigation-in-long-lines
+
+" https://www.reddit.com/r/vim/comments/4hoa6e/what_do_you_use_for_your_listchars/
+" ^ this has highlighting tokens mentioned too
+" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+" set list
+set list listchars=tab:│\ ,trail:·,extends:>,precedes:<,nbsp:~
 
 " Highlight realtime when using find and replace by :s/old/new or
 " when replacing all occurences of a line using :s/old/new/g. It also shows a 
