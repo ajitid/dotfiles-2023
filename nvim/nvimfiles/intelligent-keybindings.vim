@@ -17,10 +17,13 @@ nnoremap <leader>gd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 nnoremap <leader>ir <cmd>Lspsaga rename<cr>
 nnoremap <silent><leader>ia :Lspsaga code_action<CR>
 vnoremap <silent><leader>ia :<C-U>Lspsaga range_code_action<CR>
-nnoremap <silent><leader>ih :Lspsaga hover_doc<CR>
-nnoremap <silent><leader>is :Lspsaga signature_help<CR>
+nnoremap <silent><leader>sh :Lspsaga hover_doc<CR>
+nnoremap <silent><leader>ss :Lspsaga signature_help<CR>
 " nnoremap <leader>vf :lua M.search_dotfiles()<cr>
 " nnoremap <leader>vf :lua require('/home/frefko/nvimfiles/telescope').search_dotfiles()<cr>
-nnoremap <silent><leader>ee <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
-nnoremap <silent><leader>er :Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent><leader>ew :Lspsaga diagnostic_jump_prev<CR>
+
+" TODO: I prefer line level diagnostic rather just cursor, but check what jump next
+" will do if there are two errors on the same line
+nnoremap <leader>se <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
+nnoremap <leader>gen :Lspsaga diagnostic_jump_next<CR>
+nnoremap <leader>gep :Lspsaga diagnostic_jump_prev<CR>

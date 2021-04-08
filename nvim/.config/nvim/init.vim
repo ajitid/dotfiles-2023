@@ -410,5 +410,7 @@ function! ShowContextWithLeastDisturbance()
   ContextPeek
 endfunction
 
-nnoremap <silent><leader>tc :call ShowContextWithLeastDisturbance()<cr>
+" s: show, g: goto, i: intelligent code related actions given by LSP and
+" friends, f: find
+nnoremap <silent><leader>sc :call ShowContextWithLeastDisturbance()<cr>
 

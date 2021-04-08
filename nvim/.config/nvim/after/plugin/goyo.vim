@@ -7,7 +7,8 @@ let s:compe_c = {
 au FileType markdown call compe#setup(s:compe_c, 0)
 
 let g:goyo_height='94%'
-nnoremap <leader>tz <cmd>Goyo<cr>
+" d: distraction
+nnoremap <leader>td <cmd>Goyo<cr>
 
 function! s:sambhalo()
 	let b:first_visible_line_no = line("w0")
