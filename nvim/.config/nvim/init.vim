@@ -104,7 +104,7 @@ nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
 " set wrap
 " set linebreak
 set nowrap
-set sidescroll=6
+set sidescroll=1
 " ^ for horizontal scrolling refer to this
 " https://stackoverflow.com/questions/5989739/horizontal-navigation-in-long-lines
 
@@ -112,7 +112,7 @@ set sidescroll=6
 " ^ this has highlighting tokens mentioned too
 " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " set list
-set list listchars=tab:\:\ ,trail:·,extends:>,precedes:<,nbsp:~
+set list listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:~
 
 " Highlight realtime when using find and replace by :s/old/new or
 " when replacing all occurences of a line using :s/old/new/g. It also shows a 

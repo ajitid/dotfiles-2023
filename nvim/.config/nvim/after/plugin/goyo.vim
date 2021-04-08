@@ -32,11 +32,13 @@ function! s:goyo_enter()
 	" 	autocmd!
 	" 	" nah-> autocmd InsertEnter,InsertCharPre <buffer> call s:sambhalo()
 	" 	autocmd InsertEnter,CursorMovedI <buffer> call s:sambhalo()
+	" 	" ^ use WinScrolled event instead of CursorMovedI if possible
 	" augroup END
 	" with this we could have solve it using winline() and winheight(), but to
 	" make actual scroll using ctrl-y and ctrl-e, these scrolling mechanisms use
 	" line jumping skip line wraps. There is an issue on about the same in
 	" neovim repo.
+	" Also see  virtcol('.')  indent('.') & col('.')
 endfunction
 
 function! s:goyo_leave()
