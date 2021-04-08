@@ -396,3 +396,19 @@ nnoremap <c-_> <cmd>Commentary<cr>
 
 " repeats last macro, @: repeats last command
 nnoremap Q @@
+
+let g:context_enabled = 0
+let g:context_add_mappings = 0
+let g:context_max_height = 7
+
+function! ShowContextWithLeastDisturbance()
+  let curr_line_from_top = winline()
+  if curr_line_from_top <= g:context_max_height + 2
+    let calc_shift = g:context_max_height - curr_line_from_top + 3
+    exe "sil norm!" . calc_shift ."\<c-y>"
+  endif
+  ContextPeek
+endfunction
+
+nnoremap <silent><leader>tc :call ShowContextWithLeastDisturbance()<cr>
+
