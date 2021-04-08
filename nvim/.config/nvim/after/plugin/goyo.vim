@@ -20,9 +20,6 @@ endfunction
 function! s:goyo_enter()
 	echo ""
 	set nolazyredraw
-	set wrap
-	set linebreak
-	set nolist
 
 	" this needs throttling or something of 2 mins, and save on insert mode exit
 	" augroup autoSave
@@ -44,9 +41,6 @@ endfunction
 function! s:goyo_leave()
 	" au! autoSave
 
-	set list
-	set nolinebreak
-	set nowrap
 	set lazyredraw
 endfunction
 
