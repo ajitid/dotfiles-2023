@@ -11,7 +11,7 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
 " lua version https://github.com/nvim-telescope/telescope.nvim/issues/568#issuecomment-794340390
 nnoremap <leader>fS :Telescope lsp_workspace_symbols query=
-" ^ a live version is landing soon https://github.com/nvim-telescope/telescope.nvim/pull/705#issue-604246613
+" TODO: ^ a live version is landing soon https://github.com/nvim-telescope/telescope.nvim/pull/705#issue-604246613
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
 nnoremap <leader>fc <cmd>lua require('telescope.builtin').command_history()<cr>
 
