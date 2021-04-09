@@ -83,6 +83,7 @@ Plug 'itchyny/lightline.vim'
 " does not reqiure any plugin to install, instead needs a go binary, see 'mattn/efm-langserver' on GitHub
 
 " EditorConfig
+Plug 'tpope/vim-sleuth'
 Plug 'editorconfig/editorconfig-vim'
 
 " leader key shortcuts info
