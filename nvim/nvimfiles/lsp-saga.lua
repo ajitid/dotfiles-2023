@@ -17,5 +17,7 @@ vim.cmd [[ highlight link LspSagaLightBulb Special ]]
 
 -- hide error and warning from gutter
 -- vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
+-- ^ only this one and err and warn signs were commented
+
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = ""})
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = ""})

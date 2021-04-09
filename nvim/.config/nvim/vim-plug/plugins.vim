@@ -28,6 +28,8 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 " [doesn't works the way I want it to] Frecency over MRU
 " Plug 'tami5/sql.nvim'
 " Plug 'nvim-telescope/telescope-frecency.nvim'
+" also see https://github.com/vijaymarupudi/nvim-fzf and check if it can be
+" used over telescope-fzy-native
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -55,7 +57,7 @@ Plug 'justinmk/vim-dirvish'
 " Surround/change text with quotes, bracekts or tags
 Plug 'machakann/vim-sandwich'
 
-" Folding using LSP  
+" Folding using LSP
 " Plug 'pierreglaser/folding-nvim'
 
 " Completion using LSP
