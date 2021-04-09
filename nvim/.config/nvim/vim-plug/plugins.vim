@@ -10,6 +10,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 " Better Syntax Support
 " Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " all hail fzf
 " Plug 'junegunn/fzf'
