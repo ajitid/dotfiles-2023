@@ -56,6 +56,36 @@ set completeopt=menuone,noinsert,noselect
 " autosuggest max items
 set pumheight=8
 
+" needed otherwise it'll fold on file open
+" https://vim.fandom.com/wiki/All_folds_open_when_opening_a_file
+" set foldlevelstart=20
+" ^ seems like foldlevel does just that
+
+" https://vim.fandom.com/wiki/Folding and :h fold-commands
+set foldlevel=20
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+" remember folds
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent! loadview
+
+" visual * or # search, don't consume my leader pls, I'll copy the text and
+" pass it to telescope grep instead:
+" nnoremap <leader>* <Nop>
+" vnoremap <leader>* <Nop>
+" that being said i am replacing vimgrep with `rg` so I might revoke Nop
+" keybinding above
+if executable('rg')
+  set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
+  set grepformat=%f:%l:%c:%m
+endif
+" TODO: in telescope use grep instead of vimgrep and rg, in above code show
+" hidden files but exclude .git repo, make visual star search to use grep
+" instead of vimgrep, also see https://github.com/romainl/vim-qf
+
+set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/dist/*,*/build/*,.idea/**,*DS_Store*,*/coverage/*,*/.git/*,*/package-lock.json
+
+" TODO: put them in a directory other than nvimfiles
 " lua require("init")
 luafile ~/nvimfiles/lsp.lua
 " luafile ~/nvimfiles/eslint-daemon.lua
@@ -67,6 +97,7 @@ source ~/nvimfiles/compe.vim
 source ~/nvimfiles/intelligent-keybindings.vim
 source ~/nvimfiles/lightline.vim
 luafile ~/nvimfiles/color-highlight.lua
+luafile ~/nvimfiles/treesitter.lua
 
 " For easy command access and to not to lose `;` functionality
 nnoremap ; :
@@ -104,7 +135,9 @@ nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
 " set wrap
 " set linebreak
 set nowrap
-set sidescroll=1
+" set sidescroll=1 // I didn't liked horizontal scrolling in VS Code and this
+" extension will exactly emulate that behaviour. Let me stick to Vim defaults
+" for sometime.
 " ^ for horizontal scrolling refer to this
 " https://stackoverflow.com/questions/5989739/horizontal-navigation-in-long-lines
 
@@ -312,22 +345,6 @@ let g:rooter_silent_chdir = 1
 " to make vim sandwich shadow vim's `s`
 nmap s <Nop>
 xmap s <Nop>
-
-" visual * or # search, don't consume my leader pls, I'll copy the text and
-" pass it to telescope grep instead:
-" nnoremap <leader>* <Nop>
-" vnoremap <leader>* <Nop>
-" that being said i am replacing vimgrep with `rg` so I might revoke Nop
-" keybinding above
-if executable('rg')
-  set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
-  set grepformat=%f:%l:%c:%m
-endif
-" TODO: in telescope use grep instead of vimgrep and rg, in above code show
-" hidden files but exclude .git repo, make visual star search to use grep
-" instead of vimgrep, also see https://github.com/romainl/vim-qf
-
-set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/dist/*,*/build/*,.idea/**,*DS_Store*,*/coverage/*,*/.git/*,*/package-lock.json
 
 function! s:CreateDirsForCurrentFile()
   call mkdir(expand("%:h"),"p")

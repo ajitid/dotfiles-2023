@@ -13,7 +13,7 @@ saga.init_lsp_saga {
 }
 
 -- removes background color for lightbulb which appears at right of code
-vim.cmd [[ highlight link LspSagaLightBulb Special ]]
+-- vim.cmd [[ highlight link LspSagaLightBulb Special ]]
 
 -- hide error and warning from gutter
 -- vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
