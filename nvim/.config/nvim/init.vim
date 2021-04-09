@@ -73,7 +73,7 @@ autocmd BufWinEnter *.* silent! loadview
 " pass it to telescope grep instead:
 " nnoremap <leader>* <Nop>
 " vnoremap <leader>* <Nop>
-" that being said i am replacing vimgrep with `rg` so I might revoke Nop
+" that being said i am replacing grep (not vimgrep) with `rg` so I might revoke Nop
 " keybinding above
 if executable('rg')
   set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
