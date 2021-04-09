@@ -23,6 +23,8 @@ lspconfig.cssls.setup{
   capabilities = capabilities,
 }
 
+-- i prefer non LSP one which provides proper jumps, i miss preview but that's not a big issue
+-- that being said, i'm keeping LSP version for now
 configs.emmet_ls = {
   default_config = {
     cmd = {'emmet-ls', '--stdio'};
