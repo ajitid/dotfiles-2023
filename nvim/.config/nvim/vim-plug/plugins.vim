@@ -108,7 +108,7 @@ Plug 'tpope/vim-abolish'
 Plug 'markonm/traces.vim'
 
 " color highlighter 
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " visual mode * or # search
 Plug 'bronson/vim-visual-star-search'

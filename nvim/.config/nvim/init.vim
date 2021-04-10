@@ -96,8 +96,10 @@ luafile ~/nvimfiles/lsp-saga.lua
 source ~/nvimfiles/compe.vim
 source ~/nvimfiles/intelligent-keybindings.vim
 source ~/nvimfiles/lightline.vim
-luafile ~/nvimfiles/color-highlight.lua
+" luafile ~/nvimfiles/color-highlight.lua
 luafile ~/nvimfiles/treesitter.lua
+
+let g:Hexokinase_highlighters = ['backgroundfull']
 
 " For easy command access and to not to lose `;` functionality
 nnoremap ; :

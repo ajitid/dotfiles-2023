@@ -8,6 +8,7 @@ end
 # export PATH="$PATH:/mnt/c/Windows/System32"
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
 
 abbr setclip "xclip -selection c"
 abbr getclip "xclip -selection c -o"
