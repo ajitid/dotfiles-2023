@@ -370,8 +370,8 @@ omap <leader>j <Plug>Sneak_s
 omap <leader>k <Plug>Sneak_S
 
 " Set tabstop, softtabstop and shiftwidth to the same value
-command! -nargs=* Stab call Stab()
-function! Stab()
+command! -nargs=* Stabs call Stabs()
+function! Stabs()
   let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
   if l:tabstop > 0
     let &l:sts = l:tabstop
