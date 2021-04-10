@@ -359,6 +359,7 @@ let g:sneak#use_ic_scs = 1
 highlight SneakScope guifg=#1e1c31 guibg=#91ddff ctermfg=red ctermbg=yellow
 highlight Sneak guifg=#cbe3e7 guibg=#3e3859 ctermfg=black ctermbg=red
 " 2-character Sneak (default)
+
 nmap <leader>j <Plug>Sneak_s
 nmap <leader>k <Plug>Sneak_S
 " visual-mode
@@ -431,3 +432,11 @@ endfunction
 " friends, f: find
 nnoremap <silent><leader>sc :call ShowContextWithLeastDisturbance()<cr>
 
+" better diffing
+set scrollbind
+set diffopt+=algorithm:histogram
+set diffopt+=indent-heuristic
+" haven't tried this:
+" set diffopt+=iwhite
+" you can set context too, see https://unix.stackexchange.com/a/290501
+" more https://unix.stackexchange.com/a/352204
