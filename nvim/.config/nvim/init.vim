@@ -1,4 +1,5 @@
-source $HOME/.config/nvim/vim-plug/plugins.vim
+" source $HOME/.config/nvim/vim-plug/plugins.vim
+source $HOME/.config/nvim/plugins.vim
 
 " The modelines bit prevents some security exploits having to do with modelines in files. I never use modelines so I don't miss any functionality here. see http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html
 set modelines=0
@@ -65,8 +66,10 @@ set pumheight=8
 set foldlevel=20
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-" remember folds
-autocmd BufWinLeave *.* mkview
+
+" remember folds, seems like symlinks don't have a filename, see how it can be
+" fixed
+autocmd BufWinLeave *.* silent! mkview
 autocmd BufWinEnter *.* silent! loadview
 
 " visual * or # search, don't consume my leader pls, I'll copy the text and
