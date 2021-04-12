@@ -28,8 +28,10 @@ aug kitty_cursor
 aug END
 
 " theme
-let g:embark_terminal_italics = 1
-colorscheme embark
+" let g:embark_terminal_italics = 1
+" colorscheme embark
+colorscheme substrata
+" colorscheme mountaineer-grey
 
 " hides default mode display as we are using custom statusline
 set noshowmode
