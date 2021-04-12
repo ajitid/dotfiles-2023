@@ -31,7 +31,6 @@ aug END
 " let g:embark_terminal_italics = 1
 " colorscheme embark
 colorscheme substrata
-" colorscheme mountaineer-grey
 
 " hides default mode display as we are using custom statusline
 set noshowmode
@@ -440,7 +439,6 @@ endfunction
 nnoremap <silent><leader>sc :call ShowContextWithLeastDisturbance()<cr>
 
 " better diffing
-set scrollbind
 set diffopt+=algorithm:histogram
 set diffopt+=indent-heuristic
 " haven't tried this:
