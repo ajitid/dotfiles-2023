@@ -442,3 +442,5 @@ set diffopt+=indent-heuristic
 " set diffopt+=iwhite
 " you can set context too, see https://unix.stackexchange.com/a/290501
 " more https://unix.stackexchange.com/a/352204
+
+nnoremap <leader>b /}<cr>V%

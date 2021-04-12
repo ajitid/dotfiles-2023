@@ -7,6 +7,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+" call plug#begin(stdpath('data') . '/plugged')
 
 " Better Syntax Support
 " Plug 'sheerun/vim-polyglot'

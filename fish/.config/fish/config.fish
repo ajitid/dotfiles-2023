@@ -30,6 +30,7 @@ end
 # see https://github.com/microsoft/WSL/issues/1493#issuecomment-797575704
 set PATH (/usr/bin/printenv PATH | /usr/bin/perl -ne 'print join(":", grep { !/\/mnt\/[a-z]/ } split(/:/));')
 
+export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$HOME/miniconda3/bin:$PATH"
 
 # >>> conda initialize >>>
@@ -44,3 +45,4 @@ alias v "~/work/nvim.appimage"
 alias g "/usr/bin/smerge"
 
 set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
