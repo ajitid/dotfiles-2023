@@ -47,6 +47,7 @@ Plug 'onsails/lspkind-nvim'
 " Embark theme
 " Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug '~/nvimfiles/embark-tuned', {'as': 'embark'}
+Plug '~/nvimfiles/substratum'
 Plug 'co1ncidence/mountaineer.vim'
 Plug 'arzg/vim-substrata'
 

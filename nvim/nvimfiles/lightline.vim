@@ -76,7 +76,7 @@ endfunction
 
 " TODO: show tab/space and count
 let g:lightline = {
-      \ 'colorscheme': 'embark',
+      \ 'colorscheme': 'substratum',
       \ 'tabline': {
       \   'left': [['tabs']],
       \   'right': [[]]
