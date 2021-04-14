@@ -8,6 +8,9 @@ saga.init_lsp_saga {
     sign_priority = 60,
     virtual_text = false
   },
+  code_action_keys = {
+    quit = '<esc>',
+  },
   hint_sign = '🌿',
   dianostic_header_icon = "👀 "
 }

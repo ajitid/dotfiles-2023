@@ -129,7 +129,7 @@ Plug 'justinmk/vim-sneak'
 " fns and shortcuts for qflist
 " Plug 'romainl/vim-qf'
 " Plug 'jremmen/vim-ripgrep'
-Plug 'williamboman/nvim-lsp-installer', {'commit': '3e626e1f815f7cc22d3b7bf80dddf8dd40656ec4'}
+Plug 'williamboman/nvim-lsp-installer'
 
 " Plug 'kosayoda/nvim-lightbulb'
 Plug 'machakann/vim-swap'
