@@ -20,6 +20,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'LunarWatcher/auto-pairs'
 Plug 'Raimondi/delimitMate'
 
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'simrat39/rust-tools.nvim'
+
 " Required for telescope 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
@@ -32,8 +36,6 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 " also see https://github.com/vijaymarupudi/nvim-fzf and check if it can be
 " used over telescope-fzy-native
 
-" LSP
-Plug 'neovim/nvim-lspconfig'
 
 " Gives UI actions to LSP
 Plug 'glepnir/lspsaga.nvim'
@@ -127,7 +129,7 @@ Plug 'justinmk/vim-sneak'
 " fns and shortcuts for qflist
 " Plug 'romainl/vim-qf'
 " Plug 'jremmen/vim-ripgrep'
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/nvim-lsp-installer', {'commit': '3e626e1f815f7cc22d3b7bf80dddf8dd40656ec4'}
 
 " Plug 'kosayoda/nvim-lightbulb'
 Plug 'machakann/vim-swap'

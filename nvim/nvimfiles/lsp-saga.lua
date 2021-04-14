@@ -1,8 +1,8 @@
 local saga = require 'lspsaga'
 
 saga.init_lsp_saga {
-  -- error_sign = '🔥',
-  -- warn_sign = '🐛',
+  error_sign = '🔥',
+  warn_sign = '🐛',
   code_action_icon = '💡',
   code_action_prompt = {
     sign_priority = 60,
@@ -19,5 +19,5 @@ saga.init_lsp_saga {
 -- vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
 -- ^ only this one and err and warn signs were commented
 
-vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = ""})
-vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = ""})
+-- vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = ""})
+-- vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = ""})

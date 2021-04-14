@@ -41,7 +41,8 @@ eval /home/zlksnk/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 export DISPLAY=(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=0
 
-alias v "~/work/nvim.appimage"
+alias v "~/workspace/execs/nvim.appimage"
+export PATH="$PATH:$HOME/workspace/execs"
 alias g "/usr/bin/smerge"
 
 set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
