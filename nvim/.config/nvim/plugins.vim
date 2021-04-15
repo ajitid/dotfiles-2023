@@ -134,4 +134,7 @@ Plug 'williamboman/nvim-lsp-installer'
 " Plug 'kosayoda/nvim-lightbulb'
 Plug 'machakann/vim-swap'
 Plug 'wellle/context.vim'
+
+Plug 'embear/vim-localvimrc'
+
 call plug#end()

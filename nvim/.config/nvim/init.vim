@@ -233,8 +233,8 @@ vmap <leader>P "+P
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules']
 
 let g:startify_session_persistence = 1
-let g:startify_session_savevars = [                                                                                            
-     \ 'g:startify_session_savevars',   
+let g:startify_session_savevars = [
+     \ 'g:startify_session_savevars',
      \ 'g:startify_session_savecmds',
      \ ]
 
@@ -345,10 +345,14 @@ tnoremap <A-[> <Esc>
 set splitbelow
 set splitright
 
-" command line abbreviation (no need to hit tab, just type :nt and press
-" enter)
-ca nt tabnew
-" There is this too -> command! Wq wq
+" https://stackoverflow.com/a/3879737/7683365
+fun! SetupCommandAlias(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfun
+
+call SetupCommandAlias("nt","tabnew")
 
 " stop rooter plugin to echo on start in msgs
 let g:rooter_silent_chdir = 1
@@ -453,5 +457,7 @@ set diffopt+=indent-heuristic
 " you can set context too, see https://unix.stackexchange.com/a/290501
 " more https://unix.stackexchange.com/a/352204
 
+" make a block `{}` selection when in a block
 nnoremap <leader>b /}<cr>V%
 
+let g:localvimrc_persistent = 1

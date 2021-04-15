@@ -18,8 +18,9 @@ nnoremap <leader>fc <cmd>lua require('telescope.builtin').command_history()<cr>
 " nnoremap <leader>gd <cmd>lua vim.lsp.buf.definition()<cr>
 nnoremap <leader>gd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 nnoremap <leader>ir <cmd>Lspsaga rename<cr>
-nnoremap <silent><leader>ia :Lspsaga code_action<CR>
-vnoremap <silent><leader>ia :<C-U>Lspsaga range_code_action<CR>
+" <silent> doesn't work here
+nnoremap <leader>ia :Lspsaga code_action<CR>
+vnoremap <leader>ia :<C-U>Lspsaga range_code_action<CR>
 
 nnoremap <silent><leader>sh :Lspsaga hover_doc<CR>
 nnoremap <silent><leader>h :Lspsaga hover_doc<CR>
