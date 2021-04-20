@@ -458,6 +458,25 @@ set diffopt+=indent-heuristic
 " more https://unix.stackexchange.com/a/352204
 
 " make a block `{}` selection when in a block
-nnoremap <leader>b /}<cr>V%
+" nnoremap <leader>b /}<cr>V%
+" might remove this later
+nnoremap <silent><leader>b va{V
 
 let g:localvimrc_persistent = 1
+
+let g:vaffle_show_hidden_files = 1
+let g:vaffle_force_delete = 1
+nnoremap <leader>sf <cmd>Vaffle %<cr>
+
+function! s:customize_vaffle_mappings() abort
+  nmap <buffer> x        <Plug>(vaffle-toggle-current)
+  vmap <buffer> x        <Plug>(vaffle-toggle-current)
+endfunction
+augroup vimrc_vaffle
+  autocmd!
+  autocmd FileType vaffle call s:customize_vaffle_mappings()
+augroup END
+
+" indent file without leaving cursor pos
+" from https://stackoverflow.com/a/20110045/7683365
+nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <CR>:echo "file indented"<CR>

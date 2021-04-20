@@ -59,7 +59,8 @@ Plug 'junegunn/goyo.vim'
 " Plug 'sainnhe/everforest'
 
 " Quick tree navigation
-Plug 'justinmk/vim-dirvish'
+" Plug 'justinmk/vim-dirvish'
+Plug 'cocopon/vaffle.vim'
 
 " Surround/change text with quotes, bracekts or tags
 Plug 'machakann/vim-sandwich'
