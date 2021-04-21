@@ -47,3 +47,4 @@ alias g "/usr/bin/smerge"
 
 set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
+if test -f /home/zlksnk/.autojump/share/autojump/autojump.fish; . /home/zlksnk/.autojump/share/autojump/autojump.fish; end
