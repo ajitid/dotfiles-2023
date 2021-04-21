@@ -489,3 +489,9 @@ augroup filetype_based_indentation
   " ^ when vimrc is sourced again, it causes issue as it'll run too
   autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 augroup END
+
+" highlight group of a token under the cursor
+function! SynGroup()
+  let l:s = synID(line('.'), col('.'), 1)
+  echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
