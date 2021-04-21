@@ -30,6 +30,7 @@ aug END
 " theme
 " let g:embark_terminal_italics = 1
 " colorscheme embark
+let g:substrata_italic_functions = 0
 colorscheme substrata
 hi CursorLineNr guifg=#6c6f82 guibg=NONE gui=NONE cterm=NONE
 " https://stackoverflow.com/a/35681864/7683365

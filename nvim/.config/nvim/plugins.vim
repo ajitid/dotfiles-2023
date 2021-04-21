@@ -138,4 +138,6 @@ Plug 'wellle/context.vim'
 
 Plug 'embear/vim-localvimrc'
 
+" cool thing that i don't know how to use just yet
+" Plug 'brooth/far.vim'
 call plug#end()
