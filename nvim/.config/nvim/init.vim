@@ -495,3 +495,6 @@ function! SynGroup()
   let l:s = synID(line('.'), col('.'), 1)
   echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
+
+" there are ways to trim whitespace on save but i'm not doing it for now
+" https://stackoverflow.com/a/1618401/7683365
