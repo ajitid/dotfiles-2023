@@ -144,4 +144,6 @@ Plug 'embear/vim-localvimrc'
 " Plug 'tpope/vim-obsession'
 Plug 'rmagatti/auto-session'
 Plug 'rmagatti/session-lens'
+
+Plug 'rmagatti/alternate-toggler'
 call plug#end()

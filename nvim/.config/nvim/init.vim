@@ -500,3 +500,9 @@ endfun
 " https://stackoverflow.com/a/1618401/7683365
 
 nnoremap <leader>fp <cmd>Telescope session-lens search_session<cr>
+nnoremap <silent><cr> <cmd>ToggleAlternate<CR>
+
+augroup open_term_in_insert_mode
+  autocmd!
+  autocmd TermOpen term://* startinsert
+augroup END
