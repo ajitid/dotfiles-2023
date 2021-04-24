@@ -106,6 +106,7 @@ luafile ~/nvimfiles/lsp-saga.lua
 source ~/nvimfiles/compe.vim
 source ~/nvimfiles/intelligent-keybindings.vim
 source ~/nvimfiles/lightline.vim
+" source ~/nvimfiles/startify.vim
 " luafile ~/nvimfiles/color-highlight.lua
 luafile ~/nvimfiles/treesitter.lua
 
@@ -326,8 +327,6 @@ nnoremap <leader>= V`]
 " said, it never affected me. (Update: I installed a plugin for this)
 " in insert mode fomat+paste will be <c-r><c-p>{regname}
 
-
-
 " sane window navigation
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
@@ -356,7 +355,8 @@ endfun
 call SetupCommandAlias("nt","tabnew")
 
 " stop rooter plugin to echo on start in msgs
-let g:rooter_silent_chdir = 1
+" let g:rooter_silent_chdir = 1
+" ^ commented as not using startify anymore
 
 " to make vim sandwich shadow vim's `s`
 nmap s <Nop>
@@ -414,14 +414,14 @@ function! SummarizeTabs()
     echohl None
   endtry
 endfunction
-" ^ logs on the same line on which it has taken input
-" TODO: also i need a way to re-indent whole buffer without moving the cursor just
-" like %y
+" ^ FIXME logs on the same line on which it has taken input
 
 " return to last cursor position on file open by using `"` mark
 " taken from vim user manual, also see https://stackoverflow.com/a/40992753/7683365
 " also see https://stackoverflow.com/questions/8854371/vim-how-to-restore-the-cursors-logical-and-physical-positions
 " and https://github.com/farmergreg/vim-lastplace
+" this doesn't return to last position wrt window (that "also see" answer can
+" help) but I don't want that feature either
 au BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
     \ |   exe "normal! g`\""

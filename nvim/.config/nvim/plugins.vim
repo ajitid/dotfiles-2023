@@ -82,7 +82,7 @@ Plug 'psliwka/vim-smoothie'
 Plug 'airblade/vim-rooter'
 
 " Customize startup-screen
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 
 " statusline
 Plug 'itchyny/lightline.vim'
@@ -140,4 +140,6 @@ Plug 'embear/vim-localvimrc'
 
 " cool thing that i don't know how to use just yet
 " Plug 'brooth/far.vim'
+
+Plug 'tpope/vim-obsession'
 call plug#end()

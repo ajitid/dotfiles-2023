@@ -24,3 +24,4 @@ saga.init_lsp_saga {
 
 -- vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = ""})
 -- vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = ""})
+
