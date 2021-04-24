@@ -141,5 +141,7 @@ Plug 'embear/vim-localvimrc'
 " cool thing that i don't know how to use just yet
 " Plug 'brooth/far.vim'
 
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
+Plug 'rmagatti/auto-session'
+Plug 'rmagatti/session-lens'
 call plug#end()

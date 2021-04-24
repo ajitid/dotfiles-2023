@@ -498,3 +498,5 @@ endfun
 
 " there are ways to trim whitespace on save but i'm not doing it for now
 " https://stackoverflow.com/a/1618401/7683365
+
+nnoremap <leader>fp <cmd>Telescope session-lens search_session<cr>
