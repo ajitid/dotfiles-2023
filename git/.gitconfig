@@ -1,0 +1,6 @@
+[user]
+	name = Ajit Singh
+	email = ajit.singh@ecs.co.uk
+[core]
+	autocrlf = false
+	excludesfile = ~/.gitignoreglobal
