@@ -1,4 +1,3 @@
-" source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/plugins.vim
 
 " The modelines bit prevents some security exploits having to do with modelines in files. I never use modelines so I don't miss any functionality here. see http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html
