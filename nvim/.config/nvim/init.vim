@@ -509,3 +509,5 @@ nnoremap <silent><cr> <cmd>ToggleAlternate<CR>
 "   autocmd!
 "   autocmd TermOpen term://* startinsert
 " augroup END
+
+set noswapfile
