@@ -146,4 +146,5 @@ Plug 'rmagatti/auto-session'
 Plug 'rmagatti/session-lens'
 
 Plug 'rmagatti/alternate-toggler'
+Plug 'gioele/vim-autoswap'
 call plug#end()
