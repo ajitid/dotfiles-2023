@@ -502,7 +502,10 @@ endfun
 nnoremap <leader>fp <cmd>Telescope session-lens search_session<cr>
 nnoremap <silent><cr> <cmd>ToggleAlternate<CR>
 
-augroup open_term_in_insert_mode
-  autocmd!
-  autocmd TermOpen term://* startinsert
-augroup END
+" disabled as it interferes in session, eg || TermA | FileB || are windows of
+" of a tab and you are one FileB, when you close and reopen vim, FileB will
+" have focus but you'll be dropped into insert mode
+" augroup open_term_in_insert_mode
+"   autocmd!
+"   autocmd TermOpen term://* startinsert
+" augroup END

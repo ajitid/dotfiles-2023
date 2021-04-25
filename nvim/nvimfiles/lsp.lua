@@ -7,7 +7,7 @@ require('lspkind').init({})
 -- hide diagnostics from apppearing automatically beside each line 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
-  -- virtual text is useful on a widescreen monitor
+  -- TODO virtual text is useful on a widescreen monitor
   virtual_text = false
 }
 )
