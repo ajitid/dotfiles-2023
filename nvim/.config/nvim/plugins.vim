@@ -48,12 +48,14 @@ Plug 'onsails/lspkind-nvim'
 
 " Embark theme
 " Plug 'embark-theme/vim', { 'as': 'embark' }
-Plug '~/nvimfiles/embark-tuned', {'as': 'embark'}
-Plug '~/nvimfiles/substratum'
-Plug 'co1ncidence/mountaineer.vim'
-Plug 'arzg/vim-substrata'
+" Plug '~/nvimfiles/embark-tuned', {'as': 'embark'}
 
-Plug 'junegunn/goyo.vim'
+" Plug 'co1ncidence/mountaineer.vim'
+
+Plug 'arzg/vim-substrata'
+Plug '~/nvimfiles/substratum'
+
+Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
 
 " Forest theme
 " Plug 'sainnhe/everforest'
@@ -147,5 +149,5 @@ Plug 'rmagatti/session-lens'
 
 Plug 'rmagatti/alternate-toggler'
 
-Plug 'mhinz/vim-rfc'
+Plug 'mhinz/vim-rfc', { 'on' : 'RFC' }
 call plug#end()
