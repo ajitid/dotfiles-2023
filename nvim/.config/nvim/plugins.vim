@@ -146,4 +146,6 @@ Plug 'rmagatti/auto-session'
 Plug 'rmagatti/session-lens'
 
 Plug 'rmagatti/alternate-toggler'
+
+Plug 'mhinz/vim-rfc'
 call plug#end()

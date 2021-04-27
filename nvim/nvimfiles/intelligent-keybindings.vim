@@ -17,6 +17,12 @@ nnoremap <leader>fc <cmd>lua require('telescope.builtin').command_history()<cr>
 
 " nnoremap <leader>gd <cmd>lua vim.lsp.buf.definition()<cr>
 nnoremap <leader>gd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
+augroup goto_definition
+    autocmd!
+    autocmd FileType typescript,javascript,typescriptreact
+        \ nnoremap <c-]> <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
+augroup END
+
 nnoremap <leader>ir <cmd>Lspsaga rename<cr>
 " <silent> doesn't work here
 nnoremap <leader>ia :Lspsaga code_action<CR>
