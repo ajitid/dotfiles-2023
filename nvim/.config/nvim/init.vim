@@ -360,6 +360,10 @@ call SetupCommandAlias("nt","tabnew")
 nmap s <Nop>
 xmap s <Nop>
 
+" TODO add `p` flag in mkdir fn to recursively create dirs
+" ^ you'll need to replace empty string find the function in
+" https://github.com/cocopon/vaffle.vim/blob/a0c40ab/autoload/vaffle/file.vim#L115
+" and in .config/nvim/autoload/plugged/vaffle.vim dir in local
 function! s:CreateDirsForCurrentFile()
   call mkdir(expand("%:h"),"p")
 endfunction
