@@ -466,6 +466,7 @@ let g:localvimrc_persistent = 1
 let g:vaffle_show_hidden_files = 1
 let g:vaffle_force_delete = 1
 nnoremap <leader>sf <cmd>execute "try \n Vaffle % \n catch \n Vaffle \n endtry"<cr>
+nnoremap <leader>sF <cmd>Vaffle<cr>
 
 function! s:customize_vaffle_mappings() abort
   nmap <buffer> x        <Plug>(vaffle-toggle-current)
