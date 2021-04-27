@@ -465,7 +465,7 @@ let g:localvimrc_persistent = 1
 
 let g:vaffle_show_hidden_files = 1
 let g:vaffle_force_delete = 1
-nnoremap <leader>sf <cmd>Vaffle %<cr>
+nnoremap <leader>sf <cmd>execute "try \n Vaffle % \n catch \n Vaffle \n endtry"<cr>
 
 function! s:customize_vaffle_mappings() abort
   nmap <buffer> x        <Plug>(vaffle-toggle-current)
@@ -498,7 +498,6 @@ endfun
 " there are ways to trim whitespace on save but i'm not doing it for now
 " https://stackoverflow.com/a/1618401/7683365
 
-nnoremap <leader>fp <cmd>Telescope session-lens search_session<cr>
 nnoremap <silent><cr> <cmd>ToggleAlternate<CR>
 " switch to alternate file by pressing spacebar twice
 nnoremap <leader><space> <c-^>
@@ -512,3 +511,5 @@ nnoremap <leader><space> <c-^>
 " augroup END
 
 set noswapfile
+
+set sessionoptions=buffers
