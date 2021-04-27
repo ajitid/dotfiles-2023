@@ -97,6 +97,7 @@ set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim
 " TODO: put them in a directory other than nvimfiles
 " lua require("init")
 luafile ~/nvimfiles/lsp.lua
+" luafile ~/nvimfiles/efm-for-format.lua
 " luafile ~/nvimfiles/eslint-daemon.lua
 " luafile ~/nvimfiles/lsp-eslint.lua
 luafile ~/nvimfiles/telescope.lua
@@ -189,8 +190,6 @@ nnoremap <leader>? ?\M
 
 " Clear search highlights and cleans command area
 nnoremap <silent><leader>l <cmd>noh<cr><cmd>echo ""<cr>
-
-nnoremap <leader><space> <c-^>
 
 " Toggle undo tree visualiser
 " yep, fn keys can be mapped too-> 
@@ -501,6 +500,8 @@ endfun
 
 nnoremap <leader>fp <cmd>Telescope session-lens search_session<cr>
 nnoremap <silent><cr> <cmd>ToggleAlternate<CR>
+" switch to alternate file by pressing spacebar twice
+nnoremap <leader><space> <c-^>
 
 " disabled as it interferes in session, eg || TermA | FileB || are windows of
 " of a tab and you are one FileB, when you close and reopen vim, FileB will
