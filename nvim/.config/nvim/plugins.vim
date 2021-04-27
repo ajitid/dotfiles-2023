@@ -151,4 +151,6 @@ Plug 'tpope/vim-obsession'
 Plug 'rmagatti/alternate-toggler'
 
 Plug 'mhinz/vim-rfc', { 'on' : 'RFC' }
+
+Plug 'tpope/vim-projectionist'
 call plug#end()

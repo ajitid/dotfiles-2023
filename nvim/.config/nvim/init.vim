@@ -514,3 +514,6 @@ nnoremap <leader><space> <c-^>
 set noswapfile
 
 set sessionoptions=buffers
+
+" from https://github.com/cocopon/vaffle.vim/issues/56#issuecomment-701888156
+let g:projectionist_ignore_vaffle = 1
