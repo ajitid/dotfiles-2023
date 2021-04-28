@@ -11,41 +11,8 @@
     "body": "import React from 'react'",
     "description": "Import React"
   },
-  "Twin.Macro + Emotion": {
-    "scope": "typescriptreact",
-    "prefix": "twe",
-    "body": [
-      "/** @jsx jsx */",
-      "import { jsx } from '@emotion/core'",
-      "import 'twin.macro'",
-      "import { } from 'react'",
-      "",
-      "import {FC} from 'common/types'",
-      "",
-      "export const ${1:${TM_FILENAME_BASE/(?:^|-)([a-z])|/${1:/upcase}/g}}: FC = () => {",
-      "  ${0}",
-      "  ",
-      "  return ${2:null}",
-      "}"
-    ],
-    "description": "Import Twin.Macro with Emotion's JSX pragma"
-  },
-  "Twin.Macro": {
-    "scope": "typescriptreact",
-    "prefix": "twn",
-    "body": [
-      "import 'twin.macro'",
-      "import { useState } from 'react'",
-      "",
-      "import {FC} from '~/shared/types'",
-      "",
-      "export const ${1:${TM_FILENAME_BASE/(?:^|-)([a-z])|/${1:/upcase}/g}}: FC = () => {",
-      "  ${0}",
-      "  ",
-      "  return ${2:null}",
-      "}",
-      ""
-    ],
-    "description": "Import Twin.Macro with Emotion's JSX pragma"
+  "Import": {
+    "prefix": "imp",
+    "body": "import ${2} from '${1}'"
   }
 }

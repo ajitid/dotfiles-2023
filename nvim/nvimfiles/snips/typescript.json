@@ -1,16 +1,4 @@
 {
-  "React useState": {
-    "scope": "javascript,typescript,typescriptreact",
-    "prefix": "rus",
-    "body": "const [${1}, set${VIM:g:Abolish.dashcase(${1})}] = useState(${3})",
-    "description": "Create a React useState hook"
-  },
-  "React import": {
-    "scope": "javascript,typescript,typescriptreact",
-    "prefix": "imr",
-    "body": "import React from 'react'",
-    "description": "Import React"
-  },
   "Twin.Macro + Emotion": {
     "scope": "typescriptreact",
     "prefix": "twe",

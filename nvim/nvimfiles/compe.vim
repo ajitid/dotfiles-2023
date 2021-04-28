@@ -33,6 +33,9 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 
 " vsnip location
 let g:vsnip_snippet_dir = expand('~/nvimfiles/snips')
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.typescript = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['javascript']
 imap <expr> <Tab>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<Tab>'
 smap <expr> <Tab>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<Tab>'
 imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
