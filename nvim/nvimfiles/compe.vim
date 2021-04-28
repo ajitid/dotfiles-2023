@@ -26,8 +26,10 @@ inoremap <silent><expr> <C-Space> compe#complete()
 " https://github.com/hrsh7th/nvim-compe/issues/121
 inoremap <silent><expr> <CR>      compe#confirm({'keys': "\<Plug>delimitMateCR", 'mode': ''})
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+" inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+" removed as <c-d> is used for de-indent in insert mode
+" inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " vsnip location
 let g:vsnip_snippet_dir = expand('~/nvimfiles/snips')

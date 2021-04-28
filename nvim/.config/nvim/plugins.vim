@@ -153,4 +153,6 @@ Plug 'rmagatti/alternate-toggler'
 Plug 'mhinz/vim-rfc', { 'on' : 'RFC' }
 
 Plug 'tpope/vim-projectionist'
+
+Plug 'mhartington/formatter.nvim'
 call plug#end()

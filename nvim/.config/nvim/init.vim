@@ -100,6 +100,7 @@ luafile ~/nvimfiles/lsp.lua
 " luafile ~/nvimfiles/efm-for-format.lua
 " luafile ~/nvimfiles/eslint-daemon.lua
 " luafile ~/nvimfiles/lsp-eslint.lua
+luafile ~/nvimfiles/format.lua
 luafile ~/nvimfiles/telescope.lua
 luafile ~/nvimfiles/lsp-saga.lua
 " luafile ~/nvimfiles/lightbulb.lua
@@ -523,3 +524,17 @@ set sessionoptions=buffers
 
 " from https://github.com/cocopon/vaffle.vim/issues/56#issuecomment-701888156
 let g:projectionist_ignore_vaffle = 1
+
+" goto file and create it if is not present
+" from https://stackoverflow.com/a/29068665/7683365
+function! Gf()
+  try
+    exec "normal! gf"
+  catch /E447/
+    echohl WarningMsg
+    echo "this file doesn't exist on disk"
+    echohl None
+    edit <cfile>
+  endtry
+endfunction
+noremap <silent>gf :call Gf()<CR>
