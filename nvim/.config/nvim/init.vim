@@ -490,6 +490,7 @@ nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <
 
 " for file type ~/.vim/after/ftplugin/html.vim as `setlocal shiftwidth=2`
 " other way could be: autocmd BufRead,BufNewFile   *.c,*.h,*.java set noic cin noexpandtab
+" TODO doesn't sets indentation
 augroup filetype_based_indentation
   autocmd!
   autocmd VimEnter *.* set tabstop=2 softtabstop=2 shiftwidth=2 expandtab

@@ -13,6 +13,10 @@
   },
   "Import": {
     "prefix": "imp",
-    "body": "import ${2} from '${1}'"
+    "body": "import {${2}} from '${1}'"
+  },
+  "Log": {
+    "prefix": "clg",
+    "body": "console.log(${0})"
   }
 }
