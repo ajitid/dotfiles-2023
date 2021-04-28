@@ -134,12 +134,6 @@ Plug 'justinmk/vim-sneak'
 " Plug 'jremmen/vim-ripgrep'
 Plug 'williamboman/nvim-lsp-installer'
 
-" Plug 'kosayoda/nvim-lightbulb'
-Plug 'machakann/vim-swap'
-Plug 'wellle/context.vim'
-
-Plug 'embear/vim-localvimrc'
-
 " cool thing that i don't know how to use just yet
 " Plug 'brooth/far.vim'
 
@@ -148,11 +142,11 @@ Plug 'tpope/vim-obsession'
 " Plug 'rmagatti/auto-session'
 " Plug 'rmagatti/session-lens'
 
+Plug 'machakann/vim-swap'
+Plug 'wellle/context.vim'
+Plug 'embear/vim-localvimrc'
 Plug 'rmagatti/alternate-toggler'
-
 Plug 'mhinz/vim-rfc', { 'on' : 'RFC' }
-
 Plug 'tpope/vim-projectionist'
-
 Plug 'mhartington/formatter.nvim'
 call plug#end()
