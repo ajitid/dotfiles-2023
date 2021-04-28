@@ -2,7 +2,7 @@ local lspconfig = require"lspconfig"
 local configs = require'lspconfig/configs'
 
 -- icons for symbols
-require('lspkind').init({})
+-- require('lspkind').init({})
 
 -- hide diagnostics from apppearing automatically beside each line 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

@@ -41,7 +41,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'glepnir/lspsaga.nvim'
 
 " icons for lsp symbols
-Plug 'onsails/lspkind-nvim'
+" Plug 'onsails/lspkind-nvim'
 
 " Ayu theme maintained fork
 " Plug 'Luxed/ayu-vim'
