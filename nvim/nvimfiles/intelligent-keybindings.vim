@@ -1,7 +1,9 @@
 " Telescope find commands and LSP
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>
+" alias->
+nnoremap <c-p> <cmd>lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>
 
 " not entirely sure about old files `fh`, only thing being this should assist in
 " ranking for `ff`
@@ -37,8 +39,8 @@ nnoremap <silent><leader>ss :Lspsaga signature_help<CR>
 
 nnoremap <leader>se <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
 nnoremap <leader>e <cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>
-nnoremap <leader>]e :Lspsaga diagnostic_jump_next<CR>
-nnoremap <leader>[e :Lspsaga diagnostic_jump_prev<CR>
+nnoremap ]e :Lspsaga diagnostic_jump_next<CR>
+nnoremap [e :Lspsaga diagnostic_jump_prev<CR>
 
 " lua
 " for _, mode in pairs({'n', 'v'}) do

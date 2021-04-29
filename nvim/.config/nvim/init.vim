@@ -548,3 +548,19 @@ function! Gf()
   endtry
 endfunction
 noremap <silent>gf :call Gf()<CR>
+
+" from unimpared.vim
+function! s:BlankUp(count) abort
+  put!=repeat(nr2char(10), a:count)
+  ']+1
+  silent! call repeat#set("\<Plug>unimpairedBlankUp", a:count)
+endfunction
+
+function! s:BlankDown(count) abort
+  put =repeat(nr2char(10), a:count)
+  '[-1
+  silent! call repeat#set("\<Plug>unimpairedBlankDown", a:count)
+endfunction
+
+nnoremap [<space> <cmd>call <sid>BlankUp(v:count1)<cr>
+nnoremap ]<space> <cmd>call <sid>BlankDown(v:count1)<cr>
