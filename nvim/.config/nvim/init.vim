@@ -572,3 +572,6 @@ endfunction
 
 nnoremap [<space> <cmd>call <sid>BlankUp(v:count1)<cr>
 nnoremap ]<space> <cmd>call <sid>BlankDown(v:count1)<cr>
+
+" substitution
+vnoremap <leader>S :S/<c-r>0/
