@@ -250,7 +250,6 @@ nnoremap <leader>Cn <cmd>let @_ = expand("%:t")<cr>gtgT<cmd>let @+ = expand("%:t
 
 " Swaps block of code, respecting indentation of blocks in which it is swapped
 " to (esp. useful in visual line mode)
-" This breaks multi-line join, so I'm not entirely sure what to do about it.
 vnoremap <c-j> :m '>+1<cr>gv=gv
 vnoremap <c-k> :m '<-2<cr>gv=gv
 
