@@ -483,7 +483,8 @@ nnoremap - <cmd>execute "try \n Vaffle % \n catch \n Vaffle \n endtry"<cr>
 function! s:customize_vaffle_mappings() abort
   " go to project root
   nmap <buffer> -        <cmd>Vaffle<cr>
-
+  " TODO add preview mode https://github.com/justinmk/vim-dirvish/blob/9c0dc32af9235d42715751b30cf04fa0584c1798/autoload/dirvish.vim#L241
+  " and fill cmdline (present in vim vinegar)
   nmap <buffer> x        <Plug>(vaffle-toggle-current)
   vmap <buffer> x        <Plug>(vaffle-toggle-current)
 endfunction
