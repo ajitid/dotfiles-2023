@@ -73,11 +73,6 @@ set foldlevel=20
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
-" remember folds, seems like symlinks don't have a filename, see how it can be
-" fixed
-autocmd BufWinLeave *.* silent! mkview
-autocmd BufWinEnter *.* silent! loadview
-
 " visual * or # search, don't consume my leader pls, I'll copy the text and
 " pass it to telescope grep instead:
 " nnoremap <leader>* <Nop>
@@ -420,6 +415,19 @@ function! SummarizeTabs()
 endfunction
 " ^ FIXME logs on the same line on which it has taken input
 
+" commenting out this and the one below it
+" remember folds, seems like symlinks don't have a filename, see how it can be
+" fixed
+" autocmd BufWinLeave *.* silent! mkview
+" autocmd BufWinEnter *.* silent! loadview
+" disabled as i lose cursor position when i use `:e`. To reproduce:
+" 1. close vim with a file opened in changed position
+" 2. open vim, you'll see the position is restored
+" 3. move to a new positon and press `:e`. This will revert back to old
+" position
+" TODO ^ this needs to be file level (local) than anything so it can be used
+" for init.vim and not for anything else for example
+
 " return to last cursor position on file open by using `"` mark
 " taken from vim user manual, also see https://stackoverflow.com/a/40992753/7683365
 " also see https://stackoverflow.com/questions/8854371/vim-how-to-restore-the-cursors-logical-and-physical-positions
@@ -430,13 +438,6 @@ endfunction
 "     \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
 "     \ |   exe "normal! g`\""
 "     \ | endif
-" disabled as i lose cursor position when i use `:e`. To reproduce:
-" 1. close vim with a file opened in changed position
-" 2. open vim, you'll see the position is restored
-" 3. move to a new positon and press `:e`. This will revert back to old
-" position
-" TODO ^ this needs to be file level (local) than anything so it can be used
-" for init.vim and not for anything else for example
 
 " nobody got time to write `gcc` to comment one line, I'll use ctrl+/ instead
 nnoremap <c-_> <cmd>Commentary<cr>
