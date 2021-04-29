@@ -1,6 +1,6 @@
 " Telescope find commands and LSP
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>
 " alias->
 nnoremap <c-p> <cmd>lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>
