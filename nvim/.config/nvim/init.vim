@@ -501,7 +501,7 @@ nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <
 " TODO doesn't sets indentation
 augroup filetype_based_indentation
   autocmd!
-  autocmd VimEnter *.* set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd VimEnter * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   " ^ when vimrc is sourced again, it causes issue as it'll run too
   autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 augroup END
