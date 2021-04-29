@@ -540,9 +540,20 @@ function! Gf()
   try
     exec "normal! gf"
   catch /E447/
-    echohl WarningMsg
-    echo "this file doesn't exist on disk"
-    echohl None
+    " if I'm going into edit mode, I'm not technically creating it
+    let confirm = input("File doesn't exist. Create it? (y/N) ")
+    echo "\n"
+    if empty(confirm) || confirm !=? 'y'
+      echo 'Cancelled.'
+      return
+    endif
+
+    " echohl WarningMsg
+    " echo "this file doesn't exist on disk"
+    " echohl None
+
+    " skipping `Press Enter or command to continue` prompt by feeding a key
+    call feedkeys(" ")
     edit <cfile>
   endtry
 endfunction
