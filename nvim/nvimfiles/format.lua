@@ -2,8 +2,11 @@
 -- more at https://github.com/mhartington/formatter.nvim/issues/31#issuecomment-790815328
 local prettier = function()
 	return {
-		-- install @fsouza/prettierd
-		exe = "prettierd",
+		-- was causing issues, so removed -> @fsouza/prettierd
+		-- basically it wrote to tsx files but not to ts or json files.
+		-- There is another one named prettierme but I wasn't able to run in with formatter,
+		-- it told that mismatch config and it expected a lua table
+		exe = "npx prettier",
 		args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
 		stdin = true
 	}
@@ -14,10 +17,10 @@ end
 require('formatter').setup({
 	logging = false,
 	filetype = {
-		typescriptreact = { prettier },
 		typescript = { prettier },
-		javascriptreact = { prettier },
 		javascript = { prettier },
+		typescriptreact = { prettier },
+		javascriptreact = { prettier },
 		json = { prettier },
 	}
 })
@@ -26,6 +29,6 @@ require('formatter').setup({
 vim.api.nvim_exec([[
 augroup FormatAutogroup
 	autocmd!
-	autocmd BufWritePost *ts,*.tsx,*.js,*.jsx,*.json FormatWrite
+	autocmd BufWritePost *.ts,*.js,*.tsx,*.jsx,*.json FormatWrite
 augroup END
 ]], true)

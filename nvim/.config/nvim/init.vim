@@ -399,6 +399,7 @@ function! Stabs()
     let &l:ts = l:tabstop
     let &l:sw = l:tabstop
   endif
+  echo "\r"
   call SummarizeTabs()
 endfunction
 
@@ -425,10 +426,17 @@ endfunction
 " and https://github.com/farmergreg/vim-lastplace
 " this doesn't return to last position wrt window (that "also see" answer can
 " help) but I don't want that feature either
-au BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-    \ |   exe "normal! g`\""
-    \ | endif
+" au BufReadPost *
+"     \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+"     \ |   exe "normal! g`\""
+"     \ | endif
+" disabled as i lose cursor position when i use `:e`. To reproduce:
+" 1. close vim with a file opened in changed position
+" 2. open vim, you'll see the position is restored
+" 3. move to a new positon and press `:e`. This will revert back to old
+" position
+" TODO ^ this needs to be file level (local) than anything so it can be used
+" for init.vim and not for anything else for example
 
 " nobody got time to write `gcc` to comment one line, I'll use ctrl+/ instead
 nnoremap <c-_> <cmd>Commentary<cr>
