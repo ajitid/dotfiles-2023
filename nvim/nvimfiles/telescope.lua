@@ -29,7 +29,8 @@ require('telescope').setup{
     },
   }
 
-  require('telescope').load_extension('fzy_native')
+
+  require('telescope').load_extension('fzf')
 
   -- doesn't shows preview in find_files, i think we can swap previewer
   -- require('telescope').load_extension('media_files')
