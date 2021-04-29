@@ -28,16 +28,16 @@ require'lspconfig'.pyright.setup{}
 
 -- i prefer non LSP one which provides proper jumps, i miss preview but that's not a big issue
 -- that being said, i'm keeping LSP version for now
-configs.emmet_ls = {
-  default_config = {
-    cmd = {'emmet-ls', '--stdio'};
-    filetypes = {'html', 'css'};
-    root_dir = function()
-      return vim.loop.cwd()
-    end;
-    settings = {};
-  };
-}
+-- configs.emmet_ls = {
+--   default_config = {
+--     cmd = {'emmet-ls', '--stdio'};
+--     filetypes = {'html', 'css'};
+--     root_dir = function()
+--       return vim.loop.cwd()
+--     end;
+--     settings = {};
+--   };
+-- }
 
 --[[
 -- https://github.com/aca/emmet-ls 
@@ -51,9 +51,13 @@ local installed_servers = require'nvim-lsp-installer'.get_installed_servers()
 for _, server in pairs(installed_servers) do
   opts = {
     on_attach = function()
-      -- if server.name == "tsserver" then
+
+      if server.name == "tsserver" then
+        -- works but still track ticket here https://github.com/glepnir/lspsaga.nvim/issues/145#issuecomment-828227786
+        -- TODO highlight instead of backticking current fn arg
+        require "lsp_signature".on_attach()
       --   require('folding').on_attach()
-      -- end
+      end
     end,
   }
 
