@@ -2,12 +2,9 @@
 -- more at https://github.com/mhartington/formatter.nvim/issues/31#issuecomment-790815328
 local prettier = function()
 	return {
-		-- was causing issues, so removed -> @fsouza/prettierd
-		-- basically it wrote to tsx files but not to ts or json files.
-		-- There is another one named prettierme but I wasn't able to run in with formatter,
-		-- it told that mismatch config and it expected a lua table
-		exe = "npx prettier",
-		args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+		-- install from npm -> @fsouza/prettierd
+		exe = "prettierd",
+		args = {vim.api.nvim_buf_get_name(0)},
 		stdin = true
 	}
 end
