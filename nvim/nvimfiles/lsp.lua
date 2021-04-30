@@ -97,3 +97,7 @@ local rust_options = {
 }
 
 require('rust-tools').setup(rust_options)
+
+require'lspconfig'.jsonls.setup{
+  capabilities = capabilities,
+}
