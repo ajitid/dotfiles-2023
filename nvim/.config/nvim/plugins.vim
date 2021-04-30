@@ -152,4 +152,6 @@ Plug 'tpope/vim-projectionist'
 Plug 'mhartington/formatter.nvim'
 
 Plug 'ray-x/lsp_signature.nvim'
+
+Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 call plug#end()
