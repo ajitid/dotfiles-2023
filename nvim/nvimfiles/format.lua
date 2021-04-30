@@ -1,5 +1,8 @@
 -- https://github.com/mhartington/formatter.nvim/issues/34
 -- more at https://github.com/mhartington/formatter.nvim/issues/31#issuecomment-790815328
+-- also seems like efm-langserver is better for formatting:
+-- - https://github.com/fsouza/prettierd#editor-integration
+-- - https://old.reddit.com/r/neovim/comments/jvisg5/lets_talk_formatting_again/
 local prettier = function()
 	return {
 		-- install from npm -> @fsouza/prettierd
