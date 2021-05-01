@@ -24,7 +24,7 @@ lspconfig.cssls.setup{
   capabilities = capabilities,
 }
 
-require'lspconfig'.pyright.setup{}
+lspconfig.pyright.setup{}
 
 -- i prefer non LSP one which provides proper jumps, i miss preview but that's not a big issue
 -- that being said, i'm keeping LSP version for now
@@ -38,7 +38,6 @@ require'lspconfig'.pyright.setup{}
 --     settings = {};
 --   };
 -- }
-
 --[[
 -- https://github.com/aca/emmet-ls 
 -- this causes issue when VimRC is sourced
@@ -80,8 +79,6 @@ for _, server in pairs(installed_servers) do
   server:setup(opts)
 end
 
-
-
 local rust_options = {
   tools = {
     autoSetHints = true,
@@ -99,7 +96,7 @@ local rust_options = {
 require('rust-tools').setup(rust_options)
 
 -- from https://old.reddit.com/r/neovim/comments/n1n4zc/need_help_with_tsconfigjson_autocompletion_with/gwegsb0/
-require'lspconfig'.jsonls.setup{
+lspconfig.jsonls.setup{
   capabilities = capabilities,
   filetypes = {"json", "jsonc"},
   settings = {
