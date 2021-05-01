@@ -638,3 +638,6 @@ endfunction
 
 command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
 command! RedirToCurrentBuffer silent let w:scratch = 1
+
+" from https://gist.github.com/romainl/5b827f4aafa7ee29bdc70282ecc31640
+command! -range GBlame echo join(systemlist("git -C " . shellescape(expand('%:p:h')) . " blame -L <line1>,<line2> " . expand('%:t')), "\n")
