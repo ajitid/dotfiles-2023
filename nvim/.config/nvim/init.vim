@@ -443,7 +443,7 @@ endfunction
 " nobody got time to write `gcc` to comment one line, I'll use ctrl+/ instead
 nnoremap <c-_> <cmd>Commentary<cr>
 
-" repeats last macro, @: repeats last command
+" @@ repeats last macro, @: repeats last command
 nnoremap Q @@
 
 let g:context_enabled = 0
@@ -518,8 +518,9 @@ endfun
 " there are ways to trim whitespace on save but i'm not doing it for now
 " https://stackoverflow.com/a/1618401/7683365
 
-" nnoremap <silent><cr> <cmd>ToggleAlternate<CR>
-nnoremap <silent><leader>a <cmd>ToggleAlternate<CR>
+" hey `:h map-which-keys` said it (we have alt key and fn key too but then we
+" have leader too if we want to do this only)
+nnoremap <silent>, <cmd>ToggleAlternate<CR>
 
 " switch to alternate file by pressing spacebar twice
 nnoremap <leader><space> <c-^>
