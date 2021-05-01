@@ -614,3 +614,9 @@ command! RedirToCurrentBuffer silent let w:scratch = 1
 command! -range GBlame echo join(systemlist("git -C " . shellescape(expand('%:p:h')) . " blame -L <line1>,<line2> " . expand('%:t')), "\n")
 
 let b:lion_squeeze_spaces = 1
+
+" these, changing j/k behaviour, removing `s` in favour of surround plugin 
+" and swapping `:` with `;` are the only ones that I'll use which override 
+" true vim behaviour
+nnoremap 0 ^
+nnoremap ^ 0
