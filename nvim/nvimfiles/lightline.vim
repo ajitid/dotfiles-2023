@@ -35,6 +35,10 @@ let g:lightline = {
       \              [ 'percent' ],
       \              [ 'fileformat', 'fileencoding', 'filetype', 'lsp_status' ] ]
       \ },
+      \ 'inactive': {
+      \   'left': [ ['filename', 'modified'] ],
+      \   'right': []
+      \ },
       \ 'component': {
       \   'charvaluehex': '0x%B'
       \ },
