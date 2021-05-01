@@ -160,4 +160,6 @@ Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 
 " peek line
 Plug 'nacro90/numb.nvim'
+
+Plug 'tommcdo/vim-lion'
 call plug#end()
