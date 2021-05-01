@@ -288,9 +288,6 @@ highlight QuickScopeSecondary guifg='#ffc4a4' gui=underline ctermfg=81
 set wildcharm=<c-z>
 nnoremap <leader>n :e %:.:h<c-z>
 
-" Go to location (line no, col no)
-nnoremap gl :call cursor()<left>
-
 " vim abolish substitute
 vnoremap ss :S///g<left><left><left>
 
@@ -616,4 +613,3 @@ command! RedirToCurrentBuffer silent let w:scratch = 1
 " from https://gist.github.com/romainl/5b827f4aafa7ee29bdc70282ecc31640
 command! -range GBlame echo join(systemlist("git -C " . shellescape(expand('%:p:h')) . " blame -L <line1>,<line2> " . expand('%:t')), "\n")
 
-nnoremap <leader>tu <cmd>UndotreeToggle<cr>\|<cmd>UndotreeFocus<cr>

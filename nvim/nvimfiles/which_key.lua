@@ -9,7 +9,7 @@ wk.register({
 		o = {"<cmd>lua require('telescope.builtin').oldfiles()<cr>", "previously opened files"},
 		s = {"<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", "symbols in current file"},
 		-- lua version https://github.com/nvim-telescope/telescope.nvim/issues/568#issuecomment-794340390
-		S = {":Telescope lsp_workspace_symbols query=", "symbols in project"},
+		S = {":Telescope lsp_workspace_symbols query=", "symbols in project", silent = false},
 		-- TODO: ^ a live version is landing soon https://github.com/nvim-telescope/telescope.nvim/pull/705#issue-604246613
 		r = {"<cmd>lua require('telescope.builtin').lsp_references()<cr>", "references of word under cursor"},
 		c = {"<cmd>lua require('telescope.builtin').command_history()<cr>", "in command history"},
@@ -27,13 +27,14 @@ wk.register({
 	g = {
 		name = "goto",
 		d = {"<cmd>Telescope lsp_definitions<cr>", "definition of word under cursor"},
+		l = {":call cursor()<left>", "location", silent = false},
 	},
 	t = {
 		name = "toggle",
 		-- nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 		-- same as below
 		h = {"<cmd>set hlsearch!<CR>", "highlight"},
-		u = "undo tree",
+		u = {"<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", "undo tree"},
 	},
 	m = {
 		name = "vim config",
@@ -42,7 +43,7 @@ wk.register({
 	},
 	l = {"<cmd>noh<cr><cmd>echo ''<cr>", "clear search highlights and command area"},
 	b = {"va{V", "make block selection"},
-	S = {":S/<c-r>0/", "substitute"},
+	S = {":S/<c-r>0/", "substitute", silent = false},
 	-- switch to alternate file by pressing spacebar twice
 	["<space>"] = {"<c-^>", "switch to alternate file"},
 }, {prefix = "<leader>"})
