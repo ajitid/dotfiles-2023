@@ -106,6 +106,7 @@ source ~/nvimfiles/lightline.vim
 " luafile ~/nvimfiles/color-highlight.lua
 luafile ~/nvimfiles/treesitter.lua
 luafile ~/nvimfiles/which_key.lua
+luafile ~/nvimfiles/comment.lua
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 

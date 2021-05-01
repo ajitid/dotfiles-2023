@@ -103,7 +103,9 @@ Plug 'folke/which-key.nvim'
 
 " comment
 Plug 'tpope/vim-commentary'
-Plug 'suy/vim-context-commentstring'
+" Plug 'suy/vim-context-commentstring'
+" Plug 'b3nj5m1n/kommentary'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 " Unix file/dir shell commands
 Plug 'tpope/vim-eunuch'
