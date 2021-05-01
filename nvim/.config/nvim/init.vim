@@ -105,6 +105,7 @@ source ~/nvimfiles/lightline.vim
 " source ~/nvimfiles/startify.vim
 " luafile ~/nvimfiles/color-highlight.lua
 luafile ~/nvimfiles/treesitter.lua
+luafile ~/nvimfiles/which_key.lua
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 
@@ -113,10 +114,6 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
-
-" settings file, settings source
-nnoremap <silent><leader>mf :tabe $MYVIMRC<cr>
-nnoremap <leader>ms :source $MYVIMRC<cr>
 
 " ctrl+s to save
 inoremap <c-s> <esc><cmd>w<cr>
@@ -172,11 +169,6 @@ let g:traces_abolish_integration = 1
 " much at this point of time
 set nohls
 
-" toggle highlight
-" nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
-" ^ same as below
-nnoremap <silent><Leader>th <cmd>set hlsearch!<CR>
-
 " quick tip: rather than pressing enter after search and using n and N to
 " navigate, you can use <c-g> and <c-t>. It won't give you match count, it
 " won't highlight all matches, sure, but it still feels faster getting to the
@@ -185,14 +177,6 @@ nnoremap <silent><Leader>th <cmd>set hlsearch!<CR>
 nnoremap <leader>/ /\M
 nnoremap <leader>? ?\M
 " ^ or just use sneak
-
-" Clear search highlights and cleans command area
-nnoremap <silent><leader>l <cmd>noh<cr><cmd>echo ""<cr>
-
-" Toggle undo tree visualiser
-" yep, fn keys can be mapped too-> 
-" nnoremap <F5> <cmd>UndotreeToggle<cr> \| <cmd>UndotreeFocus<cr>
-nnoremap <leader>tu <cmd>UndotreeToggle<cr> \| <cmd>UndotreeFocus<cr>
 
 " markdown
 " https://secluded.site/vim-as-a-markdown-editor/
@@ -262,9 +246,6 @@ nnoremap <leader>v "0p
 nnoremap <leader>V "0P
 vnoremap <leader>v "0p
 vnoremap <leader>V "0P
-
-" Trigger which key on timeout
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " dir viewer sort folders at top
 let g:dirvish_mode = ':sort ,^.*[\/],'
@@ -473,11 +454,6 @@ set diffopt+=indent-heuristic
 " you can set context too, see https://unix.stackexchange.com/a/290501
 " more https://unix.stackexchange.com/a/352204
 
-" make a block `{}` selection when in a block
-" nnoremap <leader>b /}<cr>V%
-" might remove this later
-nnoremap <silent><leader>b va{V
-
 let g:localvimrc_persistent = 1
 
 let g:vaffle_show_hidden_files = 1
@@ -523,9 +499,6 @@ endfun
 " hey `:h map-which-keys` said it (we have alt key and fn key too but then we
 " have leader too if we want to do this only)
 nnoremap <silent>, <cmd>ToggleAlternate<CR>
-
-" switch to alternate file by pressing spacebar twice
-nnoremap <leader><space> <c-^>
 
 " disabled as it interferes in session, eg || TermA | FileB || are windows of
 " of a tab and you are one FileB, when you close and reopen vim, FileB will
@@ -580,9 +553,6 @@ endfunction
 
 nnoremap [<space> <cmd>call <sid>BlankUp(v:count1)<cr>
 nnoremap ]<space> <cmd>call <sid>BlankDown(v:count1)<cr>
-
-" substitution
-vnoremap <leader>S :S/<c-r>0/
 
 " you can also use a combination of `tabedit %` with `tabclose` or `q`
 " taken from https://stackoverflow.com/a/60639802/7683365
@@ -644,3 +614,5 @@ command! RedirToCurrentBuffer silent let w:scratch = 1
 
 " from https://gist.github.com/romainl/5b827f4aafa7ee29bdc70282ecc31640
 command! -range GBlame echo join(systemlist("git -C " . shellescape(expand('%:p:h')) . " blame -L <line1>,<line2> " . expand('%:t')), "\n")
+
+nnoremap <leader>tu <cmd>UndotreeToggle<cr>\|<cmd>UndotreeFocus<cr>

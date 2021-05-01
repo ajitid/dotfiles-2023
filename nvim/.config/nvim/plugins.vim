@@ -98,7 +98,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'editorconfig/editorconfig-vim'
 
 " leader key shortcuts info
-Plug 'liuchengxu/vim-which-key'
+" Plug 'liuchengxu/vim-which-key'
+Plug 'folke/which-key.nvim'
 
 " comment
 Plug 'tpope/vim-commentary'
