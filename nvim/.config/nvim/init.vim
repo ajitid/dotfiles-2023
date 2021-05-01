@@ -506,7 +506,6 @@ nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <
 augroup filetype_based_indentation
   autocmd!
   autocmd VimEnter * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  " ^ when vimrc is sourced again, it causes issue as it'll run too
   autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 augroup END
 
@@ -600,3 +599,7 @@ augroup END
 nnoremap <silent> <Leader>+ :call ToggleZoom(v:true)<CR>
 
 lua require('numb').setup()
+
+" don't start searching from top when `n` is pressed on last match, I'll do
+" `ggn` if I need it
+set nowrapscan
