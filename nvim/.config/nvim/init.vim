@@ -129,7 +129,7 @@ set number relativenumber
 set scrolloff=3
 
 " use q to quickly escape out from help
-autocmd Filetype help nnoremap <buffer> q :q<cr> 
+autocmd Filetype help nnoremap <buffer> q :q<cr>
 
 " For a wrapped line which is lets say wrapped to 2 lines, vim will still
 " treat it as a single line and so will jump over that 2nd line when navigated
@@ -157,7 +157,7 @@ set nowrap
 set list listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:~
 
 " Highlight realtime when using find and replace by :s/old/new or
-" when replacing all occurences of a line using :s/old/new/g. It also shows a 
+" when replacing all occurences of a line using :s/old/new/g. It also shows a
 " list in split window when replacing lines which are out of screen, by using,
 " for example, :%s/old/new/g to replace all occurences in the file.
 " set inccommand=split
@@ -225,7 +225,7 @@ let g:startify_session_savevars = [
 " If you are tabbing between a file in project and an empty file, absolute
 " path is mistakingly yanked. So first time yank is send to null register
 " (otherwise known as black hole register), we tab away and then tab
-" back to the active file and finally we copy its relative path. 
+" back to the active file and finally we copy its relative path.
 " To copy absolute path or filename, see https://stackoverflow.com/q/916875 or
 " even better https://stackoverflow.com/questions/27448157/copy-only-filename-without-extension-to-system-clipboard
 " Further reading-> :help filename-modifiers
@@ -615,8 +615,19 @@ command! -range GBlame echo join(systemlist("git -C " . shellescape(expand('%:p:
 
 let b:lion_squeeze_spaces = 1
 
-" these, changing j/k behaviour, removing `s` in favour of surround plugin 
-" and swapping `:` with `;` are the only ones that I'll use which override 
+" these, changing j/k behaviour, removing `s` in favour of surround plugin
+" and swapping `:` with `;` are the only ones that I'll use which override
 " true vim behaviour
 nnoremap 0 ^
 nnoremap ^ 0
+
+function! <SID>TrimTrailingWhitespaces()
+  if !&binary && &filetype != 'diff'
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+  endif
+endfun
+command! -bar -nargs=? TrimTrailingWhitespaces
+      \ call s:TrimTrailingWhitespaces()
+" autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>TrimTrailingWhitespaces()
