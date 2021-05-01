@@ -42,6 +42,10 @@ export DISPLAY=(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/nul
 export LIBGL_ALWAYS_INDIRECT=0
 
 alias v "~/workspace/execs/nvim.appimage"
+# see for info https://github.com/mhinz/neovim-remote/
+# and https://thoughtbot.com/upcase/videos/neovim-remote-as-preferred-editor
+alias vr "NVIM_LISTEN_ADDRESS=/tmp/nvimsocket ~/workspace/execs/nvim.appimage"
+
 export PATH="$PATH:$HOME/workspace/execs"
 alias g "/usr/bin/smerge"
 

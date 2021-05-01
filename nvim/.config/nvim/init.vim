@@ -631,3 +631,5 @@ endfun
 command! -bar -nargs=? TrimTrailingWhitespaces
       \ call s:TrimTrailingWhitespaces()
 " autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>TrimTrailingWhitespaces()
+
+let g:python3_host_prog = "$HOME/miniconda3/bin/python3"
