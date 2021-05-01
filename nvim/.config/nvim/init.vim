@@ -596,3 +596,5 @@ augroup restorezoom
   au WinEnter * silent! :call ToggleZoom(v:false)
 augroup END
 nnoremap <silent> <Leader>+ :call ToggleZoom(v:true)<CR>
+
+lua require('numb').setup()

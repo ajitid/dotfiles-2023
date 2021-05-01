@@ -154,4 +154,5 @@ Plug 'mhartington/formatter.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
 Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
+Plug 'nacro90/numb.nvim'
 call plug#end()
