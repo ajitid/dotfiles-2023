@@ -119,8 +119,10 @@ nnoremap <silent><leader>mf :tabe $MYVIMRC<cr>
 nnoremap <leader>ms :source $MYVIMRC<cr>
 
 " ctrl+s to save
-inoremap <c-s> <esc><cmd>w<cr>h 
+inoremap <c-s> <esc><cmd>w<cr>
+" to keep yourself in insert mode, use inoremap <c-s> <c-o><cmd>w<cr>
 nnoremap <c-s> <esc><cmd>w<cr>
+vnoremap <c-s> <esc><cmd>w<cr>gv
 
 " relative line numbers
 set number relativenumber
