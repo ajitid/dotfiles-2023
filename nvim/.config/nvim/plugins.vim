@@ -162,4 +162,6 @@ Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 Plug 'nacro90/numb.nvim'
 
 Plug 'tommcdo/vim-lion'
+
+" Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 call plug#end()
