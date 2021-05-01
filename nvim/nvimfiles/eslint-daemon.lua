@@ -26,7 +26,7 @@ end
 
 -- For linting https://phelipetls.github.io/posts/configuring-eslint-to-work-with-neovim-lsp/
 -- newest config in this file has been diverted away a lot from the above link
-lspconfig.efm.setup {
+require'lspconfig'.efm.setup {
 	init_options = {documentFormatting = true},
 	root_dir = function()
 		if not eslint_config_exists() then
