@@ -138,9 +138,6 @@ Plug 'justinmk/vim-sneak'
 " Plug 'jremmen/vim-ripgrep'
 Plug 'williamboman/nvim-lsp-installer'
 
-" cool thing that i don't know how to use just yet
-" Plug 'brooth/far.vim'
-
 Plug 'tpope/vim-obsession'
 " ^ have found obsession to be the most predictable
 " Plug 'rmagatti/auto-session'
@@ -163,5 +160,8 @@ Plug 'nacro90/numb.nvim'
 
 Plug 'tommcdo/vim-lion'
 
+" TODO look at these
 " Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
+" Plug 'brooth/far.vim'
+" and https://old.reddit.com/r/vim/comments/n2yymu/vimpeculiar_making_quick_multiline_edits_in_vim/
 call plug#end()
