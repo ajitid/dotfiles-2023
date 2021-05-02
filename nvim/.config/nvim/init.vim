@@ -683,3 +683,5 @@ endfunction
 command! -nargs=? Diff call Diff(<q-mods>, <q-args>)
 
 let g:undotree_SetFocusWhenToggle = 1
+
+command! -nargs=+ -complete=dir -bar Grep lua require'tools'.asyncGrep(<q-args>)
