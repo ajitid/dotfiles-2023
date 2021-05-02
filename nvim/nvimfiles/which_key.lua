@@ -32,7 +32,6 @@ wk.register({
 	g = {
 		name = "goto",
 		d = {"<cmd>Telescope lsp_definitions<cr>", "definition of word under cursor"},
-		l = {":call cursor()<left>", "location", silent = false},
 	},
 	t = {
 		name = "toggle",

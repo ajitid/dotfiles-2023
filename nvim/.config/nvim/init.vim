@@ -685,3 +685,17 @@ command! -nargs=? Diff call Diff(<q-mods>, <q-args>)
 
 let g:undotree_SetFocusWhenToggle = 1
 
+" goto location 
+" for separate use 33G or :33<cr> to go to line and 14| to go to column
+nnoremap gl :call cursor()<left>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap gb <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap gb <Plug>(EasyAlign)
+
+let g:easy_align_delimiters = {
+\   '/': {
+\       'pattern': '\/\/',
+\   },
+\ }

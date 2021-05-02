@@ -158,7 +158,8 @@ Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 " peek line
 Plug 'nacro90/numb.nvim'
 
-Plug 'tommcdo/vim-lion'
+" Plug 'tommcdo/vim-lion' <- intuitive for basic use case
+Plug 'junegunn/vim-easy-align'
 
 " optional req fzf,
 " https://github.com/romainl/vim-qf is also good
