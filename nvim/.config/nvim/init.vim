@@ -329,7 +329,6 @@ fun! SetupCommandAlias(from, to)
 endfun
 
 call SetupCommandAlias("nt","tabnew")
-call SetupCommandAlias("rg","GrepperRg")
 
 " stop rooter plugin to echo on start in msgs
 " let g:rooter_silent_chdir = 1
@@ -674,6 +673,8 @@ endfunction
 command! -nargs=? Diff call Diff(<q-mods>, <q-args>)
 
 let g:undotree_SetFocusWhenToggle = 1
+
+command! -nargs=+ -complete=dir -bar Grep lua require'tools'.asyncGrep(<q-args>)
 
 " goto location 
 " for separate use 33G or :33<cr> to go to line and 14| to go to column

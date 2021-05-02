@@ -170,6 +170,4 @@ Plug 'kevinhwang91/nvim-bqf'
 " Plug 'brooth/far.vim'
 " and
 " https://old.reddit.com/r/vim/comments/n2yymu/vimpeculiar_making_quick_multiline_edits_in_vim/
-
-Plug 'mhinz/vim-grepper', {'on': 'GrepperRg'}
 call plug#end()
