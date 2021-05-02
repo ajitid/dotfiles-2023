@@ -339,16 +339,6 @@ call SetupCommandAlias("rg","GrepperRg")
 nmap s <Nop>
 xmap s <Nop>
 
-" TODO add `p` flag in mkdir fn to recursively create dirs
-" ^ you'll need to replace empty string find the function in
-" https://github.com/cocopon/vaffle.vim/blob/a0c40ab/autoload/vaffle/file.vim#L115
-" and in .config/nvim/autoload/plugged/vaffle.vim dir in local
-function! s:CreateDirsForCurrentFile()
-  call mkdir(expand("%:h"),"p")
-endfunction
-command! -bar -nargs=? CreateDirsForCurrentFile
-  \ call s:CreateDirsForCurrentFile()
-
 " sneak mode, jump to
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
