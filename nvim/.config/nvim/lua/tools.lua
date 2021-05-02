@@ -7,7 +7,7 @@ local function onread(err, data)
     -- print('ERROR: ', err)
     -- TODO handle err
     -- TODO also handle when list is empty
-    -- check where `copen` is called
+    -- check where `copen` is called (update: cwindow is used instead of copen)
   end
   if data then
     local vals = vim.split(data, "\n")
