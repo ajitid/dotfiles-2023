@@ -445,8 +445,7 @@ endfunction
 nnoremap <silent><leader>sc :call ShowContextWithLeastDisturbance()<cr>
 
 " better diffing
-set diffopt+=algorithm:histogram
-set diffopt+=indent-heuristic
+set diffopt+=algorithm:histogram,indent-heuristic,vertical
 " haven't tried this:
 " set diffopt+=iwhite
 " you can set context too, see https://unix.stackexchange.com/a/290501
@@ -637,6 +636,10 @@ let g:python3_host_prog = "$HOME/miniconda3/bin/python3"
 
 " from https://gist.github.com/PeterRincker/69b536f303f648cc21ec2ff2282f8c4a
 function! Diff(mods, spec)
+  let l:truecwd = getcwd()
+  let l:root_identifiers = g:rooter_patterns
+  let g:rooter_patterns = ['.git']
+
   let mods = a:mods
   if !len(mods) && &diffopt =~ 'vertical'
     let mods = 'vertical'
@@ -644,9 +647,11 @@ function! Diff(mods, spec)
   execute mods . ' new'
   setlocal bufhidden=wipe buftype=nofile nobuflisted noswapfile
   let cmd = "++edit #"
+
   if len(a:spec)
     let cmd = "!git -C " . shellescape(fnamemodify(finddir('.git', '.;'), ':p:h:h')) . " show " . a:spec . ":#"
   endif
+
   execute "read " . cmd
   silent 0d_
   let &filetype = getbufvar('#', '&filetype')
@@ -655,8 +660,14 @@ function! Diff(mods, spec)
     autocmd BufWipeout <buffer> diffoff!
   augroup END
   diffthis
+
   wincmd p
   diffthis
+
   wincmd p
+
+  " FIXME this lcd isn't persisting if I leave scratch window and come back, fix it
+  " execute 'lcd ' . l:truecwd
+  let g:rooter_patterns = l:root_identifiers
 endfunction
 command! -nargs=? Diff call Diff(<q-mods>, <q-args>)
