@@ -32,8 +32,12 @@ function M.asyncGrep(term)
     local count = #results
     for i=0, count do results[i]=nil end -- clear the table for the next search
   end
+  local query = vim.split(term, ' IN ')
+  local search_term = query[1]
+  local dir_to_search_in = query[2] and query[2] or '.'
+  print(search_term, dir_to_search_in)
   handle = vim.loop.spawn('rg', {
-    args = {term, '--vimgrep', '--smart-case'},
+    args = {search_term, dir_to_search_in, '--vimgrep', '--smart-case'},
     stdio = {nil,stdout,stderr}
   },
   vim.schedule_wrap(function()
