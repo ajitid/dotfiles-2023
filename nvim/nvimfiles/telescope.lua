@@ -14,7 +14,7 @@ require('telescope').setup{
       prompt_position = "top",
       sorting_strategy = "ascending",
       prompt_prefix = " ⚡ ",
-      file_ignore_patterns = { ".git/", "node_modules/", "__pycache__/", ".DS_Store", "package-lock.json" },
+      file_ignore_patterns = { ".git/", "node_modules/", "__pycache__/", ".DS_Store", "package-lock.json", "yarn.lock" },
       selection_caret = "› ",
       file_sorter = require('telescope.sorters').get_fzy_sorter,
       file_previewer = require('telescope.previewers').vim_buffer_cat.new,
