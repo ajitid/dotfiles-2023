@@ -620,6 +620,16 @@ let b:lion_squeeze_spaces = 1
 " true vim behaviour
 nnoremap 0 ^
 nnoremap ^ 0
+vnoremap 0 ^
+vnoremap ^ 0
+onoremap 0 ^
+onoremap ^ 0
+nnoremap g0 g^
+nnoremap g^ g0
+vnoremap g0 g^
+vnoremap g^ g0
+onoremap g0 g^
+onoremap g^ g0
 
 function! <SID>TrimTrailingWhitespaces()
   if !&binary && &filetype != 'diff'
