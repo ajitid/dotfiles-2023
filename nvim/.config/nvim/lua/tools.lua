@@ -24,6 +24,11 @@ function M.asyncGrep(term)
   local function setQF()
     vim.fn.setqflist({}, 'r', {title = 'Search Results', lines = results})
     api.nvim_command('cwindow')
+    if #results == 0 then
+      print('no results for ' .. term)
+    else
+      print(#results .. ' results found')
+    end
     local count = #results
     for i=0, count do results[i]=nil end -- clear the table for the next search
   end
