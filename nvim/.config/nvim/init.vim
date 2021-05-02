@@ -657,5 +657,6 @@ function! Diff(mods, spec)
   diffthis
   wincmd p
   diffthis
+  wincmd p
 endfunction
 command! -nargs=? Diff call Diff(<q-mods>, <q-args>)
