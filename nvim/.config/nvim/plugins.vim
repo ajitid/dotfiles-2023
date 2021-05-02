@@ -64,6 +64,9 @@ Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
 " Plug 'justinmk/vim-dirvish'
 " Plug 'cocopon/vaffle.vim'
 Plug 'zlksnk/vaffle.vim', { 'branch' : 'modifications-zlksnk' }
+" Unix file/dir shell commands
+Plug 'zlksnk/vim-eunuch', { 'branch' : 'modifications-zlksnk' }
+
 
 " Surround/change text with quotes, bracekts or tags
 Plug 'machakann/vim-sandwich'
@@ -106,9 +109,6 @@ Plug 'tpope/vim-commentary'
 " Plug 'suy/vim-context-commentstring'
 " Plug 'b3nj5m1n/kommentary'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-
-" Unix file/dir shell commands
-Plug 'tpope/vim-eunuch'
 
 " highlights chars when you do [f]ind related commands
 Plug 'unblevable/quick-scope'
