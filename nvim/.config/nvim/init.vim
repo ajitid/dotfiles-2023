@@ -576,6 +576,8 @@ lua require('numb').setup()
 set nowrapscan
 
 " from https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
+" FIXME escapes don't work, console.log('fs\ndf') needs to be
+" console.log('fs\\\ndf')
 function! Redir(cmd, rng, start, end)
   for win in range(1, winnr('$'))
     if getwinvar(win, 'scratch')
@@ -589,11 +591,10 @@ function! Redir(cmd, rng, start, end)
     if a:rng == 0
       let output = systemlist(cmd)
     else
-      " TODO FIXME doesn't work for multi-line for fish
       let joined_lines = join(getline(a:start, a:end), '\n')
       let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
       " modfied for fish
-      let output = systemlist("echo " . cleaned_lines . " | " . cmd)
+      let output = systemlist("printf " . cleaned_lines . " | " . cmd)
     endif
   else
     redir => output
@@ -601,7 +602,7 @@ function! Redir(cmd, rng, start, end)
     redir END
     let output = split(output, "\n")
   endif
-  tabnew
+  vnew
   let w:scratch = 1
   setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
   call setline(1, output)
