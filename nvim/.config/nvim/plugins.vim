@@ -14,7 +14,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " all hail fzf
-" Plug 'junegunn/fzf'
+Plug 'junegunn/fzf'
 
 " Automatically create pairing for '(' '[' '{'
 " Plug 'LunarWatcher/auto-pairs'
@@ -160,8 +160,13 @@ Plug 'nacro90/numb.nvim'
 
 Plug 'tommcdo/vim-lion'
 
+" optional req fzf,
+" https://github.com/romainl/vim-qf is also good
+Plug 'kevinhwang91/nvim-bqf'
+
 " TODO look at these
 " Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 " Plug 'brooth/far.vim'
-" and https://old.reddit.com/r/vim/comments/n2yymu/vimpeculiar_making_quick_multiline_edits_in_vim/
+" and
+" https://old.reddit.com/r/vim/comments/n2yymu/vimpeculiar_making_quick_multiline_edits_in_vim/
 call plug#end()
