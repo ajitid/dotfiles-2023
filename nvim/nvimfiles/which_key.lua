@@ -47,7 +47,13 @@ wk.register({
 	},
 	l = {"<cmd>noh<cr><cmd>echo ''<cr>", "clear search highlights and command area"},
 	b = {"va{V", "make block selection"},
-	S = {":S/<c-r>0/", "substitute", silent = false},
+	S = {":S/<c-r>0//g<left><left>", "substitute", silent = false},
 	-- switch to alternate file by pressing spacebar twice
 	["<space>"] = {"<c-^>", "switch to alternate file"},
 }, {prefix = "<leader>"})
+
+wk.register({
+	S = {":S/<c-r>0//g<left><left>", "substitute", silent = false},
+}, {
+	mode = "v"
+})
