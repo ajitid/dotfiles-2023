@@ -38,7 +38,7 @@ wk.register({
 		-- nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 		-- same as below
 		h = {"<cmd>set hlsearch!<CR>", "highlight"},
-		u = {"<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", "undo tree"},
+		u = {"<cmd>UndotreeToggle<cr>", "undo tree"},
 	},
 	m = {
 		name = "vim config",
@@ -48,8 +48,8 @@ wk.register({
 	l = {"<cmd>noh<cr><cmd>echo ''<cr>", "clear search highlights and command area"},
 	b = {"va{V", "make block selection"},
 	S = {":S/<c-r>0//g<left><left>", "substitute", silent = false},
-	-- switch to alternate file by pressing spacebar twice
-	["<space>"] = {"<c-^>", "switch to alternate file"},
+	-- switch to alternate file by pressing spacebar twice instead of using <c-^> (<c-6>)
+	["<space>"] = {"<cmd>b#<cr>", "switch to alternate file"},
 }, {prefix = "<leader>"})
 
 wk.register({

@@ -681,3 +681,5 @@ function! Diff(mods, spec)
   let g:rooter_patterns = l:root_identifiers
 endfunction
 command! -nargs=? Diff call Diff(<q-mods>, <q-args>)
+
+let g:undotree_SetFocusWhenToggle = 1
