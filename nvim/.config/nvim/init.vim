@@ -329,6 +329,7 @@ fun! SetupCommandAlias(from, to)
 endfun
 
 call SetupCommandAlias("nt","tabnew")
+call SetupCommandAlias("rg","GrepperRg")
 
 " stop rooter plugin to echo on start in msgs
 " let g:rooter_silent_chdir = 1
@@ -684,4 +685,3 @@ command! -nargs=? Diff call Diff(<q-mods>, <q-args>)
 
 let g:undotree_SetFocusWhenToggle = 1
 
-command! -nargs=+ -complete=dir -bar Grep lua require'tools'.asyncGrep(<q-args>)
