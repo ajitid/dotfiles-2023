@@ -110,6 +110,10 @@ luafile ~/nvimfiles/comment.lua
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 
+" substitute word under cursor in the line
+" TODO add operator mode substitution
+nnoremap <leader>SS :S/<c-r>=tolower(expand("<cword>"))<cr>//g<left><left>
+
 " For easy command access and to not to lose `;` functionality
 nnoremap ; :
 nnoremap : ;
