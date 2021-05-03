@@ -707,7 +707,8 @@ require('bqf').setup({
     auto_preview = false,
   },
   func_map = {
-    stogglebuf = "zm"
+    stogglebuf = "zm",
+    openc = "O"
   }
 })
 EOF
