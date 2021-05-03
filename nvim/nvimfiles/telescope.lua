@@ -23,7 +23,7 @@ require('telescope').setup{
 
       mappings = {
         i = {
-          ["<c-f>"] = mods.accept_selection,
+          -- ["<c-f>"] = mods.accept_selection,
         },
       },
     },

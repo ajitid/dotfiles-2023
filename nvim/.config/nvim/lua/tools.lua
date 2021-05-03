@@ -22,7 +22,7 @@ function M.asyncGrep(term)
   local stdout = vim.loop.new_pipe(false)
   local stderr = vim.loop.new_pipe(false)
   local function setQF()
-    vim.fn.setqflist({}, 'r', {title = 'Search results for ' .. term, lines = results})
+    vim.fn.setqflist({}, ' ', {title = 'Search results for ' .. term, lines = results})
     api.nvim_command('cwindow')
     if #results == 0 then
       print('No results for ' .. term)
