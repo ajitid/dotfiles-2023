@@ -333,6 +333,7 @@ fun! SetupCommandAlias(from, to)
 endfun
 
 call SetupCommandAlias("nt","tabnew")
+call SetupCommandAlias("rg","Grep")
 
 " stop rooter plugin to echo on start in msgs
 " let g:rooter_silent_chdir = 1
@@ -586,7 +587,7 @@ function! Redir(cmd, rng, start, end)
     else
       let joined_lines = join(getline(a:start, a:end), '\n')
       let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
-      " modfied for fish
+      " modified for fish
       let output = systemlist("printf " . cleaned_lines . " | " . cmd)
     endif
   else
@@ -694,3 +695,8 @@ let g:easy_align_delimiters = {
 \       'pattern': '\/\/',
 \   },
 \ }
+
+" TODO add in lightline query name, see :chistory and match its count and qflist
+" count (check if filtered qflist is new or polluted the current) to show
+" modified/filtered
+let g:qf_mapping_ack_style = 1

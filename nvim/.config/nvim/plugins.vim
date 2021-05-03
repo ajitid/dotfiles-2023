@@ -161,9 +161,11 @@ Plug 'nacro90/numb.nvim'
 " Plug 'tommcdo/vim-lion' <- intuitive for basic use case
 Plug 'junegunn/vim-easy-align'
 
-" optional req fzf,
-" https://github.com/romainl/vim-qf is also good
-Plug 'kevinhwang91/nvim-bqf'
+Plug 'romainl/vim-qf'
+" optional req fzf:
+" Plug 'kevinhwang91/nvim-bqf'
+" ^ TODO this is really good, i'm just waiting for https://github.com/kevinhwang91/nvim-bqf/issues/20
+" to get implemented, also it pollutes oldfiles https://github.com/kevinhwang91/nvim-bqf/issues/11
 
 " TODO look at these
 " Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
