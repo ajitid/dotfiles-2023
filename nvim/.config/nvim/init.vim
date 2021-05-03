@@ -93,7 +93,7 @@ set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim
 " lua require("init")
 luafile ~/nvimfiles/lsp.lua
 " luafile ~/nvimfiles/efm-for-format.lua
-luafile ~/nvimfiles/eslint-daemon.lua
+" luafile ~/nvimfiles/eslint-daemon.lua
 " luafile ~/nvimfiles/lsp-eslint.lua
 luafile ~/nvimfiles/format.lua
 luafile ~/nvimfiles/telescope.lua
