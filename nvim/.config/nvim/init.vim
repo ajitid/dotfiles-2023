@@ -700,3 +700,14 @@ let g:easy_align_delimiters = {
 let g:qf_mapping_ack_style = 1
 let g:bettergrep_no_mappings = 1
 let g:bettergrep_no_abbrev = 1
+
+lua << EOF
+require('bqf').setup({
+  preview = {
+    auto_preview = false,
+  },
+  func_map = {
+    stogglebuf = "zm"
+  }
+})
+EOF

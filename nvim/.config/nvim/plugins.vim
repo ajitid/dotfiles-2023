@@ -162,11 +162,10 @@ Plug 'nacro90/numb.nvim'
 Plug 'junegunn/vim-easy-align'
 
 Plug 'qalshidi/vim-bettergrep'
-Plug 'romainl/vim-qf'
+" Plug 'romainl/vim-qf'
 " optional req fzf:
-" Plug 'kevinhwang91/nvim-bqf'
-" ^ TODO this is really good, i'm just waiting for https://github.com/kevinhwang91/nvim-bqf/issues/20
-" to get implemented, also it pollutes oldfiles https://github.com/kevinhwang91/nvim-bqf/issues/11
+Plug 'kevinhwang91/nvim-bqf'
+" ^ TODO it pollutes oldfiles https://github.com/kevinhwang91/nvim-bqf/issues/11
 
 " TODO look at these
 " Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
