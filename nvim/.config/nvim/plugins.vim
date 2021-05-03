@@ -125,7 +125,7 @@ Plug 'markonm/traces.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " visual mode * or # search
-Plug 'bronson/vim-visual-star-search'
+Plug 'zlksnk/vim-visual-star-search', { 'branch': 'modifications-zlksnk' }
 
 " preserve yank history
 Plug 'svermeulen/vim-yoink'
@@ -161,7 +161,7 @@ Plug 'nacro90/numb.nvim'
 " Plug 'tommcdo/vim-lion' <- intuitive for basic use case
 Plug 'junegunn/vim-easy-align'
 
-Plug 'zlksnk/vim-bettergrep', { 'branch': 'modificatons-zlksnk' }
+Plug 'zlksnk/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
 " Plug 'romainl/vim-qf'
 " optional req fzf:
 Plug 'kevinhwang91/nvim-bqf'

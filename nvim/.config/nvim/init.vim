@@ -73,12 +73,6 @@ set foldlevel=20
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
-" visual * or # search, don't consume my leader pls, I'll copy the text and
-" pass it to telescope grep instead:
-" nnoremap <leader>* <Nop>
-" vnoremap <leader>* <Nop>
-" that being said i am replacing grep (not vimgrep) with `rg` so I might revoke Nop
-" keybinding above
 if executable('rg')
   set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
   set grepformat=%f:%l:%c:%m
