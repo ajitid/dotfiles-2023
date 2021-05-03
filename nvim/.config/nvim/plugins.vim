@@ -161,6 +161,7 @@ Plug 'nacro90/numb.nvim'
 " Plug 'tommcdo/vim-lion' <- intuitive for basic use case
 Plug 'junegunn/vim-easy-align'
 
+Plug 'qalshidi/vim-bettergrep'
 Plug 'romainl/vim-qf'
 " optional req fzf:
 " Plug 'kevinhwang91/nvim-bqf'

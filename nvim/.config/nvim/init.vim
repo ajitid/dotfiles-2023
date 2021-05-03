@@ -679,9 +679,7 @@ command! -nargs=? Diff call Diff(<q-mods>, <q-args>)
 
 let g:undotree_SetFocusWhenToggle = 1
 
-command! -nargs=+ -complete=dir -bar Grep lua require'tools'.asyncGrep(<q-args>)
-
-" goto location 
+" goto location
 " for separate use 33G or :33<cr> to go to line and 14| to go to column
 nnoremap gl :call cursor()<left>
 
@@ -700,3 +698,5 @@ let g:easy_align_delimiters = {
 " count (check if filtered qflist is new or polluted the current) to show
 " modified/filtered
 let g:qf_mapping_ack_style = 1
+let g:bettergrep_no_mappings = 1
+let g:bettergrep_no_abbrev = 1
