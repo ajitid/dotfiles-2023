@@ -176,8 +176,7 @@ Plug 'kevinhwang91/nvim-bqf'
 " https://old.reddit.com/r/vim/comments/n2yymu/vimpeculiar_making_quick_multiline_edits_in_vim/
 
 " TODO read https://www.reddit.com/r/vim/comments/adsqnx/favorite_custom_text_objects/edjw792/
-Plug 'michaeljsmith/vim-indent-object'
-
 Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
 Plug 'Julian/vim-textobj-variable-segment'
 call plug#end()
