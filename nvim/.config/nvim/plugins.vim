@@ -172,4 +172,10 @@ Plug 'kevinhwang91/nvim-bqf'
 " Plug 'brooth/far.vim'
 " and
 " https://old.reddit.com/r/vim/comments/n2yymu/vimpeculiar_making_quick_multiline_edits_in_vim/
+
+" TODO read https://www.reddit.com/r/vim/comments/adsqnx/favorite_custom_text_objects/edjw792/
+Plug 'michaeljsmith/vim-indent-object'
+
+Plug 'kana/vim-textobj-user'
+Plug 'Julian/vim-textobj-variable-segment'
 call plug#end()
