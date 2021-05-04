@@ -58,6 +58,7 @@ begin
   end
 end
 
+# TODO add completion
 function up
   # set args (getopt -s sh abc: $argv); or help_exit
   # echo $argv[1]
