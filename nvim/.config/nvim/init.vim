@@ -627,7 +627,7 @@ function! <SID>TrimTrailingWhitespaces()
     call winrestview(l:save)
   endif
 endfun
-command! -bar -nargs=? TrimTrailingWhitespaces
+command! TrimTrailingWhitespaces
       \ call s:TrimTrailingWhitespaces()
 " autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>TrimTrailingWhitespaces()
 
