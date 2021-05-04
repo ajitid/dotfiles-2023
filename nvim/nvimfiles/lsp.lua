@@ -96,6 +96,7 @@ local rust_options = {
 require('rust-tools').setup(rust_options)
 
 -- from https://old.reddit.com/r/neovim/comments/n1n4zc/need_help_with_tsconfigjson_autocompletion_with/gwegsb0/
+-- https://github.com/ahmedelgabri/dotfiles/blob/c2e2e3718e769020f1468048e33e60ad8a97edfc/config/.vim/lua/_/lsp.lua#L329-L378
 lspconfig.jsonls.setup{
   capabilities = capabilities,
   filetypes = {"json", "jsonc"},
