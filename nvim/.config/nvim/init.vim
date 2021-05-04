@@ -661,6 +661,7 @@ function! Diff(mods, spec)
     autocmd BufWipeout <buffer> diffoff!
   augroup END
   diffthis
+  nnoremap <buffer>q <C-W>c
 
   wincmd p
   diffthis
