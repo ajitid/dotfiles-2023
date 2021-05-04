@@ -709,3 +709,27 @@ require('bqf').setup({
   }
 })
 EOF
+
+function! s:CheckJuggle()
+  if exists('w:juggle_alt')
+    if bufnr() != w:juggle_alt
+      let w:juggle_to = w:juggle_alt
+    endif
+  endif
+  let w:juggle_alt = bufnr('#')
+endfun
+
+aug kitty_cursor
+  au!
+  au BufWinEnter  *.* call <sid>CheckJuggle()
+aug END
+
+function! s:Juggle()
+  if exists('w:juggle_to')
+    e#
+    execute 'buffer ' . w:juggle_to
+  endif
+endfun
+command! Juggle
+      \ call s:Juggle()
+
