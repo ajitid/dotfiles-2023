@@ -193,6 +193,8 @@ let g:smoothie_base_speed = 20
 " preserve and cycle yanked contents
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
+nmap gp <plug>(YoinkPaste_gp)
+nmap gP <plug>(YoinkPaste_gP)
 nmap [p <plug>(YoinkPostPasteSwapBack)
 nmap ]p <plug>(YoinkPostPasteSwapForward)
 let g:yoinkAutoFormatPaste = 1
