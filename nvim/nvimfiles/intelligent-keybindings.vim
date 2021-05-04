@@ -6,7 +6,7 @@ nnoremap <c-p> <cmd>lua require('telescope.builtin').buffers({show_all_buffers =
 augroup goto_definition
     autocmd!
     autocmd FileType typescript,javascript,typescriptreact
-        \ nnoremap <c-]> <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
+        \ nnoremap <buffer><c-]> <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 augroup END
 
 " <silent> doesn't work here
