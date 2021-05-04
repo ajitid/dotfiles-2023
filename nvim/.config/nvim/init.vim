@@ -705,7 +705,9 @@ require('bqf').setup({
   },
   func_map = {
     stogglebuf = "zm",
-    openc = "O"
+    openc = "O",
+    pscrollup = "<nop>",
+    pscrolldown = "<nop>",
   }
 })
 EOF
