@@ -209,6 +209,10 @@ nmap <leader>p "+p
 vmap <leader>p "+p
 nmap <leader>P "+P
 vmap <leader>P "+P
+nmap <leader>gp "+gp
+vmap <leader>gp "+gp
+nmap <leader>gP "+gP
+vmap <leader>gP "+gP
 
 " Rooter
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules']
