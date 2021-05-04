@@ -637,7 +637,9 @@ let g:python3_host_prog = "$HOME/miniconda3/bin/python3"
 function! Diff(mods, spec)
   let l:truecwd = getcwd()
   let l:root_identifiers = g:rooter_patterns
-  let g:rooter_patterns = ['.git']
+  if len(a:spec)
+    let g:rooter_patterns = ['.git']
+  endif
 
   let mods = a:mods
   if !len(mods) && &diffopt =~ 'vertical'
