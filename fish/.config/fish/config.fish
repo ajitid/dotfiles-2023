@@ -66,7 +66,7 @@ function up
   # intentionally written this way because I'm learning syntax
   # https://stackoverflow.com/a/29177261/7683365
   if [ "$dir_to_be_child" = "" ]
-    cd ..
+    cd .. # in fish you can do `..` directly, and for cd-ing into a child dir we can use `src/` or `./src/`
   else
     cd -
     set -l alt_dir $PWD
