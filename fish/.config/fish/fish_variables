@@ -1,10 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR ZO_CMD:zo
-SETUVAR Z_CMD:z
-SETUVAR Z_DATA:/home/zlksnk/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/zlksnk/\x2elocal/share/z
-SETUVAR Z_EXCLUDE:\x5e/home/zlksnk\x24
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_getclip:xclip\x20\x2dselection\x20c\x20\x2do
 SETUVAR _fish_abbr_setclip:xclip\x20\x2dselection\x20c
