@@ -1,18 +1,18 @@
 local saga = require 'lspsaga'
 
 saga.init_lsp_saga {
-  error_sign = '🔥',
-  warn_sign = '🐛',
-  code_action_icon = '💡',
-  code_action_prompt = {
-    sign_priority = 60,
-    virtual_text = false
-  },
-  code_action_keys = {
-    quit = '<esc>',
-  },
-  hint_sign = '🌿',
-  dianostic_header_icon = "👀 "
+	error_sign = '🔥',
+	warn_sign = '🚧',
+	code_action_icon = '💡',
+	code_action_prompt = {
+		sign_priority = 60,
+		virtual_text = false
+	},
+	code_action_keys = {
+		quit = '<esc>',
+	},
+	hint_sign = '🌿',
+	dianostic_header_icon = "👀 "
 }
 
 -- removes background color for lightbulb which appears at right of code

@@ -11,7 +11,7 @@ function! LspStatus() abort
            return '✨'
        endif
        " return '🙅 '.errors . ' 🐛 ' . warnings . ' ℹ ' . info
-       return '🔥 '.errors . ' 🐛 ' . warnings 
+       return '🔥 '.errors . ' 🚧 ' . warnings 
         " return luaeval("require('lsp-status').status()")
         " let sl.='%#MyStatuslineLSP#E:'
         " let sl.='%#MyStatuslineLSPErrors#%{luaeval("vim.lsp.diagnostic.get_count([[Error]])")}'
