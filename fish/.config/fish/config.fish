@@ -132,3 +132,9 @@ To abort this process instead, use `git rebase --abort`."
     set commits_count (math $commits_count - 1)
   end
 end
+
+function git_run_pre_commit_hook_and_notify
+  git_run_pre_commit_hook $argv[1]
+  and notify-send.exe "Done running commit hooks" "Go for the push! 🏂"
+  or notify-send.exe -i error "Commit hook failed" "Welp back to work"
+end
