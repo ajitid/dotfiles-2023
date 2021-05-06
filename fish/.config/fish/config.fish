@@ -134,7 +134,16 @@ To abort this process instead, use `git rebase --abort`."
 end
 
 function git_run_pre_commit_hook_and_notify
-  git_run_pre_commit_hook $argv[1]
-  and notify-send.exe "Done running commit hooks" "Go for the push! 🏂"
-  or notify-send.exe -i error "Commit hook failed" "Welp back to work"
+  # git_run_pre_commit_hook $argv[1]
+  # and notify-send.exe "Done running commit hooks" "Go for the push! 🏂"
+  # or notify-send.exe -i error "Commit hook failed" "Welp back to work"
+  # ^ this syntax is valid too, for one liner, these lines will be separated by `;`
+  # because I needed a non-zero status code I had to comment this out
+
+  if git_run_pre_commit_hook $argv[1]
+    notify-send.exe "Done running commit hooks" "Go for the push! 🏂"
+  else
+    notify-send.exe -i error "Commit hook failed" "Welp back to work"
+    return 1
+  end
 end
