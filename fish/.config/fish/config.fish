@@ -111,13 +111,22 @@ function git_push_and_notify
   end
 end
 
-# to use it supply a commit hash or `HEAD`
+# to use it supply a commit hash or `HEAD`, 
+# if nothing is specified then it'll start right after from the point where it was diverged from remote
 function git_run_pre_commit_hook
   set -l first_commit_hash $argv[1]
 
   if [ "$first_commit_hash" = "" ]
-    echo "Please supply a commit hash"
-    return 1
+    set -l common_ancestor (git merge-base HEAD HEAD@{u})
+    set first_commit_hash (git rev-list --topo-order --ancestry-path --reverse $common_ancestor...HEAD | head -1)
+
+    if [ "$first_commit_hash" = "" ]
+      set first_commit_hash "HEAD"
+    end
+
+    set -l commit_msg (git log --format=%B -n 1 $first_commit_hash)
+    echo "No commit hash provided, using: $commit_msg ($first_commit_hash)"
+    echo
   end
 
   set -l commits_count (git log $first_commit_hash..HEAD --pretty=oneline | wc -l)
