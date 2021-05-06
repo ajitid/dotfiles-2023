@@ -9,6 +9,7 @@ end
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/workspace/scripts"
 
 abbr setclip "xclip -selection c"
 abbr getclip "xclip -selection c -o"
