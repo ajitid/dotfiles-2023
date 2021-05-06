@@ -4,3 +4,5 @@
 [core]
 	autocrlf = false
 	excludesfile = ~/.gitignoreglobal
+[alias]
+	pn = !git_push_and_notify
