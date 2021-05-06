@@ -99,6 +99,9 @@ end
 
 set -gx PATH $PATH "/mnt/c/Users/Ajit.Singh/Downloads/notify-send/"
 
+# this won't work for Sublime Merge. For it, create a `git-gpn` file
+# inside a dir which is present in the `$PATH`. Make it `chmod u+x` and in its content
+# start with `#!/usr/bin/fish` followed by content inside following function
 function git_push_and_notify
   if git push --force-with-lease origin $argv
     notify-send.exe "Push Success" "Keep pushin'! ✔"
@@ -106,3 +109,4 @@ function git_push_and_notify
     notify-send.exe -i error "Push failure" "Is it lint or test?"
   end
 end
+
