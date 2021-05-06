@@ -95,3 +95,14 @@ function up
     cd $found_dir
   end
 end
+
+
+set -gx PATH $PATH "/mnt/c/Users/Ajit.Singh/Downloads/notify-send/"
+
+function git_push_and_notify
+  if git push --force-with-lease origin $argv
+    notify-send.exe "Push Success" "Keep pushin'! ✔"
+  else
+    notify-send.exe -i error "Push failure" "Is it lint or test?"
+  end
+end
