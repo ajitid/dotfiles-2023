@@ -111,3 +111,24 @@ function git_push_and_notify
   end
 end
 
+function git_run_pre_commit_hook
+  set -l first_commit_hash $argv[1]
+
+  if [ "$first_commit_hash" = "" ]
+    echo "Please supply a commit hash"
+    return 1
+  end
+
+  set -l commits_count (git log $first_commit_hash..HEAD --pretty=oneline | wc -l)
+  while test $commits_count -ge 0
+    if not git recommit HEAD~$commits_count
+      echo "ERROR IN COMMITING — if you have staged changes, add fixes to \
+solve the issue which caused this commit to fail and \
+use `git commit --amend` followed by `git rebase --continue` to complete the process. \
+To abort this process instead, use `git rebase --abort`."
+      return 2
+    end
+
+    set commits_count (math $commits_count - 1)
+  end
+end
