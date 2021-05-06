@@ -111,6 +111,7 @@ function git_push_and_notify
   end
 end
 
+# to use it supply a commit hash or `HEAD`
 function git_run_pre_commit_hook
   set -l first_commit_hash $argv[1]
 
