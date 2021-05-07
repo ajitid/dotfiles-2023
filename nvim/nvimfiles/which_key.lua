@@ -27,7 +27,7 @@ wk.register({
 	},
 	i = {
 		name = "intelligent",
-		r = {"<cmd>Lspsaga rename<cr>"},
+		r = {"<cmd>Lspsaga rename<cr>", "rename"},
 	},
 	g = {
 		name = "goto",
