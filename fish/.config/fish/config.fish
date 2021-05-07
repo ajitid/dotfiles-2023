@@ -129,6 +129,12 @@ function git_run_pre_commit_hook
     echo
   end
 
+  # check if the inferred/supplied $first_commit_hash is a valid ancestor
+  if not git merge-base --is-ancestor $first_commit_hash HEAD
+    echo "Either $first_commit_hash is not an ancestor of HEAD or a commit with that hash doesn't exist"
+    return 1
+  end
+
   set -l commits_count (git log $first_commit_hash..HEAD --pretty=oneline | wc -l)
   while test $commits_count -ge 0
     if not git recommit HEAD~$commits_count
