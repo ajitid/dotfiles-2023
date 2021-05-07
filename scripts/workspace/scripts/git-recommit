@@ -28,7 +28,8 @@ else
   sed_inplace=(sed -Ei)
 fi
 
-echo "Editing commit: $message" >&2
+# echo "Editing commit: $message" >&2
+echo "Editing commit..."
 
 export GIT_SEQUENCE_EDITOR="${sed_inplace[*]} "' "s/^pick ('"$commit"' .*)/edit \\1/"'
 git rebase --quiet --interactive --autostash --autosquash "$commit"~
