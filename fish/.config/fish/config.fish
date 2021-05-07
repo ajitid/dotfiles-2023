@@ -113,7 +113,7 @@ end
 
 # to use it supply a commit hash or `HEAD`, 
 # if nothing is specified then it'll start right after from the point where it was diverged from remote
-function git_run_pre_commit_hook
+function git_recommit
   set -l first_commit_hash $argv[1]
 
   if [ "$first_commit_hash" = "" ]
@@ -149,14 +149,14 @@ To abort this process instead, use `git rebase --abort`."
   end
 end
 
-function git_run_pre_commit_hook_and_notify
+function git_recommit_and_notify
   # git_run_pre_commit_hook $argv[1]
   # and notify-send.exe "Done running commit hooks" "Go for the push! 🏂"
   # or notify-send.exe -i error "Commit hook failed" "Welp back to work"
   # ^ this syntax is valid too, for one liner, these lines will be separated by `;`
   # because I needed a non-zero status code I had to comment this out
 
-  if git_run_pre_commit_hook $argv[1]
+  if git_recommit $argv[1]
     notify-send.exe "Done running commit hooks" "Go for the push! 🏂"
   else
     notify-send.exe -i error "Commit hook failed" "Welp back to work"
