@@ -124,6 +124,9 @@ function git_recommit
   switch $argv[1]
     case '-f'
       set force_commit 1
+      # Erase not only removes content of argv[1] but also shifts content of 2->1, 3->2, etc.
+      # So if command is `blah -f something`, on erasing argv[1] (which is `-f`), `something` will take its place.
+      # Bash equivalent is `shift`.
       set --erase argv[1]
   end
 
