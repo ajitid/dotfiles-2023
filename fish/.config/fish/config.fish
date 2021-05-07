@@ -114,6 +114,10 @@ end
 # to use it supply a commit hash or `HEAD`, 
 # if nothing is specified then it'll start right after from the point where it was diverged from remote
 function git_recommit
+  if not git rev-parse --is-inside-work-tree >/dev/null
+    return 5
+  end
+
   set -l force_commit 0
 
   # TODO there would be a better way to parse arguments
