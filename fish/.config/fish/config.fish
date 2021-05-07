@@ -122,12 +122,13 @@ function git_recommit
 
   # TODO there would be a better way to parse arguments
   switch $argv[1]
-    case '-f'
+    case '-f' or '--force'
       set force_commit 1
       # Erase not only removes content of argv[1] but also shifts content of 2->1, 3->2, etc.
       # So if command is `blah -f something`, on erasing argv[1] (which is `-f`), `something` will take its place.
       # Bash equivalent is `shift`.
       set --erase argv[1]
+    # no `break` is required as fallthrough is managed by `or` like we used above
   end
 
   set -l first_commit_hash $argv[1]
@@ -141,7 +142,7 @@ function git_recommit
       set -l current_branch (git branch --show-current)
       if [ "$upstream_branch" != "$current_branch" ]; and test $force_commit -eq 0
         echo "Upstream branch name ($upstream_branch) does not matches current branch name ($current_branch)."
-        echo "To use this upstream branch anyway, add `-f` flag."
+        echo "To use this upstream branch anyway, add `--force` (or succinctly `-f`) flag."
         return 4
       end
     else
