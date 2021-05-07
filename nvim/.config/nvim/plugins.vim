@@ -148,7 +148,7 @@ Plug 'rmagatti/auto-session'
 Plug 'machakann/vim-swap'
 Plug 'wellle/context.vim'
 Plug 'embear/vim-localvimrc'
-Plug 'rmagatti/alternate-toggler'
+Plug 'Konfekt/vim-CtrlXA'
 Plug 'mhinz/vim-rfc', { 'on' : 'RFC' }
 Plug 'tpope/vim-projectionist'
 Plug 'mhartington/formatter.nvim'

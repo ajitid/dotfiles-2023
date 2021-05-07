@@ -43,7 +43,7 @@ wk.register({
 	m = {
 		name = "vim config",
 		f = {"<cmd>tabe $MYVIMRC<cr>", "open"},
-		s = {"<cmd>source $MYVIMRC<cr>", "source"},
+		s = {"<cmd>source $MYVIMRC<cr><cmd>echo \"Vim config sourced\"<cr>", "source"},
 	},
 	l = {"<cmd>noh<cr><cmd>echo ''<cr>", "clear search highlights and command area"},
 	b = {"va{V", "make block selection"},
