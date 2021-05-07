@@ -124,8 +124,8 @@ function git_recommit
       set -l upstream_branch (echo $upstream_or_err | sed 's/.\+\///')
       set -l current_branch (git branch --show-current)
       if [ "$upstream_branch" != "$current_branch" ]
-	echo "Upstream branch name ($upstream_branch) does not matches current branch name ($current_branch)"
-	return 4
+        echo "Upstream branch name ($upstream_branch) does not matches current branch name ($current_branch)"
+        return 4
       end
     else
       echo "Upstream branch isn't defined for current local branch"
