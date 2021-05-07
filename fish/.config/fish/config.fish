@@ -184,7 +184,8 @@ function git_recommit_and_notify
   if git_recommit $argv[1]
     notify-send.exe "Done running commit hooks" "Go for the push! 🏂"
   else
+    set -l err_code $status
     notify-send.exe -i error "Commit hook failed" "Welp back to work"
-    return 1
+    return $err_code
   end
 end
