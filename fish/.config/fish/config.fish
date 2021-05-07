@@ -138,7 +138,7 @@ function git_recommit
       set -l current_branch (git branch --show-current)
       if [ "$upstream_branch" != "$current_branch" ]; and test $force_commit -eq 0
         echo "Upstream branch name ($upstream_branch) does not matches current branch name ($current_branch)."
-        echo "To use this upstream branch anyway, use `-f`."
+        echo "To use this upstream branch anyway, add `-f` flag."
         return 4
       end
     else
