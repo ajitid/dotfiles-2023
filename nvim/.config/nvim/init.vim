@@ -490,7 +490,7 @@ endfun
 
 " hey `:h map-which-keys` said it (we have alt key and fn key too but then we
 " have leader too if we want to do this only)
-nnoremap <silent>, <cmd>ToggleAlternate<CR>
+" nnoremap <silent>, <cmd>ToggleAlternate<CR>
 
 " disabled as it interferes in session, eg || TermA | FileB || are windows of
 " of a tab and you are one FileB, when you close and reopen vim, FileB will

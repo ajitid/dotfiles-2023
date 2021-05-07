@@ -140,9 +140,9 @@ Plug 'justinmk/vim-sneak'
 " Plug 'jremmen/vim-ripgrep'
 Plug 'williamboman/nvim-lsp-installer'
 
-" Plug 'tpope/vim-obsession'
-" ^ have found obsession to be the most predictable
-Plug 'rmagatti/auto-session'
+Plug 'tpope/vim-obsession'
+" ^ have found obsession to be the most predictable, auto-session is good too
+" Plug 'rmagatti/auto-session'
 " Plug 'rmagatti/session-lens'
 
 Plug 'machakann/vim-swap'
