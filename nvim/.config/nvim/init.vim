@@ -241,8 +241,8 @@ nnoremap <leader>Cn <cmd>let @_ = expand("%:t")<cr>gtgT<cmd>let @+ = expand("%:t
 
 " Swaps block of code, respecting indentation of blocks in which it is swapped
 " to (esp. useful in visual line mode)
-nnoremap <silent><c-j> :m .+1<CR>==
-nnoremap <silent><c-k> :m .-2<CR>==
+" nnoremap <silent><c-j> :m .+1<CR>==
+" nnoremap <silent><c-k> :m .-2<CR>==
 vnoremap <silent><c-j> :m '>+1<cr>gv=gv
 vnoremap <silent><c-k> :m '<-2<cr>gv=gv
 
