@@ -130,7 +130,7 @@ function git_recommit
     # it has same name as local branch
     set -l upstream_or_err (git rev-parse --symbolic-full-name --abbrev-ref @{u})
     if test $status -eq 0
-      set -l upstream_branch (echo $upstream_or_err | sed 's/.\+\///')
+      set -l upstream_branch (echo $upstream_or_err | cut -d '/' -f 2-)
       set -l current_branch (git branch --show-current)
       if [ "$upstream_branch" != "$current_branch" ]; and test $force_commit -eq 0
         echo "Upstream branch name ($upstream_branch) does not matches current branch name ($current_branch)."
