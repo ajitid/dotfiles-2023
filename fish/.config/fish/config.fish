@@ -117,6 +117,21 @@ function git_recommit
   set -l first_commit_hash $argv[1]
 
   if [ "$first_commit_hash" = "" ]
+    # check if an upstream is present for current branch and
+    # it has same name as local branch
+    set -l upstream_or_err (git rev-parse --symbolic-full-name --abbrev-ref @{u})
+    if test $status -eq 0
+      set -l upstream_branch (echo $upstream_or_err | sed 's/.\+\///')
+      set -l current_branch (git branch --show-current)
+      if [ "$upstream_branch" != "$current_branch" ]
+	echo "Upstream branch name ($upstream_branch) does not matches current branch name ($current_branch)"
+	return 4
+      end
+    else
+      echo "Upstream branch isn't defined for current local branch"
+      return 3
+    end
+
     set -l common_ancestor (git merge-base HEAD HEAD@{u})
     set first_commit_hash (git rev-list --topo-order --ancestry-path --reverse $common_ancestor...HEAD | head -1)
 
