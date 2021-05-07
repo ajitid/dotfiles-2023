@@ -3,6 +3,11 @@
 # taken from https://stackoverflow.com/a/52324605/7683365
 # and modified
 
+if [[ $1 == "" ]]; then
+  echo "No hash (or HEAD) given"
+  exit 1
+fi
+
 set -euo pipefail
 
 script_name=${0##*/}
