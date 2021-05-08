@@ -780,16 +780,5 @@ endfunction
 " --- Calling the function
 " call SetVisualBlock([24, 6], [22, 3])
 
-function! SetInnerParaBlock()
-  " let l:startpos = 
-  " feedkeys('g')
-
-  " A combo of:
-  " - SetVisualBlock (defined above)
-  " - https://stackoverflow.com/questions/4836944/vim-how-to-jump-to-first-last-line-of-the-current-paragraph
-  " - http://derekwyatt.org/2015/07/27/getting-character-under-cursor-in-vim/
-  " can do a visual block selection within a para
-endfunction
-
 command! UltiSnipsLookup
       \ Telescope ultisnips ultisnips
