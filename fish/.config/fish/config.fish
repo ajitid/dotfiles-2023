@@ -129,7 +129,7 @@ function git_recommit
 
   set -l force_commit 0
 
-  # TODO there would be a better way to parse arguments
+  # TODO there would be a better way to parse arguments (there is `argparse`)
   switch $argv[1]
     case '-f' or '--force'
       set force_commit 1
