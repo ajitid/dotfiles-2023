@@ -751,3 +751,42 @@ if has('nvim')
         \ |     aug! UltiSnips_AutoTrigger
         \ | endif
 endif
+
+" swap columns of a row of a table
+" taken from https://gist.github.com/habamax/8990424953c1b6ba314229d0da4fb4d9
+let g:swap#rules = deepcopy(g:swap#default_rules)
+" drawback — doesn't acts on a visual selection
+let g:swap#rules += [
+      \   {
+      \     'mode': 'n',
+      \     'description': 'Reorder the | bar | delimited | things |.',
+      \     'body': '|\%([^|]\+|\)\+',
+      \     'delimiter': ['\s*|\s*'],
+      \     'priority': -40
+      \   }
+      \ ]
+
+function! SetVisualBlock(start, end)
+  " Trigger visual block mode
+  execute "norm! \<C-v>\<Esc>"
+
+  " Set the marks
+  call setpos("'<", [ 0, a:start[0], a:start[1] ])
+  call setpos("'>", [ 0, a:end[0], a:end[1] ])
+
+  " Select based on the marks
+  norm! gv
+endfunction
+" --- Calling the function
+" call SetVisualBlock([24, 6], [22, 3])
+
+function! SetInnerParaBlock()
+  " let l:startpos = 
+  " feedkeys('g')
+
+  " A combo of:
+  " - SetVisualBlock (defined above)
+  " - https://stackoverflow.com/questions/4836944/vim-how-to-jump-to-first-last-line-of-the-current-paragraph
+  " - http://derekwyatt.org/2015/07/27/getting-character-under-cursor-in-vim/
+  " can do a visual block selection within a para
+endfunction
