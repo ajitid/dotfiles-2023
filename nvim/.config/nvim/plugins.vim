@@ -79,9 +79,8 @@ Plug 'machakann/vim-sandwich'
 " Completion using LSP
 Plug 'hrsh7th/nvim-compe'
 
-" TextMate like snippets
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Smooth scrolling
 Plug 'psliwka/vim-smoothie'
