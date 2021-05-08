@@ -32,7 +32,7 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 " removed as <c-d> is used for de-indent in insert mode
 " inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
-let g:UltiSnipsExpandTrigger = '<Nop>'
+let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
