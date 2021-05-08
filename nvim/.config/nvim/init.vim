@@ -743,7 +743,6 @@ endfun
 command! Juggle
       \ call s:Juggle()
 
-
 " disables auto-trigger feature of ultisnips https://github.com/SirVer/ultisnips/issues/1239#issuecomment-640841645
 if has('nvim')
   au VimEnter * if exists('#UltiSnips_AutoTrigger')
@@ -751,20 +750,6 @@ if has('nvim')
         \ |     aug! UltiSnips_AutoTrigger
         \ | endif
 endif
-
-" swap columns of a row of a table
-" taken from https://gist.github.com/habamax/8990424953c1b6ba314229d0da4fb4d9
-let g:swap#rules = deepcopy(g:swap#default_rules)
-" drawback — doesn't acts on a visual selection
-let g:swap#rules += [
-      \   {
-      \     'mode': 'n',
-      \     'description': 'Reorder the | bar | delimited | things |.',
-      \     'body': '|\%([^|]\+|\)\+',
-      \     'delimiter': ['\s*|\s*'],
-      \     'priority': -40
-      \   }
-      \ ]
 
 function! SetVisualBlock(start, end)
   " Trigger visual block mode
