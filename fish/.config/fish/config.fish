@@ -42,10 +42,13 @@ eval /home/zlksnk/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 export DISPLAY=(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=0
 
-alias v "~/workspace/execs/nvim.appimage"
+# abbr can be used too, see https://github.com/jonhoo/configs/blob/master/shell/.config/fish/config.fish#L1
+# seems like it must be preferred over alias https://www.sean.sh/log/when-an-alias-should-actually-be-an-abbr/
+abbr -a v 'nvim.appimage'
+
 # see for info https://github.com/mhinz/neovim-remote/
 # and https://thoughtbot.com/upcase/videos/neovim-remote-as-preferred-editor
-alias vr "NVIM_LISTEN_ADDRESS=/tmp/nvimsocket ~/workspace/execs/nvim.appimage"
+alias vr "NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim.appimage"
 
 export PATH="$PATH:$HOME/workspace/execs"
 alias g "/usr/bin/smerge"
