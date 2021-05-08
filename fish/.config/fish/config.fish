@@ -117,8 +117,14 @@ end
 # to use it supply a commit hash or `HEAD`, 
 # if nothing is specified then it'll start right after from the point where it was diverged from remote
 function git_recommit
+  # check if it is not a git repo
   if not git rev-parse --is-inside-work-tree >/dev/null
     return 5
+  end
+
+  if test -d (git rev-parse --git-path rebase-merge); or test -d (git rev-parse --git-path rebase-apply)
+    echo "Can't continue as you are in the middle of a rebase."
+    return 6
   end
 
   set -l force_commit 0
