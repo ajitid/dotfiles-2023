@@ -169,8 +169,8 @@ function git_recommit
   end
 
   set -l commits_count (git log $first_commit_hash..HEAD --pretty=oneline | wc -l)
-  while test $commits_count -ge 0
-    if not git recommit HEAD~$commits_count
+  for head_ancestor in (seq 0 $commits_count)[-1..1]
+    if not git recommit HEAD~$head_ancestor
       echo "ERROR IN COMMITING — if you have staged changes, add fixes to \
 solve the issue which caused this commit to fail and \
 use `git commit --amend` followed by `git rebase --continue` to complete the process. \
@@ -178,7 +178,8 @@ To abort this process instead, use `git rebase --abort`."
       return 2
     end
 
-    set commits_count (math $commits_count - 1)
+    # set commits_count (math $commits_count - 1) # was needed for while loop
+    # on the same note, fish also supports `break` and `continue`
   end
 end
 
