@@ -180,4 +180,12 @@ Plug 'kana/vim-textobj-indent'
 Plug 'Julian/vim-textobj-variable-segment'
 
 Plug 'fhill2/telescope-ultisnips.nvim'
+
+" OSC52 (and maybe PASTE64) yank: https://github.com/ojroques/vim-oscyank
+" ^ useful on an ssh-ed machine, and it seems like it can work w/o X forwarding:
+" https://www.reddit.com/r/vim/comments/k1ydpn/a_guide_on_how_to_copy_text_from_anywhere/
+" more at https://chromium.googlesource.com/apps/libapps/+/master/hterm/etc/osc52.vim
+" --------
+" X forwarding settings, if required, on guest and remote machine https://gist.github.com/habamax/75c75e5b590357709a11feb0def99072
+
 call plug#end()
