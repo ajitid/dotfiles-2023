@@ -151,7 +151,7 @@ function git_recommit
     end
 
     set -l common_ancestor (git merge-base HEAD HEAD@{u})
-    set first_commit_hash (git rev-list --topo-order --ancestry-path --reverse $common_ancestor...HEAD | head -1)
+    set first_commit_hash (git rev-list --topo-order --ancestry-path --reverse --abbrev-commit $common_ancestor...HEAD | head -1)
 
     if [ "$first_commit_hash" = "" ]
       set first_commit_hash "HEAD"
