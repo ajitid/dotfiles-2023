@@ -44,7 +44,7 @@ export LIBGL_ALWAYS_INDIRECT=0
 
 # abbr can be used too, see https://github.com/jonhoo/configs/blob/master/shell/.config/fish/config.fish#L1
 # seems like it must be preferred over alias https://www.sean.sh/log/when-an-alias-should-actually-be-an-abbr/
-abbr -a v 'nvim.appimage'
+abbr v 'nvim.appimage'
 
 # see for info https://github.com/mhinz/neovim-remote/
 # and https://thoughtbot.com/upcase/videos/neovim-remote-as-preferred-editor
