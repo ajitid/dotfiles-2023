@@ -790,3 +790,6 @@ function! SetInnerParaBlock()
   " - http://derekwyatt.org/2015/07/27/getting-character-under-cursor-in-vim/
   " can do a visual block selection within a para
 endfunction
+
+command! UltiSnipsLookup
+      \ Telescope ultisnips ultisnips
