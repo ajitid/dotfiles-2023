@@ -54,7 +54,12 @@ for _, server in pairs(installed_servers) do
       if server.name == "tsserver" then
         -- works but still track ticket here https://github.com/glepnir/lspsaga.nvim/issues/145#issuecomment-828227786
         -- TODO highlight instead of backticking current fn arg
-        require "lsp_signature".on_attach()
+        require "lsp_signature".on_attach({
+          bind = true,
+          decorator = {"**", "**"},
+          hint_enable = false,
+          hint_prefix = "👇 ",
+        })
       --   require('folding').on_attach()
       end
     end,
