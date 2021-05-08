@@ -178,4 +178,6 @@ Plug 'kevinhwang91/nvim-bqf'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'Julian/vim-textobj-variable-segment'
+
+Plug 'fhill2/telescope-ultisnips.nvim'
 call plug#end()
