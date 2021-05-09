@@ -459,8 +459,8 @@ function! s:customize_vaffle_mappings() abort
   nmap <buffer> -        <cmd>Vaffle<cr>
   " TODO add preview mode https://github.com/justinmk/vim-dirvish/blob/9c0dc32af9235d42715751b30cf04fa0584c1798/autoload/dirvish.vim#L241
   " and fill cmdline (present in vim vinegar)
-  nmap <buffer> x        <Plug>(vaffle-toggle-current)
-  vmap <buffer> x        <Plug>(vaffle-toggle-current)
+  nmap <buffer> <tab>        <Plug>(vaffle-toggle-current)
+  vmap <buffer> <tab>        <Plug>(vaffle-toggle-current)
   nnoremap <buffer> <leader>w <cmd>echo vaffle#buffer#extract_path_from_bufname(expand('%'))[len(getcwd())+1:]<cr>
 endfunction
 augroup vimrc_vaffle
