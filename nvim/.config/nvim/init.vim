@@ -93,6 +93,7 @@ luafile ~/nvimfiles/lsp.lua
 " luafile ~/nvimfiles/lsp-eslint.lua
 luafile ~/nvimfiles/format.lua
 luafile ~/nvimfiles/lsp-saga.lua
+lua require("mine.telescope")
 " luafile ~/nvimfiles/lightbulb.lua
 source ~/nvimfiles/compe.vim
 source ~/nvimfiles/intelligent-keybindings.vim

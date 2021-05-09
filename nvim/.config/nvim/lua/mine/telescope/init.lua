@@ -15,12 +15,6 @@ local mods = transform_mod({
 
 telescope.setup{
   defaults = {
-    borderchars = {
-      {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
-      prompt = {"─", "│", " ", "│", "╭", "╮", "│", "│"},
-      results = {"─", "│", "─", "│", "├", "┤", "╯", "╰"},
-      preview = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"}
-    },
     prompt_position = "top",
     sorting_strategy = "ascending",
     prompt_prefix = " ⚡ ",
