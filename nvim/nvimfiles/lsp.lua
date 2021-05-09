@@ -49,9 +49,16 @@ lspconfig.pyright.setup{}
 local installed_servers = require'nvim-lsp-installer'.get_installed_servers()
 for _, server in pairs(installed_servers) do
   opts = {
-    on_attach = function()
+    on_attach = function(client)
 
       if server.name == "tsserver" then
+        if not client.config.flags then
+          client.config.flags = {}
+        end
+        client.config.flags.allow_incremental_sync = true
+
+        client.resolved_capabilities.document_formatting = false
+
         -- works but still track ticket here https://github.com/glepnir/lspsaga.nvim/issues/145#issuecomment-828227786
         -- TODO highlight instead of backticking current fn arg
         require "lsp_signature".on_attach({

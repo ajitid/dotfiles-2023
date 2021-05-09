@@ -767,3 +767,6 @@ endfunction
 
 command! UltiSnipsLookup
       \ Telescope ultisnips ultisnips
+
+command! FormatUsingLsp
+      \ lua vim.lsp.buf.formatting()
