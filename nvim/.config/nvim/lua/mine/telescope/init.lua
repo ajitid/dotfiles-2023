@@ -80,9 +80,9 @@ function M.colors()
 end
 
 function M.find_files()
-  local cmn_opts = generateOpts({})
-  cmn_opts.find_command = {"rg", "--files", "-L", "--glob", "!.git"}
-  builtIn.find_files(cmn_opts)
+  local opts = generateOpts({})
+  opts.find_command = {"rg", "--files", "-L", "--glob", "!.git"}
+  builtIn.find_files(opts)
 end
 
 function M.help_tags()

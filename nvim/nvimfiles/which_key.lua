@@ -7,8 +7,6 @@ wk.setup {
 wk.register({
 	f = {
 		name = "find",
-		-- TODO an elegant solution would be using https://github.com/mhartington/dotfiles/blob/2744dbf2582c358052874467e0264c5c7d46a2a2/config/nvim/lua/mh/telescope/init.lua
-		-- f = {"<cmd>lua require('telescope.builtin').find_files({hidden = true, results_title = false, previewer = false, width = 80, layout_strategy= 'center', results_height = 15 })<cr>", "files"},
 		f = {"<cmd>lua require('mine.telescope').find_files()<cr>", "files"},
 		b = {"<cmd>lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>", "buffers"},
 		h = {"<cmd>lua require('mine.telescope').help_tags()<cr>", "vim and plugins help tags"},
