@@ -14,6 +14,8 @@ export PATH="$PATH:$HOME/workspace/scripts"
 abbr setclip "xclip -selection c"
 abbr getclip "xclip -selection c -o"
 
+abbr gf "cd ~/ghq/(ghq list | fzf)"
+
 alias l='ls  -alhp --group-directories-first --color=never'
 
 function mkcd --description 'Create and enter directory'
