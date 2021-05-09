@@ -81,7 +81,7 @@ end
 
 function M.find_files()
   local opts = generateOpts({})
-  opts.find_command = {"rg", "--files", "-L", "--glob", "!.git"}
+  opts.hidden = true
   builtIn.find_files(opts)
 end
 
