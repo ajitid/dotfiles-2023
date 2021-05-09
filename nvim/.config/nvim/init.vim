@@ -92,7 +92,6 @@ luafile ~/nvimfiles/lsp.lua
 " luafile ~/nvimfiles/eslint-daemon.lua
 " luafile ~/nvimfiles/lsp-eslint.lua
 luafile ~/nvimfiles/format.lua
-luafile ~/nvimfiles/telescope.lua
 luafile ~/nvimfiles/lsp-saga.lua
 " luafile ~/nvimfiles/lightbulb.lua
 source ~/nvimfiles/compe.vim
