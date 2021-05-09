@@ -48,8 +48,8 @@ telescope.setup{
   },
 }
 
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('ultisnips')
+telescope.load_extension('fzf')
+telescope.load_extension('ultisnips')
 
 local function generateOpts(opts)
   local common_opts = {
@@ -74,7 +74,7 @@ end
 local M = {}
 
 M.search_dotfiles = function()
-  require("telescope.builtin").find_files({
+  builtIn.find_files({
     prompt_title = "vimrc",
     cwd = "~/.config/nvim"
   })
