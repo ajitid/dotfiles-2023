@@ -7,7 +7,7 @@ wk.setup {
 wk.register({
 	f = {
 		name = "find",
-		f = {"<cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>", "files"},
+		f = {"<cmd>lua require('telescope.builtin').find_files({hidden = true, previewer = false,})<cr>", "files"},
 		b = {"<cmd>lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>", "buffers"},
 		h = {"<cmd>lua require('telescope.builtin').help_tags()<cr>", "vim and plugins help tags"},
 		--								{shorten_path = true} can go here ↓
