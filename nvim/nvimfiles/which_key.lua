@@ -9,7 +9,7 @@ wk.register({
 		name = "find",
 		f = {"<cmd>lua require('mine.telescope').find_files()<cr>", "files"},
 		b = {"<cmd>lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>", "buffers"},
-		h = {"<cmd>lua require('mine.telescope').help_tags()<cr>", "vim and plugins help tags"},
+		h = {"<cmd>lua require('telescope.builtin').help_tags()<cr>", "vim and plugins help tags"},
 		--								{shorten_path = true} can go here ↓
 		o = {"<cmd>lua require('telescope.builtin').oldfiles()<cr>", "previously opened files"},
 		s = {"<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", "symbols in current file"},

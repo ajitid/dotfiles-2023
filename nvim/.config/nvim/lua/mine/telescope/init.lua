@@ -85,10 +85,5 @@ function M.find_files()
   builtIn.find_files(opts)
 end
 
-function M.help_tags()
-  local opts = generateOpts({})
-  builtIn.help_tags(opts)
-end
-
 return M
 
