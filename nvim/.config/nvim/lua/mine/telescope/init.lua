@@ -18,7 +18,16 @@ telescope.setup{
     prompt_position = "top",
     sorting_strategy = "ascending",
     prompt_prefix = " ⚡ ",
-    file_ignore_patterns = { ".git/", "node_modules/", "__pycache__/", ".DS_Store", "package-lock.json", "yarn.lock" },
+    file_ignore_patterns = {
+      ".git/",
+      ".DS_Store", ".vscode/",
+      "node_modules/", "__pycache__/",
+      "package%-lock.json", "yarn.lock", "pnpm%-lock.yaml",
+      "build/", "dist/",
+    },
+    -- ^ telescope uses lua's pattern matching library, see:
+    -- https://github.com/nvim-telescope/telescope.nvim/issues/780
+    -- https://gitspartv.github.io/lua-patterns/
     selection_caret = "› ",
     file_previewer = require('telescope.previewers').vim_buffer_cat.new,
     -- this can work too but I cannot see any benefit-> file_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
@@ -27,6 +36,7 @@ telescope.setup{
     mappings = {
       i = {
         ["<esc>"] = actions.close,
+        -- TODO multiple file selection on <cr> if used <tab> https://github.com/nvim-telescope/telescope.nvim/issues/814
         ["<CR>"] = actions.select_default,
         ["<Tab>"] = actions.toggle_selection
       }
