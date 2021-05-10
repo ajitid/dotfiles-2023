@@ -7,6 +7,8 @@ end
 
 # export PATH="$PATH:/mnt/c/Windows/System32"
 
+# zoxide init --no-aliases fish | source
+
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/workspace/scripts"

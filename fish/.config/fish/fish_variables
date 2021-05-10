@@ -6,6 +6,8 @@ SETUVAR _fish_abbr_getclip:xclip\x20\x2dselection\x20c\x20\x2do
 SETUVAR _fish_abbr_gf:cd\x20\x7e/ghq/\x28ghq\x20list\x20\x7c\x20fzf\x29
 SETUVAR _fish_abbr_setclip:xclip\x20\x2dselection\x20c
 SETUVAR _fish_abbr_v:nvim\x2eappimage
+SETUVAR _fish_abbr_zf:z\x20\x2dI
+SETUVAR _fish_abbr_zz:z\x20\x2dc
 SETUVAR fish_color_autosuggestion:707A8C
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:5CCFE6
