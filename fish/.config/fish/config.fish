@@ -14,6 +14,14 @@ export PATH="$PATH:$HOME/workspace/scripts"
 abbr setclip "xclip -selection c"
 abbr getclip "xclip -selection c -o"
 
+# this coud've worked but just didn't: `ghq list | fzf | sed 's|^|~/ghq/|' | xargs cd`
+# ^ replace `cd` with `echo` to confirm output
+# seems like https://superuser.com/questions/929377/can-xargs-evaluate-home
+# https://superuser.com/questions/893890/xargs-change-working-directory-to-file-path-before-executing
+# https://superuser.com/questions/206789/using-xargs-to-cd-to-a-directory
+# https://www.linuxquestions.org/questions/linux-newbie-8/xargs-cd-is-not-working-796219/
+#
+# more options at https://unix.stackexchange.com/questions/360540/append-to-a-pipe-and-pass-on
 abbr gf "cd ~/ghq/(ghq list | fzf)"
 
 alias l='ls  -alhp --group-directories-first --color=never'
