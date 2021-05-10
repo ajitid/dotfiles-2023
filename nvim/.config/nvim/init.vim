@@ -770,3 +770,14 @@ command! UltiSnipsLookup
 
 command! FormatUsingLsp
       \ lua vim.lsp.buf.formatting()
+
+" http://www.akhatib.com/format-json-files-in-vim/
+function! FormatJson()
+  set ft=json
+  let b:pre_fmt_view = winsaveview()
+  %!python -m json.tool --indent=2
+  call winrestview(b:pre_fmt_view)
+  " call feedkeys('g=')
+endfun
+command! FormatJson
+      \ call FormatJson()
