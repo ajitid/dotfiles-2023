@@ -174,8 +174,16 @@ function git_recommit
     set -l common_ancestor (git merge-base HEAD HEAD@{u})
     set first_commit_hash (git rev-list --topo-order --ancestry-path --reverse --abbrev-commit $common_ancestor...HEAD | head -1)
 
+    # if this gives empty then there is no common ancestor which means
+    # commit hash of HEAD (local branch) == commit hash of HEAD@{u} (upstream branch)
     if [ "$first_commit_hash" = "" ]
-      set first_commit_hash "HEAD"
+      # apart from `fmt` there is also `fold
+      # see https://unix.stackexchange.com/questions/25173/how-can-i-wrap-text-at-a-certain-column-size
+      echo "Seems like both local and remote branches have their HEAD pointing to the same commit. \
+This usually means your local branch is up to date with remote." | fmt
+      echo
+      echo "If you want to recommit this anyway, pass `HEAD` as argument."
+      return 7
     end
 
     set -l commit_msg (git log --format=%B -n 1 $first_commit_hash)
@@ -192,10 +200,11 @@ function git_recommit
   set -l commits_count (git log $first_commit_hash..HEAD --pretty=oneline | wc -l)
   for head_ancestor in (seq 0 $commits_count)[-1..1]
     if not git recommit HEAD~$head_ancestor
+      echo
       echo "ERROR IN COMMITING — if you have staged changes, add fixes to \
 solve the issue which caused this commit to fail and \
 use `git commit --amend` followed by `git rebase --continue` to complete the process. \
-To abort this process instead, use `git rebase --abort`."
+To abort this process instead, use `git rebase --abort`." | fmt
       return 2
     end
 
