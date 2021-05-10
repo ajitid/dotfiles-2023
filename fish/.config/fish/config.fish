@@ -67,12 +67,12 @@ alias g "/usr/bin/smerge"
 
 set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-begin
-  set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
-  if test -e $AUTOJUMP_PATH
-    source $AUTOJUMP_PATH
-  end
-end
+# begin
+#   set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
+#   if test -e $AUTOJUMP_PATH
+#     source $AUTOJUMP_PATH
+#   end
+# end
 
 # TODO add completion
 function up
