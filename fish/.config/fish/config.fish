@@ -201,11 +201,17 @@ This usually means your local branch is up to date with remote." | fmt
   for head_ancestor in (seq 0 $commits_count)[-1..1]
     if not git recommit HEAD~$head_ancestor
       echo
-      echo "ERROR IN COMMITING — if you have staged changes, add fixes to \
-solve the issue which caused this commit to fail and \
+
+      if test -d (git rev-parse --git-path rebase-merge); or test -d (git rev-parse --git-path rebase-apply)
+        echo "Error in recommiting — if you are in the middle of a rebase and have staged changes, \
+add fixes to resolve the issue which caused this commit to fail and \
 use `git commit --amend` followed by `git rebase --continue` to complete the process. \
 To abort this process instead, use `git rebase --abort`." | fmt
-      return 2
+        return 2
+      else
+        echo "Error in recommiting — please try to debug the cause from info given above."
+        return 8
+      end
     end
 
     # set commits_count (math $commits_count - 1) # was needed for while loop
