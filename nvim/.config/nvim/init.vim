@@ -111,10 +111,17 @@ let g:Hexokinase_highlighters = ['backgroundfull']
 nnoremap <leader>SS :S/<c-r>=tolower(expand("<cword>"))<cr>//g<left><left>
 
 " For easy command access and to not to lose `;` functionality
+" nnoremap ; :
+" nnoremap : ;
+" vnoremap ; :
+" vnoremap : ;
+" ^ I noticed that few Vim plugins which use `feedkeys` with `:` passed are trying to
+" use command line. While using `:` in nmap works fine it doesn't for
+" `feedkeys`. I don't use `,` to go back w/ f/t/F/T movements anyway.
 nnoremap ; :
-nnoremap : ;
+nnoremap , ;
 vnoremap ; :
-vnoremap : ;
+vnoremap , ;
 
 " ctrl+s to save
 inoremap <c-s> <esc><cmd>w<cr>
@@ -173,10 +180,10 @@ set nohls
 " quick tip: rather than pressing enter after search and using n and N to
 " navigate, you can use <c-g> and <c-t>. It won't give you match count, it
 " won't highlight all matches, sure, but it still feels faster getting to the
-" target. One more tip, use \M at start of query to issue a non-magic search
+" target. One more tip, use \V at start of query to issue a non-magic search
 " so you can search `.` without escaping it for example. For more, see :help \v.
-nnoremap <leader>/ /\M
-nnoremap <leader>? ?\M
+nnoremap <leader>/ /\V
+nnoremap <leader>? ?\V
 " ^ or just use sneak
 
 " markdown
