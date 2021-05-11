@@ -1,7 +1,7 @@
 #!/usr/bin/fish
 
 if git push --force-with-lease origin $argv
-  notify-send.exe "Push Success" "Keep pushin'! ✔"
+  notify-send.exe "Push Success" "Keep pushin'! ✔" &
 else
-  notify-send.exe -i error "Push failure" "Is it lint or test?"
+  notify-send.exe -i error "Push failure" "Is it lint or test?" &
 end

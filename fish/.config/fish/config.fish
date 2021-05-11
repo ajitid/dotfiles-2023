@@ -120,9 +120,9 @@ set -gx PATH $PATH "/mnt/c/Users/Ajit.Singh/Downloads/notify-send/"
 # start with `#!/usr/bin/fish` followed by content inside following function
 function git_push_and_notify
   if git push --force-with-lease origin $argv
-    notify-send.exe "Push Success" "Keep pushin'! ✔"
+    notify-send.exe "Push Success" "Keep pushin'! ✔" &
   else
-    notify-send.exe -i error "Push failure" "Is it lint or test?"
+    notify-send.exe -i error "Push failure" "Is it lint or test?" &
   end
 end
 
@@ -227,10 +227,10 @@ function git_recommit_and_notify
   # because I needed a non-zero status code I had to comment this out
 
   if git_recommit $argv[1]
-    notify-send.exe "Done running commit hooks" "Go for the push! 🏂"
+    notify-send.exe "Done running commit hooks" "Go for the push! 🏂" &
   else
     set -l err_code $status
-    notify-send.exe -i error "Commit hook failed" "Welp back to work"
+    notify-send.exe -i error "Commit hook failed" "Welp back to work" &
     return $err_code
   end
 end
