@@ -23,6 +23,31 @@ function! LspStatus() abort
     return sl
 endfunction
 
+" modified `:h lightline-problem-12`
+function! ModifiedMode()
+    let map = { 'V': 'v-line', "\<C-v>": 'v-block', 's': 'select',
+    \ 'v': 'visual', "\<C-s>": 'dunno-what-this-is', 'c': '≥ cmd', 'R': 'replace', 'n': 'normal', 'i': 'insert'}
+    let mode = get(map, mode()[0], mode()[0])
+
+    if &modified
+        exe printf('hi LightlineLeft_normal_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
+        exe printf('hi LightlineLeft_insert_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
+        exe printf('hi LightlineLeft_visual_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
+        exe printf('hi LightlineLeft_command_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
+        exe printf('hi LightlineLeft_select_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
+        exe printf('hi LightlineLeft_replace_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
+    else
+        exe printf('hi LightlineLeft_normal_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
+        exe printf('hi LightlineLeft_insert_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
+        exe printf('hi LightlineLeft_visual_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
+        exe printf('hi LightlineLeft_command_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
+        exe printf('hi LightlineLeft_select_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
+        exe printf('hi LightlineLeft_replace_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
+    endif
+    return mode
+endfunction
+
+
 " TODO: show tab/space and count
 let g:lightline = {
       \ 'colorscheme': 'substratum',
@@ -31,16 +56,18 @@ let g:lightline = {
       \   'right': [[]]
       \ },
       \ 'active': {
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype', 'lsp_status' ] ]
+      \   'left': [ [ 'filename', 'readonly', 'modified' ],
+      \             [ 'modified-mode', 'paste' ] ],
+      \   'right': [ [ 'lineinfo', 'percent' ],
+      \              [ 'lsp_status', 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'inactive': {
-      \   'left': [ ['filename', 'modified'] ],
+      \   'left': [ [ 'filename', 'modified' ] ],
       \   'right': []
       \ },
       \ 'component': {
-      \   'charvaluehex': '0x%B'
+      \   'charvaluehex': '0x%B',
+      \   'modified-mode': '%#ModifiedColor#%{ModifiedMode()}',
       \ },
       \ }
 

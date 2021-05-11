@@ -8,11 +8,11 @@ let s:fg = ['#b5b4c9', '236']
 let s:fg_fade = ['#6c6f82', '236']
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-let s:p.normal.left = [ [ s:fg, s:bg ], [ s:fg, s:bg ] ]
-let s:p.normal.middle = copy(s:p.normal.left)
-let s:p.normal.right = copy(s:p.normal.left)
+let s:p.normal.left = [ [ s:fg, s:bg ], [ s:fg_fade, s:bg ] ]
 
 let s:p.inactive.right = [ [ s:fg_fade, s:bg ], [ s:fg_fade, s:bg ] ]
+let s:p.normal.right = copy(s:p.inactive.right)
+let s:p.normal.middle = copy(s:p.inactive.right)
 let s:p.inactive.left =  copy(s:p.inactive.right)
 let s:p.inactive.middle = copy(s:p.inactive.right)
 
