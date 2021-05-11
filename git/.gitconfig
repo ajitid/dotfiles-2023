@@ -9,3 +9,5 @@
 [gc]
 	reflogexpireunreachable = 90
 	reflogexpire = 90
+[push]
+	default = current
