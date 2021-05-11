@@ -781,3 +781,6 @@ function! FormatJson()
 endfun
 command! FormatJson
       \ call FormatJson()
+
+" TODO might use this to highlight current word?
+" https://vi.stackexchange.com/a/2770
