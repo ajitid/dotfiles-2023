@@ -468,7 +468,7 @@ function! s:customize_vaffle_mappings() abort
   " and fill cmdline (present in vim vinegar)
   nmap <buffer> <tab>        <Plug>(vaffle-toggle-current)
   vmap <buffer> <tab>        <Plug>(vaffle-toggle-current)
-  nnoremap <buffer> <leader>w <cmd>echo vaffle#buffer#extract_path_from_bufname(expand('%'))[len(getcwd())+1:]<cr>
+  nmap <buffer> p <cmd>call vaffle#buffer#show_current_dir()<cr>
 endfunction
 augroup vimrc_vaffle
   autocmd!
