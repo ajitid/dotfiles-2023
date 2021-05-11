@@ -18,6 +18,7 @@ local prettier = function()
 end
 
 -- to save without format, use `:noa w`
+-- also you can use `let b:formatter_skip_buf=1`
 
 require('formatter').setup({
 	logging = false,

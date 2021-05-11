@@ -6,3 +6,6 @@
 	excludesfile = ~/.gitignoreglobal
 [alias]
 	pn = !git_push_and_notify
+[gc]
+	reflogexpireunreachable = 90
+	reflogexpire = 90
