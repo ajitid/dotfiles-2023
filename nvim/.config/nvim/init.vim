@@ -105,7 +105,7 @@ luafile ~/nvimfiles/lir.lua
 luafile ~/nvimfiles/which_key.lua
 luafile ~/nvimfiles/comment.lua
 
-" nnoremap - <cmd>execute "try \n edit %:h \n catch \n edit . \n endtry"<cr>
+nnoremap - <cmd>execute "try \n edit %:h \n catch \n edit . \n endtry"<cr>
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 

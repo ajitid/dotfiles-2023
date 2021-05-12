@@ -5,9 +5,11 @@ local clipboard_actions = require'lir.clipboard.actions'
 require'lir'.setup {
 	show_hidden_files = true,
 	mappings = {
-		-- ['-']     = function()
-		-- 	vim.cmd('edit .')
-		-- end,
+		['-']     = function()
+			vim.cmd('Juggle')
+			actions.quit()
+			vim.cmd('edit .')
+		end,
 		['l']     = actions.edit,
 		['<C-s>'] = actions.split,
 		['<C-v>'] = actions.vsplit,
