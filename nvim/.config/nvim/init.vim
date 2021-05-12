@@ -105,6 +105,8 @@ luafile ~/nvimfiles/lir.lua
 luafile ~/nvimfiles/which_key.lua
 luafile ~/nvimfiles/comment.lua
 
+" nnoremap - <cmd>execute "try \n edit %:h \n catch \n edit . \n endtry"<cr>
+
 let g:Hexokinase_highlighters = ['backgroundfull']
 
 " substitute word under cursor in the line
@@ -459,24 +461,6 @@ set diffopt+=algorithm:histogram,indent-heuristic,vertical
 " more https://unix.stackexchange.com/a/352204
 
 let g:localvimrc_persistent = 1
-
-let g:vaffle_show_hidden_files = 1
-let g:vaffle_force_delete = 1
-nnoremap - <cmd>execute "try \n Vaffle % \n catch \n Vaffle \n endtry"<cr>
-
-function! s:customize_vaffle_mappings() abort
-  " go to project root
-  nmap <buffer> -        <cmd>Vaffle<cr>
-  " TODO add preview mode https://github.com/justinmk/vim-dirvish/blob/9c0dc32af9235d42715751b30cf04fa0584c1798/autoload/dirvish.vim#L241
-  " and fill cmdline (present in vim vinegar)
-  nmap <buffer> <tab>        <Plug>(vaffle-toggle-current)
-  vmap <buffer> <tab>        <Plug>(vaffle-toggle-current)
-  nmap <buffer> p <cmd>call vaffle#buffer#show_current_dir()<cr>
-endfunction
-augroup vimrc_vaffle
-  autocmd!
-  autocmd FileType vaffle call s:customize_vaffle_mappings()
-augroup END
 
 " indent file without leaving cursor pos
 " from https://stackoverflow.com/a/20110045/7683365

@@ -65,7 +65,7 @@ Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
 " Quick tree navigation
 " Plug 'justinmk/vim-dirvish'
 " Plug 'cocopon/vaffle.vim'
-Plug 'zlksnk/vaffle.vim', { 'branch' : 'modifications-zlksnk' }
+" Plug 'zlksnk/vaffle.vim', { 'branch' : 'modifications-zlksnk' }
 " Unix file/dir shell commands
 Plug 'zlksnk/vim-eunuch', { 'branch' : 'modifications-zlksnk' }
 
