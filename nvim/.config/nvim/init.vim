@@ -105,6 +105,10 @@ luafile ~/nvimfiles/lir.lua
 luafile ~/nvimfiles/which_key.lua
 luafile ~/nvimfiles/comment.lua
 
+" used this to highlight current word https://vi.stackexchange.com/a/2770
+source ~/nvimfiles/highlight-word.vim
+" ^ TODO https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
+
 nnoremap - <cmd>execute "try \n edit %:h \n catch \n edit . \n endtry"<cr>
 
 let g:Hexokinase_highlighters = ['backgroundfull']
@@ -777,9 +781,6 @@ function! FormatJson()
 endfun
 command! FormatJson
       \ call FormatJson()
-
-" TODO might use this to highlight current word?
-" https://vi.stackexchange.com/a/2770
 
 " from https://vim.fandom.com/wiki/Highlight_current_word_to_find_cursor
 function HighlightNearCursor()
