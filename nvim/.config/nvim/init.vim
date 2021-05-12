@@ -737,6 +737,8 @@ endfun
 command! Juggle
       \ call s:Juggle()
 
+nnoremap <leader>gj <cmd>Juggle<cr>
+
 " disables auto-trigger feature of ultisnips https://github.com/SirVer/ultisnips/issues/1239#issuecomment-640841645
 if has('nvim')
   au VimEnter * if exists('#UltiSnips_AutoTrigger')
