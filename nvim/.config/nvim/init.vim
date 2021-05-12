@@ -308,7 +308,10 @@ highlight QuickScopeSecondary guifg='#ffc4a4' gui=underline ctermfg=81
 " end. More separators here ->
 " http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
 set wildcharm=<c-z>
-nnoremap <leader>n :e %:.:h<c-z>
+" space and backspace are added to prevent autosuggest from showing parent folder
+" suggestions
+nnoremap <leader>n :e %:.:h<c-z><space><bs>
+" nnoremap <leader>n :e %:.:h<c-z>
 
 " vim abolish substitute
 vnoremap ss :S///g<left><left><left>
