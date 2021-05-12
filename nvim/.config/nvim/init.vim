@@ -778,3 +778,14 @@ command! FormatJson
 
 " TODO might use this to highlight current word?
 " https://vi.stackexchange.com/a/2770
+
+" from https://vim.fandom.com/wiki/Highlight_current_word_to_find_cursor
+function HighlightNearCursor()
+  if !exists("s:highlightcursor")
+    match Todo /\k*\%#\k*/
+    let s:highlightcursor=1
+  else
+    match None
+    unlet s:highlightcursor
+  endif
+endfunction
