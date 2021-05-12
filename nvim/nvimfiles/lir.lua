@@ -1,8 +1,9 @@
+local lir = require'lir'
 local actions = require'lir.actions'
 local mark_actions = require 'lir.mark.actions'
 local clipboard_actions = require'lir.clipboard.actions'
 
-require'lir'.setup {
+lir.setup {
 	show_hidden_files = true,
 	mappings = {
 		['-']     = function()
@@ -35,6 +36,11 @@ require'lir'.setup {
 		['C'] = clipboard_actions.copy,
 		['X'] = clipboard_actions.cut,
 		['P'] = clipboard_actions.paste,
+		-- put current path in cmd line
+		['x'] = function()
+			local current = lir.get_context():current()
+			vim.cmd('call feedkeys(": ' .. current.fullpath .. '\\<Home>")')
+		end,
 	},
 	float = {
 		size_percentage = 0.5,
