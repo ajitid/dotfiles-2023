@@ -66,9 +66,9 @@ Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
 " Plug 'justinmk/vim-dirvish'
 " Plug 'cocopon/vaffle.vim'
 " Plug 'zlksnk/vaffle.vim', { 'branch' : 'modifications-zlksnk' }
-" Unix file/dir shell commands
-Plug 'zlksnk/vim-eunuch', { 'branch' : 'modifications-zlksnk' }
 
+" Unix file/dir shell commands
+Plug 'tpope/vim-eunuch'
 
 " Surround/change text with quotes, bracekts or tags
 Plug 'machakann/vim-sandwich'
