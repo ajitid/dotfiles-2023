@@ -250,6 +250,8 @@ nnoremap <leader>Cn <cmd>let @_ = expand("%:t")<cr>gtgT<cmd>let @+ = expand("%:t
 
 " Swaps block of code, respecting indentation of blocks in which it is swapped
 " to (esp. useful in visual line mode)
+" move line blocks up or down
+" more at https://old.reddit.com/r/vim/comments/na7qmm/help_how_to_move_lines_like_in_vscode/gxs37rh/
 " nnoremap <silent><c-j> :m .+1<CR>==
 " nnoremap <silent><c-k> :m .-2<CR>==
 vnoremap <silent><c-j> :m '>+1<cr>gv=gv
