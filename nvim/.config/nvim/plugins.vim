@@ -188,4 +188,7 @@ Plug 'fhill2/telescope-ultisnips.nvim'
 " --------
 " X forwarding settings, if required, on guest and remote machine https://gist.github.com/habamax/75c75e5b590357709a11feb0def99072
 
+
+Plug 'tamago324/lir.nvim'
+
 call plug#end()

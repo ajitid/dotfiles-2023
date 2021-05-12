@@ -101,6 +101,7 @@ source ~/nvimfiles/lightline.vim
 " source ~/nvimfiles/startify.vim
 " luafile ~/nvimfiles/color-highlight.lua
 luafile ~/nvimfiles/treesitter.lua
+luafile ~/nvimfiles/lir.lua
 luafile ~/nvimfiles/which_key.lua
 luafile ~/nvimfiles/comment.lua
 
