@@ -29,21 +29,6 @@ function! ModifiedMode()
     \ 'v': 'visual', "\<C-s>": 'dunno-what-this-is', 'c': '≥ cmd', 'R': 'replace', 'n': 'normal', 'i': 'insert'}
     let mode = get(map, mode()[0], mode()[0])
 
-    if &modified
-        exe printf('hi LightlineLeft_normal_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
-        exe printf('hi LightlineLeft_insert_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
-        exe printf('hi LightlineLeft_visual_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
-        exe printf('hi LightlineLeft_command_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
-        exe printf('hi LightlineLeft_select_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
-        exe printf('hi LightlineLeft_replace_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#252735 term=bold cterm=bold')
-    else
-        exe printf('hi LightlineLeft_normal_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
-        exe printf('hi LightlineLeft_insert_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
-        exe printf('hi LightlineLeft_visual_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
-        exe printf('hi LightlineLeft_command_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
-        exe printf('hi LightlineLeft_select_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
-        exe printf('hi LightlineLeft_replace_0 ctermfg=196 ctermbg=240 guifg=#b5b4c9 guibg=#20222d term=bold cterm=bold')
-    endif
     return mode
 endfunction
 
