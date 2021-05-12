@@ -782,10 +782,25 @@ command! FormatJson
 " from https://vim.fandom.com/wiki/Highlight_current_word_to_find_cursor
 function HighlightNearCursor()
   if !exists("s:highlightcursor")
-    match Todo /\k*\%#\k*/
+    match markdownCode /\k*\%#\k*/
     let s:highlightcursor=1
   else
     match None
     unlet s:highlightcursor
   endif
 endfunction
+
+nnoremap <leader>h <cmd>call HighlightNearCursor()<cr>
+
+function ClearHighlightNearCursor()
+  if exists("s:highlightcursor")
+    match None
+    unlet s:highlightcursor
+  endif
+endfunction
+
+augroup highlight_near_cursor
+  autocmd!
+  " taken from vim sneak plugin
+  autocmd CursorMoved * autocmd highlight_near_cursor CursorMoved * call ClearHighlightNearCursor()
+augroup END
