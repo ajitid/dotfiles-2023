@@ -80,7 +80,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'hrsh7th/nvim-compe'
 
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " Smooth scrolling
 Plug 'psliwka/vim-smoothie'
