@@ -1,3 +1,9 @@
+" related issues
+" https://github.com/neovim/neovim/issues/14312
+" https://github.com/neovim/neovim/pull/11014
+" https://github.com/neovim/neovim/issues/8715
+" https://github.com/neovim/neovim/issues/2514
+
 " using ftplugin/ folder would be better here
 " ^ Update: maybe not in this case as I can comma separate Filetype here
 let s:compe_c = {
