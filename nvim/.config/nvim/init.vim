@@ -611,7 +611,7 @@ command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>
 " command! RedirToCurrentBuffer silent let w:scratch = 1
 
 " from https://gist.github.com/romainl/5b827f4aafa7ee29bdc70282ecc31640
-command! -range GBlame echo join(systemlist("git -C " . shellescape(expand('%:p:h')) . " blame -L <line1>,<line2> " . expand('%:t')), "\n")
+command! -range Blame echo join(systemlist("git -C " . shellescape(expand('%:p:h')) . " blame -L <line1>,<line2> " . expand('%:t')), "\n")
 
 let b:lion_squeeze_spaces = 1
 
