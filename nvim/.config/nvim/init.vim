@@ -732,7 +732,7 @@ function! s:CheckJuggle()
   let w:juggle_alt = bufnr('#')
 endfun
 
-aug kitty_cursor
+aug check_juggle
   au!
   au BufWinEnter  *.* call <sid>CheckJuggle()
 aug END
