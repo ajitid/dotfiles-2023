@@ -19,8 +19,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'junegunn/fzf'
 
 " Automatically create pairing for '(' '[' '{'
-" Plug 'LunarWatcher/auto-pairs'
-Plug 'Raimondi/delimitMate'
+Plug 'windwp/nvim-autopairs'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'

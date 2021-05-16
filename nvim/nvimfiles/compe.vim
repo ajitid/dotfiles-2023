@@ -21,11 +21,13 @@ let g:compe.source.ultisnips = v:true
 " let g:compe.source.nvim_lua = v:true
 
 inoremap <silent><expr> <C-Space> compe#complete()
+
 " Taken from https://github.com/hrsh7th/nvim-compe/issues/106 (also present in
 " compe docs) 
 " there is more for cohama/lexima.vim ->
 " https://github.com/hrsh7th/nvim-compe/issues/121
-inoremap <silent><expr> <CR>      compe#confirm({'keys': "\<Plug>delimitMateCR", 'mode': ''})
+" ^---------- that code is now moved to a lua file
+
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 
 " inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
