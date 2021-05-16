@@ -26,9 +26,9 @@ Util.check_surroundings = function()
 	local line = vim.fn.getline('.')
 	local prev_char = line:sub(col - 1, col - 1)
 	local next_char = line:sub(col, col)
-	-- TODO check https://github.com/hrsh7th/nvim-compe/issues/106#issuecomment-770419258
-	-- and figure out how to add parenthesis below
-	local pattern = '[%{|%}|%[|%]]'
+	-- from https://github.com/hrsh7th/nvim-compe/issues/106#issuecomment-770419258
+	-- [|] -> [ | ] when you press space
+	local pattern = '[%{|%}|%[|%]|%(|%)]'
 
 	if prev_char:match(pattern) and next_char:match(pattern) then
 		return true
