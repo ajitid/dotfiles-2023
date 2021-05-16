@@ -149,6 +149,7 @@ Plug 'kevinhwang91/nvim-bqf'
 
 " TODO read https://www.reddit.com/r/vim/comments/adsqnx/favorite_custom_text_objects/edjw792/
 Plug 'kana/vim-textobj-user'
+Plug 'sgur/vim-textobj-parameter'
 Plug 'Julian/vim-textobj-variable-segment'
 
 Plug 'fhill2/telescope-ultisnips.nvim'
@@ -167,7 +168,6 @@ Plug 'tommcdo/vim-exchange'
 
 " DISABLED ------------------------------------
 
-" Plug 'machakann/vim-swap'
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 
 " peek line
