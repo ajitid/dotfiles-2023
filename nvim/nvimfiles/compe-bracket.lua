@@ -21,6 +21,34 @@ npairs.setup{
 
 Util = {}
 
+Util.check_surroundings = function()
+	local col = vim.fn.col('.')
+	local line = vim.fn.getline('.')
+	local prev_char = line:sub(col - 1, col - 1)
+	local next_char = line:sub(col, col)
+	-- TODO check https://github.com/hrsh7th/nvim-compe/issues/106#issuecomment-770419258
+	-- and figure out how to add parenthesis below
+	local pattern = '[%{|%}|%[|%]]'
+
+	if prev_char:match(pattern) and next_char:match(pattern) then
+		return true
+	else
+		return false
+	end
+end
+
+Util.insert_space = function()
+	local is_char_present = Util.check_surroundings()
+
+	if is_char_present then
+		return vim.api.nvim_replace_termcodes("  <Left>", true, false, true)
+	end
+
+	return " "
+end
+
+remap("i", "<Space>", "v:lua.Util.insert_space()", { expr = true, noremap = true })
+
 Util.trigger_completion = function()
 	if vim.fn.pumvisible() ~= 0  then
 
