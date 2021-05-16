@@ -153,6 +153,10 @@ autocmd Filetype help nnoremap <buffer> q :q<cr>
 " using j or k. This fixes that.
 " nmap k gk
 " nmap j gj
+
+" there is `gq<text object>` but I still am not convinced to remove these
+" mappings in favour of `gq` command as it modifies lines just like `fmt`
+" command does.
 nnoremap <expr> j v:count == 0 ? 'gj' : "\<Esc>".v:count.'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
 
