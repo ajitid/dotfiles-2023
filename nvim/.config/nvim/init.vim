@@ -814,3 +814,9 @@ augroup highlight_near_cursor
   " taken from vim sneak plugin
   autocmd CursorMoved * autocmd highlight_near_cursor CursorMoved * call ClearHighlightNearCursor()
 augroup END
+
+" -- wrap line after 80 chars and color 81st column
+" set textwidth=80
+" set colorcolumn=+1
+" -- alternatively, turn chars after 80 red (error color)
+" au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
