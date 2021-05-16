@@ -191,4 +191,6 @@ Plug 'fhill2/telescope-ultisnips.nvim'
 
 Plug 'tamago324/lir.nvim'
 
+Plug 'tommcdo/vim-exchange'
+
 call plug#end()
