@@ -16,9 +16,9 @@ let g:compe.source = {}
 let g:compe.source.path = v:true
 let g:compe.source.nvim_lsp = v:true
 let g:compe.source.ultisnips = v:true
-let g:compe.source.nvim_lua = v:false
-let g:compe.source.buffer = v:false
-let g:compe.source.emoji = v:false
+" let g:compe.source.buffer = v:true
+" let g:compe.source.emoji = v:true
+" let g:compe.source.nvim_lua = v:true
 
 inoremap <silent><expr> <C-Space> compe#complete()
 " Taken from https://github.com/hrsh7th/nvim-compe/issues/106 (also present in
@@ -36,3 +36,4 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
+" TODO https://github.com/hrsh7th/nvim-compe/issues/209#issuecomment-841813597
