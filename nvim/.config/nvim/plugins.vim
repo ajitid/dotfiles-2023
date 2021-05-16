@@ -45,13 +45,6 @@ Plug 'glepnir/lspsaga.nvim'
 " icons for lsp symbols
 " Plug 'onsails/lspkind-nvim'
 
-" Ayu theme maintained fork
-" Plug 'Luxed/ayu-vim'
-
-" Embark theme
-" Plug 'embark-theme/vim', { 'as': 'embark' }
-" Plug '~/nvimfiles/embark-tuned', {'as': 'embark'}
-
 " Plug 'co1ncidence/mountaineer.vim'
 
 Plug 'arzg/vim-substrata'
@@ -80,16 +73,12 @@ Plug 'machakann/vim-sandwich'
 Plug 'hrsh7th/nvim-compe'
 
 Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
 
 " Smooth scrolling
 Plug 'psliwka/vim-smoothie'
 
 " Crawl to root of project
 Plug 'airblade/vim-rooter'
-
-" Customize startup-screen
-" Plug 'mhinz/vim-startify'
 
 " statusline
 Plug 'itchyny/lightline.vim'
@@ -102,13 +91,10 @@ Plug 'tpope/vim-sleuth'
 Plug 'editorconfig/editorconfig-vim'
 
 " leader key shortcuts info
-" Plug 'liuchengxu/vim-which-key'
 Plug 'folke/which-key.nvim'
 
 " comment
 Plug 'tpope/vim-commentary'
-" Plug 'suy/vim-context-commentstring'
-" Plug 'b3nj5m1n/kommentary'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 " highlights chars when you do [f]ind related commands
@@ -134,15 +120,9 @@ Plug 'svermeulen/vim-yoink'
 " sneaky
 Plug 'justinmk/vim-sneak'
 
-" fns and shortcuts for qflist
-" Plug 'romainl/vim-qf'
-" Plug 'jremmen/vim-ripgrep'
 Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'tpope/vim-obsession'
-" ^ have found obsession to be the most predictable, auto-session is good too
-" Plug 'rmagatti/auto-session'
-" Plug 'rmagatti/session-lens'
 
 Plug 'machakann/vim-swap'
 Plug 'wellle/context.vim'
@@ -163,7 +143,7 @@ Plug 'nacro90/numb.nvim'
 Plug 'junegunn/vim-easy-align'
 
 Plug 'zlksnk/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
-" Plug 'romainl/vim-qf'
+
 " optional req fzf:
 Plug 'kevinhwang91/nvim-bqf'
 " ^ TODO it pollutes oldfiles https://github.com/kevinhwang91/nvim-bqf/issues/11
@@ -192,5 +172,11 @@ Plug 'fhill2/telescope-ultisnips.nvim'
 Plug 'tamago324/lir.nvim'
 
 Plug 'tommcdo/vim-exchange'
+
+" DISABLED ------------------------------------
+
+
+
+" ---------------------------------------------
 
 call plug#end()
