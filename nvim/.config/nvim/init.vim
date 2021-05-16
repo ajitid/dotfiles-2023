@@ -109,7 +109,8 @@ luafile ~/nvimfiles/which_key.lua
 luafile ~/nvimfiles/comment.lua
 
 " used this to highlight current word https://vi.stackexchange.com/a/2770
-source ~/nvimfiles/highlight-word.vim
+" commented as it doesn't updates [7/21] match count at bottom right
+" source ~/nvimfiles/highlight-word.vim
 " ^ TODO https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 
 nnoremap - <cmd>execute "try \n edit %:h \n catch \n edit . \n endtry"<cr>
