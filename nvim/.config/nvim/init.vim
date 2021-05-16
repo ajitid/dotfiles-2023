@@ -822,3 +822,5 @@ augroup END
 let g:operator_sandwich_no_default_key_mappings = 1
 runtime macros/sandwich/keymap/surround.vim
 
+" TODO ivy!! https://github.com/nvim-telescope/telescope.nvim/pull/771
+" https://github.com/nvim-telescope/telescope.nvim/issues/765
