@@ -569,8 +569,6 @@ augroup restorezoom
 augroup END
 nnoremap <silent> <Leader>+ :call ToggleZoom(v:true)<CR>
 
-lua require('numb').setup()
-
 " don't start searching from top when `n` is pressed on last match, I'll do
 " `ggn` if I need it
 set nowrapscan
@@ -690,17 +688,6 @@ let g:undotree_SetFocusWhenToggle = 1
 " goto location
 " for separate use 33G or :33<cr> to go to line and 14| to go to column
 nnoremap gl :call cursor()<left>
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap gb <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap gb <Plug>(EasyAlign)
-
-let g:easy_align_delimiters = {
-\   '/': {
-\       'pattern': '\/\/',
-\   },
-\ }
 
 " TODO add in lightline query name, see :chistory and match its count and qflist
 " count (check if filtered qflist is new or polluted the current) to show
@@ -824,3 +811,17 @@ runtime macros/sandwich/keymap/surround.vim
 
 " TODO ivy!! https://github.com/nvim-telescope/telescope.nvim/pull/771
 " https://github.com/nvim-telescope/telescope.nvim/issues/765
+
+" lua require('numb').setup()
+
+" " Start interactive EasyAlign in visual mode (e.g. vipga)
+" xmap gb <Plug>(EasyAlign)
+" " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+" nmap gb <Plug>(EasyAlign)
+
+" let g:easy_align_delimiters = {
+"       \   '/': {
+"       \       'pattern': '\/\/',
+"       \   },
+"       \ }
+

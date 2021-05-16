@@ -124,23 +124,16 @@ Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'tpope/vim-obsession'
 
-Plug 'machakann/vim-swap'
 Plug 'wellle/context.vim'
-Plug 'embear/vim-localvimrc'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'mhinz/vim-rfc', { 'on' : 'RFC' }
+
+Plug 'embear/vim-localvimrc'
 Plug 'tpope/vim-projectionist'
+
 Plug 'mhartington/formatter.nvim'
 
 Plug 'ray-x/lsp_signature.nvim'
-
-Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
-
-" peek line
-Plug 'nacro90/numb.nvim'
-
-" Plug 'tommcdo/vim-lion' <- intuitive for basic use case
-Plug 'junegunn/vim-easy-align'
 
 Plug 'zlksnk/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
 
@@ -156,7 +149,6 @@ Plug 'kevinhwang91/nvim-bqf'
 
 " TODO read https://www.reddit.com/r/vim/comments/adsqnx/favorite_custom_text_objects/edjw792/
 Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-indent'
 Plug 'Julian/vim-textobj-variable-segment'
 
 Plug 'fhill2/telescope-ultisnips.nvim'
@@ -175,7 +167,17 @@ Plug 'tommcdo/vim-exchange'
 
 " DISABLED ------------------------------------
 
+" Plug 'machakann/vim-swap'
+" Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 
+" peek line
+" Plug 'nacro90/numb.nvim'
+
+" Plug 'tommcdo/vim-lion' <- intuitive for basic use case
+" using the below one instead of the above
+" Plug 'junegunn/vim-easy-align'
+
+" Plug 'kana/vim-textobj-indent'
 
 " ---------------------------------------------
 
