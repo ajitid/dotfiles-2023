@@ -367,10 +367,6 @@ call SetupCommandAlias("rg","Grep")
 " let g:rooter_silent_chdir = 1
 " ^ commented as not using startify anymore
 
-" to make vim sandwich shadow vim's `s`
-nmap s <Nop>
-xmap s <Nop>
-
 " sneak mode, jump to
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
@@ -820,3 +816,9 @@ augroup END
 " set colorcolumn=+1
 " -- alternatively, turn chars after 80 red (error color)
 " au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+
+" use vim-surround mapping instead to not to shadow sentence based operations
+" like `cis` (change inner sentence)
+let g:operator_sandwich_no_default_key_mappings = 1
+runtime macros/sandwich/keymap/surround.vim
+

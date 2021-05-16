@@ -70,7 +70,7 @@ Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
 " Unix file/dir shell commands
 Plug 'tpope/vim-eunuch'
 
-" Surround/change text with quotes, bracekts or tags
+" Surround/change text with quotes, brackets or tags
 Plug 'machakann/vim-sandwich'
 
 " Folding using LSP
