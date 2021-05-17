@@ -36,7 +36,10 @@ aug END
 " colorscheme embark
 let g:substrata_italic_functions = 0
 colorscheme substrata
+
 hi CursorLineNr guifg=#6c6f82 guibg=NONE gui=NONE cterm=NONE
+set cursorline
+
 " https://stackoverflow.com/a/35681864/7683365
 hi StatusLineNC guifg=#5b5f71 guibg=#20222d gui=NONE cterm=NONE
 hi StatusLine guifg=#6c6f82 guibg=#20222d gui=NONE cterm=NONE
@@ -776,7 +779,7 @@ command! FormatJson
 " from https://vim.fandom.com/wiki/Highlight_current_word_to_find_cursor
 function HighlightNearCursor()
   if !exists("s:highlightcursor")
-    match markdownCode /\k*\%#\k*/
+    match Search /\k*\%#\k*/
     let s:highlightcursor=1
   else
     match None
