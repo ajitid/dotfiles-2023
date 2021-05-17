@@ -247,12 +247,6 @@ vmap <leader>gP "+gP
 " Rooter
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules']
 
-let g:startify_session_persistence = 1
-let g:startify_session_savevars = [
-     \ 'g:startify_session_savevars',
-     \ 'g:startify_session_savecmds',
-     \ ]
-
 " Copies active file path to default/system clipboard register
 " If you are tabbing between a file in project and an empty file, absolute
 " path is mistakingly yanked. So first time yank is send to null register
@@ -504,7 +498,7 @@ endfun
 
 set noswapfile
 
-set sessionoptions=buffers
+set sessionoptions-=blank
 
 " from https://github.com/cocopon/vaffle.vim/issues/56#issuecomment-701888156
 let g:projectionist_ignore_vaffle = 1
