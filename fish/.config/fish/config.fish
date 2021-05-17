@@ -237,4 +237,4 @@ end
 
 abbr -a -- - 'cd -'
 
-# tree -d -L 2 -I node_modules
+# tree -d -L 2 -I 'node_modules|e2e_Tests|*mocks*'
