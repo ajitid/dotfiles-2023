@@ -7,7 +7,7 @@ end
 
 # export PATH="$PATH:/mnt/c/Windows/System32"
 
-zoxide init fish | source
+zoxide init --cmd j fish | source
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
@@ -24,7 +24,7 @@ abbr getclip "xclip -selection c -o"
 # https://www.linuxquestions.org/questions/linux-newbie-8/xargs-cd-is-not-working-796219/
 #
 # more options at https://unix.stackexchange.com/questions/360540/append-to-a-pipe-and-pass-on
-abbr gf "cd ~/ghq/(ghq list | fzf)"
+abbr gi "cd ~/ghq/(ghq list | fzf)"
 
 alias l='ls  -alhp --group-directories-first --color=never'
 
