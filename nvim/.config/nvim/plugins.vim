@@ -175,6 +175,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'kana/vim-textobj-indent'
 
 " Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
+" there is also folke/zen-mode.nvim
 
 " ---------------------------------------------
 
