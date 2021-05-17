@@ -236,3 +236,5 @@ function git_recommit_and_notify
 end
 
 abbr -a -- - 'cd -'
+
+# tree -d -L 2 -I node_modules
