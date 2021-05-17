@@ -822,4 +822,15 @@ lua require('numb').setup()
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
+command! -nargs=1 -complete=command Stay call <SID>Stay(<f-args>)
+function! s:Stay(cmd) range
+  let view = winsaveview()
+  execute a:cmd
+  call winrestview(view)
+endfunction
+
+augroup MappyTime
+  autocmd!
+  autocmd FileType markdown nnoremap <buffer> <silent> - :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': '.', '.': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
+augroup END
 
