@@ -162,6 +162,8 @@ Plug 'nacro90/numb.nvim'
 
 Plug 'tommcdo/vim-exchange'
 
+Plug 'AndrewRadev/splitjoin.vim'
+
 " DISABLED ------------------------------------
 
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
