@@ -179,6 +179,12 @@ Plug 'gcmt/taboo.vim'
 " Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
 " there is also folke/zen-mode.nvim
 
+
+" check if mkdx can handle syntax highlhight, so I might then not need
+" vim-gfm-syntax
+" Plug 'rhysd/vim-gfm-syntax'
+" Plug 'SidOfc/mkdx'
+
 " ---------------------------------------------
 
 call plug#end()
