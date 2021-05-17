@@ -115,7 +115,10 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'tpope/vim-obsession'
 
 Plug 'wellle/context.vim'
+
+Plug 'tpope/vim-speeddating'
 Plug 'Konfekt/vim-CtrlXA'
+
 Plug 'mhinz/vim-rfc', { 'on' : 'RFC' }
 
 Plug 'embear/vim-localvimrc'
