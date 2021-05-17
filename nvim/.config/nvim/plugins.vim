@@ -164,6 +164,8 @@ Plug 'tommcdo/vim-exchange'
 
 Plug 'AndrewRadev/splitjoin.vim'
 
+Plug 'gcmt/taboo.vim'
+
 " DISABLED ------------------------------------
 
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
