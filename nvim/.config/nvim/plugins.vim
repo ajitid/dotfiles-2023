@@ -164,8 +164,6 @@ Plug 'tommcdo/vim-exchange'
 
 Plug 'AndrewRadev/splitjoin.vim'
 
-Plug 'gcmt/taboo.vim'
-
 " DISABLED ------------------------------------
 
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
@@ -179,6 +177,7 @@ Plug 'gcmt/taboo.vim'
 " Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
 " there is also folke/zen-mode.nvim
 
+" Plug 'gcmt/taboo.vim'
 
 " check if mkdx can handle syntax highlhight, so I might then not need
 " vim-gfm-syntax

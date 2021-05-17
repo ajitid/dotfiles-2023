@@ -500,8 +500,9 @@ set noswapfile
 
 " what is the point of saving blank (empty) windows?
 set sessionoptions-=blank
-" for taboo.vim
-set sessionoptions+=globals
+
+" " for taboo.vim
+" set sessionoptions+=globals
 
 " from https://github.com/cocopon/vaffle.vim/issues/56#issuecomment-701888156
 let g:projectionist_ignore_vaffle = 1
