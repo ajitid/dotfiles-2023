@@ -154,14 +154,14 @@ Plug 'fhill2/telescope-ultisnips.nvim'
 
 Plug 'tamago324/lir.nvim'
 
+" peek line
+Plug 'nacro90/numb.nvim'
+
 Plug 'tommcdo/vim-exchange'
 
 " DISABLED ------------------------------------
 
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
-
-" peek line
-" Plug 'nacro90/numb.nvim'
 
 " Plug 'tommcdo/vim-lion' <- intuitive for basic use case
 " using the below one instead of the above

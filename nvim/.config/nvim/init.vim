@@ -808,7 +808,7 @@ runtime macros/sandwich/keymap/surround.vim
 " TODO ivy!! https://github.com/nvim-telescope/telescope.nvim/pull/771
 " https://github.com/nvim-telescope/telescope.nvim/issues/765
 
-" lua require('numb').setup()
+lua require('numb').setup()
 
 " " Start interactive EasyAlign in visual mode (e.g. vipga)
 " xmap gb <Plug>(EasyAlign)
