@@ -6,7 +6,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   "autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-" MAX 55 plugins
+" MAX 52 plugins
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 " call plug#begin(stdpath('data') . '/plugged')
@@ -49,16 +49,6 @@ Plug 'glepnir/lspsaga.nvim'
 
 Plug 'arzg/vim-substrata'
 Plug '~/nvimfiles/substratum'
-
-Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
-
-" Forest theme
-" Plug 'sainnhe/everforest'
-
-" Quick tree navigation
-" Plug 'justinmk/vim-dirvish'
-" Plug 'cocopon/vaffle.vim'
-" Plug 'zlksnk/vaffle.vim', { 'branch' : 'modifications-zlksnk' }
 
 " Unix file/dir shell commands
 Plug 'tpope/vim-eunuch'
@@ -178,6 +168,8 @@ Plug 'tommcdo/vim-exchange'
 " Plug 'junegunn/vim-easy-align'
 
 " Plug 'kana/vim-textobj-indent'
+
+" Plug 'junegunn/goyo.vim', { 'on' : 'Goyo' }
 
 " ---------------------------------------------
 
