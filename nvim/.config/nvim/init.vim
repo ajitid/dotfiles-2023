@@ -43,7 +43,7 @@ set cursorline
 " https://stackoverflow.com/a/35681864/7683365
 hi StatusLineNC guifg=#5b5f71 guibg=#20222d gui=NONE cterm=NONE
 hi StatusLine guifg=#6c6f82 guibg=#20222d gui=NONE cterm=NONE
-hi Cursor guifg=#1e1c31 guibg=#cbe3e7 ctermfg=red ctermbg=yellow
+hi Cursor guifg=#191c25 guibg=#cbe3e7 ctermfg=red ctermbg=yellow
 " TODO add warning squiggle, remove ~ after EOF
 
 " hides default mode display as we are using custom statusline
@@ -379,7 +379,7 @@ let g:sneak#use_ic_scs = 1
 " highlight SneakScope guifg=#1e1c31 guibg=#91ddff ctermfg=red ctermbg=yellow
 " highlight Sneak guifg=#cbe3e7 guibg=#3e3859 ctermfg=black ctermbg=red
 " substrate
-highlight SneakScope guifg=#1e1c31 guibg=#cbe3e7 ctermfg=red ctermbg=yellow
+highlight SneakScope guifg=#191c25 guibg=#cbe3e7 ctermfg=red ctermbg=yellow
 highlight Sneak guifg=#cbe3e7 guibg=#212733 ctermfg=black ctermbg=red
 
 nmap <leader>j <Plug>Sneak_s
