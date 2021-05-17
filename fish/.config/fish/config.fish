@@ -234,3 +234,5 @@ function git_recommit_and_notify
     return $err_code
   end
 end
+
+abbr -a -- - 'cd -'
