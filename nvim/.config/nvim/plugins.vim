@@ -175,6 +175,8 @@ Plug 'nacro90/numb.nvim'
 
 Plug 'tommcdo/vim-exchange'
 
+Plug 'pbrisbin/vim-mkdir'
+
 " DISABLED ------------------------------------
 
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
