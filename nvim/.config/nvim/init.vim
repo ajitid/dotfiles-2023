@@ -376,6 +376,15 @@ let g:sneak#use_ic_scs = 1
 highlight SneakScope guifg=#191c25 guibg=#cbe3e7 ctermfg=red ctermbg=yellow
 highlight Sneak guifg=#cbe3e7 guibg=#212733 ctermfg=black ctermbg=red
 
+nmap <leader>j <Plug>Sneak_s
+nmap <leader>k <Plug>Sneak_S
+" visual-mode
+xmap <leader>j <Plug>Sneak_s
+xmap <leader>k <Plug>Sneak_S
+" operator-pending-mode
+omap <leader>j <Plug>Sneak_s
+omap <leader>k <Plug>Sneak_S
+
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* Stabs call Stabs()
 function! Stabs()
