@@ -54,6 +54,7 @@ telescope.setup{
 
 telescope.load_extension('fzf')
 telescope.load_extension('ultisnips')
+telescope.load_extension('new_file')
 
 local function generateOpts(opts)
   local common_opts = {
