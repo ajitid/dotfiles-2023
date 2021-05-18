@@ -319,6 +319,8 @@ set wildcharm=<c-z>
 nnoremap <leader>n :e %:.:h<c-z><space><bs>
 " nnoremap <leader>n :e %:.:h<c-z>
 
+nnoremap <leader>N <cmd>Telescope new_file new_file<cr>
+
 " vim abolish substitute
 vnoremap ss :S///g<left><left><left>
 
