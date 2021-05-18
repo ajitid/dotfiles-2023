@@ -843,6 +843,6 @@ endfunction
 
 augroup MappyTime
   autocmd!
-  autocmd FileType markdown nnoremap <buffer> <silent> - :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': '.', '.': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
+  autocmd FileType markdown nnoremap <buffer> <silent> <cr> :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': '.', '.': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
 augroup END
 
