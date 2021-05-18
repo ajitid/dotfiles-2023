@@ -38,7 +38,7 @@ local new_file = function()
   end
 
   pickers.new(opts, {
-    prompt_title = "Create file",
+    prompt_title = "Create file under...",
     finder = finders.new_table({
       results = result,
       entry_maker = function(entry)
