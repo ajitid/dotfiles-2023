@@ -117,7 +117,20 @@ Plug 'tpope/vim-obsession'
 Plug 'wellle/context.vim'
 
 Plug 'tpope/vim-speeddating'
+" TODO CtrlXA and splitjoin can be replaced by https://github.com/AndrewRadev/switch.vim
+" On the contrary, splitjoin comes w/ a lot of options so we can keep CtrlXA +
+" splitjoin combo, esp. that CtrlXA can magically update Roman numberals
+" correctly. However switch.vim's regex matching is still could be the reason
+" to prefer it over. more eg:
+" https://github.com/AndrewRadev/switch.vim/issues/70
+" https://github.com/AndrewRadev/switch.vim/wiki/React-props
 Plug 'Konfekt/vim-CtrlXA'
+Plug 'AndrewRadev/splitjoin.vim'
+
+" TODO https://github.com/andrewRadev/deleft.vim
+" ^ doesn't work if <Button> tag spans across lines to accomodate attributes
+" (emmet remove tag could be helpful here)
+" andymass/vim-matchup ain't perfect either, it breaks on that <Button> case
 
 Plug 'mhinz/vim-rfc', { 'on' : 'RFC' }
 
@@ -161,8 +174,6 @@ Plug 'tamago324/lir.nvim'
 Plug 'nacro90/numb.nvim'
 
 Plug 'tommcdo/vim-exchange'
-
-Plug 'AndrewRadev/splitjoin.vim'
 
 " DISABLED ------------------------------------
 
