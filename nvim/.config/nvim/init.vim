@@ -844,7 +844,7 @@ endfunction
 augroup MappyTime
   autocmd!
   autocmd FileType markdown nnoremap <buffer> <silent> <leader>x :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
-    \| nnoremap <buffer> <silent> <leader>cc :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': '.', '.': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
+    \| nnoremap <buffer> <silent> <leader>cc :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': '-', '-': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
     \| nnoremap <buffer> <silent> <leader>cl Vip:s/^/- [ ] <cr>
 augroup END
 
