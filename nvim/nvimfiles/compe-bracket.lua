@@ -16,7 +16,10 @@ npairs.setup{
 		'html' , 'vue' , 'typescriptreact' , 'svelte' , 'javascriptreact'
 	},
 	-- ignore alphanumeric, operators, quote, curly brace, and square bracket
-	ignored_next_char = "[%w%.%+%-%=%/%,\"'{}%[%]]"
+	ignored_next_char = "[%w%.%+%-%=%/%,\"']"
+	-- ^ this means if text is `"sometxt{|"` (bar is cursor pos) and 
+	-- you put `{`, closing parent won't be autocompleted as
+	-- `"` is present in ignored_next_char
 }
 
 Util = {}
