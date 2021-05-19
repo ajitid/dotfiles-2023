@@ -18,6 +18,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " all hail fzf
 Plug 'junegunn/fzf'
 
+Plug 'tpope/vim-repeat'
+
 " Automatically create pairing for '(' '[' '{'
 Plug 'windwp/nvim-autopairs'
 
