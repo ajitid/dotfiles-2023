@@ -861,8 +861,9 @@ highlight HopUnmatched guifg=#666666 ctermfg=242
 
 function! s:PutModifiedFilesInArglist()
   arglocal
-  argdelete *
+  silent! argdelete *
   bufdo if &modified | argadd | endif
+  first
 endfunction
 command! PutModifiedFilesInArglist
       \ call s:PutModifiedFilesInArglist()
