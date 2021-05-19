@@ -324,9 +324,8 @@ vnoremap ss :S///g<left><left><left>
 " reselect the text that was just pasted, and indent it
 " V = visually select lines, `] = till end of paste, = = indent
 " useful for formatting system clipboard contents
-" nnoremap <leader>= V`]
+nnoremap <leader>= V`]
 " might be relevant https://stackoverflow.com/a/7087202/7683365
-" ^ commented to rely on Yoink paste instead
 
 " to format on paste, use ]p and with a register it'll become "0]p
 " you might need p=`] over ]p, see Correcting bad indent while pasting from
@@ -832,8 +831,8 @@ augroup MappyTime
   autocmd!
   autocmd FileType markdown nnoremap <buffer> <silent> <leader>x :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
     \| nnoremap <buffer> <silent> <leader>cc :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': '-', '-': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
-    \| nnoremap <buffer> <silent> <leader>cl :s/^/- [ ] <cr>
-    \| vnoremap <buffer> <silent> <leader>cl :s/^/- [ ] <cr>
+    \| nnoremap <buffer> <silent> <leader>cl :s/^/- [ ] <cr><bar><cmd>noh<cr>
+    \| vnoremap <buffer> <silent> <leader>cl :s/^/- [ ] <cr><bar><cmd>noh<cr>
 augroup END
 
 " Grep usage ->
