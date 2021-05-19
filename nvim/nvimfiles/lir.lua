@@ -3,6 +3,28 @@ local actions = require'lir.actions'
 local mark_actions = require 'lir.mark.actions'
 local clipboard_actions = require'lir.clipboard.actions'
 
+function preview_file(persist)
+	persist = persist or false
+	local current = lir.get_context():current()
+	vim.api.nvim_exec(
+	[[
+	for win in range(1, winnr('$'))
+		if getwinvar(win, 'lir_preview')
+			execute win . 'windo close'
+		endif
+	endfor
+	]],
+	false)
+
+	vim.api.nvim_command('vsplit ' .. current.fullpath)
+	vim.api.nvim_command('let w:lir_preview = 1')
+	if not persist then
+		vim.api.nvim_command('setlocal bufhidden=wipe nobuflisted noswapfile')
+	end
+
+	vim.cmd('call feedkeys("\\<esc>\\<c-w>\\<c-p>j")')
+end
+
 lir.setup {
 	show_hidden_files = true,
 	mappings = {
@@ -12,19 +34,10 @@ lir.setup {
 			vim.cmd('edit .')
 		end,
 		['o']     = function()
-			local current = lir.get_context():current()
-			vim.api.nvim_exec(
-			[[
-			for win in range(1, winnr('$'))
-				if getwinvar(win, 'lir_preview')
-					execute win . 'windo close'
-				endif
-			endfor
-			]],
-			false)
-			vim.api.nvim_command('vsplit ' .. current.fullpath)
-			vim.api.nvim_command('let w:lir_preview = 1')
-			vim.cmd('call feedkeys("\\<esc>\\<c-w>\\<c-p>j")')
+			preview_file()
+		end,
+		['O']     = function()
+			preview_file(true)
 		end,
 		['l']     = actions.edit,
 		['<C-s>'] = actions.split,
