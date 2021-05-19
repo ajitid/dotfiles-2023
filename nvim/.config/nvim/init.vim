@@ -300,8 +300,9 @@ if has("persistent_undo")
 endif
 
 " Quick scope (horizontal navigation using find) token colors
-highlight QuickScopePrimary guifg='#6bdeba' gui=underline ctermfg=81
-highlight QuickScopeSecondary guifg='#ffc4a4' gui=underline ctermfg=81
+" highlight QuickScopePrimary guifg='#6bdeba' gui=underline ctermfg=81
+highlight QuickScopePrimary guifg='#6ade93' gui=underline ctermfg=81
+highlight QuickScopeSecondary guifg='#ffa9d5' gui=underline ctermfg=81
 
 " create new file relattive to current file, use `:e ` to create one wrt root
 " of project. We are using <c-z> to simulate tab, see
@@ -845,8 +846,16 @@ augroup END
 nmap s <Nop>
 xmap s <Nop>
 
-lua require'hop'.setup { keys = 'fjdkslgha;eiruvnmwo' }
+lua require'hop'.setup { keys = 'fjdkslghaeiruvnmwo', teasing = false }
 nnoremap <silent>s :HopChar1<cr>
 xnoremap <silent>s <cmd>HopChar1<cr>
 onoremap <silent>s :HopChar1<cr>
 
+" Highlight it is the only key shown
+highlight HopNextKey  guifg=#6ade93 gui=bold,underline ctermfg=198 cterm=bold,underline
+" Highlight used for the first key in a sequence.
+highlight HopNextKey1 guifg=#ffa9d5 gui=bold,underline ctermfg=45 cterm=bold,underline
+" Highlight used for the second and remaining keys in a sequence.
+highlight HopNextKey2 guifg=#da68a2 ctermfg=33
+" Highlight used for the unmatched part of the buffer.
+highlight HopUnmatched guifg=#666666 ctermfg=242
