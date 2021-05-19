@@ -11,6 +11,21 @@ lir.setup {
 			actions.quit()
 			vim.cmd('edit .')
 		end,
+		['o']     = function()
+			local current = lir.get_context():current()
+			vim.api.nvim_exec(
+			[[
+			for win in range(1, winnr('$'))
+				if getwinvar(win, 'lir_preview')
+					execute win . 'windo close'
+				endif
+			endfor
+			]],
+			false)
+			vim.api.nvim_command('vsplit ' .. current.fullpath)
+			vim.api.nvim_command('let w:lir_preview = 1')
+			vim.cmd('call feedkeys("\\<esc>\\<c-w>\\<c-p>j")')
+		end,
 		['l']     = actions.edit,
 		['<C-s>'] = actions.split,
 		['<C-v>'] = actions.vsplit,
