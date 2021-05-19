@@ -108,9 +108,6 @@ Plug 'zlksnk/vim-visual-star-search', { 'branch': 'modifications-zlksnk' }
 " preserve yank history
 Plug 'svermeulen/vim-yoink'
 
-" sneaky
-Plug 'justinmk/vim-sneak'
-
 Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'tpope/vim-obsession'
@@ -181,6 +178,9 @@ Plug 'pbrisbin/vim-mkdir'
 
 " highlight search on demand
 Plug 'romainl/vim-cool'
+
+" prev. one was vim-sneak
+Plug 'phaazon/hop.nvim'
 
 " DISABLED ------------------------------------
 

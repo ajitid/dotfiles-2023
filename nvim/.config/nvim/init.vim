@@ -199,7 +199,7 @@ let g:traces_abolish_integration = 1
 " so you can search `.` without escaping it for example. For more, see :help \v.
 nnoremap <leader>/ /\V
 nnoremap <leader>? ?\V
-" ^ or just use sneak
+" ^ or just use sneak/hop
 
 " markdown
 " https://secluded.site/vim-as-a-markdown-editor/
@@ -364,16 +364,6 @@ call SetupCommandAlias("rg","Grep")
 " stop rooter plugin to echo on start in msgs
 " let g:rooter_silent_chdir = 1
 " ^ commented as not using startify anymore
-
-" sneak mode, jump to
-let g:sneak#label = 1
-let g:sneak#use_ic_scs = 1
-" embark
-" highlight SneakScope guifg=#1e1c31 guibg=#91ddff ctermfg=red ctermbg=yellow
-" highlight Sneak guifg=#cbe3e7 guibg=#3e3859 ctermfg=black ctermbg=red
-" substrate
-highlight SneakScope guifg=#191c25 guibg=#cbe3e7 ctermfg=red ctermbg=yellow
-highlight Sneak guifg=#cbe3e7 guibg=#212733 ctermfg=black ctermbg=red
 
 nmap <leader>j <Plug>Sneak_s
 nmap <leader>k <Plug>Sneak_S
@@ -809,7 +799,7 @@ augroup END
 " use vim-surround mapping instead to not to shadow sentence based operations
 " like `cis` (change inner sentence)
 let g:operator_sandwich_no_default_key_mappings = 1
-runtime macros/sandwich/keymap/surround.vim
+source ~/nvimfiles/surround.vim
 
 " TODO ivy!! https://github.com/nvim-telescope/telescope.nvim/pull/771
 " https://github.com/nvim-telescope/telescope.nvim/issues/765
@@ -849,3 +839,14 @@ augroup END
 " :Grep statsapi -g *test*
 " :Grep utils/helpers
 " :Grep 'fetch\('
+
+
+" to make hop.nvim shadow vim's `s`
+nmap s <Nop>
+xmap s <Nop>
+
+lua require'hop'.setup { keys = 'fjdkslgha;eiruvnmwo' }
+nnoremap <silent>s :HopChar1<cr>
+xnoremap <silent>s <cmd>HopChar1<cr>
+onoremap <silent>s :HopChar1<cr>
+
