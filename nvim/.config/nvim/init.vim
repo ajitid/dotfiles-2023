@@ -858,3 +858,17 @@ highlight HopNextKey1 guifg=#ffa9d5 gui=bold,underline ctermfg=45 cterm=bold,und
 highlight HopNextKey2 guifg=#da68a2 ctermfg=33
 " Highlight used for the unmatched part of the buffer.
 highlight HopUnmatched guifg=#666666 ctermfg=242
+
+function! s:PutModifiedFilesInArglist()
+  arglocal
+  argdelete *
+  bufdo if &modified | argadd | endif
+endfunction
+command! PutModifiedFilesInArglist
+      \ call s:PutModifiedFilesInArglist()
+
+" unimpared like mapping
+nnoremap [a <cmd>prev<cr>
+nnoremap ]a <cmd>next<cr>
+nnoremap [A <cmd>first<cr>
+nnoremap ]A <cmd>last<cr>
