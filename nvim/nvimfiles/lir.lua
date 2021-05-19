@@ -16,7 +16,8 @@ function preview_file(persist)
 	]],
 	false)
 
-	vim.api.nvim_command('vsplit ' .. current.fullpath)
+	vim.api.nvim_command('vnew')
+	vim.api.nvim_command('edit ' .. current.fullpath)
 	vim.api.nvim_command('let w:lir_preview = 1')
 	if not persist then
 		vim.api.nvim_command('setlocal bufhidden=wipe nobuflisted noswapfile')
