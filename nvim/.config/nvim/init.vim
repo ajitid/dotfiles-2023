@@ -226,7 +226,7 @@ nmap gp <plug>(YoinkPaste_gp)
 nmap gP <plug>(YoinkPaste_gP)
 nmap [p <plug>(YoinkPostPasteSwapBack)
 nmap ]p <plug>(YoinkPostPasteSwapForward)
-let g:yoinkAutoFormatPaste = 1
+let g:yoinkAutoFormatPaste = 0
 nmap =p <plug>(YoinkPostPasteToggleFormat)
 
 " System clipboard operations
