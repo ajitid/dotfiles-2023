@@ -192,11 +192,6 @@ set list listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:~
 " tpope/vim-abolish
 let g:traces_abolish_integration = 1
 
-" hls is annoying as I have to manually remove highlighting after I'm done
-" (this could have been fixed with an easy vim autocmd but I don't know it
-" much at this point of time
-set nohls
-
 " quick tip: rather than pressing enter after search and using n and N to
 " navigate, you can use <c-g> and <c-t>. It won't give you match count, it
 " won't highlight all matches, sure, but it still feels faster getting to the

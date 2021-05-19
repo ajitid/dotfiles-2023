@@ -168,7 +168,7 @@ Plug 'fhill2/telescope-ultisnips.nvim'
 " --------
 " X forwarding settings, if required, on guest and remote machine https://gist.github.com/habamax/75c75e5b590357709a11feb0def99072
 
-
+" dir lister
 Plug 'tamago324/lir.nvim'
 
 " peek line
@@ -176,7 +176,11 @@ Plug 'nacro90/numb.nvim'
 
 Plug 'tommcdo/vim-exchange'
 
+" create dir on file save
 Plug 'pbrisbin/vim-mkdir'
+
+" highlight search on demand
+Plug 'romainl/vim-cool'
 
 " DISABLED ------------------------------------
 
