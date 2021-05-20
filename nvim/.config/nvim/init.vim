@@ -31,20 +31,30 @@ aug kitty_cursor
     au Colorscheme * set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
 aug END
 
+function! CustomSubstrata() abort
+  hi Todo guifg=#fdcf7c guibg=NONE gui=NONE cterm=NONE
+  hi SpecialComment guifg=#fdcf7c guibg=NONE gui=NONE cterm=NONE
+
+  hi CursorLineNr guifg=#6c6f82 guibg=NONE gui=NONE cterm=NONE
+  " https://stackoverflow.com/a/35681864/7683365
+  hi StatusLineNC guifg=#5b5f71 guibg=#20222d gui=NONE cterm=NONE
+  hi StatusLine guifg=#6c6f82 guibg=#20222d gui=NONE cterm=NONE
+  hi Cursor guifg=#191c25 guibg=#cbe3e7 ctermfg=red ctermbg=yellow
+  " TODO add warning squiggle, remove ~ after EOF
+endfunction
+
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme substrata call CustomSubstrata()
+augroup END
+
 " theme
 " let g:embark_terminal_italics = 1
 " colorscheme embark
 let g:substrata_italic_functions = 0
 colorscheme substrata
 
-hi CursorLineNr guifg=#6c6f82 guibg=NONE gui=NONE cterm=NONE
 set cursorline
-
-" https://stackoverflow.com/a/35681864/7683365
-hi StatusLineNC guifg=#5b5f71 guibg=#20222d gui=NONE cterm=NONE
-hi StatusLine guifg=#6c6f82 guibg=#20222d gui=NONE cterm=NONE
-hi Cursor guifg=#191c25 guibg=#cbe3e7 ctermfg=red ctermbg=yellow
-" TODO add warning squiggle, remove ~ after EOF
 
 " hides default mode display as we are using custom statusline
 set noshowmode
