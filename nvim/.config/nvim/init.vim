@@ -77,11 +77,6 @@ set pumheight=8
 " set foldlevelstart=20
 " ^ seems like foldlevel does just that
 
-" https://vim.fandom.com/wiki/Folding and :h fold-commands
-set foldlevel=20
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-
 if executable('rg')
   set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
   set grepformat=%f:%l:%c:%m
@@ -112,6 +107,11 @@ luafile ~/nvimfiles/treesitter.lua
 luafile ~/nvimfiles/lir.lua
 luafile ~/nvimfiles/which_key.lua
 luafile ~/nvimfiles/comment.lua
+
+" https://vim.fandom.com/wiki/Folding and :h fold-commands
+set foldlevel=20
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 " used this to highlight current word https://vi.stackexchange.com/a/2770
 " commented as it doesn't updates [7/21] match count at bottom right
