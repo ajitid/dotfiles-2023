@@ -884,3 +884,15 @@ nnoremap ]a <cmd>next<cr>
 nnoremap [A <cmd>first<cr>
 nnoremap ]A <cmd>last<cr>
 
+" original jumplist behaviour is confusing to be honest
+" https://vi.stackexchange.com/questions/18344/how-to-change-jumplist-behavior
+" also jumplist will record numbered jumps like 20G but record jumps for 7j
+" ^ TODO this can be solved using any one of these:
+" https://medium.com/breathe-publication/understanding-vims-jump-list-7e1bfc72cdf0
+" https://vi.stackexchange.com/questions/7582/how-to-add-numbered-movement-to-the-jump-list
+" https://stackoverflow.com/a/29746735/7683365
+" ^ though i think of against it (eg. I could use kkk over 3k)
+set jumpoptions+=stack
+" also see keepjumps command in help, useful in your scripts
+" and changelist for general movements
+
