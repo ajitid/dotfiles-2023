@@ -23,7 +23,7 @@ function preview_file(persist)
 		vim.api.nvim_command('setlocal bufhidden=wipe nobuflisted noswapfile')
 	end
 
-	vim.cmd('call feedkeys("\\<esc>\\<c-w>\\<c-p>j")')
+	vim.cmd('call feedkeys("\\<esc>\\<c-w>\\<c-p>")')
 end
 
 lir.setup {

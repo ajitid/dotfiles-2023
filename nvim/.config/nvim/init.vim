@@ -694,7 +694,7 @@ require('bqf').setup({
     auto_preview = false,
   },
   func_map = {
-    stogglebuf = "zm",
+    stogglebuf = "gb",
     openc = "O",
     pscrollup = "<nop>",
     pscrolldown = "<nop>",
@@ -839,7 +839,7 @@ augroup END
 " :Grep statsapi -g *test*
 " :Grep utils/helpers
 " :Grep 'fetch\('
-
+" :Grep fetch -g '!*lock*' -g '!*worker*'
 
 " to make hop.nvim shadow vim's `s`
 nmap s <Nop>
@@ -873,3 +873,4 @@ nnoremap [a <cmd>prev<cr>
 nnoremap ]a <cmd>next<cr>
 nnoremap [A <cmd>first<cr>
 nnoremap ]A <cmd>last<cr>
+
