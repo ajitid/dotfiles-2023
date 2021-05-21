@@ -32,6 +32,8 @@ aug kitty_cursor
 aug END
 
 function! CustomSubstrata() abort
+  " highlight! link LspDiagnosticsFloatingError ErrorFloat
+
   hi Todo guifg=#fdcf7c guibg=NONE gui=NONE cterm=NONE
   hi SpecialComment guifg=#fdcf7c guibg=NONE gui=NONE cterm=NONE
 
@@ -41,6 +43,18 @@ function! CustomSubstrata() abort
   hi StatusLine guifg=#6c6f82 guibg=#20222d gui=NONE cterm=NONE
   hi Cursor guifg=#191c25 guibg=#cbe3e7 ctermfg=red ctermbg=yellow
   " TODO add warning squiggle, remove ~ after EOF
+
+
+  " hi LspDiagnosticsDefaultHint guifg=LightGrey
+  hi LspDiagnosticsDefaultError guifg=#ffe1e1
+  " hi LspDiagnosticsDefaultWarning guifg=Orange
+  " hi LspDiagnosticsDefaultInformation guifg=LightBlue
+
+  " hi ErrorText cterm=underline gui=undercurl guisp=#232323
+  " hi link LspDiagnosticsUnderlineError ErrorText
+  " hi LspDiagnosticsUnderlineWarning cterm=underline gui=undercurl guisp=Orange
+  " hi LspDiagnosticsUnderlineInformation cterm=underline gui=undercurl guisp=LightBlue
+  " hi LspDiagnosticsUnderlineHint cterm=underline gui=undercurl guisp=LightGrey
 endfunction
 
 augroup MyColors

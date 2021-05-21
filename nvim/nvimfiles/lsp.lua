@@ -8,7 +8,7 @@ local configs = require'lspconfig/configs'
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
   -- TODO virtual text is useful on a widescreen monitor
-  virtual_text = false
+  -- virtual_text = false
 }
 )
 
@@ -49,7 +49,7 @@ lspconfig.pyright.setup{}
 local installed_servers = require'nvim-lsp-installer'.get_installed_servers()
 for _, server in pairs(installed_servers) do
   opts = {
-    on_attach = function(client)
+    on_attach = function(client, bufnr)
 
       if server.name == "tsserver" then
         if not client.config.flags then
@@ -67,7 +67,15 @@ for _, server in pairs(installed_servers) do
           hint_enable = false,
           hint_prefix = "👇 ",
         })
-      --   require('folding').on_attach()
+        --   require('folding').on_attach()
+
+        local ts_utils = require("nvim-lsp-ts-utils")
+
+        ts_utils.setup {
+           -- eslint
+            eslint_enable_code_actions = false,
+            eslint_enable_disable_comments = false,
+        }
       end
     end,
   }

@@ -109,6 +109,7 @@ Plug 'zlksnk/vim-visual-star-search', { 'branch': 'modifications-zlksnk' }
 Plug 'svermeulen/vim-yoink'
 
 Plug 'williamboman/nvim-lsp-installer'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 Plug 'tpope/vim-obsession'
 
