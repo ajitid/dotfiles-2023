@@ -452,8 +452,24 @@ endfunction
 "     \ |   exe "normal! g`\""
 "     \ | endif
 
-" nobody got time to write `gcc` to comment one line, I'll use ctrl+/ instead
-nnoremap <c-_> <cmd>Commentary<cr>
+
+" ain't nobody got time to write `gcc` to comment one line, I'll use ctrl+/ instead
+" https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/5#issuecomment-814175077
+function! s:ConfigCommentary() abort
+  function! s:CommentaryImplExpr(a)
+    lua require('ts_context_commentstring.internal').update_commentstring()
+    if a:a == 1
+      return "\<Plug>Commentary"
+    else
+      return "\<Plug>CommentaryLine"
+    endif
+  endfunction
+
+  xmap <expr><C-_> <sid>CommentaryImplExpr(1)
+  nmap <expr><C-_> <sid>CommentaryImplExpr(0)
+endfunction
+
+call s:ConfigCommentary()
 
 " @@ repeats last macro, @: repeats last command
 nnoremap Q @@
