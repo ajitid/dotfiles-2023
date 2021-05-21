@@ -898,7 +898,7 @@ nnoremap ]a <cmd>next<cr>
 nnoremap [A <cmd>first<cr>
 nnoremap ]A <cmd>last<cr>
 
-" original jumplist behaviour is confusing to be honest
+" original jumplist behaviour is not the one I wanted
 " https://vi.stackexchange.com/questions/18344/how-to-change-jumplist-behavior
 " also jumplist will record numbered jumps like 20G but record jumps for 7j
 " ^ TODO this can be solved using any one of these:
@@ -910,3 +910,7 @@ set jumpoptions+=stack
 " also see keepjumps command in help, useful in your scripts
 " and changelist for general movements
 
+" search for a term occurence and store it in a variable so it can be retrived
+" later to buffer using put command
+" :let t = [] | g/search_term/call add(t, line('.') . ' ' . getline('.'))
+" :pu=t
