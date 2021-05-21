@@ -76,6 +76,8 @@ for _, server in pairs(installed_servers) do
             eslint_enable_code_actions = false,
             eslint_enable_disable_comments = false,
         }
+
+        ts_utils.setup_client(client)
       end
     end,
   }
