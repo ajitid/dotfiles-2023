@@ -20,7 +20,7 @@ function preview_file(persist)
 	vim.api.nvim_command('edit ' .. current.fullpath)
 	vim.api.nvim_command('let w:lir_preview = 1')
 	if not persist then
-		vim.api.nvim_command('setlocal bufhidden=wipe nobuflisted noswapfile')
+		vim.api.nvim_command('setlocal nomodifiable bufhidden=wipe nobuflisted noswapfile')
 	end
 
 	vim.cmd('call feedkeys("\\<esc>\\<c-w>\\<c-p>")')

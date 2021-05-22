@@ -548,6 +548,9 @@ set sessionoptions-=blank
 " from https://github.com/cocopon/vaffle.vim/issues/56#issuecomment-701888156
 let g:projectionist_ignore_vaffle = 1
 
+" https://vi.stackexchange.com/a/9439
+" also handle ctlr-c and esc key
+
 " goto file and create it if is not present
 " from https://stackoverflow.com/a/29068665/7683365
 function! Gf()
