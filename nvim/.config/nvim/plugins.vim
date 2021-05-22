@@ -32,6 +32,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'fhill2/telescope-ultisnips.nvim'
 
 " [doesn't works the way I want it to] Frecency over MRU
 " Plug 'tami5/sql.nvim'
@@ -39,9 +40,13 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " also see https://github.com/vijaymarupudi/nvim-fzf and check if it can be
 " used over telescope-fzy-native
 
-
 " Gives UI actions to LSP
 Plug 'glepnir/lspsaga.nvim'
+Plug 'ray-x/lsp_signature.nvim'
+
+" Completion using LSP
+Plug 'hrsh7th/nvim-compe'
+Plug 'SirVer/ultisnips'
 
 " icons for lsp symbols
 " Plug 'onsails/lspkind-nvim'
@@ -59,11 +64,6 @@ Plug 'machakann/vim-sandwich'
 
 " Folding using LSP
 " Plug 'pierreglaser/folding-nvim'
-
-" Completion using LSP
-Plug 'hrsh7th/nvim-compe'
-
-Plug 'SirVer/ultisnips'
 
 " Smooth scrolling
 Plug 'psliwka/vim-smoothie'
@@ -102,16 +102,11 @@ Plug 'markonm/traces.vim'
 " color highlighter 
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-" visual mode * or # search
-Plug 'zlksnk/vim-visual-star-search', { 'branch': 'modifications-zlksnk' }
-
 " preserve yank history
 Plug 'svermeulen/vim-yoink'
 
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
-
-Plug 'tpope/vim-obsession'
 
 Plug 'wellle/context.vim'
 
@@ -133,15 +128,15 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'mhinz/vim-rfc', { 'on' : 'RFC' }
 
+Plug 'tpope/vim-obsession'
 Plug 'embear/vim-localvimrc'
 Plug 'tpope/vim-projectionist'
 
 Plug 'mhartington/formatter.nvim'
 
-Plug 'ray-x/lsp_signature.nvim'
-
+" visual mode * or # search
+Plug 'zlksnk/vim-visual-star-search', { 'branch': 'modifications-zlksnk' }
 Plug 'zlksnk/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
-
 " optional req fzf:
 Plug 'kevinhwang91/nvim-bqf'
 " ^ TODO it pollutes oldfiles https://github.com/kevinhwang91/nvim-bqf/issues/11
@@ -153,11 +148,10 @@ Plug 'kevinhwang91/nvim-bqf'
 " https://old.reddit.com/r/vim/comments/n2yymu/vimpeculiar_making_quick_multiline_edits_in_vim/
 
 " TODO read https://www.reddit.com/r/vim/comments/adsqnx/favorite_custom_text_objects/edjw792/
+Plug 'tommcdo/vim-exchange'
 Plug 'kana/vim-textobj-user'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'Julian/vim-textobj-variable-segment'
-
-Plug 'fhill2/telescope-ultisnips.nvim'
 
 " OSC52 (and maybe PASTE64) yank: https://github.com/ojroques/vim-oscyank
 " ^ useful on an ssh-ed machine, and it seems like it can work w/o X forwarding:
@@ -171,8 +165,6 @@ Plug 'tamago324/lir.nvim'
 
 " peek line
 Plug 'nacro90/numb.nvim'
-
-Plug 'tommcdo/vim-exchange'
 
 " create dir on file save
 Plug 'pbrisbin/vim-mkdir'

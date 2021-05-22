@@ -116,12 +116,12 @@ set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim
 
 " TODO: put them in a directory other than nvimfiles
 " lua require("init")
+luafile ~/nvimfiles/lsp-saga.lua
 luafile ~/nvimfiles/lsp.lua
 " luafile ~/nvimfiles/efm-for-format.lua
 " luafile ~/nvimfiles/eslint-daemon.lua
 " luafile ~/nvimfiles/lsp-eslint.lua
 luafile ~/nvimfiles/format.lua
-luafile ~/nvimfiles/lsp-saga.lua
 lua require("mine.telescope")
 " luafile ~/nvimfiles/lightbulb.lua
 source ~/nvimfiles/compe.vim
@@ -460,7 +460,11 @@ endfunction
 " https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/5#issuecomment-814175077
 function! s:ConfigCommentary() abort
   function! s:CommentaryImplExpr(a)
-    lua require('ts_context_commentstring.internal').update_commentstring()
+    try
+      lua require('ts_context_commentstring.internal').update_commentstring()
+    catch
+      " silenty suppress the error if treesitter doesn't exist for the language
+    endtry
     if a:a == 1
       return "\<Plug>Commentary"
     else

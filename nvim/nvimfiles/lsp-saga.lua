@@ -5,7 +5,6 @@ saga.init_lsp_saga {
 	warn_sign = '🚧',
 	code_action_icon = '💡',
 	code_action_prompt = {
-		sign_priority = 60,
 		virtual_text = false
 	},
 	code_action_keys = {
