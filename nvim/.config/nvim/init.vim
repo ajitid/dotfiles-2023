@@ -937,3 +937,8 @@ set jumpoptions+=stack
 " :let t = [] | g/search_term/call add(t, line('.') . ' ' . getline('.'))
 " :pu=t
 " Update: using `:g=term-to-search` will do exactly this
+
+" TODO
+let g:tinykeymaps_default = []
+" submode can be combined with which-key for help instead of F1 command
+" https://github.com/machakann/vim-swap also has `gs` subcommand

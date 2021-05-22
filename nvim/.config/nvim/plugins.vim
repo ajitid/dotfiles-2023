@@ -183,6 +183,9 @@ Plug 'romainl/vim-cool'
 " prev. one was vim-sneak
 Plug 'phaazon/hop.nvim'
 
+" subcommand mode
+Plug 'tomtom/tinykeymap_vim'
+
 " DISABLED ------------------------------------
 
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
