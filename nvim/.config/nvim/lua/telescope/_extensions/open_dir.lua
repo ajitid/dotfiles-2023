@@ -10,7 +10,7 @@ local pickers = require("telescope.pickers")
 local entry_display = require("telescope.pickers.entry_display")
 local conf = require("telescope.config").values
 
-local new_file = function()
+local open_dir = function()
   local output_str = vim.api.nvim_exec('!fd -t d -c never', true)
 
   local output = vim.split(output_str, '\n')
@@ -38,7 +38,7 @@ local new_file = function()
   end
 
   pickers.new(opts, {
-    prompt_title = "Create file under...",
+    prompt_title = "Open dir...",
     finder = finders.new_table({
       results = result,
       entry_maker = function(entry)
@@ -62,4 +62,4 @@ local new_file = function()
   }):find()
 end -- end custom function
 
-return telescope.register_extension({ exports = { new_file = new_file } })
+return telescope.register_extension({ exports = { open_dir = open_dir } })
