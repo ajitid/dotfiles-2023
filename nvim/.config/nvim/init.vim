@@ -940,5 +940,6 @@ set jumpoptions+=stack
 
 " TODO
 let g:tinykeymaps_default = []
+let g:tinykeymap#conflict = 1
 " submode can be combined with which-key for help instead of F1 command
 " https://github.com/machakann/vim-swap also has `gs` subcommand
