@@ -930,3 +930,4 @@ set jumpoptions+=stack
 " later to buffer using put command
 " :let t = [] | g/search_term/call add(t, line('.') . ' ' . getline('.'))
 " :pu=t
+" Update: using `:g=term-to-search` will do exactly this
