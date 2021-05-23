@@ -10,7 +10,9 @@ local pickers = require("telescope.pickers")
 local entry_display = require("telescope.pickers.entry_display")
 local conf = require("telescope.config").values
 
-local yanks = function()
+local yanks = function(yank_method)
+  yank_method = yank_method or 'p'
+
   local output_str = vim.api.nvim_exec('Yanks', true)
 
   local output = vim.split(output_str, '\n')
@@ -56,7 +58,7 @@ local yanks = function()
         local selection = action_state.get_selected_entry()
         actions.close(prompt_bufnr)
 
-        vim.cmd("norm p")
+        vim.cmd("norm " .. yank_method)
 
         for i, v in ipairs(result) do
           if selection.value == v then
@@ -71,4 +73,9 @@ local yanks = function()
   }):find()
 end -- end custom function
 
-return telescope.register_extension({ exports = { yanks = yanks } })
+return telescope.register_extension({ exports = {
+  p = function() yanks() end,
+  P = function() yanks('P') end,
+  gp = function() yanks('gp') end,
+  gP = function() yanks('gP') end,
+} })

@@ -331,7 +331,7 @@ set wildcharm=<c-z>
 nnoremap <leader>n :e %:.:h<c-z><space><bs>
 " nnoremap <leader>n :e %:.:h<c-z>
 
-nnoremap <leader>fd <cmd>Telescope open_dir open_dir<cr>
+nnoremap <leader>fd <cmd>Telescope open_dir<cr>
 
 " vim abolish substitute
 vnoremap ss :S///g<left><left><left>
@@ -977,4 +977,4 @@ augroup yank_restore_cursor
 augroup END
 " }}}
 
-nnoremap <leader>fp <cmd>Telescope yanks<cr>
+nnoremap <leader>fp <cmd>Telescope yanks p<cr>
