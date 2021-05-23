@@ -31,7 +31,7 @@ Util.check_surroundings = function()
 	local next_char = line:sub(col, col)
 	-- from https://github.com/hrsh7th/nvim-compe/issues/106#issuecomment-770419258
 	-- [|] -> [ | ] when you press space
-	local pattern = '[%{|%}|%[|%]|%(|%)]'
+	local pattern = '[%{|%}|%[|%]]'
 
 	if prev_char:match(pattern) and next_char:match(pattern) then
 		return true

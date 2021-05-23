@@ -10,6 +10,8 @@ set modelines=0
 " there might be a better solution for it, see:
 " - https://news.ycombinator.com/item?id=20098691 and
 " - https://github.com/ciaranm/securemodelines
+" there is also `secure` https://vi.stackexchange.com/questions/5055/why-is-set-exrc-dangerous
+" I believe that ii14/exrc.vim which I've installed helps to guard this
 
 " allow switching to a new buffer in the same window even if old buffer has
 " some unsaved changes
@@ -225,7 +227,8 @@ let g:traces_abolish_integration = 1
 " quick tip: rather than pressing enter after search and using n and N to
 " navigate, you can use <c-g> and <c-t>. It won't give you match count, it
 " won't highlight all matches, sure, but it still feels faster getting to the
-" target. One more tip, use \V at start of query to issue a non-magic search
+" target. It also doesn't store jumps in jumplist.
+" One more tip, use \V at start of query to issue a non-magic search
 " so you can search `.` without escaping it for example. For more, see :help \v.
 nnoremap <leader>/ /\V
 nnoremap <leader>? ?\V
