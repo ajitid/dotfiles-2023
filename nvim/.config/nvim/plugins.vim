@@ -102,9 +102,6 @@ Plug 'markonm/traces.vim'
 " color highlighter 
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-" preserve yank history
-Plug 'svermeulen/vim-yoink'
-
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 

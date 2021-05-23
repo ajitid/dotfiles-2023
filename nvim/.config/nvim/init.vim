@@ -244,16 +244,6 @@ augroup END
 " Smooth scroll
 let g:smoothie_base_speed = 20
 
-" preserve and cycle yanked contents
-nmap p <plug>(YoinkPaste_p)
-nmap P <plug>(YoinkPaste_P)
-nmap gp <plug>(YoinkPaste_gp)
-nmap gP <plug>(YoinkPaste_gP)
-nmap [p <plug>(YoinkPostPasteSwapBack)
-nmap ]p <plug>(YoinkPostPasteSwapForward)
-let g:yoinkAutoFormatPaste = 0
-nmap =p <plug>(YoinkPostPasteToggleFormat)
-
 " System clipboard operations
 " Yank into + buffer
 nmap <leader>y "+y
@@ -985,6 +975,8 @@ let g:tinykeymap#conflict = 1
 
 " don't move cursor to first char when using operator mode (creating comments or using surround.vim) {{{
 " from https://vimways.org/2019/making-things-flow/
+" this as it also affects paste if you are using vim-yoink for eg. to override
+" `p` behaviour
 function! OpfuncSteady()
   if !empty(&operatorfunc)
     call winrestview(w:opfuncview)
