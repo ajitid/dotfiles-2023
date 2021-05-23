@@ -18,6 +18,7 @@ telescope.setup{
     prompt_position = "top",
     sorting_strategy = "ascending",
     prompt_prefix = " ⚡ ",
+
     file_ignore_patterns = {
       ".git/",
       ".DS_Store", ".vscode/",
@@ -28,6 +29,7 @@ telescope.setup{
     -- ^ telescope uses lua's pattern matching library, see:
     -- https://github.com/nvim-telescope/telescope.nvim/issues/780
     -- https://gitspartv.github.io/lua-patterns/
+
     selection_caret = "› ",
     file_previewer = require('telescope.previewers').vim_buffer_cat.new,
     -- this can work too but I cannot see any benefit-> file_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
@@ -41,14 +43,15 @@ telescope.setup{
         ["<Tab>"] = actions.toggle_selection
       }
     },
+  },
 
-    extensions = {
-      fzf = {
-        override_generic_sorter = false, -- override the generic sorter
-        override_file_sorter = true,     -- override the file sorter
-      }
-    },
-
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = false,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    }
   },
 }
 

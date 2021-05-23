@@ -6,8 +6,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   "autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-" MAX 52 plugins
-
 call plug#begin('~/.config/nvim/autoload/plugged')
 " call plug#begin(stdpath('data') . '/plugged')
 
