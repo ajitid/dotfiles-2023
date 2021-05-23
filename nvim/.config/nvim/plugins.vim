@@ -11,6 +11,8 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 " call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'maxbrunsfeld/vim-yankstack'
+
 " Better Syntax Support
 " Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -106,9 +108,6 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 Plug 'wellle/context.vim'
-
-Plug 'svermeulen/vim-cutlass'
-Plug 'maxbrunsfeld/vim-yankstack'
 
 Plug 'tpope/vim-speeddating'
 " TODO CtrlXA and splitjoin can be replaced by https://github.com/AndrewRadev/switch.vim

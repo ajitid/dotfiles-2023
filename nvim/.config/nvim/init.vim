@@ -380,15 +380,6 @@ call SetupCommandAlias("rg","Grep")
 " let g:rooter_silent_chdir = 1
 " ^ commented as not using startify anymore
 
-nmap <leader>j <Plug>Sneak_s
-nmap <leader>k <Plug>Sneak_S
-" visual-mode
-xmap <leader>j <Plug>Sneak_s
-xmap <leader>k <Plug>Sneak_S
-" operator-pending-mode
-omap <leader>j <Plug>Sneak_s
-omap <leader>k <Plug>Sneak_S
-
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* Stabs call Stabs()
 function! Stabs()
@@ -985,9 +976,3 @@ augroup yank_restore_cursor
         \ endif
 augroup END
 " }}}
-
-" send to - or 0-9 registers (act like killring)
-nnoremap <leader>k d
-xnoremap <leader>k d
-nnoremap <leader>kk dd
-nnoremap <leader>K D
