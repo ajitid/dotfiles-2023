@@ -906,7 +906,7 @@ xnoremap <silent>gs <cmd>HopChar1<cr>
 onoremap <silent>gs :HopChar1<cr>
 
 " Highlight it is the only key shown
-highlight HopNextKey  guifg=#6ade93 gui=bold,underline ctermfg=198 cterm=bold,underline
+highlight HopNextKey  guifg=#6ade93 gui=bold ctermfg=198 cterm=bold,underline
 " Highlight used for the first key in a sequence.
 highlight HopNextKey1 guifg=#ffa9d5 gui=bold,underline ctermfg=45 cterm=bold,underline
 " Highlight used for the second and remaining keys in a sequence.
