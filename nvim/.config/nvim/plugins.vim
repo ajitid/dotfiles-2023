@@ -108,6 +108,7 @@ Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'wellle/context.vim'
 
 Plug 'svermeulen/vim-cutlass'
+Plug 'maxbrunsfeld/vim-yankstack'
 
 Plug 'tpope/vim-speeddating'
 " TODO CtrlXA and splitjoin can be replaced by https://github.com/AndrewRadev/switch.vim
