@@ -104,11 +104,6 @@ set completeopt=menuone,noinsert,noselect
 " autosuggest max items
 set pumheight=8
 
-" needed otherwise it'll fold on file open
-" https://vim.fandom.com/wiki/All_folds_open_when_opening_a_file
-" set foldlevelstart=20
-" ^ seems like foldlevel does just that
-
 if executable('rg')
   set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
   set grepformat=%f:%l:%c:%m
@@ -294,9 +289,6 @@ nnoremap <leader>v "0p
 nnoremap <leader>V "0P
 vnoremap <leader>v "0p
 vnoremap <leader>V "0P
-
-" dir viewer sort folders at top
-let g:dirvish_mode = ':sort ,^.*[\/],'
 
 " quick horizontal find
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
