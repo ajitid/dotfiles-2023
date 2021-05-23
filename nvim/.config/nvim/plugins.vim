@@ -9,7 +9,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 " call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'zlksnk/vim-yankstack'
 
 " Better Syntax Support
 " Plug 'sheerun/vim-polyglot'

@@ -978,3 +978,5 @@ augroup END
 " }}}
 
 nnoremap <leader>fp <cmd>Telescope yanks p<cr>
+
+let g:yankstack_yank_keys = ['c', 'C', 'd', 'D', 'S', 'y', 'Y']
