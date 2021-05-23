@@ -73,7 +73,6 @@ colorscheme substrata
 
 " forgive me father i've sinned
 set mouse=nv
-" set cursorline
 
 " hides default mode display as we are using custom statusline
 set noshowmode
@@ -842,6 +841,32 @@ augroup highlight_near_cursor
   autocmd CursorMoved * autocmd highlight_near_cursor CursorMoved * call ClearHighlightNearCursor()
 augroup END
 
+" set cursorline
+" from https://vi.stackexchange.com/a/10291
+function HighlightLine()
+  if !exists("s:highlightline")
+    setlocal cursorline
+    let s:highlightline=1
+  else
+    setlocal nocursorline
+    unlet s:highlightline
+  endif
+endfunction
+
+nnoremap <leader>H <cmd>call HighlightLine()<cr>
+
+function ClearHighlightLine()
+  if exists("s:highlightline")
+    setlocal nocursorline
+    unlet s:highlightline
+  endif
+endfunction
+
+augroup highlight_line
+  autocmd!
+  autocmd CursorMoved * autocmd highlight_line CursorMoved * call ClearHighlightLine()
+augroup END
+
 " -- wrap line after 80 chars and color 81st column
 " set textwidth=80
 " set colorcolumn=+1
@@ -879,13 +904,14 @@ function! s:Stay(cmd) range
   call winrestview(view)
 endfunction
 
-augroup MappyTime
-  autocmd!
-  autocmd FileType markdown nnoremap <buffer> <silent> <leader>x :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
-    \| nnoremap <buffer> <silent> <leader>cc :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': '-', '-': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
-    \| nnoremap <buffer> <silent> <leader>cl :s/^/- [ ] <cr><bar><cmd>noh<cr>
-    \| vnoremap <buffer> <silent> <leader>cl :s/^/- [ ] <cr><bar><cmd>noh<cr>
-augroup END
+" ^^ checklist
+" augroup MappyTime
+"   autocmd!
+"   autocmd FileType markdown nnoremap <buffer> <silent> <leader>x :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
+"     \| nnoremap <buffer> <silent> <leader>cc :Stay keeppatterns s/^\s*-\s*\[\zs.\ze\]/\=get({' ': '-', '-': 'x', 'x': ' '}, submatch(0), ' ')/e<cr>
+"     \| nnoremap <buffer> <silent> <leader>cl :s/^/- [ ] <cr><bar><cmd>noh<cr>
+"     \| vnoremap <buffer> <silent> <leader>cl :s/^/- [ ] <cr><bar><cmd>noh<cr>
+" augroup END
 
 " Grep usage ->
 " :Grep statsapi -g *test*
