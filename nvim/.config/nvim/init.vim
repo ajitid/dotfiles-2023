@@ -980,3 +980,32 @@ let g:tinykeymaps_default = []
 let g:tinykeymap#conflict = 1
 " submode can be combined with which-key for help instead of F1 command
 " https://github.com/machakann/vim-swap also has `gs` subcommand
+
+" don't move cursor to first char when commenting or using surround.vim {{{
+" from https://vimways.org/2019/making-things-flow/
+function! OpfuncSteady()
+  if !empty(&operatorfunc)
+    call winrestview(w:opfuncview)
+    unlet w:opfuncview
+    noautocmd set operatorfunc=
+  endif
+endfunction
+
+augroup OpfuncSteady
+  autocmd!
+  autocmd OptionSet operatorfunc let w:opfuncview = winsaveview()
+  autocmd CursorMoved * call OpfuncSteady()
+augroup END
+" }}}
+
+" don't move my cursor to first char of yanked text
+" from https://www.reddit.com/r/vim/comments/ekgy47/question_how_to_keep_cursor_position_on_yank/fddnfl3/
+augroup yank_restore_cursor
+    autocmd!
+    autocmd VimEnter,CursorMoved *
+        \ let s:cursor = getpos('.')
+    autocmd TextYankPost *
+        \ if v:event.operator ==? 'y' |
+            \ call setpos('.', s:cursor) |
+        \ endif
+augroup END
