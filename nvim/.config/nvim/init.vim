@@ -71,7 +71,9 @@ augroup END
 let g:substrata_italic_functions = 0
 colorscheme substrata
 
-set cursorline
+" forgive me father i've sinned
+set mouse=nv
+" set cursorline
 
 " hides default mode display as we are using custom statusline
 set noshowmode
