@@ -1004,3 +1004,9 @@ augroup yank_restore_cursor
         \ endif
 augroup END
 " }}}
+
+" send to - or 0-9 registers (act like killring)
+nnoremap <leader>k d
+xnoremap <leader>k d
+nnoremap <leader>kk dd
+nnoremap <leader>K D
