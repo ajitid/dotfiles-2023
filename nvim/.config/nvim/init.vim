@@ -808,7 +808,7 @@ command! FormatJson
       \ call FormatJson()
 
 " from https://vim.fandom.com/wiki/Highlight_current_word_to_find_cursor
-function HighlightNearCursor()
+function! HighlightNearCursor()
   if !exists("s:highlightcursor")
     match Search /\k*\%#\k*/
     let s:highlightcursor=1
@@ -820,7 +820,7 @@ endfunction
 
 nnoremap <leader>h <cmd>call HighlightNearCursor()<cr>
 
-function ClearHighlightNearCursor()
+function! ClearHighlightNearCursor()
   if exists("s:highlightcursor")
     match None
     unlet s:highlightcursor
@@ -835,7 +835,7 @@ augroup END
 
 " set cursorline
 " from https://vi.stackexchange.com/a/10291
-function HighlightLine()
+function! HighlightLine()
   if !exists("s:highlightline")
     setlocal cursorline
     let s:highlightline=1
@@ -847,7 +847,7 @@ endfunction
 
 nnoremap <leader>H <cmd>call HighlightLine()<cr>
 
-function ClearHighlightLine()
+function! ClearHighlightLine()
   if exists("s:highlightline")
     setlocal nocursorline
     unlet s:highlightline
