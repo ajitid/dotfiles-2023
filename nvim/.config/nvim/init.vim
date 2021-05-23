@@ -23,6 +23,7 @@ let g:loaded_netrwPlugin = 1
 nnoremap <space> <nop>
 let mapleader = "\<Space>" " map leader to space
 
+" theme {{{
 if has('termguicolors')
   set termguicolors
 endif
@@ -70,6 +71,7 @@ augroup END
 " colorscheme embark
 let g:substrata_italic_functions = 0
 colorscheme substrata
+" }}}
 
 " forgive me father i've sinned
 set mouse=nv
@@ -981,7 +983,7 @@ let g:tinykeymap#conflict = 1
 " submode can be combined with which-key for help instead of F1 command
 " https://github.com/machakann/vim-swap also has `gs` subcommand
 
-" don't move cursor to first char when commenting or using surround.vim {{{
+" don't move cursor to first char when using operator mode (creating comments or using surround.vim) {{{
 " from https://vimways.org/2019/making-things-flow/
 function! OpfuncSteady()
   if !empty(&operatorfunc)
@@ -998,7 +1000,7 @@ augroup OpfuncSteady
 augroup END
 " }}}
 
-" don't move my cursor to first char of yanked text
+" don't move my cursor to first char of yanked text {{{
 " from https://www.reddit.com/r/vim/comments/ekgy47/question_how_to_keep_cursor_position_on_yank/fddnfl3/
 augroup yank_restore_cursor
     autocmd!
@@ -1009,3 +1011,4 @@ augroup yank_restore_cursor
             \ call setpos('.', s:cursor) |
         \ endif
 augroup END
+" }}}
