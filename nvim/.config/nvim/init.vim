@@ -976,3 +976,5 @@ augroup yank_restore_cursor
         \ endif
 augroup END
 " }}}
+
+nnoremap <leader>fp <cmd>Telescope yanks<cr>
