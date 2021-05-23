@@ -2,18 +2,18 @@ let g:sandwich_no_default_key_mappings = 1
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 
-nmap gb <Plug>(operator-sandwich-add)
+nmap <leader>j <Plug>(operator-sandwich-add)
 onoremap <SID>line :normal! ^vg_<CR>
-nmap <silent> gbb <Plug>(operator-sandwich-add)<SID>line
+nmap <silent> <leader>jj <Plug>(operator-sandwich-add)<SID>line
 onoremap <SID>gul g_
-nmap gB gb<SID>gul
+nmap <leader>J <leader>j<SID>gul
 
-nmap db <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-nmap dbb <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
-nmap cb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-nmap cbb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+nmap d<leader>j <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+nmap d<leader>jj <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+nmap c<leader>j <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+nmap c<leader>jj <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
 
-xmap gb <Plug>(operator-sandwich-add)
+xmap <leader>j <Plug>(operator-sandwich-add)
 
 runtime autoload/repeat.vim
 if hasmapto('<Plug>(RepeatDot)')
