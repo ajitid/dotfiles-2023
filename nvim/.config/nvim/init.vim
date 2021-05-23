@@ -947,21 +947,21 @@ let g:tinykeymap#conflict = 1
 
 " don't move cursor to first char when using operator mode (creating comments or using surround.vim) {{{
 " from https://vimways.org/2019/making-things-flow/
-" this as it also affects paste if you are using vim-yoink for eg. to override
-" `p` behaviour
-function! OpfuncSteady()
-  if !empty(&operatorfunc)
-    call winrestview(w:opfuncview)
-    unlet w:opfuncview
-    noautocmd set operatorfunc=
-  endif
-endfunction
+" this as it also affects paste if you are using vim-yoink for eg. to override `p` behaviour
+" also this interferes with vim-exchange
+" function! OpfuncSteady()
+"   if !empty(&operatorfunc)
+"     call winrestview(w:opfuncview)
+"     unlet w:opfuncview
+"     noautocmd set operatorfunc=
+"   endif
+" endfunction
 
-augroup OpfuncSteady
-  autocmd!
-  autocmd OptionSet operatorfunc let w:opfuncview = winsaveview()
-  autocmd CursorMoved * call OpfuncSteady()
-augroup END
+" augroup OpfuncSteady
+"   autocmd!
+"   autocmd OptionSet operatorfunc let w:opfuncview = winsaveview()
+"   autocmd CursorMoved * call OpfuncSteady()
+" augroup END
 " }}}
 
 " don't move my cursor to first char of yanked text {{{
