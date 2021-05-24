@@ -54,8 +54,8 @@ function! CustomSubstrata() abort
 
 
   " hi LspDiagnosticsDefaultHint guifg=LightGrey
-  hi LspDiagnosticsDefaultError guifg=#ffe1e1
-  " hi LspDiagnosticsDefaultWarning guifg=Orange
+  hi LspDiagnosticsDefaultError guifg=#f17a7a
+  hi LspDiagnosticsDefaultWarning guifg=#d6a255
   " hi LspDiagnosticsDefaultInformation guifg=LightBlue
 
   " hi ErrorText cterm=underline gui=undercurl guisp=#232323
