@@ -25,6 +25,7 @@ abbr getclip "xclip -selection c -o"
 #
 # more options at https://unix.stackexchange.com/questions/360540/append-to-a-pipe-and-pass-on
 abbr gi "cd ~/ghq/(ghq list | fzf)"
+abbr gg "ghq get -p"
 
 alias l='ls  -alhp --group-directories-first --color=never'
 
