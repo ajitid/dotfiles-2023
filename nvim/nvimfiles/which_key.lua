@@ -21,13 +21,14 @@ wk.register({
 	},
 	s = {
 		name = "show",
-		d = {"<cmd>Lspsaga hover_doc<CR>", "doc"},
-		s = {"<cmd>Lspsaga signature_help<CR>", "signature"},
+		d = {"<cmd>lua vim.lsp.buf.hover()<CR>", "doc"},
+		s = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "signature"},
 		e = {"<cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>", "diagnostics at cursor"},
 	},
 	i = {
 		name = "intelligent",
-		r = {":IRenameVariable ", "rename", silent=false},
+		r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "rename", silent=false}
+		-- r = {":IRenameVariable ", "rename", silent=false},
 	},
 	g = {
 		name = "goto",
