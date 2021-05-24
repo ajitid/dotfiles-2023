@@ -66,6 +66,10 @@ function! CustomSubstrata() abort
   " hi LspDiagnosticsUnderlineWarning cterm=underline gui=undercurl guisp=Orange
   " hi LspDiagnosticsUnderlineInformation cterm=underline gui=undercurl guisp=LightBlue
   " hi LspDiagnosticsUnderlineHint cterm=underline gui=undercurl guisp=LightGrey
+
+  lua vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "🚧", numhl = ""})
+  lua vim.fn.sign_define("LspDiagnosticsSignError", {text = "🔥", numhl = ""})
+  lua vim.fn.sign_define("LspDiagnosticsSignHint", {text = "🌿", numhl = ""})
 endfunction
 
 augroup MyColors
