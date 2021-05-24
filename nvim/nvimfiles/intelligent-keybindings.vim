@@ -10,8 +10,8 @@ augroup goto_definition
 augroup END
 
 " <silent> doesn't work here
-nnoremap <leader>ia :Telescope lsp_code_actions<CR>
-vnoremap <leader>ia :<C-U>Telescope lsp_range_code_actions<CR>
+nnoremap <silent><leader>ia :Telescope lsp_code_actions<CR>
+vnoremap <silent><leader>ia :<C-U>Telescope lsp_range_code_actions<CR>
 
 " nnoremap <leader>vf :lua M.search_dotfiles()<cr>
 " nnoremap <leader>vf :lua require('/home/frefko/nvimfiles/telescope').search_dotfiles()<cr>
