@@ -19,8 +19,9 @@ vnoremap <silent><leader>ia :<C-U>Telescope lsp_range_code_actions<CR>
 nnoremap <leader>e <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nnoremap ]e <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
 nnoremap [e <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
-command! SetErrorsInLocationList lua vim.lsp.diagnostic.set_loclist()
+command! PutErrorsInLocationList lua vim.lsp.diagnostic.set_loclist()
+" automatically show line diagnostics:
+" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 " lua
 " for _, mode in pairs({'n', 'v'}) do

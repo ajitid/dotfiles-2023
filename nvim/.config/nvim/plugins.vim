@@ -198,6 +198,8 @@ Plug 'phaazon/hop.nvim'
 " subcommand mode
 " Plug 'tomtom/tinykeymap_vim'
 
+" Plug 'kosayoda/nvim-lightbulb'
+
 " ---------------------------------------------
 
 call plug#end()

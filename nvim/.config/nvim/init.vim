@@ -4,6 +4,8 @@ set shm+=I
 
 " which key prompt wait time
 set timeoutlen=1500
+" cursor hold time
+" set updatetime=700
 
 " The modelines bit prevents some security exploits having to do with modelines in files. I never use modelines so I don't miss any functionality here. see http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html
 set modelines=0
@@ -921,11 +923,17 @@ endfunction
 command! PutModifiedFilesInArglist
       \ call s:PutModifiedFilesInArglist()
 
-" unimpared like mapping
+" unimpared like mapping for arglist
 nnoremap [a <cmd>prev<cr>
 nnoremap ]a <cmd>next<cr>
 nnoremap [A <cmd>first<cr>
 nnoremap ]A <cmd>last<cr>
+
+" unimpared like mapping for location list
+nnoremap [l <cmd>lprev<cr>
+nnoremap ]l <cmd>lnext<cr>
+nnoremap [L <cmd>lfirst<cr>
+nnoremap ]L <cmd>llast<cr>
 
 " original jumplist behaviour is not the one I wanted
 " https://vi.stackexchange.com/questions/18344/how-to-change-jumplist-behavior
