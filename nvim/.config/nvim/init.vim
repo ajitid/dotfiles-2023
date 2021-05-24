@@ -1,5 +1,10 @@
 source $HOME/.config/nvim/plugins.vim
 
+let g:yankstack_yank_keys = ['c', 'C', 'd', 'D', 'S', 'y', 'Y']
+call yankstack#setup()
+" ^ need to call setup before customizing keymappings for other plugins, like
+" hop.nvim or surround, see https://github.com/maxbrunsfeld/vim-yankstack/issues/18
+
 set shm+=I
 
 " which key prompt wait time
@@ -978,5 +983,3 @@ augroup END
 " }}}
 
 nnoremap <leader>fp <cmd>Telescope yanks p<cr>
-
-let g:yankstack_yank_keys = ['c', 'C', 'd', 'D', 'S', 'y', 'Y']
