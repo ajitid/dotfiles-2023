@@ -146,6 +146,7 @@ Plug 'kevinhwang91/nvim-bqf'
 
 " TODO read https://www.reddit.com/r/vim/comments/adsqnx/favorite_custom_text_objects/edjw792/
 Plug 'tommcdo/vim-exchange'
+Plug 'svermeulen/vim-subversive'
 Plug 'kana/vim-textobj-user'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'Julian/vim-textobj-variable-segment'

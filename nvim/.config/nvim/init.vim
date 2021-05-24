@@ -983,3 +983,13 @@ augroup yank_restore_cursor
 augroup END
 " }}}
 
+nmap <leader>r <plug>(SubversiveSubstitute)
+nmap <leader>rr <plug>(SubversiveSubstituteLine)
+nmap <leader>R <plug>(SubversiveSubstituteToEndOfLine)
+
+nmap \ <plug>(SubversiveSubvertRange)
+xmap \ <plug>(SubversiveSubvertRange)
+nmap \\ <plug>(SubversiveSubvertWordRange)
+nmap c\ <plug>(SubversiveSubstituteRangeConfirm)
+xmap c\ <plug>(SubversiveSubstituteRangeConfirm)
+nmap c\\ <plug>(SubversiveSubstituteWordRangeConfirm)
