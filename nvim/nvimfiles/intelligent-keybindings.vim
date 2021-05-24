@@ -10,8 +10,8 @@ augroup goto_definition
 augroup END
 
 " <silent> doesn't work here
-nnoremap <leader>ia :Lspsaga code_action<CR>
-vnoremap <leader>ia :<C-U>Lspsaga range_code_action<CR>
+nnoremap <leader>ia :Telescope lsp_code_actions<CR>
+vnoremap <leader>ia :<C-U>Telescope lsp_range_code_actions<CR>
 
 " nnoremap <leader>vf :lua M.search_dotfiles()<cr>
 " nnoremap <leader>vf :lua require('/home/frefko/nvimfiles/telescope').search_dotfiles()<cr>
@@ -24,3 +24,7 @@ nnoremap [e :Lspsaga diagnostic_jump_prev<CR>
 " for _, mode in pairs({'n', 'v'}) do
 " 	buf_set_keymap(mode, '[e', "<cmd>lua require'wb.lsp.diagnostics'.goto_prev({ severity_limit = 'Error' })<CR>", opts)
 " end
+
+command! -nargs=1 IRenameVariable
+  \ lua require('mine.lsp').rename_variable(<f-args>)
+

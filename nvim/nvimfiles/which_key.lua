@@ -27,7 +27,7 @@ wk.register({
 	},
 	i = {
 		name = "intelligent",
-		r = {"<cmd>Lspsaga rename<cr>", "rename"},
+		r = {":IRenameVariable ", "rename", silent=false},
 	},
 	g = {
 		name = "goto",

@@ -121,7 +121,7 @@ set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim
 
 " TODO: put them in a directory other than nvimfiles
 " lua require("init")
-luafile ~/nvimfiles/lsp-saga.lua
+" luafile ~/nvimfiles/lsp-saga.lua
 luafile ~/nvimfiles/lsp.lua
 " luafile ~/nvimfiles/efm-for-format.lua
 " luafile ~/nvimfiles/eslint-daemon.lua
@@ -985,3 +985,4 @@ augroup END
 " }}}
 
 nnoremap <leader>fp <cmd>Telescope yanks p<cr>
+

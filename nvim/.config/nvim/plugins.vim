@@ -43,7 +43,6 @@ Plug 'fhill2/telescope-ultisnips.nvim'
 " used over telescope-fzy-native
 
 " Gives UI actions to LSP
-Plug 'glepnir/lspsaga.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 
 " Completion using LSP
