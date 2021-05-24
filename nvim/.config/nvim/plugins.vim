@@ -151,6 +151,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'Julian/vim-textobj-variable-segment'
 
+Plug 'bfredl/nvim-miniyank'
+
 " OSC52 (and maybe PASTE64) yank: https://github.com/ojroques/vim-oscyank
 " ^ useful on an ssh-ed machine, and it seems like it can work w/o X forwarding:
 " https://www.reddit.com/r/vim/comments/k1ydpn/a_guide_on_how_to_copy_text_from_anywhere/
