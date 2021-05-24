@@ -16,9 +16,11 @@ vnoremap <silent><leader>ia :<C-U>Telescope lsp_range_code_actions<CR>
 " nnoremap <leader>vf :lua M.search_dotfiles()<cr>
 " nnoremap <leader>vf :lua require('/home/frefko/nvimfiles/telescope').search_dotfiles()<cr>
 
-nnoremap <leader>e <cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>
-nnoremap ]e :Lspsaga diagnostic_jump_next<CR>
-nnoremap [e :Lspsaga diagnostic_jump_prev<CR>
+nnoremap <leader>e <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap ]e <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
+nnoremap [e <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+command! SetErrorsInLocationList lua vim.lsp.diagnostic.set_loclist()
 
 " lua
 " for _, mode in pairs({'n', 'v'}) do

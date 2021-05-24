@@ -23,7 +23,6 @@ wk.register({
 		name = "show",
 		d = {"<cmd>lua vim.lsp.buf.hover()<CR>", "doc"},
 		s = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "signature"},
-		e = {"<cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>", "diagnostics at cursor"},
 	},
 	i = {
 		name = "intelligent",
