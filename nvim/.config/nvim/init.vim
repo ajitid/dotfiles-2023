@@ -1023,3 +1023,14 @@ command! -bang YanksAfter call s:fzf_miniyank(0, <bang>0)
 
 map <A-p> :YanksAfter<CR>
 map <A-P> :YanksBefore<CR>
+
+" slightly modified vimtip mentioned in https://github.com/inkarkat/vim-UnconditionalPaste
+function! PasteJointCharacterwise(regname, pastecmd)
+  let reg_type = getregtype(a:regname)
+  call setreg(a:regname, '', "ac")
+  exe 'normal "'.a:regname . a:pastecmd
+  call setreg(a:regname, '', "a".reg_type)
+  exe 'normal `[v`]gJ'
+endfunction
+nmap <silent><Leader>ip :call PasteJointCharacterwise(v:register, "p")<CR>
+nmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
