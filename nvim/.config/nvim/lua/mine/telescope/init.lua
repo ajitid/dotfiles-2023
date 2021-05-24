@@ -58,7 +58,6 @@ telescope.setup{
 telescope.load_extension('fzf')
 telescope.load_extension('ultisnips')
 telescope.load_extension('open_dir')
-telescope.load_extension('yanks')
 
 local function generateOpts(opts)
   local common_opts = {
