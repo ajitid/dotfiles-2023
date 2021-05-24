@@ -273,11 +273,11 @@ let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules']
 " To copy absolute path or filename, see https://stackoverflow.com/q/916875 or
 " even better https://stackoverflow.com/questions/27448157/copy-only-filename-without-extension-to-system-clipboard
 " Further reading-> :help filename-modifiers
-nnoremap <leader>cp <cmd>let @_ = expand("%")<cr>gtgT<cmd>let @" = expand("%")<cr>
-nnoremap <leader>Cp <cmd>let @_ = expand("%")<cr>gtgT<cmd>let @+ = expand("%")<cr>
+nnoremap <leader>cp <cmd>let @" = expand("%")<cr>
+nnoremap <leader>Cp <cmd>let @+ = expand("%")<cr>
 
-nnoremap <leader>cn <cmd>let @_ = expand("%:t")<cr>gtgT<cmd>let @" = expand("%:t")<cr>
-nnoremap <leader>Cn <cmd>let @_ = expand("%:t")<cr>gtgT<cmd>let @+ = expand("%:t")<cr>
+nnoremap <leader>cn <cmd>let @" = expand("%:t")<cr>
+nnoremap <leader>Cn <cmd>let @+ = expand("%:t")<cr>
 
 " Swaps block of code, respecting indentation of blocks in which it is swapped
 " to (esp. useful in visual line mode)
