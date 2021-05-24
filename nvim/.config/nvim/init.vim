@@ -141,7 +141,7 @@ luafile ~/nvimfiles/which_key.lua
 luafile ~/nvimfiles/comment.lua
 
 " https://vim.fandom.com/wiki/Folding and :h fold-commands
-set foldlevel=20
+set foldlevel=21
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
@@ -346,6 +346,7 @@ vnoremap ss :S///g<left><left><left>
 " useful for formatting system clipboard contents
 nnoremap <leader>= V`]
 " might be relevant https://stackoverflow.com/a/7087202/7683365
+" an alternative mapping could be nnoremap =p V`]=
 
 " to format on paste, use ]p and with a register it'll become "0]p
 " you might need p=`] over ]p, see Correcting bad indent while pasting from
@@ -432,6 +433,7 @@ endfunction
 " taken from vim user manual, also see https://stackoverflow.com/a/40992753/7683365
 " also see https://stackoverflow.com/questions/8854371/vim-how-to-restore-the-cursors-logical-and-physical-positions
 " and https://github.com/farmergreg/vim-lastplace
+" and https://github.com/zhimsel/vim-stay
 " this doesn't return to last position wrt window (that "also see" answer can
 " help) but I don't want that feature either
 " au BufReadPost *

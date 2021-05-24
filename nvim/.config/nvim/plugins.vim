@@ -11,6 +11,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 Plug 'zlksnk/vim-yankstack'
 
+Plug 'farmergreg/vim-lastplace'
+
 " Better Syntax Support
 " Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
