@@ -40,7 +40,9 @@ telescope.setup{
         ["<esc>"] = actions.close,
         -- TODO multiple file selection on <cr> if used <tab> https://github.com/nvim-telescope/telescope.nvim/issues/814
         ["<CR>"] = actions.select_default,
-        ["<Tab>"] = actions.toggle_selection
+        ["<Tab>"] = actions.toggle_selection,
+        -- from https://github.com/nvim-telescope/telescope.nvim/issues/42#issuecomment-822037307
+        ["<c-q>"] = actions.smart_send_to_qflist
       }
     },
   },
