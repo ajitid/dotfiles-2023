@@ -5,10 +5,16 @@ local configs = require'lspconfig/configs'
 -- require('lspkind').init({})
 
 -- hide diagnostics from apppearing automatically beside each line 
+-- https://www.reddit.com/r/neovim/comments/kx8de9/hiding_virtual_text_for_stopped_working/
+-- https://sourcegraph.com/github.com/neovim/neovim/-/blob/runtime/lua/vim/lsp/diagnostic.lua#L967
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
   -- TODO virtual text is useful on a widescreen monitor
   -- virtual_text = false
+  virtual_text = {
+    spacing = 2,
+    prefix = '«'
+  }
 }
 )
 
