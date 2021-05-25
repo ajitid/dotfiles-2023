@@ -67,6 +67,7 @@ function! CustomSubstrata() abort
   lua vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "🚧", numhl = ""})
   lua vim.fn.sign_define("LspDiagnosticsSignError", {text = "🔥", numhl = ""})
   lua vim.fn.sign_define("LspDiagnosticsSignHint", {text = "🌿", numhl = ""})
+  " lua vim.fn.sign_define("LspDiagnosticsSignError", {text = "•", texthl = "LspDiagnosticsDefaultError"})
 endfunction
 
 augroup MyColors

@@ -30,5 +30,5 @@ command! PutErrorsInLocationList lua vim.lsp.diagnostic.set_loclist()
 " end
 
 command! -nargs=1 IRenameVariable
-  \ lua require('mine.lsp').rename_variable(<f-args>)
+  \ lua require('mine.lsp.rename').rename_variable(<f-args>)
 
