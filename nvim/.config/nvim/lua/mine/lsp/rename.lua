@@ -1,5 +1,6 @@
 local lsp,util,api = vim.lsp,vim.lsp.util,vim.api
 
+-- this is now superseded by inbuilt rename fn which does this and a whole lot more
 local rename_variable = function(new_name)
   local params = util.make_position_params()
   local current_name = vim.fn.expand('<cword>')
