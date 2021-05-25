@@ -936,6 +936,12 @@ nnoremap ]l <cmd>lnext<cr>
 nnoremap [L <cmd>lfirst<cr>
 nnoremap ]L <cmd>llast<cr>
 
+" unimpared like mapping for quickfix list
+nnoremap [c <cmd>cprev<cr>
+nnoremap ]c <cmd>cnext<cr>
+nnoremap [C <cmd>cfirst<cr>
+nnoremap ]C <cmd>clast<cr>
+
 " original jumplist behaviour is not the one I wanted
 " https://vi.stackexchange.com/questions/18344/how-to-change-jumplist-behavior
 " also jumplist will record numbered jumps like 20G but record jumps for 7j
