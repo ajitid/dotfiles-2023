@@ -70,6 +70,9 @@ for _, server in pairs(installed_servers) do
         require "lsp_signature".on_attach({
           bind = true,
           decorator = {"**", "**"},
+          handler_opts = {
+            border = "none"
+          },
           hint_enable = false,
           hint_prefix = "👇 ",
         })
