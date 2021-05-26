@@ -176,6 +176,11 @@ Plug 'romainl/vim-cool'
 Plug 'phaazon/hop.nvim'
 
 Plug 'tpope/vim-fugitive'
+" for GitHub
+Plug 'tpope/vim-rhubarb'
+" for BitBucket
+Plug 'tommcdo/vim-fubitive'
+
 " Plug 'sindrets/diffview.nvim'
 " TimUntersberger/neogit
 " lewis6991/gitsigns.nvim
