@@ -180,6 +180,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 " for BitBucket
 Plug 'tommcdo/vim-fubitive'
+Plug 'tommcdo/vim-fugitive-blame-ext'
 
 " Plug 'sindrets/diffview.nvim'
 " TimUntersberger/neogit
