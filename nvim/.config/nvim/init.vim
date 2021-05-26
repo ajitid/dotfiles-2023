@@ -349,6 +349,8 @@ vnoremap ss :S///g<left><left><left>
 " V = visually select lines, `] = till end of paste, = = indent
 " useful for formatting system clipboard contents
 nnoremap <leader>= V`]
+" `] will go to end of last inserted/pasted text and
+" `[ will go to the start of it
 " might be relevant https://stackoverflow.com/a/7087202/7683365
 " an alternative mapping could be nnoremap =p V`]=
 

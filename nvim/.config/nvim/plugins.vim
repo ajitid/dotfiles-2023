@@ -150,6 +150,12 @@ Plug 'svermeulen/vim-subversive'
 Plug 'kana/vim-textobj-user'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'Julian/vim-textobj-variable-segment'
+Plug 'tommcdo/vim-nowchangethat'
+
+" give the power of motions to text objects
+" Plug 'tommcdo/vim-ninja-feet' << disabling this until
+" https://github.com/tommcdo/vim-ninja-feet/pull/9 is merged
+Plug 'AdnoC/vim-ninja-feet', {'branch': 'fix-multiline-to-eol'}
 
 Plug 'bfredl/nvim-miniyank'
 
@@ -185,11 +191,6 @@ Plug 'tommcdo/vim-fugitive-blame-ext'
 " Plug 'sindrets/diffview.nvim'
 " TimUntersberger/neogit
 " lewis6991/gitsigns.nvim
-
-" give the power of motions to text objects
-" Plug 'tommcdo/vim-ninja-feet' << disabling this until
-" https://github.com/tommcdo/vim-ninja-feet/pull/9 is merged
-Plug 'AdnoC/vim-ninja-feet', {'branch': 'fix-multiline-to-eol'}
 
 " DISABLED ------------------------------------
 
