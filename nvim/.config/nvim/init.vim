@@ -583,8 +583,25 @@ function! s:BlankDown(count) abort
   '[-1
 endfunction
 
-nnoremap [<space> <cmd>call <sid>BlankUp(v:count1)<cr>
-nnoremap ]<space> <cmd>call <sid>BlankDown(v:count1)<cr>
+nnoremap [o <cmd>call <sid>BlankUp(v:count1)<cr>
+nnoremap ]o <cmd>call <sid>BlankDown(v:count1)<cr>
+
+" https://superuser.com/a/581669
+" and `ga` in normal mode to get char info
+function! s:SpaceBefore(count) abort
+  " https://vi.stackexchange.com/a/12480
+  call feedkeys(a:count . '"=nr2char(32)' . "\<CR>" . 'Pl')
+  " https://stackoverflow.com/a/47789099/7683365
+  call feedkeys(":echo\<cr>")
+endfunction
+
+function! s:SpaceAfter(count) abort
+  call feedkeys(a:count . '"=nr2char(32)' . "\<CR>" . 'p`[h')
+  call feedkeys(":echo\<cr>")
+endfunction
+
+nnoremap [<space> <cmd>call <sid>SpaceBefore(v:count1)<cr>
+nnoremap ]<space> <cmd>call <sid>SpaceAfter(v:count1)<cr>
 
 " you can also use a combination of `tabedit %` with `tabclose` or `q`
 " taken from https://stackoverflow.com/a/60639802/7683365
@@ -1009,9 +1026,10 @@ nmap <leader>R <plug>(SubversiveSubstituteToEndOfLine)
 nmap \ <plug>(SubversiveSubvertRange)
 xmap \ <plug>(SubversiveSubvertRange)
 nmap \\ <plug>(SubversiveSubvertWordRange)
-nmap c\ <plug>(SubversiveSubstituteRangeConfirm)
-xmap c\ <plug>(SubversiveSubstituteRangeConfirm)
-nmap c\\ <plug>(SubversiveSubstituteWordRangeConfirm)
+" commenting as it interferes with `c` command in visual mode
+" nmap c\ <plug>(SubversiveSubstituteRangeConfirm)
+" xmap c\ <plug>(SubversiveSubstituteRangeConfirm)
+" nmap c\\ <plug>(SubversiveSubstituteWordRangeConfirm)
 
 let g:miniyank_maxitems = 100
 
