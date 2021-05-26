@@ -186,6 +186,10 @@ Plug 'tommcdo/vim-fugitive-blame-ext'
 " TimUntersberger/neogit
 " lewis6991/gitsigns.nvim
 
+" give the power of motions to text objects
+" Plug 'tommcdo/vim-ninja-feet' << disabling this until
+" https://github.com/tommcdo/vim-ninja-feet/pull/9 is merged
+Plug 'AdnoC/vim-ninja-feet', {'branch': 'fix-multiline-to-eol'}
 
 " DISABLED ------------------------------------
 
