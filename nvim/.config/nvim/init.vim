@@ -684,7 +684,7 @@ function! Diff(mods, spec)
   if !len(mods) && &diffopt =~ 'vertical'
     let mods = 'vertical'
   endif
-  execute mods . ' new'
+  execute 'topleft ' . mods . ' new'
   setlocal bufhidden=wipe buftype=nofile nobuflisted noswapfile
   let cmd = "++edit #"
 
@@ -700,7 +700,7 @@ function! Diff(mods, spec)
     autocmd BufWipeout <buffer> diffoff!
   augroup END
   diffthis
-  nnoremap <buffer>q <C-W>c
+  " nnoremap <buffer>q <C-W>c
 
   wincmd p
   diffthis
@@ -937,10 +937,10 @@ nnoremap [L <cmd>lfirst<cr>
 nnoremap ]L <cmd>llast<cr>
 
 " unimpared like mapping for quickfix list
-nnoremap [c <cmd>cprev<cr>
-nnoremap ]c <cmd>cnext<cr>
-nnoremap [C <cmd>cfirst<cr>
-nnoremap ]C <cmd>clast<cr>
+nnoremap [q <cmd>cprev<cr>
+nnoremap ]q <cmd>cnext<cr>
+nnoremap [Q <cmd>cfirst<cr>
+nnoremap ]Q <cmd>clast<cr>
 
 " original jumplist behaviour is not the one I wanted
 " https://vi.stackexchange.com/questions/18344/how-to-change-jumplist-behavior
