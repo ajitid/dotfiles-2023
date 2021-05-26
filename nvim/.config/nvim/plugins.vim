@@ -176,6 +176,10 @@ Plug 'romainl/vim-cool'
 Plug 'phaazon/hop.nvim'
 
 Plug 'tpope/vim-fugitive'
+" Plug 'sindrets/diffview.nvim'
+" TimUntersberger/neogit
+" lewis6991/gitsigns.nvim
+
 
 " DISABLED ------------------------------------
 
