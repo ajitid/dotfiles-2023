@@ -1,4 +1,4 @@
-nnoremap <c-p> <cmd>lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>
+nnoremap <silent><leader>f<space> <cmd>lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>
 
 " not entirely sure about old files `fh`, only thing being this should assist in
 " ranking for `ff`
