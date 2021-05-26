@@ -232,6 +232,8 @@ let g:traces_abolish_integration = 1
 " navigate, you can use <c-g> and <c-t>. It won't give you match count, it
 " won't highlight all matches, sure, but it still feels faster getting to the
 " target. It also doesn't store jumps in jumplist.
+" Another good thing about this^ is that you can interactively delete stuff,
+" for eg. d/}<c-g><c-g><cr>
 " One more tip, use \V at start of query to issue a non-magic search
 " so you can search `.` without escaping it for example. For more, see :help \v.
 nnoremap <leader>/ /\V
@@ -1071,3 +1073,17 @@ function! PasteJointCharacterwise(regname, pastecmd)
 endfunction
 nmap <silent><Leader>ip :call PasteJointCharacterwise(v:register, "p")<CR>
 nmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
+vmap <silent><Leader>ip :call PasteJointCharacterwise(v:register, "p")<CR>
+vmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
+
+function! s:Harpoo(count) abort
+  if a:count > 0
+    call luaeval('require("harpoon.ui").nav_file(' . a:count . ')')
+  endif
+endfunction
+
+nnoremap <leader>ma <cmd>lua require("harpoon.mark").add_file()<cr><cmd>echo 'File added to Harpoon:' expand('%')<cr>
+nnoremap <leader>mm <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <leader>j <cmd>call <sid>Harpoo(v:count1)<cr>
+
+

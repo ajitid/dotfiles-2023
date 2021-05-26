@@ -157,6 +157,7 @@ Plug 'tommcdo/vim-nowchangethat'
 " https://github.com/tommcdo/vim-ninja-feet/pull/9 is merged
 " Plug 'AdnoC/vim-ninja-feet', {'branch': 'fix-multiline-to-eol'}
 " commented as it was overriding ]i and [i motions
+" also for inner delete, d]} can basically do the same thing
 
 Plug 'bfredl/nvim-miniyank'
 
@@ -192,6 +193,8 @@ Plug 'tommcdo/vim-fugitive-blame-ext'
 " Plug 'sindrets/diffview.nvim'
 " TimUntersberger/neogit
 " lewis6991/gitsigns.nvim
+
+Plug 'ThePrimeagen/harpoon'
 
 " DISABLED ------------------------------------
 
