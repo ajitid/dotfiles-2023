@@ -42,7 +42,7 @@ let g:lightline = {
       \ },
       \ 'active': {
       \   'left': [ [ 'filename', 'readonly', 'modified' ],
-      \             [ 'git-branch', 'modified-mode', 'paste' ] ],
+      \             [ 'modified-mode', 'paste' ] ],
       \   'right': [ [ 'lineinfo', 'percent' ],
       \              [ 'lsp_status', 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
