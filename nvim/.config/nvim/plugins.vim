@@ -155,7 +155,8 @@ Plug 'tommcdo/vim-nowchangethat'
 " give the power of motions to text objects
 " Plug 'tommcdo/vim-ninja-feet' << disabling this until
 " https://github.com/tommcdo/vim-ninja-feet/pull/9 is merged
-Plug 'AdnoC/vim-ninja-feet', {'branch': 'fix-multiline-to-eol'}
+" Plug 'AdnoC/vim-ninja-feet', {'branch': 'fix-multiline-to-eol'}
+" commented as it was overriding ]i and [i motions
 
 Plug 'bfredl/nvim-miniyank'
 
