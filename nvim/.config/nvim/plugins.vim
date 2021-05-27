@@ -157,7 +157,8 @@ Plug 'tommcdo/vim-nowchangethat'
 " https://github.com/tommcdo/vim-ninja-feet/pull/9 is merged
 " Plug 'AdnoC/vim-ninja-feet', {'branch': 'fix-multiline-to-eol'}
 " commented as it was overriding ]i and [i motions
-" also for inner delete, d]} can basically do the same thing
+" also for inner delete, d]} or 2d]} can basically do the same thing
+" there is also search followed by <c-g> (w/o pressing enter after search)
 
 Plug 'bfredl/nvim-miniyank'
 
@@ -224,6 +225,8 @@ Plug 'tommcdo/vim-fugitive-blame-ext'
 " also see
 " https://github.com/nvim-treesitter/nvim-treesitter#incremental-selection
 " and https://news.ycombinator.com/item?id=27292237
+" ^^ now i think doing di( and then dot repeat it would be much faster anyway
+" and prefixing with number like 2di{
 
 " Plug 'ThePrimeagen/harpoon'
 
