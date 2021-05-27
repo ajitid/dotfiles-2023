@@ -4,8 +4,11 @@ set shm+=I
 
 " which key prompt wait time
 set timeoutlen=1500
+
 " cursor hold time
 " set updatetime=700
+" from FixCursorHold.nvim
+let g:cursorhold_updatetime = 400
 
 " The modelines bit prevents some security exploits having to do with modelines in files. I never use modelines so I don't miss any functionality here. see http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html
 set modelines=0

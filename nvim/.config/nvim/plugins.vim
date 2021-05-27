@@ -9,6 +9,8 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 " call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'antoinemadec/FixCursorHold.nvim'
+
 Plug 'farmergreg/vim-lastplace'
 
 " Better Syntax Support
