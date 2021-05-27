@@ -239,3 +239,37 @@ end
 abbr -a -- - 'cd -'
 
 # tree -d -L 2 -I 'node_modules|e2e_Tests|*mocks*'
+
+function butt
+  if [ "$argv[1]" = "" ]
+    echo "Please provide a dir name"
+    return 1
+  end
+
+  set -l up_times 0
+  set -l found 0
+  set -l path (string sub --start 2 $PWD)
+
+  for i in (echo $path|awk -F'/' '{for(i=1;i<=NF;++i)print $i}')[-2..1]
+    set up_times (math "$up_times+1")
+
+    if [ "$i" = "$argv[1]" ]
+      set found 1
+      break
+    end
+  end
+
+  if [ "$found" = 1 ]
+    set -l alt_dir $PWD
+    while test "$up_times" -gt 0;
+      cd ..;
+      set up_times (math $up_times - 1);
+    end
+    set -l cur_dir $PWD
+    cd $alt_dir
+    cd $cur_dir
+  else
+    echo "Couldn't find the dirname you passed in PWD"
+    return 2
+  end
+end
