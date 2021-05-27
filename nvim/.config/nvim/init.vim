@@ -1077,13 +1077,22 @@ nmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
 vmap <silent><Leader>ip :call PasteJointCharacterwise(v:register, "p")<CR>
 vmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
 
+nnoremap <leader>ma <cmd>lua require("harpoon.mark").add_file()<cr><cmd>echo 'File added to Harpoon:' expand('%')<cr>
+nnoremap <leader>mm <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
+
 function! s:Harpoo(count) abort
   if a:count > 0
     call luaeval('require("harpoon.ui").nav_file(' . a:count . ')')
   endif
 endfunction
 
-nnoremap <leader>ma <cmd>lua require("harpoon.mark").add_file()<cr><cmd>echo 'File added to Harpoon:' expand('%')<cr>
-nnoremap <leader>mm <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
 nnoremap <leader>j <cmd>call <sid>Harpoo(v:count1)<cr>
+
+function! s:HarpooTerm(count) abort
+  if a:count > 0
+    call luaeval('require("harpoon.term").gotoTerminal(' . a:count . ')')
+  endif
+endfunction
+
+nnoremap <leader>k <cmd>call <sid>HarpooTerm(v:count1)<cr>
 
