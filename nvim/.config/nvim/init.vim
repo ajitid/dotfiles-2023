@@ -143,6 +143,7 @@ luafile ~/nvimfiles/treesitter.lua
 luafile ~/nvimfiles/lir.lua
 luafile ~/nvimfiles/which_key.lua
 luafile ~/nvimfiles/comment.lua
+source ~/nvimfiles/disabled.vim
 
 " https://vim.fandom.com/wiki/Folding and :h fold-commands
 set foldlevel=21
@@ -1085,5 +1086,4 @@ endfunction
 nnoremap <leader>ma <cmd>lua require("harpoon.mark").add_file()<cr><cmd>echo 'File added to Harpoon:' expand('%')<cr>
 nnoremap <leader>mm <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
 nnoremap <leader>j <cmd>call <sid>Harpoo(v:count1)<cr>
-
 

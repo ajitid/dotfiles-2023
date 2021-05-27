@@ -221,6 +221,12 @@ Plug 'ThePrimeagen/harpoon'
 
 " Plug 'kosayoda/nvim-lightbulb'
 
+" expand/shrink selection
+" Plug 'gcmt/wildfire.vim'
+" also see
+" https://github.com/nvim-treesitter/nvim-treesitter#incremental-selection
+" and https://news.ycombinator.com/item?id=27292237
+
 " ---------------------------------------------
 
 call plug#end()
