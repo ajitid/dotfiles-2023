@@ -184,13 +184,6 @@ Plug 'romainl/vim-cool'
 " prev. one was vim-sneak
 Plug 'phaazon/hop.nvim'
 
-Plug 'tpope/vim-fugitive'
-" for GitHub
-Plug 'tpope/vim-rhubarb'
-" for BitBucket
-Plug 'tommcdo/vim-fubitive'
-Plug 'tommcdo/vim-fugitive-blame-ext'
-
 " Plug 'sindrets/diffview.nvim'
 " TimUntersberger/neogit
 " lewis6991/gitsigns.nvim
@@ -229,6 +222,13 @@ Plug 'tommcdo/vim-fugitive-blame-ext'
 " and prefixing with number like 2di{
 
 " Plug 'ThePrimeagen/harpoon'
+
+" Plug 'tpope/vim-fugitive'
+" " for GitHub
+" Plug 'tpope/vim-rhubarb'
+" " for BitBucket
+" Plug 'tommcdo/vim-fubitive'
+" Plug 'tommcdo/vim-fugitive-blame-ext'
 
 " ---------------------------------------------
 

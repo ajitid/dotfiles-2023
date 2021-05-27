@@ -21,8 +21,8 @@ set hidden
 
 " see netrw-noload
 " commented to allow running GBrowse of fugitive
-" let g:loaded_netrw       = 1
-" let g:loaded_netrwPlugin = 1
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 
 " By default typing space goes to next character
 " This needs to be defined before leader commands are defined
