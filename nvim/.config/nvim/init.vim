@@ -20,9 +20,9 @@ set modelines=0
 set hidden
 
 " see netrw-noload
-" commented to allow running GBrowse of fugitive
-let g:loaded_netrw       = 1
-let g:loaded_netrwPlugin = 1
+" commented to allow running GBrowse of fugitive, and custom gf command
+" let g:loaded_netrw       = 1
+" let g:loaded_netrwPlugin = 1
 
 
 " Highlight realtime when using find and replace by :s/old/new or
@@ -553,6 +553,27 @@ let g:projectionist_ignore_vaffle = 1
 " goto file and create it if is not present
 " from https://stackoverflow.com/a/29068665/7683365
 function! Gf()
+  let l:filepath = expand('<cfile>')
+
+  " check if it is a URL, if it is then load it up
+  if l:filepath[0:len('https://')-1] ==# 'https://' || l:filepath[0:len('http://')-1] ==# 'http://'
+    " from autoload/fugitive.vim s:BrowserOpen function
+    if !exists('g:loaded_netrw')
+      runtime! autoload/netrw.vim
+    endif
+
+    if exists('*netrw#BrowseX')
+      call netrw#BrowseX(l:filepath, 0)
+    endif
+
+    if has('clipboard')
+      let @+ = l:filepath
+      echo 'Opening URL in browser, it has been copied to clipboard too.'
+    endif
+
+    return
+  endif
+
   try
     exec "normal! gf"
   catch /E447/
@@ -570,7 +591,6 @@ function! Gf()
 
     " from
     " https://github.com/zlksnk/vaffle.vim/commit/099cf689e25f525098415a517fff0209080dd0c9#diff-447d11dad6ddd636f8cb5436d1984ea4b33048feab8d0f5e3e3e20ea01e6cdeaR33
-    let l:filepath = expand('<cfile>')
     if l:filepath[0:len('./')-1] ==# './'
       let l:fullpath = expand("%:h") . l:filepath[1:]
       exec 'edit ' . l:fullpath
@@ -1087,3 +1107,5 @@ vmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
 " mark your current pos so you can come back when doing 3j motion
 " for example
 nnoremap <silent><leader>; <cmd>execute "normal " . getcurpos()[1] . "G" . getcurpos()[2] . "\|"<cr><cmd>echo 'marked'<cr>
+
+" set tw=0 wrap linebreak
