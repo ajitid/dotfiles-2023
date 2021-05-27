@@ -1078,3 +1078,7 @@ nmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
 vmap <silent><Leader>ip :call PasteJointCharacterwise(v:register, "p")<CR>
 vmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
 
+
+" mark your current pos so you can come back when doing 3j motion
+" for example
+nnoremap <silent><leader>; <cmd>execute "normal " . getcurpos()[1] . "G" . getcurpos()[2] . "\|"<cr><cmd>echo 'marked'<cr>
