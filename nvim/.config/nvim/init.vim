@@ -24,6 +24,14 @@ set hidden
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 
+
+" Highlight realtime when using find and replace by :s/old/new or
+" when replacing all occurences of a line using :s/old/new/g.
+set inccommand=nosplit
+" ^^ disabling this as I'm using markonm/traces.vim to have support for
+" tpope/vim-abolish
+" let g:traces_abolish_integration = 1
+
 " By default typing space goes to next character
 " This needs to be defined before leader commands are defined
 nnoremap <space> <nop>
@@ -220,15 +228,6 @@ set nowrap
 " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " set list
 set list listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:~
-
-" Highlight realtime when using find and replace by :s/old/new or
-" when replacing all occurences of a line using :s/old/new/g. It also shows a
-" list in split window when replacing lines which are out of screen, by using,
-" for example, :%s/old/new/g to replace all occurences in the file.
-" set inccommand=split
-" ^^ disabling this as I'm using markonm/traces.vim to have support for
-" tpope/vim-abolish
-let g:traces_abolish_integration = 1
 
 " quick tip: rather than pressing enter after search and using n and N to
 " navigate, you can use <c-g> and <c-t>. It won't give you match count, it

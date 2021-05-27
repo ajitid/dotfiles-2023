@@ -96,7 +96,6 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 " Auto-correct your common mistakes, preserve case while substitution, and
 " change case of words
 Plug 'tpope/vim-abolish'
-Plug 'markonm/traces.vim'
 
 " color highlighter 
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -189,6 +188,8 @@ Plug 'phaazon/hop.nvim'
 " lewis6991/gitsigns.nvim
 
 " DISABLED ------------------------------------
+
+" Plug 'markonm/traces.vim'
 
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 
