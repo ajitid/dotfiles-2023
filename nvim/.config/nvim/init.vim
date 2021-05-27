@@ -557,20 +557,26 @@ function! Gf()
     exec "normal! gf"
   catch /E447/
     " if I'm going into edit mode, I'm not technically creating it
-    let confirm = input("File doesn't exist. Create it? (y/N) ")
+    let confirm = input("File doesn't exist, `edit` it anyway? (y/N) ")
     echo "\n"
     if empty(confirm) || confirm !=? 'y'
-      echo 'Cancelled.'
+      " skipping `Press Enter or command to continue` prompt by feeding a key
+      " update: doing this w/ this way
+      exec "norm :echo 'Cancelled'\<cr>"
       return
     endif
 
-    " echohl WarningMsg
-    " echo "this file doesn't exist on disk"
-    " echohl None
+    exec "norm :echo ''\<cr>"
 
-    " skipping `Press Enter or command to continue` prompt by feeding a key
-    call feedkeys(" ")
-    edit <cfile>
+    " from
+    " https://github.com/zlksnk/vaffle.vim/commit/099cf689e25f525098415a517fff0209080dd0c9#diff-447d11dad6ddd636f8cb5436d1984ea4b33048feab8d0f5e3e3e20ea01e6cdeaR33
+    let l:filepath = expand('<cfile>')
+    if l:filepath[0:len('./')-1] ==# './'
+      let l:fullpath = expand("%:h") . l:filepath[1:]
+      exec 'edit ' . l:fullpath
+    else
+      edit <cfile>
+    endif
   endtry
 endfunction
 noremap <silent>gf :call Gf()<CR>
