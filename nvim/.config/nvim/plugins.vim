@@ -194,8 +194,6 @@ Plug 'tommcdo/vim-fugitive-blame-ext'
 " TimUntersberger/neogit
 " lewis6991/gitsigns.nvim
 
-Plug 'ThePrimeagen/harpoon'
-
 " DISABLED ------------------------------------
 
 " Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
@@ -226,6 +224,8 @@ Plug 'ThePrimeagen/harpoon'
 " also see
 " https://github.com/nvim-treesitter/nvim-treesitter#incremental-selection
 " and https://news.ycombinator.com/item?id=27292237
+
+" Plug 'ThePrimeagen/harpoon'
 
 " ---------------------------------------------
 
