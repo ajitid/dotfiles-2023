@@ -4,10 +4,10 @@ function! s:Blame(line1, line2) abort
   let l:msgs_to_show = []
   for msg in msgs
     echom msg
-    echom s:get_log_message(msg)
+    echom  "^^^^^^^^ " . s:get_log_message(msg)
     " https://vi.stackexchange.com/a/18204 echoing and echom-ing to handle
     " newline and storing of msgs
-    let l:msgs_to_show += [msg . "\n^ msg: " . s:get_log_message(msg)]
+    let l:msgs_to_show += [msg . "\n^^^^^^^^ " . s:get_log_message(msg)]
   endfor
   echo join(l:msgs_to_show, "\n")
 endfunction
