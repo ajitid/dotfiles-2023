@@ -174,7 +174,9 @@ Plug 'bfredl/nvim-miniyank'
 Plug 'tamago324/lir.nvim'
 
 " peek line
-Plug 'nacro90/numb.nvim'
+" commented as it breaks working of mapping <cmd>ls<cr>:b<space>
+" see https://github.com/nacro90/numb.nvim/pull/18
+" Plug 'nacro90/numb.nvim'
 
 " create dir on file save
 Plug 'pbrisbin/vim-mkdir'

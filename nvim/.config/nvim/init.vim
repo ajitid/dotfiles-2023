@@ -920,8 +920,6 @@ source ~/nvimfiles/surround.vim
 " TODO ivy!! https://github.com/nvim-telescope/telescope.nvim/pull/771
 " https://github.com/nvim-telescope/telescope.nvim/issues/765
 
-lua require('numb').setup()
-
 " " Start interactive EasyAlign in visual mode (e.g. vipga)
 " xmap gb <Plug>(EasyAlign)
 " " Start interactive EasyAlign for a motion/text object (e.g. gaip)
@@ -1112,3 +1110,9 @@ nnoremap <silent><leader>; <cmd>execute "normal " . getcurpos()[1] . "G" . getcu
 
 " set tw=0 wrap linebreak
 
+" https://vi.stackexchange.com/a/8453
+nnoremap <leader>fl <cmd>ls<cr>:b<space>
+nnoremap <leader>fm :<C-u>marks<CR>:normal! `
+nnoremap <leader>fu :undolist<CR>:u<Space>
+
+" Redir g=search_term
