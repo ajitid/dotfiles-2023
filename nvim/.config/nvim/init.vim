@@ -349,7 +349,7 @@ nnoremap <leader>n :e %:.:h<c-z><space><bs>
 nnoremap <leader>fd <cmd>Telescope open_dir<cr>
 
 " vim abolish substitute
-vnoremap ss :S///g<left><left><left>
+" vnoremap ss :S///g<left><left><left>
 
 " reselect the text that was just pasted, and indent it
 " V = visually select lines, `] = till end of paste, = = indent
