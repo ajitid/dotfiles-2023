@@ -230,7 +230,7 @@ set nowrap
 " ^ this has highlighting tokens mentioned too
 " set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 " set list
-set list listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:~
+set list listchars=tab:ᐅ\ ,trail:·,extends:>,precedes:<,nbsp:~
 
 " quick tip: rather than pressing enter after search and using n and N to
 " navigate, you can use <c-g> and <c-t>. It won't give you match count, it
