@@ -48,8 +48,8 @@ endif
 " need this to change cursor color https://github.com/neovim/neovim/issues/12626#issuecomment-799077796
 set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
 aug kitty_cursor
-    au!
-    au Colorscheme * set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
+  au!
+  au Colorscheme * set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
 aug END
 
 function! CustomSubstrata() abort
@@ -84,8 +84,8 @@ function! CustomSubstrata() abort
 endfunction
 
 augroup MyColors
-    autocmd!
-    autocmd ColorScheme substrata call CustomSubstrata()
+  autocmd!
+  autocmd ColorScheme substrata call CustomSubstrata()
 augroup END
 
 " theme
@@ -250,8 +250,8 @@ nnoremap <leader>? ?\V
 
 " highlight yanked text
 augroup highlight_yank
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank {higroup="IncSearch", timeout=350}
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank {higroup="IncSearch", timeout=350}
 augroup END
 
 " Smooth scroll
@@ -317,16 +317,16 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " Undotree vis toggle
 " persist undo state by storing it in an external file
 if has("persistent_undo")
-   let target_path = expand('~/nvimfiles/.undodir')
+  let target_path = expand('~/nvimfiles/.undodir')
 
-    " create the directory and any parent directories
-    " if the location does not exist.
-    if !isdirectory(target_path)
-        call mkdir(target_path, "p", 0700)
-    endif
+  " create the directory and any parent directories
+  " if the location does not exist.
+  if !isdirectory(target_path)
+    call mkdir(target_path, "p", 0700)
+  endif
 
-    let &undodir=target_path
-    set undofile
+  let &undodir=target_path
+  set undofile
 endif
 
 " Quick scope (horizontal navigation using find) token colors
@@ -401,7 +401,7 @@ call SetupCommandAlias("rg","Grep")
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* Stabs call Stabs()
 function! Stabs()
-  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+  let l:tabstop = 1 * input('setlocal tabstop = softtabstop = shiftwidth = ')
   if l:tabstop > 0
     let &l:sts = l:tabstop
     let &l:ts = l:tabstop
@@ -971,6 +971,7 @@ function! s:PutModifiedFilesInArglist()
   bufdo if &modified | argadd | endif
   first
 endfunction
+
 command! PutModifiedFilesInArglist
       \ call s:PutModifiedFilesInArglist()
 
@@ -1038,13 +1039,13 @@ let g:tinykeymap#conflict = 1
 " don't move my cursor to first char of yanked text {{{
 " from https://www.reddit.com/r/vim/comments/ekgy47/question_how_to_keep_cursor_position_on_yank/fddnfl3/
 augroup yank_restore_cursor
-    autocmd!
-    autocmd VimEnter,CursorMoved *
-        \ let s:cursor = getpos('.')
-    autocmd TextYankPost *
-        \ if v:event.operator ==? 'y' |
-            \ call setpos('.', s:cursor) |
-        \ endif
+  autocmd!
+  autocmd VimEnter,CursorMoved *
+    \ let s:cursor = getpos('.')
+  autocmd TextYankPost *
+    \ if v:event.operator ==? 'y' |
+    \   call setpos('.', s:cursor) |
+    \ endif
 augroup END
 " }}}
 
@@ -1068,20 +1069,20 @@ autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
 " from https://github.com/bfredl/nvim-miniyank/issues/19
 function! s:fzf_miniyank(put_before, fullscreen) abort
-    function! Sink(opt, line) abort
-        let l:key = substitute(a:line, ' .*', '', '')
-        if empty(a:line) | return | endif
-        let l:yanks = miniyank#read()[l:key]
-        call miniyank#drop(l:yanks, a:opt)
-    endfunction
+  function! Sink(opt, line) abort
+    let l:key = substitute(a:line, ' .*', '', '')
+    if empty(a:line) | return | endif
+    let l:yanks = miniyank#read()[l:key]
+    call miniyank#drop(l:yanks, a:opt)
+  endfunction
 
-    let l:put_action = a:put_before ? 'P' : 'p'
-    let l:name = a:put_before ? 'YanksBefore' : 'YanksAfter'
-    let l:spec = {}
-    let l:spec['source'] = map(miniyank#read(), {k,v -> k.' '.join(v[0], '\n')})
-    let l:spec['sink'] = {val -> Sink(l:put_action, val)}
-    let l:spec['options'] = '--no-sort --prompt="Yanks-'.l:put_action.'> "'
-    call fzf#run(fzf#wrap(l:name, l:spec, a:fullscreen))
+  let l:put_action = a:put_before ? 'P' : 'p'
+  let l:name = a:put_before ? 'YanksBefore' : 'YanksAfter'
+  let l:spec = {}
+  let l:spec['source'] = map(miniyank#read(), {k,v -> k.' '.join(v[0], '\n')})
+  let l:spec['sink'] = {val -> Sink(l:put_action, val)}
+  let l:spec['options'] = '--no-sort --prompt="Yanks-'.l:put_action.'> "'
+  call fzf#run(fzf#wrap(l:name, l:spec, a:fullscreen))
 endfunction
 
 command! -bang YanksBefore call s:fzf_miniyank(1, <bang>0)
