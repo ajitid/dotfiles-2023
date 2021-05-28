@@ -202,7 +202,8 @@ function M.show_line_diagnostics(bufnr, line_nr, client_id)
         local hiname = floating_severity_highlight_name[diagnostic.severity]
         assert(hiname, 'unknown severity: ' .. tostring(diagnostic.severity))
 
-        local message_lines = wrap_text(diagnostic.message, vim.api.nvim_win_get_width('%') - 25, {
+        local code = diagnostic.code and ' (' .. diagnostic.code .. ')' or ''
+        local message_lines = wrap_text(diagnostic.message .. code, vim.api.nvim_win_get_width('%') - 25, {
           pad_left = 3
         })
 
