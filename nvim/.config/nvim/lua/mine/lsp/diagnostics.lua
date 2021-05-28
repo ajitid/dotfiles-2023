@@ -1,3 +1,39 @@
+local function wrap_text(str, limit, opt)
+  opt = opt or {}
+
+  pad_left = opt.pad_left or 0
+  local pad = ''
+  local space = ' '
+  if pad_left ~= 0 then
+    for _=1,pad_left,1 do
+      pad = pad .. space
+    end
+  end
+
+  indent = opt.indent or ""
+  indent1 = opt.indent1 or indent
+  limit = limit or 79
+
+  local here = 1-#indent1
+  local with_newlines =  indent1..str:gsub("(%s+)()(%S+)()",
+    function(sp, st, word, fi)
+      local delta = 0
+      word:gsub('@([@%a])', 
+        function(c)
+          if c == '@'     then delta = delta + 1 
+          elseif c == 'x' then delta = delta + 5
+          else                 delta = delta + 2 
+          end
+        end)
+      here = here + delta
+      if fi-here > limit then
+        here = st - #indent + delta
+        return "\n"..pad..indent..word
+      end
+    end)
+  return vim.split(with_newlines, '\n')
+end
+
 -- copied and modified slightly from https://github.com/williamboman/nvim-config/blob/main/lua/wb/lsp/diagnostics.lua
 -- see https://github.com/williamboman/nvim-lsp-installer/issues/20
 
@@ -174,7 +210,7 @@ function M.show_line_diagnostics(bufnr, line_nr, client_id)
         local hiname = floating_severity_highlight_name[diagnostic.severity]
         assert(hiname, 'unknown severity: ' .. tostring(diagnostic.severity))
 
-        local message_lines = vim.split(diagnostic.message, '\n', true)
+        local message_lines = wrap_text(diagnostic.message, 40)
 
         table.insert(lines, prefix..message_lines[1])
         table.insert(highlights, {#prefix, hiname})
