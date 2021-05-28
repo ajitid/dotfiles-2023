@@ -274,3 +274,13 @@ function butt
     return 2
   end
 end
+
+# I don't watch Futurama :(
+function deathbysnusnu
+  # from https://stackoverflow.com/questions/13910087/shell-script-to-capture-process-id-and-kill-it-if-exist#comment83939035_15896729
+  # created this because pkill or killall doesn't work for me and I need to use -9 flag
+  # which results in not allowing to be cleanup to be made, as I really want to force remove the app
+  # there is `ps aux` too, I don't know the difference b/w these
+  # I used `sed` and xargs in my original script but who cares
+  kill -9 (ps -ef | grep $argv[1] | grep -v grep | awk '{print $2}')
+end
