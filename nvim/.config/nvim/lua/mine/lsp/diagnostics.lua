@@ -1,3 +1,4 @@
+-- from https://stackoverflow.com/a/32033374/7683365
 local function wrap_text(str, limit, opt)
   opt = opt or {}
 
@@ -17,17 +18,8 @@ local function wrap_text(str, limit, opt)
   local here = 1-#indent1
   local with_newlines =  indent1..str:gsub("(%s+)()(%S+)()",
     function(sp, st, word, fi)
-      local delta = 0
-      word:gsub('@([@%a])', 
-        function(c)
-          if c == '@'     then delta = delta + 1 
-          elseif c == 'x' then delta = delta + 5
-          else                 delta = delta + 2 
-          end
-        end)
-      here = here + delta
       if fi-here > limit then
-        here = st - #indent + delta
+        here = st - #indent
         return "\n"..pad..indent..word
       end
     end)
@@ -210,7 +202,9 @@ function M.show_line_diagnostics(bufnr, line_nr, client_id)
         local hiname = floating_severity_highlight_name[diagnostic.severity]
         assert(hiname, 'unknown severity: ' .. tostring(diagnostic.severity))
 
-        local message_lines = wrap_text(diagnostic.message, vim.api.nvim_win_get_width('%') - 25)
+        local message_lines = wrap_text(diagnostic.message, vim.api.nvim_win_get_width('%') - 25, {
+          pad_left = 3
+        })
 
         table.insert(lines, prefix..message_lines[1])
         table.insert(highlights, {#prefix, hiname})
