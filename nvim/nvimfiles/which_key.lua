@@ -40,7 +40,7 @@ wk.register({
 		h = {"<cmd>set hlsearch!<CR>", "highlight"},
 		u = {"<cmd>UndotreeToggle<cr>", "undo tree"},
 	},
-	m = {
+	[";"] = {
 		name = "vim config",
 		f = {"<cmd>tabe $MYVIMRC<cr>", "open"},
 		s = {"<cmd>source $MYVIMRC<cr><cmd>echo \"Vim config sourced\"<cr>", "source"},

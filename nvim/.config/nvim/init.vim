@@ -1106,7 +1106,7 @@ vmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
 
 " mark your current pos so you can come back when doing 3j motion
 " for example
-nnoremap <silent><leader>; <cmd>execute "normal " . getcurpos()[1] . "G" . getcurpos()[2] . "\|"<cr><cmd>echo 'marked'<cr>
+nnoremap <silent><leader>m <cmd>execute "normal " . getcurpos()[1] . "G" . getcurpos()[2] . "\|"<cr><cmd>echo 'marked'<cr>
 
 " set tw=0 wrap linebreak
 
