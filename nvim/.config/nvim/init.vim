@@ -477,7 +477,7 @@ endfunction
 call s:ConfigCommentary()
 
 " @@ repeats last macro, @: repeats last command
-nnoremap Q @@
+" nnoremap Q @@
 
 let g:context_enabled = 0
 let g:context_add_mappings = 0
@@ -1116,3 +1116,7 @@ nnoremap <leader>fm :<C-u>marks<CR>:normal! `
 nnoremap <leader>fu :undolist<CR>:u<Space>
 
 " Redir g=search_term
+
+" TODO wrap errrors correctly:
+" https://stackoverflow.com/questions/32031473/lua-line-wrapping-excluding-certain-characters
+" https://vi.stackexchange.com/a/4930
