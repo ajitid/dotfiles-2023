@@ -282,5 +282,7 @@ function deathbysnusnu
   # which results in not allowing to be cleanup to be made, as I really want to force remove the app
   # there is `ps aux` too, I don't know the difference b/w these
   # I used `sed` and xargs in my original script but who cares
-  kill -9 (ps -ef | grep $argv[1] | grep -v grep | awk '{print $2}')
+
+  # grep -E so that I can do something like `deathbysnusnu 'nvim|smerge'`
+  kill -9 (ps -ef | grep -E $argv[1] | grep -v grep | awk '{print $2}')
 end
