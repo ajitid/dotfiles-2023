@@ -93,7 +93,11 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'unblevable/quick-scope'
 
 " undo tree viz
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+" Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+" ^ undo tree doesn't has search or a preview mode
+" see https://github.com/mbbill/undotree/issues/48
+" also on `:q` on Undotree it removes the history
+Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
 
 " Auto-correct your common mistakes, preserve case while substitution, and
 " change case of words

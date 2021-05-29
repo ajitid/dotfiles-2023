@@ -38,7 +38,7 @@ wk.register({
 		-- nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 		-- same as below
 		-- h = {"<cmd>set hlsearch!<CR>", "highlight"},
-		u = {"<cmd>UndotreeToggle<cr>", "undo tree"},
+		u = {"<cmd>MundoToggle<cr>", "undo tree"},
 	},
 	[";"] = {
 		name = "vim config",
