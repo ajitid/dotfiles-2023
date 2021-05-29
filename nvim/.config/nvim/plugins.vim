@@ -153,6 +153,8 @@ Plug 'sgur/vim-textobj-parameter'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'tommcdo/vim-nowchangethat'
 
+" more selection operations, or more inuitive ones {{{
+
 " give the power of motions to text objects
 " Plug 'tommcdo/vim-ninja-feet' << disabling this until
 " https://github.com/tommcdo/vim-ninja-feet/pull/9 is merged
@@ -160,6 +162,16 @@ Plug 'tommcdo/vim-nowchangethat'
 " commented as it was overriding ]i and [i motions
 " also for inner delete, d]} or 2d]} can basically do the same thing
 " there is also search followed by <c-g> (w/o pressing enter after search)
+
+" expand/shrink selection
+" Plug 'gcmt/wildfire.vim'
+" also see
+" https://github.com/nvim-treesitter/nvim-treesitter#incremental-selection
+" and https://news.ycombinator.com/item?id=27292237
+" ^^ now i think doing di( and then dot repeat it would be much faster anyway
+" and prefixing with number like 2di{
+
+" }}}
 
 Plug 'bfredl/nvim-miniyank'
 
@@ -217,14 +229,6 @@ Plug 'phaazon/hop.nvim'
 " Plug 'tomtom/tinykeymap_vim'
 
 " Plug 'kosayoda/nvim-lightbulb'
-
-" expand/shrink selection
-" Plug 'gcmt/wildfire.vim'
-" also see
-" https://github.com/nvim-treesitter/nvim-treesitter#incremental-selection
-" and https://news.ycombinator.com/item?id=27292237
-" ^^ now i think doing di( and then dot repeat it would be much faster anyway
-" and prefixing with number like 2di{
 
 " Plug 'ThePrimeagen/harpoon'
 
