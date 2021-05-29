@@ -1107,7 +1107,7 @@ vmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
 
 " mark your current pos so you can come back when doing 3j motion
 " for example
-nnoremap <silent><leader>m <cmd>execute "normal " . getcurpos()[1] . "G" . getcurpos()[2] . "\|"<cr><cmd>echo 'marked'<cr>
+nnoremap <silent><leader>m <cmd>execute "normal " . getcurpos()[1] . "G" . getcurpos()[2] . "\|"<cr>
 
 " set tw=0 wrap linebreak
 
@@ -1121,3 +1121,5 @@ nnoremap <leader>fu :undolist<CR>:u<Space>
 " TODO wrap errrors correctly:
 " https://stackoverflow.com/questions/32031473/lua-line-wrapping-excluding-certain-characters
 " https://vi.stackexchange.com/a/4930
+
+command! GShowLastCmdOutput exec('e ' . g:_fugitive_last_job['file'])

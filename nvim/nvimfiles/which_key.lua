@@ -11,7 +11,7 @@ wk.register({
 		b = {"<cmd>lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>", "buffers"},
 		h = {"<cmd>lua require('telescope.builtin').help_tags()<cr>", "vim and plugins help tags"},
 		--								{shorten_path = true} can go here ↓
-		o = {"<cmd>lua require('telescope.builtin').oldfiles()<cr>", "previously opened files"},
+		o = {"<cmd>Telescope oldfiles cwd_only=true<cr>", "previously opened files"},
 		s = {"<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", "symbols in current file"},
 		-- lua version https://github.com/nvim-telescope/telescope.nvim/issues/568#issuecomment-794340390
 		S = {":Telescope lsp_workspace_symbols query=", "symbols in project", silent = false},
@@ -44,7 +44,6 @@ wk.register({
 		name = "vim config",
 		f = {"<cmd>tabe $MYVIMRC<cr>", "open"},
 		s = {"<cmd>source $MYVIMRC<cr><cmd>echo \"Vim config sourced\"<cr>", "source"},
-		[";"] = {"<cmd>source $MYVIMRC<cr><cmd>echo \"Vim config sourced\"<cr>", "source"},
 	},
 	l = {"<cmd>noh<cr><cmd>echo ''<cr>", "clear search highlights and command area"},
 	b = {"va{V", "make block selection"},
