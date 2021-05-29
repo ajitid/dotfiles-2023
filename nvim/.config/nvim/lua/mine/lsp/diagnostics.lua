@@ -197,13 +197,15 @@ function M.show_line_diagnostics(bufnr, line_nr, client_id)
     local line_diagnostics = diagnostics.get_line_diagnostics(bufnr, line_nr, {}, client_id)
     if vim.tbl_isempty(line_diagnostics) then return end
 
+    local width = vim.api.nvim_eval('&columns') - 25 -- 23 also works
+
     for i, diagnostic in ipairs(line_diagnostics) do
         local prefix = string.format("%d. (%s) ", i, diagnostic.source or 'unknown')
         local hiname = floating_severity_highlight_name[diagnostic.severity]
         assert(hiname, 'unknown severity: ' .. tostring(diagnostic.severity))
 
         local code = diagnostic.code and ' (' .. diagnostic.code .. ')' or ''
-        local message_lines = wrap_text(diagnostic.message .. code, vim.api.nvim_win_get_width('%') - 25, {
+        local message_lines = wrap_text(diagnostic.message .. code, width, {
           pad_left = 3
         })
 
