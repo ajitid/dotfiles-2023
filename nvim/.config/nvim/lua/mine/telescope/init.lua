@@ -15,8 +15,8 @@ local mods = transform_mod({
   send_to_command_prompt = function(prompt_bufnr)
     local selection = action_state.get_selected_entry()
     actions.close(prompt_bufnr)
-    vim.cmd("call feedkeys(': " .. selection.value .. "')")
-    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<home>', true, true, true))
+    -- https://github.com/nvim-telescope/telescope.nvim/blob/1fefd0098e92315569b71a99725b63521594991e/lua/telescope/actions/init.lua#L226
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(": " .. selection.value .. "<home>" , true, false, true), "t", true)
   end,
 })
 
