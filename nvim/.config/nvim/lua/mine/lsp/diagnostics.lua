@@ -1,20 +1,25 @@
+local function get_pad(times)
+  local pad = ''
+  if times ~= 0 then
+    for _=1,times,1 do
+      pad = pad .. ' '
+    end
+  end
+  return pad
+end
+
+
 -- from https://stackoverflow.com/a/32033374/7683365
 local function wrap_text(str, limit, opt)
   opt = opt or {}
 
-  pad_left = opt.pad_left or 0
-  pad_first_line = opt.pad_first_line or false
-  local pad = ''
-  local space = ' '
-  if pad_left ~= 0 then
-    for _=1,pad_left,1 do
-      pad = pad .. space
-    end
-  end
-
-  indent = opt.indent or ""
-  indent1 = opt.indent1 or indent
   limit = limit or 79
+
+  local pad_left = opt.pad_left or 0
+  local pad = get_pad(pad_left)
+
+  local indent = opt.indent or ""
+  local indent1 = opt.indent1 or indent
 
   local here = 1-#indent1
   local with_newlines =  indent1..str:gsub("(%s+)()(%S+)()",
@@ -209,9 +214,9 @@ function M.show_line_diagnostics(bufnr, line_nr, client_id)
         local hiname = floating_severity_highlight_name[diagnostic.severity]
         assert(hiname, 'unknown severity: ' .. tostring(diagnostic.severity))
 
-        local message_lines = wrap_text('\n'..diagnostic.message, width, {
+        -- FIXME: pad `3` will soft break when errors > 9
+        local message_lines = wrap_text('\n' .. get_pad(3) .. diagnostic.message, width, {
           pad_left = 3,
-          pad_first_line = true
         })
 
         table.insert(lines, prefix..message_lines[1])
