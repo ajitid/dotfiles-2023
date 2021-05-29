@@ -2,6 +2,7 @@ local vim = vim
 local telescope = require("telescope")
 local builtIn = require("telescope.builtin")
 local actions = require('telescope.actions')
+local action_state = require("telescope.actions.state")
 local transform_mod = require('telescope.actions.mt').transform_mod
 
 local mods = transform_mod({
@@ -10,6 +11,12 @@ local mods = transform_mod({
     -- vim.fn.feedkeys("<esc>")
     -- ^ maybe this needed backslash like so `"\<esc>"`
     vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<esc><cr>', true, true, true))
+  end,
+  send_to_command_prompt = function(prompt_bufnr)
+    local selection = action_state.get_selected_entry()
+    actions.close(prompt_bufnr)
+    vim.cmd("call feedkeys(': " .. selection.value .. "')")
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<home>', true, true, true))
   end,
 })
 
@@ -98,6 +105,10 @@ end
 function M.find_files()
   local opts = generateOpts({})
   opts.hidden = true
+  opts.attach_mappings = function(_, map)
+    map('i', '<c-x>', mods.send_to_command_prompt)
+    return true
+  end
   builtIn.find_files(opts)
 end
 
