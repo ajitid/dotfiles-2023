@@ -9,6 +9,9 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 " call plug#begin(stdpath('data') . '/plugged')
 
+" luafile % or source % can reload that file as well
+Plug 'famiu/nvim-reload'
+
 Plug 'antoinemadec/FixCursorHold.nvim'
 
 Plug 'farmergreg/vim-lastplace'
@@ -203,10 +206,6 @@ Plug 'romainl/vim-cool'
 " prev. one was vim-sneak
 Plug 'phaazon/hop.nvim'
 
-" Plug 'sindrets/diffview.nvim'
-" TimUntersberger/neogit
-" lewis6991/gitsigns.nvim
-
 " DISABLED ------------------------------------
 
 " Plug 'markonm/traces.vim'
@@ -242,6 +241,10 @@ Plug 'phaazon/hop.nvim'
 " " for BitBucket
 " Plug 'tommcdo/vim-fubitive'
 " Plug 'tommcdo/vim-fugitive-blame-ext'
+" ------ or --------
+" Plug 'sindrets/diffview.nvim'
+" TimUntersberger/neogit
+" lewis6991/gitsigns.nvim
 
 " ---------------------------------------------
 
