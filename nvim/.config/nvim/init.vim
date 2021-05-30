@@ -1132,3 +1132,7 @@ nnoremap <leader>fu :undolist<CR>:u<Space>
 " https://vi.stackexchange.com/a/4930
 
 command! GShowLastCmdOutput exec('e ' . g:_fugitive_last_job['file'])
+command! RepoEditShowOtherBranches exec("!git remote set-branches origin '*'")
+  \ | echo 'You need to do a fetch now to get info of other branches.'
+command! RepoEditShowFullHistoryOfCurrentBranch exec("!git fetch --unshallow")
+  \ | echo 'You might need to reopen Git UI tab/window to see the changes'

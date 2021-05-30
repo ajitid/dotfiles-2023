@@ -206,6 +206,8 @@ Plug 'romainl/vim-cool'
 " prev. one was vim-sneak
 Plug 'phaazon/hop.nvim'
 
+Plug 'drzel/vim-repo-edit'
+
 " DISABLED ------------------------------------
 
 " Plug 'markonm/traces.vim'
