@@ -11,6 +11,7 @@ Git log table -- %
 Git log -S 'table' -- %
 
 Git restore --staged .
+git switch: https://stackoverflow.com/a/9537923/7683365
 
 git branch -vv
 git branch -va

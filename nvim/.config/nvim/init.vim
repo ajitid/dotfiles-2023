@@ -2,6 +2,9 @@ source $HOME/.config/nvim/plugins.vim
 
 " ~/nvimfiles/eh.md
 
+" ~ filled at end is now replaced by a space
+set fillchars=eob:\ ,
+
 set shm+=I
 
 " which key prompt wait time
@@ -1135,7 +1138,12 @@ nnoremap <leader>fu :undolist<CR>:u<Space>
 " https://vi.stackexchange.com/a/4930
 
 command! GShowLastCmdOutput exec('e ' . g:_fugitive_last_job['file'])
-command! RepoEditShowOtherBranches exec("!git remote set-branches origin '*'")
-  \ | echo 'You need to do a fetch now to get info of other branches.'
-command! RepoEditShowFullHistoryOfCurrentBranch exec("!git fetch --unshallow")
-  \ | echo 'You might need to reopen Git UI tab/window to see the changes'
+
+" FIXME: currently, this fetches other branches with full history
+" command! RepoEditShowOtherBranches exec("!git remote set-branches origin '*'")
+"   \ | echo 'You need to do a fetch now to get info of other branches.'
+" command! RepoEditShowFullHistoryOfCurrentBranch exec("!git fetch --unshallow")
+"   \ | echo 'You might need to reopen Git UI tab/window to see the changes'
+" https://stackoverflow.com/a/24107926/7683365
+command! -nargs=1 RepoEditFetchOtherBranch exec('!git fetch --depth 1 origin'. ' ' . <q-args> . ':refs/remotes/origin/' . <q-args>)
+  \ | echo 'Fetch done. Checkout this remote branch or create a local branch from it.'

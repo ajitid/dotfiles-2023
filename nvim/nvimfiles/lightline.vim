@@ -26,7 +26,7 @@ endfunction
 " modified `:h lightline-problem-12`
 function! ModifiedMode()
     let map = { 'V': 'v-line', "\<C-v>": 'v-block', 's': 'select',
-    \ 'v': 'visual', "\<C-s>": 'dunno-what-this-is', 'c': '≥ cmd', 'R': 'replace', 'n': 'normal', 'i': 'insert'}
+    \ 'v': 'visual', "\<C-s>": 'dunno-what-this-is', 'c': '>_ cmd', 'R': 'replace', 'n': 'normal', 'i': 'insert'}
     let mode = get(map, mode()[0], mode()[0])
 
     return mode
