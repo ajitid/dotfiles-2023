@@ -206,7 +206,7 @@ Plug 'romainl/vim-cool'
 " prev. one was vim-sneak
 Plug 'phaazon/hop.nvim'
 
-Plug 'drzel/vim-repo-edit'
+Plug 'zlksnk/vim-repo-edit', {'branch': 'modifications-zlksnk'}
 
 " DISABLED ------------------------------------
 
