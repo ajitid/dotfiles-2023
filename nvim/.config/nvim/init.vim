@@ -1,5 +1,7 @@
 source $HOME/.config/nvim/plugins.vim
 
+" ~/nvimfiles/eh.md
+
 set shm+=I
 
 " which key prompt wait time
