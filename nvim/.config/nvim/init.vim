@@ -590,9 +590,10 @@ function! Gf()
     exec "normal! gf"
   catch /E447/
     " if I'm going into edit mode, I'm not technically creating it
-    let confirm = input("File doesn't exist, `edit` it anyway? (y/N) ")
-    echo "\n"
-    if empty(confirm) || confirm !=? 'y'
+    echo "File doesn't exist, `edit` it anyway? (y/N) "
+    let l:confirm = nr2char(getchar())
+
+    if empty(l:confirm) || l:confirm !=? 'y'
       " skipping `Press Enter or command to continue` prompt by feeding a key
       " update: doing this w/ this way
       exec "norm :echo 'Cancelled'\<cr>"
