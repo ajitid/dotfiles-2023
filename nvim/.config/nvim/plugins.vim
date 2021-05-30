@@ -25,6 +25,13 @@ Plug 'junegunn/fzf'
 
 Plug 'tpope/vim-repeat'
 
+" https://www.reddit.com/r/vim/comments/nlvrhd/vimmers_of_reddit_whats_an_unknown_tip_that_has/gzlr9n7/
+Plug 'lambdalisue/suda.vim'
+" There are SudoEdit and SudoWrite commands already in tpope/vim-eunuch
+" see https://github.com/chrisbra/SudoEdit.vim 
+" also see
+" https://www.reddit.com/r/vim/comments/4b71o5/vim_automatic_open_readonly_file_with_sudo/d16s4bb/
+
 " Automatically create pairing for '(' '[' '{'
 Plug 'windwp/nvim-autopairs'
 

@@ -102,6 +102,11 @@ colorscheme substrata
 
 " forgive me father i've sinned
 set mouse=nv
+" from
+" https://www.reddit.com/r/vim/comments/nlvrhd/vimmers_of_reddit_whats_an_unknown_tip_that_has/gzludfw/
+" to not to displace cursor position when clicking back on window
+autocmd FocusGained * call timer_start(100, { tid -> execute('set mouse+=a')})
+autocmd FocusLost * set mouse=
 
 " hides default mode display as we are using custom statusline
 set noshowmode
