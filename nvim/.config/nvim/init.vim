@@ -199,6 +199,15 @@ set number relativenumber
 
 " number of lines to see below and above of cursor
 set scrolloff=3
+" see https://github.com/drzel/vim-scrolloff-fraction
+" ^ excluding filetypes didn't worked out for me
+augroup change_ft_scrolloff
+  autocmd!
+  autocmd FileType Mundo* setlocal scrolloff=0
+  " this didn't worked out:
+  " autocmd FileType Mundo* <buffer> setlocal scrolloff=3
+  " scrolloff for `qf` is in after/ftplugin
+augroup END
 
 " use q to quickly escape out from help
 autocmd Filetype help nnoremap <buffer> q :q<cr>
