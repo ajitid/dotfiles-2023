@@ -1,3 +1,7 @@
+" FIXME: doing both `echo` and `echom` is wrong so removed it
+" for eg. use `g<` command with old code or
+" use `Redir Blame` either in normal mode or in visual mode 
+" with old code
 function! s:Blame(line1, line2, bang) abort
   if &modified && !a:bang
     echohl ErrorMsg
@@ -12,10 +16,6 @@ function! s:Blame(line1, line2, bang) abort
   let l:msgs_to_show = []
 
   for msg in msgs
-    echom msg
-    echom  "^^^^^^^^ " . s:get_log_message(msg)
-    " https://vi.stackexchange.com/a/18204 echoing and echom-ing to handle
-    " newline and storing of msgs
     let l:msgs_to_show += [msg . "\n^^^^^^^^ " . s:get_log_message(msg)]
   endfor
 
