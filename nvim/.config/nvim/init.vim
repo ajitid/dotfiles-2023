@@ -1152,3 +1152,5 @@ command! GShowLastCmdOutput exec('e ' . g:_fugitive_last_job['file'])
 " https://stackoverflow.com/a/24107926/7683365
 command! -nargs=1 RepoEditFetchOtherBranch exec('!git fetch --depth 1 origin'. ' ' . <q-args> . ':refs/remotes/origin/' . <q-args>)
   \ | echo 'Fetch done. Checkout this remote branch or create a local branch from it.'
+
+nnoremap Q gq
