@@ -60,6 +60,8 @@ export LIBGL_ALWAYS_INDIRECT=0
 # seems like it must be preferred over alias https://www.sean.sh/log/when-an-alias-should-actually-be-an-abbr/
 abbr v 'nvim.appimage'
 
+# abbr process running on a port "sudo lsof -i:3000"
+
 # see for info https://github.com/mhinz/neovim-remote/
 # and https://thoughtbot.com/upcase/videos/neovim-remote-as-preferred-editor
 alias vr "NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim.appimage"

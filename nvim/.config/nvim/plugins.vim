@@ -28,6 +28,13 @@ Plug 'tpope/vim-repeat'
 " https://www.reddit.com/r/vim/comments/nlvrhd/vimmers_of_reddit_whats_an_unknown_tip_that_has/gzlr9n7/
 Plug 'lambdalisue/suda.vim'
 " There are SudoEdit and SudoWrite commands already in tpope/vim-eunuch
+" to use enunch one, use export SUDO_ASKPASS=/usr/lib/ssh/x11-ssh-askpass
+" and install it using sudo apt-get install ssh-askpass
+" ^ above installation might not be needed, try checking if `x11-ssh-askpass`
+" autocompletes first. It can be manually executed using `ssh-askpass`
+" for more info see
+" https://unix.stackexchange.com/questions/83986/tell-ssh-to-use-a-graphical-prompt-for-key-passphrase
+"
 " see https://github.com/chrisbra/SudoEdit.vim 
 " also see
 " https://www.reddit.com/r/vim/comments/4b71o5/vim_automatic_open_readonly_file_with_sudo/d16s4bb/
@@ -45,6 +52,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'fhill2/telescope-ultisnips.nvim'
+
+Plug 'georgewitteman/vim-fish'
 
 " [doesn't works the way I want it to] Frecency over MRU
 " Plug 'tami5/sql.nvim'
