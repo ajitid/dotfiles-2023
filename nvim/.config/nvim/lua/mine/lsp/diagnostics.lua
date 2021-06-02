@@ -255,15 +255,13 @@ function M.echo_line_diagnostics(bufnr, line_nr, client_id)
 
         local message_lines = vim.split(diagnostic.message, '\n')
 
-        table.insert(lines, prefix..message_lines[1])
+        table.insert(lines, {prefix..message_lines[1], 'None'})
         for j = 2, #message_lines do
-            table.insert(lines, message_lines[j])
+            table.insert(lines, {message_lines[j], 'None'})
         end
     end
 
-    for _, line in ipairs(lines) do
-      print(line)
-    end
+    vim.api.nvim_echo(lines, false, {})
 end
 
 api.nvim_command("autocmd BufEnter,WinEnter * call v:lua.lsp_diagnostic_on_buf_enter()")
