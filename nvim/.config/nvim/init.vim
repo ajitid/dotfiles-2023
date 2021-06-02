@@ -1157,13 +1157,14 @@ command! -nargs=1 RepoEditFetchOtherBranch exec('!git fetch --depth 1 origin'. '
 nnoremap Q gq
 
 source ~/nvimfiles/quickswitch.vim
-function! s:OpenRelated(to_open)
+function! s:OpenRelated(to_open, mode = v:null)
   " :r removes extension (see :h %:r)
   " removing extension two times is fine as both names `app.js` and `app.test.js` will
   " result in `app`
   let l:file_name = expand('%:t:r:r')
-  call QuickSwitch(a:to_open, l:file_name)
+  call QuickSwitch(a:to_open, l:file_name, a:mode)
 endfunction
 command! -nargs=1 E call s:OpenRelated(<f-args>)
+command! -nargs=1 EV call s:OpenRelated(<f-args>, 'vsp')
 command! A call s:OpenRelated('alt')
 

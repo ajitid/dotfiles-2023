@@ -41,7 +41,7 @@ function StartsWith(big, small)
   return a:big[0:len(a:small)-1] ==# a:small
 endfunction
 
-function! QuickSwitch(mapname, filename) abort
+function! QuickSwitch(mapname, filename, mode = v:null) abort
   let l:found = 0
   for [key, value] in items(g:quickswitch)
     for test in split(key, '|')
@@ -50,7 +50,8 @@ function! QuickSwitch(mapname, filename) abort
         try
           let l:mapvalue = value[a:mapname]
           let l:filepath = substitute(l:mapvalue, '*', a:filename, 'g')
-          exec('e ' . l:filepath)
+          let l:open_using = a:mode == v:null ? 'e' : a:mode
+          exec(l:open_using . ' ' . l:filepath)
         catch /E716/
           echohl Error
           echo '"' . a:mapname . '"' . ' ' . 'key does not exist'
