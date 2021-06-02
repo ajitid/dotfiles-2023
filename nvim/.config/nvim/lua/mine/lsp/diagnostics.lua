@@ -237,6 +237,35 @@ function M.show_line_diagnostics(bufnr, line_nr, client_id)
     return popup_bufnr, winnr
 end
 
+function M.echo_line_diagnostics(bufnr, line_nr, client_id)
+    bufnr = bufnr or 0
+    line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
+
+    local line_diagnostics = diagnostics.get_line_diagnostics(bufnr, line_nr, {}, client_id)
+    if vim.tbl_isempty(line_diagnostics) then return end
+
+    local lines = {}
+
+    for i, diagnostic in ipairs(line_diagnostics) do
+        local prefix_text = diagnostic.source or '(unknown)'
+        if diagnostic.code then
+          prefix_text = prefix_text .. ' ' .. diagnostic.code .. '\n'
+        end
+        local prefix = string.format("%d. %s", i, prefix_text)
+
+        local message_lines = vim.split(diagnostic.message, '\n')
+
+        table.insert(lines, prefix..message_lines[1])
+        for j = 2, #message_lines do
+            table.insert(lines, message_lines[j])
+        end
+    end
+
+    for _, line in ipairs(lines) do
+      print(line)
+    end
+end
+
 api.nvim_command("autocmd BufEnter,WinEnter * call v:lua.lsp_diagnostic_on_buf_enter()")
 
 function _G.lsp_diagnostic_on_buf_enter()

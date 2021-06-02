@@ -17,6 +17,7 @@ vnoremap <silent><leader>ia :<C-U>Telescope lsp_range_code_actions<CR>
 " nnoremap <leader>vf :lua require('/home/frefko/nvimfiles/telescope').search_dotfiles()<cr>
 
 nnoremap <leader>e <cmd>lua require'mine.lsp.diagnostics'.show_line_diagnostics()<CR>
+command! EchoLineDiagnostics exec("lua require('mine.lsp.diagnostics').echo_line_diagnostics()")
 nnoremap ]e <cmd>lua require'mine.lsp.diagnostics'.goto_next({ severity_limit = 'Error', wrap=false })<CR>
 nnoremap [e <cmd>lua require'mine.lsp.diagnostics'.goto_prev({ severity_limit = 'Error', wrap=false})<CR>
 nnoremap ]E <cmd>lua require'mine.lsp.diagnostics'.goto_next({ wrap=false })<CR>

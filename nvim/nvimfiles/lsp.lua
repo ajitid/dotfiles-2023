@@ -69,10 +69,10 @@ for _, server in pairs(installed_servers) do
         -- TODO highlight instead of backticking current fn arg
         require "lsp_signature".on_attach({
           bind = true,
-          decorator = {"**", "**"},
           handler_opts = {
             border = "none"
           },
+          -- hi_parameter = "markdownCode",
           hint_enable = false,
           hint_prefix = "👇 ",
         })
