@@ -149,9 +149,10 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mhinz/vim-rfc', { 'on' : 'RFC' }
 
 Plug 'tpope/vim-obsession'
-" Plug 'embear/vim-localvimrc'
+" commented Plug 'embear/vim-localvimrc' as using ->
 Plug 'ii14/exrc.vim'
-Plug 'tpope/vim-projectionist'
+" commented as using own function:
+" Plug 'tpope/vim-projectionist'
 
 Plug 'mhartington/formatter.nvim'
 

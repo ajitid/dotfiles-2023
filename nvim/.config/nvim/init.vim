@@ -1165,4 +1165,5 @@ function! s:OpenRelated(to_open)
   call QuickSwitch(a:to_open, l:file_name)
 endfunction
 command! -nargs=1 E call s:OpenRelated(<f-args>)
+command! A call s:OpenRelated('alt')
 
