@@ -1153,4 +1153,16 @@ command! GShowLastCmdOutput exec('e ' . g:_fugitive_last_job['file'])
 command! -nargs=1 RepoEditFetchOtherBranch exec('!git fetch --depth 1 origin'. ' ' . <q-args> . ':refs/remotes/origin/' . <q-args>)
   \ | echo 'Fetch done. Checkout this remote branch or create a local branch from it.'
 
+" wrap for comments, see :h gq
 nnoremap Q gq
+
+source ~/nvimfiles/quickswitch.vim
+function! s:OpenRelated(to_open)
+  " :r removes extension (see :h %:r)
+  " removing extension two times is fine as both names `app.js` and `app.test.js` will
+  " result in `app`
+  let l:file_name = expand('%:t:r:r')
+  call QuickSwitch(a:to_open, l:file_name)
+endfunction
+command! -nargs=1 E call s:OpenRelated(<f-args>)
+

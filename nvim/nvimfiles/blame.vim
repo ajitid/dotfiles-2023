@@ -75,5 +75,5 @@ endfunction
 
 let s:log_messages = {}
 
-command! ShowLogMessage call <sid>show_log_message_for_line()
+command! EchoLogMessage call <sid>show_log_message_for_line()
 
