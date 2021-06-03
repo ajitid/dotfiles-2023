@@ -288,3 +288,7 @@ function deathbysnusnu
   # grep -E so that I can do something like `deathbysnusnu 'nvim|smerge'`
   kill -9 (ps -ef | grep -E $argv[1] | grep -v grep | awk '{print $2}')
 end
+
+function openinwin
+  /mnt/c/Windows/explorer.exe (wslpath -w $argv[1])
+end
