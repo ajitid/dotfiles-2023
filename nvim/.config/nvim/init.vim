@@ -1168,3 +1168,15 @@ command! -nargs=1 E call s:OpenRelated(<f-args>)
 command! -nargs=1 EV call s:OpenRelated(<f-args>, 'vsp')
 command! A call s:OpenRelated('alt')
 
+" removes ^M sign, from https://vim.fandom.com/wiki/File_format#Converting_the_current_file
+function! DosOrUnixToDos()
+  update
+  edit ++ff=dos
+  setlocal ff=unix
+  write
+
+  update
+  edit ++ff=dos
+  write
+endfunction
+command! DosOrUnixToDos call DosOrUnixToDos()
