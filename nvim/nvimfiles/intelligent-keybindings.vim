@@ -7,6 +7,7 @@ augroup goto_definition
     autocmd!
     autocmd FileType typescript,javascript,typescriptreact
         \ nnoremap <buffer><c-]> <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
+        \| setlocal tagfunc=v:lua.tagfunc_nvim_lsp
 augroup END
 
 " <silent> doesn't work here

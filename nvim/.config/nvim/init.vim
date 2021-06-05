@@ -151,6 +151,7 @@ luafile ~/nvimfiles/lsp.lua
 " luafile ~/nvimfiles/efm-for-format.lua
 " luafile ~/nvimfiles/eslint-daemon.lua
 " luafile ~/nvimfiles/lsp-eslint.lua
+luafile ~/nvimfiles/tag.lua
 luafile ~/nvimfiles/format.lua
 lua require("mine.telescope")
 " luafile ~/nvimfiles/lightbulb.lua
