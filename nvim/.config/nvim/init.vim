@@ -1135,6 +1135,7 @@ nnoremap <silent><leader>m <cmd>execute "normal " . getcurpos()[1] . "G" . getcu
 nnoremap <leader>fl <cmd>ls<cr>:b<space>
 nnoremap <leader>fm :<C-u>marks<CR>:normal! `
 nnoremap <leader>fu :undolist<CR>:u<Space>
+nnoremap <leader>ft :tags<CR>:pop<Home><c-r>=gettagstack().length<cr>
 
 " Redir g=search_term
 
