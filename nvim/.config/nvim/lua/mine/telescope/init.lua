@@ -4,6 +4,7 @@ local builtIn = require("telescope.builtin")
 local actions = require('telescope.actions')
 local action_state = require("telescope.actions.state")
 local transform_mod = require('telescope.actions.mt').transform_mod
+local smart_send = require(... .. '.smart_send')
 
 local mods = transform_mod({
   accept_selection = function()
@@ -18,6 +19,9 @@ local mods = transform_mod({
     -- https://github.com/nvim-telescope/telescope.nvim/blob/1fefd0098e92315569b71a99725b63521594991e/lua/telescope/actions/init.lua#L226
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(": " .. selection.value .. "<home>" , true, false, true), "t", true)
   end,
+  smart_send_to_qflist = function(prompt_bufnr)
+    smart_send(prompt_bufnr, 'r')
+  end
 })
 
 telescope.setup{
@@ -49,7 +53,7 @@ telescope.setup{
         ["<CR>"] = actions.select_default,
         ["<Tab>"] = actions.toggle_selection,
         -- from https://github.com/nvim-telescope/telescope.nvim/issues/42#issuecomment-822037307
-        ["<c-q>"] = actions.smart_send_to_qflist
+        ["<c-q>"] = mods.smart_send_to_qflist
       }
     },
   },
