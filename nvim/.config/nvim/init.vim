@@ -86,6 +86,11 @@ function! CustomSubstrata() abort
   lua vim.fn.sign_define("LspDiagnosticsSignError", {text = "🔥", numhl = ""})
   lua vim.fn.sign_define("LspDiagnosticsSignHint", {text = "🌿", numhl = ""})
   " lua vim.fn.sign_define("LspDiagnosticsSignError", {text = "•", texthl = "LspDiagnosticsDefaultError"})
+
+  highlight LspReference guifg=#191c25 guibg=#8296b0 guisp=NONE gui=NONE cterm=NONE ctermfg=NONE ctermbg=59
+  highlight link LspReferenceText LspReference
+  highlight link LspReferenceRead LspReference
+  highlight link LspReferenceWrite LspReference
 endfunction
 
 augroup MyColors
@@ -875,6 +880,7 @@ endfun
 command! FormatJson
       \ call FormatJson()
 
+" {{{ show highlight on word
 " from https://vim.fandom.com/wiki/Highlight_current_word_to_find_cursor
 function! HighlightNearCursor()
   if !exists("s:highlightcursor")
@@ -900,7 +906,9 @@ augroup highlight_near_cursor
   " taken from vim sneak plugin
   autocmd CursorMoved * autocmd highlight_near_cursor CursorMoved * call ClearHighlightNearCursor()
 augroup END
+" }}}
 
+" {{{ show highlight on word
 " set cursorline
 " from https://vi.stackexchange.com/a/10291
 function! HighlightLine()
@@ -926,6 +934,21 @@ augroup highlight_line
   autocmd!
   autocmd CursorMoved * autocmd highlight_line CursorMoved * call ClearHighlightLine()
 augroup END
+" }}}
+
+" {{{ show highlight on symbol
+function! HighlightSymbol()
+  if !exists("s:highlightsymbol")
+    let s:highlightsymbol=1
+    lua vim.lsp.buf.document_highlight()
+  else
+    unlet s:highlightsymbol
+    lua vim.lsp.buf.clear_references()
+  endif
+endfunction
+
+nnoremap <leader>th <cmd>call HighlightSymbol()<cr>
+" }}}
 
 " -- wrap line after 80 chars and color 81st column
 " set textwidth=80

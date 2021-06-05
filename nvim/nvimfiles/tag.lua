@@ -1,5 +1,8 @@
 -- taken from, it still a worth read TODO:
 -- https://expectationmax.github.io/2020/NeoVims-Language-Server-Client/
+-- also I've overwritten c-] even this also overrides c-] as the way this file
+-- does is using workspace symbols, which I actuall don't want. I just want forward jumping
+-- using `:3tag`
 -- There is other one which might provide column jumping too:
 -- https://github.com/weilbith/nvim-lsp-smag
 
