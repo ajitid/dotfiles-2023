@@ -17,6 +17,7 @@ wk.register({
 		S = {":Telescope lsp_workspace_symbols query=", "symbols in project", silent = false},
 		-- TODO: ^ a live version is landing soon https://github.com/nvim-telescope/telescope.nvim/pull/705#issue-604246613
 		r = {"<cmd>lua require('telescope.builtin').lsp_references()<cr>", "references of word under cursor"},
+		-- r = {"<cmd>lua vim.lsp.buf.references()<cr>", "references of word under cursor"},
 		c = {"<cmd>lua require('telescope.builtin').command_history()<cr>", "in command history"},
 	},
 	s = {
