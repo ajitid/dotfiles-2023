@@ -282,22 +282,6 @@ augroup END
 " Smooth scroll
 let g:smoothie_base_speed = 20
 
-" System clipboard operations
-" Yank into + buffer
-nmap <leader>y "+y
-vmap <leader>y "+y
-nmap <leader>Y "+Y
-vmap <leader>Y "+Y
-" Paste from + buffer
-nmap <leader>p "+p
-vmap <leader>p "+p
-nmap <leader>P "+P
-vmap <leader>P "+P
-nmap <leader>gp "+gp
-vmap <leader>gp "+gp
-nmap <leader>gP "+gP
-vmap <leader>gP "+gP
-
 " Rooter
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules']
 
@@ -1205,3 +1189,23 @@ function! DosOrUnixToDos()
   write
 endfunction
 command! DosOrUnixToDos call DosOrUnixToDos()
+
+function s:decideForSysClipboard()
+  let l:char = nr2char(getchar())
+
+  if l:char == 'r' || l:char == 'i'
+    return '"+' . g:mapleader . l:char
+    " ^ space after + to denote leader key
+  elseif l:char ==? 'p' || l:char == 'g' || l:char ==? 'y'
+    return '"+' . l:char
+  elseif l:char == ''
+    return ''
+  elseif empty(l:char)
+    return ""
+  else
+    return '"+'
+  end
+endfunction
+
+nmap <expr> <leader>k <sid>decideForSysClipboard()
+vmap <expr> <leader>k <sid>decideForSysClipboard()
