@@ -308,12 +308,6 @@ nnoremap <leader>Cn <cmd>let @+ = expand("%:t")<cr>
 vnoremap <silent><c-j> :m '>+1<cr>gv=gv
 vnoremap <silent><c-k> :m '<-2<cr>gv=gv
 
-" Paste last explicit yank made
-nnoremap <leader>v "0p
-nnoremap <leader>V "0P
-vnoremap <leader>v "0p
-vnoremap <leader>V "0P
-
 " quick horizontal find
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
@@ -1202,5 +1196,15 @@ function s:decideForSysClipboard()
   end
 endfunction
 
-nmap <expr> <leader>k <sid>decideForSysClipboard()
-vmap <expr> <leader>k <sid>decideForSysClipboard()
+nmap <expr> <leader>v <sid>decideForSysClipboard()
+vmap <expr> <leader>v <sid>decideForSysClipboard()
+
+" Paste last explicit yank made
+nmap <leader>p "0p
+vmap <leader>p "0p
+nmap <leader>P "0P
+vmap <leader>P "0P
+nmap <leader>gp "0gp
+vmap <leader>gp "0gp
+nmap <leader>gP "0gP
+vmap <leader>gP "0gP
