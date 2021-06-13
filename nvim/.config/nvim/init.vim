@@ -1195,15 +1195,10 @@ function s:decideForSysClipboard()
 
   if l:char == 'r' || l:char == 'i'
     return '"+' . g:mapleader . l:char
-    " ^ space after + to denote leader key
-  elseif l:char ==? 'p' || l:char == 'g' || l:char ==? 'y'
-    return '"+' . l:char
-  elseif l:char == ''
-    return ''
   elseif empty(l:char)
-    return ""
+    return ''
   else
-    return '"+'
+    return '"+' . l:char
   end
 endfunction
 
