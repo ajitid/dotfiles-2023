@@ -2,6 +2,8 @@ source $HOME/.config/nvim/plugins.vim
 
 " ~/nvimfiles/eh.md
 
+" TODO see :h shada-file and :h :undojoin
+
 " ~ filled at end is now replaced by a space
 set fillchars=eob:\ ,
 
@@ -117,8 +119,15 @@ autocmd FocusLost * set mouse=
 set noshowmode
 set laststatus=2
 
+" faster vim
 " Makes macros complete faster
+" https://github.com/tpope/vim-sensible/issues/78#issuecomment-185949649
 set lazyredraw
+" i don't know which one of the following hangs nvim (dunno if it is resumed by <c-c>
+" or something)
+" set regexpengine=1  " see https://stackoverflow.com/a/38521226/7683365
+" set synmaxcol=128  " avoid slow rendering for long lines
+" syntax sync minlines=64  " faster syntax hl
 
 " search for uppercase even if lowercase char is entered
 set ignorecase
@@ -1115,10 +1124,11 @@ map <A-P> :YanksBefore<CR>
 
 " slightly modified vimtip mentioned in https://github.com/inkarkat/vim-UnconditionalPaste
 function! PasteJointCharacterwise(regname, pastecmd)
-  let reg_type = getregtype(a:regname)
-  call setreg(a:regname, '', "ac")
-  exe 'normal "'.a:regname . a:pastecmd
-  call setreg(a:regname, '', "a".reg_type)
+  let l:reg_type = getregtype(a:regname)
+  let l:reg_val = getreg(a:regname)
+  call setreg(a:regname, l:reg_val, "c")
+  exe 'normal "'. a:regname . a:pastecmd
+  call setreg(a:regname, l:reg_val, l:reg_type)
   exe 'normal `[v`]gJ'
 endfunction
 nmap <silent><Leader>ip :call PasteJointCharacterwise(v:register, "p")<CR>
