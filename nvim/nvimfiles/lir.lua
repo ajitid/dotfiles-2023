@@ -72,14 +72,7 @@ lir.setup {
 		end,
 	},
 	float = {
-		size_percentage = 0.5,
-		winblend = 15,
-		border = true,
-		borderchars = {"" , "" , "" , "" , "" , "" , "", ""},
-
-		-- -- If you want to use `shadow`, set `shadow` to `true`.
-		-- -- Also, if you set shadow to true, the value of `borderchars` will be ignored.
-		-- shadow = false,
+    winblend = 0,
 	},
 	hide_cursor = true,
 }

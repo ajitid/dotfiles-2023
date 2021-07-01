@@ -154,11 +154,11 @@ Plug 'ii14/exrc.vim'
 " commented as using own function:
 " Plug 'tpope/vim-projectionist'
 
-Plug 'mhartington/formatter.nvim'
+Plug 'ajitid/formatter.nvim', { 'branch': 'modifications-zlksnk' }
 
 " visual mode * or # search
-Plug 'zlksnk/vim-visual-star-search', { 'branch': 'modifications-zlksnk' }
-Plug 'zlksnk/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
+Plug 'ajitid/vim-visual-star-search', { 'branch': 'modifications-zlksnk' }
+Plug 'ajitid/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
 " optional req fzf:
 Plug 'kevinhwang91/nvim-bqf'
 " ^ TODO it pollutes oldfiles https://github.com/kevinhwang91/nvim-bqf/issues/11
@@ -223,7 +223,7 @@ Plug 'romainl/vim-cool'
 " prev. one was vim-sneak
 Plug 'phaazon/hop.nvim'
 
-Plug 'zlksnk/vim-repo-edit', {'branch': 'modifications-zlksnk'}
+Plug 'ajitid/vim-repo-edit', {'branch': 'modifications-zlksnk'}
 
 " DISABLED ------------------------------------
 

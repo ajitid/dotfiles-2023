@@ -28,7 +28,9 @@ actions = transform_mod(actions)
 
 telescope.setup{
   defaults = {
-    prompt_position = "top",
+    layout_config = {
+      prompt_position = "top",
+    },
     sorting_strategy = "ascending",
     prompt_prefix = " ⚡ ",
 
@@ -76,13 +78,15 @@ telescope.load_extension('open_dir')
 
 local function generateOpts(opts)
   local common_opts = {
+    layout_config = {
+      width = 80,
+      height = 15,
+    },
     layout_strategy = "center",
     sorting_strategy = "ascending",
     results_title = false,
     preview_title = "Preview",
     previewer = false,
-    width = 80,
-    results_height = 15,
     borderchars = {
       {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
       prompt = {"─", "│", " ", "│", "╭", "╮", "│", "│"},
