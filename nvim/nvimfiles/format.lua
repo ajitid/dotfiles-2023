@@ -17,6 +17,14 @@ local prettier = function()
 	}
 end
 
+local rustfmt = function()
+	return {
+		exe = "rustfmt",
+		args = {vim.api.nvim_buf_get_name(0)},
+		stdin = false
+	}
+end
+
 -- to save without format, use `:noa w`
 -- also you can use `let b:formatter_skip_buf=1`
 
@@ -29,6 +37,7 @@ require('formatter').setup({
 		javascriptreact = { prettier },
 		json = { prettier },
 		jsonc = { prettier },
+		rust = { rustfmt }
 	}
 })
 
@@ -36,6 +45,6 @@ require('formatter').setup({
 vim.api.nvim_exec([[
 augroup FormatAutogroup
 	autocmd!
-	autocmd BufWriteCmd *.ts,*.js,*.tsx,*.jsx,*.json FormatWrite
+	autocmd BufWriteCmd *.ts,*.js,*.tsx,*.jsx,*.json,*.jsonc,*.rs FormatWrite
 augroup END
 ]], true)

@@ -527,7 +527,7 @@ nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <
 augroup filetype_based_indentation
   autocmd!
   autocmd VimEnter * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  autocmd FileType python,rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 augroup END
 
 " color highlight group of a token under the cursor
