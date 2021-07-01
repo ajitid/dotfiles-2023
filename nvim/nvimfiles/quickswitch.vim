@@ -71,3 +71,23 @@ endfunction
 
 " TODO: add completion support like test, source, etc. and when 716 is catched
 " list other keys
+
+
+" create .quickswitch.json at root of project, eg:
+" {
+"   "src/another-folder|src/components": {
+"     "alt": "src/components/*/*.module.scss",
+"     "test": "src/components/*/*.test.tsx",
+"     "src": "src/components/*/*.tsx",
+"     "css": "src/components/*/*.module.scss"
+"   },
+"   "src/stores": {
+"     "src": "src/stores/*.ts",
+"     "mock": "src/stores/__mocks__/*.ts"
+"   },
+"   "src/services": {
+"     "src": "src/services/*.ts",
+"     "test": "src/services/*.test.js",
+"     "mock": "src/services/__mocks__/*.test.ts"
+"   }
+" }

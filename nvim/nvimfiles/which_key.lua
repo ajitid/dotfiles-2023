@@ -16,8 +16,8 @@ wk.register({
 		-- lua version https://github.com/nvim-telescope/telescope.nvim/issues/568#issuecomment-794340390
 		S = {":Telescope lsp_workspace_symbols query=", "symbols in project", silent = false},
 		-- TODO: ^ a live version is landing soon https://github.com/nvim-telescope/telescope.nvim/pull/705#issue-604246613
-		r = {"<cmd>lua require('telescope.builtin').lsp_references()<cr>", "references of word under cursor"},
-		-- r = {"<cmd>lua vim.lsp.buf.references()<cr>", "references of word under cursor"},
+		-- r = {"<cmd>lua require('telescope.builtin').lsp_references()<cr>", "references of word under cursor"},
+		r = {"<cmd>lua vim.lsp.buf.references()<cr>", "references of word under cursor"},
 		c = {"<cmd>lua require('telescope.builtin').command_history()<cr>", "in command history"},
 	},
 	s = {
@@ -32,7 +32,8 @@ wk.register({
 	},
 	g = {
 		name = "goto",
-		d = {"<cmd>Telescope lsp_definitions<cr>", "definition of word under cursor"},
+		-- d = {"<cmd>Telescope lsp_definitions<cr>", "definition of word under cursor"},
+		d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "definition"}
 	},
 	t = {
 		name = "toggle",

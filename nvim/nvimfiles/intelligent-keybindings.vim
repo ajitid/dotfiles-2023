@@ -3,10 +3,11 @@
 " not entirely sure about old files `fh`, only thing being this should assist in
 " ranking for `ff`
 
+" \ nnoremap <buffer><c-]> <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
 augroup goto_definition
     autocmd!
     autocmd FileType typescript,javascript,typescriptreact
-        \ nnoremap <buffer><c-]> <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
+        \ nnoremap <buffer><c-]> <cmd>lua vim.lsp.buf.definition()<cr>
         \| setlocal tagfunc=v:lua.tagfunc_nvim_lsp
 augroup END
 

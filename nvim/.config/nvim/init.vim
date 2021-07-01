@@ -1167,7 +1167,7 @@ command! -nargs=1 RepoEditFetchOtherBranch exec('!git fetch --depth 1 origin'. '
   \ | echo 'Fetch done. Checkout this remote branch or create a local branch from it.'
 
 " wrap for comments, see :h gq
-nnoremap Q gq
+nnoremap Q gq_
 
 source ~/nvimfiles/quickswitch.vim
 function! s:OpenRelated(to_open, mode = v:null)
