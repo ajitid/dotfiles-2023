@@ -56,6 +56,8 @@ export PATH="$HOME/miniconda3/bin:$PATH"
 eval /home/zlksnk/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+pdm completion fish > ~/.config/fish/completions/pdm.fish
+
 export DISPLAY=(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=0
 
@@ -68,9 +70,20 @@ abbr v 'nvim.appimage'
 # see for info https://github.com/mhinz/neovim-remote/
 # and https://thoughtbot.com/upcase/videos/neovim-remote-as-preferred-editor
 alias vr "NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim.appimage"
+alias rm-win-identifiers "rm (fd -H 'Zone.Identifier' | xargs -n 1)"
 
 export PATH="$PATH:$HOME/workspace/execs"
 alias g "/usr/bin/smerge"
+
+# https://github.com/pstadler/keybase-gpg-github#troubleshooting-gpg-failed-to-sign-the-data
+# https://github.com/keybase/keybase-issues/issues/2798#issue-205008630
+export GPG_TTY=(tty)
+# to sign commits, use 
+# git config user.signingkey <the key that appears after 'sec rsa-or-something/'
+# `gpg -K --keyid-format LONG`>
+# so git config user.signingkey 84CDEEF91EF296D9
+# and 
+# git config commit.gpgsign true
 
 set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
