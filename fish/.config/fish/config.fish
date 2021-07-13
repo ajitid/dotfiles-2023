@@ -84,6 +84,13 @@ export GPG_TTY=(tty)
 # so git config user.signingkey 84CDEEF91EF296D9
 # and 
 # git config commit.gpgsign true
+# 
+# to not to enter passphrase in a system
+# gpg --passwd <yourkeyid or email>
+# and use empty string as new passphrase
+
+# https://askubuntu.com/questions/499807/how-to-unzip-tgz-file-using-the-terminal
+abbr tarunzip 'tar --extract --one-top-level --file'
 
 set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 

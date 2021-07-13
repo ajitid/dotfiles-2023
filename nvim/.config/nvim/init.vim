@@ -1197,7 +1197,7 @@ command! DosOrUnixToDos call DosOrUnixToDos()
 function s:decideForSysClipboard()
   let l:char = nr2char(getchar())
 
-  if l:char == 'r' || l:char == 'i'
+  if l:char == 'r' || l:char == 'i' || l:char == 'c'
     return '"+' . g:mapleader . l:char
   elseif empty(l:char)
     return ''

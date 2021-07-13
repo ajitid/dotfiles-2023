@@ -8,6 +8,7 @@ SETUVAR _fish_abbr_getclip:xclip\x20\x2dselection\x20c\x20\x2do
 SETUVAR _fish_abbr_gg:ghq\x20get\x20\x2dp
 SETUVAR _fish_abbr_gi:cd\x20\x7e/ghq/\x28ghq\x20list\x20\x7c\x20fzf\x29
 SETUVAR _fish_abbr_setclip:xclip\x20\x2dselection\x20c
+SETUVAR _fish_abbr_tarunzip:tar\x20\x2d\x2dextract\x20\x2d\x2done\x2dtop\x2dlevel\x20\x2d\x2dfile
 SETUVAR _fish_abbr_v:nvim\x2eappimage
 SETUVAR fish_color_autosuggestion:707A8C
 SETUVAR fish_color_cancel:\x2dr

@@ -42,9 +42,20 @@ require('formatter').setup({
 })
 
 -- from https://vi.stackexchange.com/a/3971 <- reverted, but still useful
+--
+-- while this is what you want instead of BufWritePost
+-- ```
+-- autocmd BufWriteCmd *.ts,*.js,*.tsx,*.jsx,*.json,*.jsonc,*.rs FormatWrite
+-- ```
+-- it has its own issues, for eg, when LSP servers are not attached to newly
+-- created TS file, save won't even work as formatter will fail. Another case is
+-- when you switch to other buffer on save start, let's say to Telescope
+-- it will try writing there (update: this point actually doesn't holds).
+-- This plugin still has issue when saves are made, if on save start I move to another
+-- buffer it will show modified as `:update` didn't ran on that buffer.
 vim.api.nvim_exec([[
 augroup FormatAutogroup
 	autocmd!
-	autocmd BufWriteCmd *.ts,*.js,*.tsx,*.jsx,*.json,*.jsonc,*.rs FormatWrite
+	autocmd BufWritePost *.ts,*.js,*.tsx,*.jsx,*.json,*.jsonc,*.rs FormatWrite
 augroup END
 ]], true)
