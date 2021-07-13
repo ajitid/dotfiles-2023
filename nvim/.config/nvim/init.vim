@@ -276,7 +276,7 @@ set list listchars=tab:ᐅ\ ,trail:·,extends:>,precedes:<,nbsp:~
 " so you can search `.` without escaping it for example. For more, see :help \v.
 nnoremap <leader>/ /\V
 nnoremap <leader>? ?\V
-" ^ or just use sneak/hop
+" ^ or just use sneak
 
 " markdown
 " https://secluded.site/vim-as-a-markdown-editor/
@@ -987,15 +987,6 @@ endfunction
 " :Grep 'fetch\('
 " :Grep fetch -g '!*lock*' -g '!*worker*'
 
-" Highlight it is the only key shown
-highlight HopNextKey  guifg=#6ade93 gui=bold ctermfg=198 cterm=bold,underline
-" Highlight used for the first key in a sequence.
-highlight HopNextKey1 guifg=#ffa9d5 gui=bold,underline ctermfg=45 cterm=bold,underline
-" Highlight used for the second and remaining keys in a sequence.
-highlight HopNextKey2 guifg=#da68a2 ctermfg=33
-" Highlight used for the unmatched part of the buffer.
-highlight HopUnmatched guifg=#666666 ctermfg=242
-
 function! s:PutModifiedFilesInArglist()
   arglocal
   silent! argdelete *
@@ -1218,3 +1209,14 @@ nmap <leader>gp "0gp
 vmap <leader>gp "0gp
 nmap <leader>gP "0gP
 vmap <leader>gP "0gP
+
+
+" sneak mode, jump to
+let g:sneak#label = 1
+let g:sneak#use_ic_scs = 1
+" embark
+" highlight SneakScope guifg=#1e1c31 guibg=#91ddff ctermfg=red ctermbg=yellow
+" highlight Sneak guifg=#cbe3e7 guibg=#3e3859 ctermfg=black ctermbg=red
+" substrate
+highlight SneakScope guifg=#191c25 guibg=#cbe3e7 ctermfg=red ctermbg=yellow
+highlight Sneak guifg=#cbe3e7 guibg=#212733 ctermfg=black ctermbg=red

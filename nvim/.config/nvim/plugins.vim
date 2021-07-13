@@ -220,8 +220,8 @@ Plug 'pbrisbin/vim-mkdir'
 " highlight search on demand
 Plug 'romainl/vim-cool'
 
-" prev. one was vim-sneak
-Plug 'phaazon/hop.nvim'
+" sneaky
+Plug 'justinmk/vim-sneak'
 
 Plug 'ajitid/vim-repo-edit', {'branch': 'modifications-zlksnk'}
 
