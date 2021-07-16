@@ -12,19 +12,24 @@ local transform_mod = require('telescope.actions.mt').transform_mod
 --   vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<esc><cr>', true, true, true))
 -- end,
 
-actions.send_to_command_prompt = function(prompt_bufnr)
+custom_actions = {}
+
+custom_actions.send_to_command_prompt = function(prompt_bufnr)
   local selection = action_state.get_selected_entry()
   actions.close(prompt_bufnr)
   -- https://github.com/nvim-telescope/telescope.nvim/blob/1fefd0098e92315569b71a99725b63521594991e/lua/telescope/actions/init.lua#L226
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(": " .. selection.value .. "<home>" , true, false, true), "t", true)
 end
 
-actions.show_qflist_count = function()
+custom_actions.show_qflist_count = function(prompt_bufnr)
+ actions.smart_send_to_qflist(prompt_bufnr)
+ actions.open_qflist(prompt_bufnr)
+
   local count = vim.api.nvim_eval('len(getqflist())')
   print(count .. ' result(s) found.')
 end
 
-actions = transform_mod(actions)
+custom_actions = transform_mod(custom_actions)
 
 telescope.setup{
   defaults = {
@@ -57,7 +62,8 @@ telescope.setup{
         ["<CR>"] = actions.select_default + actions.center,
         ["<Tab>"] = actions.toggle_selection,
         -- from https://github.com/nvim-telescope/telescope.nvim/issues/42#issuecomment-822037307
-        ["<c-q>"] = actions.smart_send_to_qflist + actions.open_qflist + actions.show_qflist_count
+        -- from https://discord.com/channels/478925420616482816/823558515939213322/865312103278968882
+        ["<c-q>"] =  custom_actions.show_qflist_count
       }
     },
   },
@@ -116,7 +122,7 @@ function M.find_files()
   local opts = generateOpts({})
   opts.hidden = true
   opts.attach_mappings = function(_, map)
-    map('i', '<c-x>', actions.send_to_command_prompt)
+    map('i', '<c-x>', custom_actions.send_to_command_prompt)
     return true
   end
   builtIn.find_files(opts)
