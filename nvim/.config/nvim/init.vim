@@ -951,16 +951,14 @@ source ~/nvimfiles/surround.vim
 " TODO ivy!! https://github.com/nvim-telescope/telescope.nvim/pull/771
 " https://github.com/nvim-telescope/telescope.nvim/issues/765
 
-" " Start interactive EasyAlign in visual mode (e.g. vipga)
-" xmap gb <Plug>(EasyAlign)
-" " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-" nmap gb <Plug>(EasyAlign)
+xmap <leader>a <Plug>(EasyAlign)
+nmap <leader>a <Plug>(EasyAlign)
 
-" let g:easy_align_delimiters = {
-"       \   '/': {
-"       \       'pattern': '\/\/',
-"       \   },
-"       \ }
+let g:easy_align_delimiters = {
+      \   '/': {
+      \       'pattern': '\/\/',
+      \   },
+      \ }
 
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)

@@ -225,6 +225,8 @@ Plug 'justinmk/vim-sneak'
 
 Plug 'ajitid/vim-repo-edit', {'branch': 'modifications-zlksnk'}
 
+Plug 'junegunn/vim-easy-align'
+
 " DISABLED ------------------------------------
 
 " Plug 'markonm/traces.vim'
@@ -233,7 +235,6 @@ Plug 'ajitid/vim-repo-edit', {'branch': 'modifications-zlksnk'}
 
 " Plug 'tommcdo/vim-lion' <- intuitive for basic use case
 " using the below one instead of the above
-" Plug 'junegunn/vim-easy-align'
 
 " Plug 'kana/vim-textobj-indent'
 
