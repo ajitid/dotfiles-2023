@@ -1081,7 +1081,7 @@ nmap \\ <plug>(SubversiveSubstituteWordRange)
 " xmap c\ <plug>(SubversiveSubstituteRangeConfirm)
 " nmap c\\ <plug>(SubversiveSubstituteWordRangeConfirm)
 
-let g:miniyank_maxitems = 100
+let g:miniyank_maxitems = 35
 
 " exit fzf using <c-c> or <c-q> https://github.com/junegunn/fzf.vim/issues/544
 " from https://github.com/junegunn/fzf/issues/1393#issuecomment-426576577

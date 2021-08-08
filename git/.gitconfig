@@ -4,6 +4,8 @@
 [core]
 	autocrlf = false
 	excludesfile = ~/.gitignoreglobal
+[init]
+	defaultBranch = main
 [alias]
 	pn = !git_push_and_notify
 [gc]
