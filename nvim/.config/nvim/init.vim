@@ -192,7 +192,7 @@ set foldexpr=nvim_treesitter#foldexpr()
 " source ~/nvimfiles/highlight-word.vim
 " ^ TODO https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 
-nnoremap - <cmd>execute "try \n edit %:h \n catch \n edit . \n endtry"<cr>
+nnoremap _ <cmd>execute "try \n edit %:h \n catch \n edit . \n endtry"<cr>
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 

@@ -29,7 +29,7 @@ end
 lir.setup {
 	show_hidden_files = true,
 	mappings = {
-		['-']     = function()
+		['_']     = function()
 			vim.cmd('Juggle')
 			actions.quit()
 			vim.cmd('edit .')
