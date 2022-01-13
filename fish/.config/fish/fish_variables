@@ -10,8 +10,9 @@ SETUVAR _fish_abbr_gi:cd\x20\x7e/ghq/\x28ghq\x20list\x20\x7c\x20fzf\x29
 SETUVAR _fish_abbr_setclip:xclip\x20\x2dselection\x20c
 SETUVAR _fish_abbr_tarunzip:tar\x20\x2d\x2dextract\x20\x2d\x2done\x2dtop\x2dlevel\x20\x2d\x2dfile
 SETUVAR _fish_abbr_v:nvim\x2eappimage
+SETUVAR _fisher_franciscolourenco_2F_done_files:/home/zlksnk/\x2econfig/fish/conf\x2ed/done\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/zlksnk/\x2econfig/fish/functions/fisher\x2efish\x1e/home/zlksnk/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1efranciscolourenco/done
 SETUVAR fish_color_autosuggestion:707A8C
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:5CCFE6
