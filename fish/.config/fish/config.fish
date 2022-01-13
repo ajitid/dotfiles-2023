@@ -8,6 +8,7 @@ end
 # export PATH="$PATH:/mnt/c/Windows/System32"
 
 zoxide init --cmd j fish | source
+set _ZO_ECHO 1
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
