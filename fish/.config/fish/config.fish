@@ -58,8 +58,9 @@ eval /home/zlksnk/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 
 pdm completion fish > ~/.config/fish/completions/pdm.fish
 
-export DISPLAY=(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-export LIBGL_ALWAYS_INDIRECT=0
+# not needed anymore, this also used to hang Fish when a command is ran
+# export DISPLAY=(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+# export LIBGL_ALWAYS_INDIRECT=0
 
 # abbr can be used too, see https://github.com/jonhoo/configs/blob/master/shell/.config/fish/config.fish#L1
 # seems like it must be preferred over alias https://www.sean.sh/log/when-an-alias-should-actually-be-an-abbr/
