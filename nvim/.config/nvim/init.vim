@@ -1212,7 +1212,6 @@ vmap <leader>gp "0gp
 nmap <leader>gP "0gP
 vmap <leader>gP "0gP
 
-
 " sneak mode, jump to
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1

@@ -32,6 +32,8 @@ abbr gi "cd ~/ghq/(ghq list | fzf)"
 abbr gg "ghq get -p"
 abbr ge "emacs --eval \"(magit-status)\" &"
 
+fzf_configure_bindings --directory=\cf --git_log --git_status --variables
+
 alias l='ls  -alhp --group-directories-first --color=never'
 
 function mkcd --description 'Create and enter directory'
@@ -74,7 +76,7 @@ abbr v 'nvim.appimage'
 alias vr "NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim.appimage"
 alias rm-win-identifiers "rm (fd -H 'Zone.Identifier' | xargs -n 1)"
 
-export PATH="$PATH:$HOME/workspace/execs"
+export PATH="$PATH:$HOME/execs"
 alias g "/usr/bin/smerge"
 
 # https://github.com/pstadler/keybase-gpg-github#troubleshooting-gpg-failed-to-sign-the-data
