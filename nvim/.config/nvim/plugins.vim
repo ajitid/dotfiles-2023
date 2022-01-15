@@ -22,6 +22,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " all hail fzf
 Plug 'junegunn/fzf'
+" Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-repeat'
 
