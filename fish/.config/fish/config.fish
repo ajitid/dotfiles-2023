@@ -319,3 +319,13 @@ end
 function openinwin
   /mnt/c/Windows/explorer.exe (wslpath -w $argv[1])
 end
+
+# folder/file size
+# du -h --max-depth=1 | sort -hr
+# where r stands to show high to low in folder size
+
+# remove emacs log files, run this from ~
+# rm -r (fd -t d -H '\.log')
+
+export PATH="$PATH:$HOME/.emacs.d/bin"
+
