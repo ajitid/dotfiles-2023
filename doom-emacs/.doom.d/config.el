@@ -60,7 +60,6 @@
 
 (setq display-line-numbers-type 'relative)
 
-
 (defun lsp-ts-rename-file ()
   "Rename current file and all it's references in other files."
   (interactive)
@@ -96,3 +95,18 @@
 ;; from https://docs.doomemacs.org/latest/modules/editor/format/
 ;; needs prettier installed globally, otherwise it will silently fail
 (setq +format-with-lsp nil)
+
+;;-----------------
+;; taken from github.com/noctuid/evil-guide
+(evil-define-key nil evil-normal-state-map
+  "j" 'evil-next-visual-line
+  "k" 'evil-previous-visual-line)
+;; also need to swap 0 and ^, ; and ,
+;; -----------------
+
+;; there is (SPC s i), while non-LSP, it also shows parent symbol (like constructor's class name)
+;; thus it is more useful
+;; (evil-define-key 'normal 'global (kbd "SPC j") 'consult-lsp-file-symbols)
+
+;; i don't think i would ever use it
+;; (evil-define-key 'normal 'global (kbd "SPC l") 'consult-line)
