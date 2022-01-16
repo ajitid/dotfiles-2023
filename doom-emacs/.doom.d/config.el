@@ -35,7 +35,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -108,9 +107,12 @@
 ;; thus it is more useful
 ;; (evil-define-key 'normal 'global (kbd "SPC j") 'consult-lsp-file-symbols)
 
-;; i don't think i would ever use it
+;; i don't think i would ever use it, also seems like (SPC s s) just does exactly this
 ;; (evil-define-key 'normal 'global (kbd "SPC l") 'consult-line)
 
 ;; didn't automatically detected projects for me
 ;; also need to add a tmp wksp which isn't ghq as it would be my playground
 ;; (setq projectile-project-search-path '("~/ghq"))
+
+;; don't show a confirmation dialog on closing
+(setq confirm-kill-emacs nil)
