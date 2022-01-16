@@ -110,3 +110,7 @@
 
 ;; i don't think i would ever use it
 ;; (evil-define-key 'normal 'global (kbd "SPC l") 'consult-line)
+
+;; didn't automatically detected projects for me
+;; also need to add a tmp wksp which isn't ghq as it would be my playground
+;; (setq projectile-project-search-path '("~/ghq"))
