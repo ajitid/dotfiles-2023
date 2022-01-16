@@ -14,8 +14,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/workspace/scripts"
 
-export PATH="$PATH:"(go env GOPATH)"/bin"
-export GOPHERJS_GOROOT=(go env GOROOT)
+#  export PATH="$PATH:"(go env GOPATH)"/bin"
+#  export GOPHERJS_GOROOT=(go env GOROOT)
 
 abbr setclip "xclip -selection c"
 abbr getclip "xclip -selection c -o"
@@ -51,15 +51,15 @@ end
 # see https://github.com/microsoft/WSL/issues/1493#issuecomment-797575704
 set PATH (/usr/bin/printenv PATH | /usr/bin/perl -ne 'print join(":", grep { !/\/mnt\/[a-z]/ } split(/:/));')
 
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$HOME/miniconda3/bin:$PATH"
+#  export PATH="$PATH:$HOME/.cargo/bin"
+#  export PATH="$HOME/miniconda3/bin:$PATH"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /home/zlksnk/miniconda3/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
+#  # >>> conda initialize >>>
+#  # !! Contents within this block are managed by 'conda init' !!
+#  eval /home/zlksnk/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+#  # <<< conda initialize <<<
 
-pdm completion fish > ~/.config/fish/completions/pdm.fish
+#  pdm completion fish > ~/.config/fish/completions/pdm.fish
 
 # not needed anymore, this also used to hang Fish when a command is ran
 # export DISPLAY=(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
