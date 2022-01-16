@@ -90,3 +90,9 @@
 
 ;; TypeScript LSP creates log files directly into project dir, this removes that
 (setenv "TSSERVER_LOG_FILE" "/tmp/tsserver.log")
+
+;; don't format with LSP
+;; by default if LSP is avialable, formatter (like prettier) isn't used
+;; from https://docs.doomemacs.org/latest/modules/editor/format/
+;; needs prettier installed globally, otherwise it will silently fail
+(setq +format-with-lsp nil)
