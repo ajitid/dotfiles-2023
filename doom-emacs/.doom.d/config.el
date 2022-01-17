@@ -95,13 +95,12 @@
 ;; needs prettier installed globally, otherwise it will silently fail
 (setq +format-with-lsp nil)
 
-;;-----------------
-;; taken from github.com/noctuid/evil-guide
-(evil-define-key nil evil-normal-state-map
-  "j" 'evil-next-visual-line
-  "k" 'evil-previous-visual-line)
-;; also need to swap 0 and ^, ; and ,
-;; -----------------
+(map! :nvo "0" #'evil-first-non-blank)
+(map! :nvo "^" #'evil-beginning-of-line)
+(map! :nvo "g0" #'evil-first-non-blank-of-visual-line)
+(map! :nvo "g^" #'evil-beginning-of-visual-line)
+
+(map! :nv ";" #'evil-ex)
 
 ;; there is (SPC s i), while non-LSP, it also shows parent symbol (like constructor's class name)
 ;; thus it is more useful
