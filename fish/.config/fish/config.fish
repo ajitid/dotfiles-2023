@@ -68,6 +68,7 @@ set PATH (/usr/bin/printenv PATH | /usr/bin/perl -ne 'print join(":", grep { !/\
 # abbr can be used too, see https://github.com/jonhoo/configs/blob/master/shell/.config/fish/config.fish#L1
 # seems like it must be preferred over alias https://www.sean.sh/log/when-an-alias-should-actually-be-an-abbr/
 abbr v 'nvim.appimage'
+abbr e 'emacs &'
 
 # abbr process running on a port "sudo lsof -i:3000"
 

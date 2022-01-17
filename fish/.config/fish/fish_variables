@@ -3,6 +3,7 @@
 SETUVAR Z_DATA_DIR:/home/zlksnk/\x2elocal/share/z
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr__2D_:cd\x20\x2d
+SETUVAR _fish_abbr_e:emacs\x20\x26
 SETUVAR _fish_abbr_ge:emacs\x20\x2d\x2deval\x20\x22\x28magit\x2dstatus\x29\x22\x20\x26
 SETUVAR _fish_abbr_getclip:xclip\x20\x2dselection\x20c\x20\x2do
 SETUVAR _fish_abbr_gg:ghq\x20get\x20\x2dp
