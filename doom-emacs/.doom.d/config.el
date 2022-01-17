@@ -115,3 +115,7 @@
 
 ;; don't show a confirmation dialog on closing
 (setq confirm-kill-emacs nil)
+
+(map! :map dired-mode-map
+      :n "h" 'dired-up-directory
+      :n "l" 'dired-find-file)
