@@ -119,3 +119,5 @@
 (map! :map dired-mode-map
       :n "h" 'dired-up-directory
       :n "l" 'dired-find-file)
+
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
