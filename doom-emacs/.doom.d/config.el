@@ -102,6 +102,7 @@
 
 (map! :nv ";" #'evil-ex)
 
+;;;;;;;
 ;; there is (SPC s i), while non-LSP, it also shows parent symbol (like constructor's class name)
 ;; thus it is more useful
 ;; (evil-define-key 'normal 'global (kbd "SPC j") 'consult-lsp-file-symbols)
@@ -112,12 +113,18 @@
 ;; didn't automatically detected projects for me
 ;; also need to add a tmp wksp which isn't ghq as it would be my playground
 ;; (setq projectile-project-search-path '("~/ghq"))
+;;;;;;;
 
 ;; don't show a confirmation dialog on closing
 (setq confirm-kill-emacs nil)
 
+;; h and l to move up/down the directory
 (map! :map dired-mode-map
       :n "h" 'dired-up-directory
       :n "l" 'dired-find-file)
 
+;; start emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+;; just integrate system clipboard with emacs already https://www.reddit.com/r/emacs/comments/l46om0/utilise_wsl_clipboard_in_doom_emacs/gknmko6/
+(setq save-interprogram-paste-before-kill t)
