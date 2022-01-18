@@ -51,7 +51,7 @@ end
 # see https://github.com/microsoft/WSL/issues/1493#issuecomment-797575704
 set PATH (/usr/bin/printenv PATH | /usr/bin/perl -ne 'print join(":", grep { !/\/mnt\/[a-z]/ } split(/:/));')
 
-#  export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 #  export PATH="$HOME/miniconda3/bin:$PATH"
 
 #  # >>> conda initialize >>>
