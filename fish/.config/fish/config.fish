@@ -14,7 +14,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/workspace/scripts"
 
-#  export PATH="$PATH:"(go env GOPATH)"/bin"
+export PATH="$PATH:"(go env GOPATH)"/bin"
 #  export GOPHERJS_GOROOT=(go env GOROOT)
 
 abbr setclip "xclip -selection c"
