@@ -57,6 +57,10 @@
       doom-unicode-font ()
       doom-big-font (font-spec :family "cartograph cf" :size 19))
 
+;; from https://github.com/syl20bnr/spacemacs/issues/10502#issuecomment-404453194
+;; (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
+;; another (better option imo) is https://github.com/tam5/font-patcher
+
 (setq display-line-numbers-type 'relative)
 
 (defun lsp-ts-rename-file ()
@@ -132,5 +136,6 @@
 ;; Don't cache file list projectile, because with it you show file names that
 ;; actually belong to other commits.
 ;;
-;; Ajit, you can use SPC p i (projectile-invalidate-cache)
+;; Ajit, you can use SPC p i (projectile-invalidate-cache) if you're still seeing files that that project currently doesn't has
 (setq projectile-enable-caching nil)
+;; if you want to enable caching back, see https://emacs.stackexchange.com/questions/2164/projectile-does-not-show-all-files-in-project
