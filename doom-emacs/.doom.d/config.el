@@ -128,3 +128,9 @@
 
 ;; just integrate system clipboard with emacs already https://www.reddit.com/r/emacs/comments/l46om0/utilise_wsl_clipboard_in_doom_emacs/gknmko6/
 (setq save-interprogram-paste-before-kill t)
+
+;; Don't cache file list projectile, because with it you show file names that
+;; actually belong to other commits.
+;;
+;; Ajit, you can use SPC p i (projectile-invalidate-cache)
+(setq projectile-enable-caching nil)
