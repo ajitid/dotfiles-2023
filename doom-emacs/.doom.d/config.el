@@ -53,10 +53,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq doom-font (font-spec :family "office code pro 1.04" :size 17)
+(setq doom-font (font-spec :family "cartograph cf" :size 17)
       doom-variable-pitch-font ()
       doom-unicode-font ()
-      doom-big-font (font-spec :family "office code pro 1.04" :size 19))
+      doom-big-font (font-spec :family "cartograph cf" :size 21))
 
 ;; from https://github.com/syl20bnr/spacemacs/issues/10502#issuecomment-404453194
 ;; (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
