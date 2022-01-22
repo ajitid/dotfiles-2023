@@ -25,7 +25,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-badger)
+(setq doom-theme 'doom-miramare)
+;; miramare, monokai-ristretto, flatwhite, challenger-deep
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -52,10 +53,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq doom-font (font-spec :family "cartograph cf" :size 17)
+(setq doom-font (font-spec :family "office code pro 1.04" :size 17)
       doom-variable-pitch-font ()
       doom-unicode-font ()
-      doom-big-font (font-spec :family "cartograph cf" :size 19))
+      doom-big-font (font-spec :family "office code pro 1.04" :size 19))
 
 ;; from https://github.com/syl20bnr/spacemacs/issues/10502#issuecomment-404453194
 ;; (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
