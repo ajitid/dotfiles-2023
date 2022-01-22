@@ -324,6 +324,8 @@ end
 # folder/file size
 # du -h --max-depth=1 | sort -hr
 # where r stands to show high to low in folder size
+abbr huge "du -h --max-depth=1 | sort -hr"
+# alternative https://github.com/bootandy/dust
 
 # remove emacs log files, run this from ~
 # rm -r (fd -t d -H '\.log')
