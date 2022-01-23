@@ -153,3 +153,24 @@
 ;; TODO SPC r is available to use
 ;; use https://github.com/gbprod/substitute.nvim
 ;; or https://github.com/svermeulen/vim-subversive (preferable)
+
+;; a partial solution for above https://emacs.stackexchange.com/questions/66647/create-a-function-that-deletes-word-on-point-and-replace-with-the-yank-register
+(defun replace-word-at-point ()
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point 'word)))
+    (if bounds
+      (progn (delete-and-extract-region (car-safe bounds) (cdr-safe bounds))
+             (yank))
+      (message "No word at point"))))
+
+(defun replace-evil-word-at-point ()
+  "Select the word at point, remove it, and yank the most recent killed text. "
+  (interactive)
+  (let ((bounds (evil-inner-word)))
+    (if bounds
+      (progn (delete-and-extract-region (pop bounds) (pop bounds))
+             (yank))
+      (message "No word at point"))))
+
+;; TODO not sure if paste mode is needed but what i certainly need is a way to paste on the same line,
+;; meaning strip new line at the end if there's any

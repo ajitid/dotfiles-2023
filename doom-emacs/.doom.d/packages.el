@@ -48,3 +48,6 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+;; disable ESC on quick jk press https://github.com/hlissner/doom-emacs/issues/1946#issuecomment-546012335
+(package! evil-escape :disable t)
