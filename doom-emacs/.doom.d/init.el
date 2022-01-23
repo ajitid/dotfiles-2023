@@ -190,4 +190,5 @@
        ;;literate
        (default +bindings +smartparens))
 
+;; if word wrap (visual lines) is enabled, j and k should navigate through wrapped lines, not skip them
 (setq evil-respect-visual-line-mode t)
