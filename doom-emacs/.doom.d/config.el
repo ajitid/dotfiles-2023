@@ -172,5 +172,9 @@
              (yank))
       (message "No word at point"))))
 
-;; TODO not sure if paste mode is needed but what i certainly need is a way to paste on the same line,
+;; TODO
+;; - not sure if paste mode is needed but what i certainly need is a way to paste on the same line,
 ;; meaning strip new line at the end if there's any
+;;
+;; - Plug 'AndrewRadev/splitjoin.vim'
+;; maybe want this
