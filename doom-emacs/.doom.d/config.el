@@ -28,6 +28,10 @@
 (setq doom-theme 'doom-miramare)
 ;; miramare, monokai-ristretto, flatwhite, challenger-deep
 
+(setq evil-normal-state-cursor '(box "#ccc")
+      evil-insert-state-cursor '(bar "#ccc")
+      evil-visual-state-cursor '(hollow "#ccc"))
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
@@ -145,3 +149,7 @@
 ;; taken from https://github.com/sagittaros/doom.d/blob/main/%2Beditor.el
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
+
+;; TODO SPC r is available to use
+;; use https://github.com/gbprod/substitute.nvim
+;; or https://github.com/svermeulen/vim-subversive (preferable)
