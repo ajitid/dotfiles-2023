@@ -103,3 +103,19 @@
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
 
+ ;;  josh
+ ;;  sam
+ ;;  jed         →    "josh", "jed", "sam", "C.J.", "toby"
+ ;;  C.J.
+ ;;  toby
+ ;;
+ ;; entering a quote is optional
+(defun arrayify (start end quote)
+  "Turn strings on newlines into a QUOTEd, comma-separated one-liner."
+  (interactive "r\nMQuote: ")
+  (let ((insertion
+         (mapconcat
+          (lambda (x) (format "%s%s%s" quote x quote))
+          (split-string (buffer-substring start end)) ", ")))
+    (delete-region start end)
+    (insert insertion)))
