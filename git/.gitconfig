@@ -4,6 +4,7 @@
 [core]
 	autocrlf = false
 	excludesfile = ~/.gitignoreglobal
+	editor = nvim.appimage
 [init]
 	defaultBranch = main
 [alias]
