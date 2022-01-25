@@ -2,7 +2,9 @@
 if status is-interactive
 	cd $HOME
 end
-# starship init fish | source
+
+starship init fish | source
+
 # use `eval (ssh-agent -c)` or github.com/danhper/fish-ssh-agent
 
 # export PATH="$PATH:/mnt/c/Windows/System32"
