@@ -14,7 +14,7 @@ set _ZO_ECHO 1
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:$HOME/workspace/scripts"
+export PATH="$PATH:$HOME/scripts/git"
 
 export PATH="$PATH:"(go env GOPATH)"/bin"
 #  export GOPHERJS_GOROOT=(go env GOROOT)
