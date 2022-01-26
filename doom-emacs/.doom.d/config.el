@@ -81,6 +81,9 @@
 
 (map! :nv ";" #'evil-ex)
 
+(map! :i "M-o" #'evil-open-below)
+(map! :i "M-O" #'evil-open-above)
+
 ;; don't show a confirmation dialog on closing
 (setq confirm-kill-emacs nil)
 
