@@ -87,6 +87,10 @@
 ;; don't show a confirmation dialog on closing
 (setq confirm-kill-emacs nil)
 
+;; vim like scrolloff
+(setq scroll-margin 3)
+;; there's more at https://www.reddit.com/r/emacs/comments/4hpjwp/vim_like_scrolling_in_emacs/d2rh8g4/
+
 ;; h and l to move up/down the directory
 (map! :map dired-mode-map
       :n "h" 'dired-up-directory
