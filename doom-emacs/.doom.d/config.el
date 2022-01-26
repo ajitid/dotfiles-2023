@@ -96,6 +96,8 @@
       :n "h" 'dired-up-directory
       :n "l" 'dired-find-file)
 
+(map! :n "SPC e" #'flycheck-explain-error-at-point)
+
 ;; start emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
