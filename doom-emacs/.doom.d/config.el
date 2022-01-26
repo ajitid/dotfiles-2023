@@ -57,10 +57,12 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq doom-font (font-spec :family "cartograph cf" :size 17)
+(setq doom-font (font-spec :family "iosevka term ss08" :size 18)
       doom-variable-pitch-font ()
       doom-unicode-font ()
-      doom-big-font (font-spec :family "cartograph cf" :size 21))
+      doom-big-font (font-spec :family "iosevka term ss08" :size 22))
+
+(setq default-text-properties '(line-spacing 0.1 line-height 1.1))
 
 ;; TypeScript LSP creates log files directly into project dir, this removes that
 (setenv "TSSERVER_LOG_FILE" "/tmp/tsserver.log")
@@ -88,7 +90,7 @@
 (setq confirm-kill-emacs nil)
 
 ;; vim like scrolloff
-(setq scroll-margin 3)
+(setq scroll-margin 2)
 ;; there's more at https://www.reddit.com/r/emacs/comments/4hpjwp/vim_like_scrolling_in_emacs/d2rh8g4/
 
 ;; h and l to move up/down the directory
