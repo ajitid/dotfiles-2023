@@ -133,3 +133,6 @@
     (insert insertion)))
 
 (map! :leader :nv "r" #'evil-replace-with-register)
+
+;; M-<numeral> to insert from completion
+(setq company-show-quick-access t)
