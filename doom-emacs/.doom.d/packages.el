@@ -53,3 +53,4 @@
 (package! evil-escape :disable t)
 
 (package! evil-replace-with-register)
+(package! evil-matchit)
