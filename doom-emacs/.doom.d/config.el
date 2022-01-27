@@ -98,7 +98,7 @@
       :n "h" 'dired-up-directory
       :n "l" 'dired-find-file)
 
-(map! :n "SPC e" #'flycheck-explain-error-at-point)
+(map! :leader :n "e" #'flycheck-explain-error-at-point)
 
 ;; start emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
@@ -132,4 +132,4 @@
     (delete-region start end)
     (insert insertion)))
 
-(map! :nvo "SPC r" #'evil-replace-with-register)
+(map! :leader :nv "r" #'evil-replace-with-register)
