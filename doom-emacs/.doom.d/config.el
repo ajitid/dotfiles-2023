@@ -110,6 +110,7 @@
 ;; If you want to enable caching back, see this first: https://emacs.stackexchange.com/questions/2164/projectile-does-not-show-all-files-in-project
 ;; Use SPC p i (projectile-invalidate-cache) if you're still seeing files that the project currently doesn't has.
 (setq projectile-enable-caching nil)
+;; also see https://docs.projectile.mx/projectile/configuration.html#project-indexing-method
 
 ;; Switch to the new window after splitting. Taken from https://github.com/sagittaros/doom.d/blob/main/%2Beditor.el
 (setq evil-split-window-below t
