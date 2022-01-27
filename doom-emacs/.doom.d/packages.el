@@ -51,3 +51,5 @@
 
 ;; disable ESC on quick jk press https://github.com/hlissner/doom-emacs/issues/1946#issuecomment-546012335
 (package! evil-escape :disable t)
+
+(package! evil-replace-with-register)

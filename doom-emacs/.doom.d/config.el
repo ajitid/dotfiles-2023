@@ -131,3 +131,5 @@
           (split-string (buffer-substring start end)) ", ")))
     (delete-region start end)
     (insert insertion)))
+
+(map! :nvo "SPC r" #'evil-replace-with-register)
