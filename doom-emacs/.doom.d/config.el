@@ -86,6 +86,8 @@
 (map! :leader :nv "v" "\"0p")
 (map! :leader :nv "V" "\"0P")
 
+(map! :leader "j" #'evil-avy-goto-char-2)
+
 (map! :i "M-o" #'evil-open-below)
 (map! :i "M-O" #'evil-open-above)
 
