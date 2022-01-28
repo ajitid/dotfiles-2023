@@ -86,6 +86,11 @@
 (map! :leader :nv "v" "\"0p")
 (map! :leader :nv "V" "\"0P")
 
+;; I don't even use `s` for snipe, so let's revert it to what vim does
+(evil-define-key '(normal motion) evil-snipe-local-mode-map
+  "s" nil
+  "S" nil)
+
 (map! :leader "j" #'evil-avy-goto-char-2)
 
 (map! :i "M-o" #'evil-open-below)
