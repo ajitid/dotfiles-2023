@@ -83,6 +83,9 @@
 
 (map! :nv ";" #'evil-ex)
 
+(map! :leader :nv "v" "\"0p")
+(map! :leader :nv "V" "\"0P")
+
 (map! :i "M-o" #'evil-open-below)
 (map! :i "M-O" #'evil-open-above)
 
