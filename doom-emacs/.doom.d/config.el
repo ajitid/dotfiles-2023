@@ -148,5 +148,3 @@
 
 ;; M-<numeral> to insert from completion
 (setq company-show-quick-access t)
-
-(global-evil-matchit-mode 1)
