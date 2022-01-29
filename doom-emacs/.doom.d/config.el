@@ -177,3 +177,22 @@
 
 (advice-add 'flycheck-next-error :around #'flycheck-next-error-loop-advice)
 ;; // END flycheck
+
+;; // BEG search preview
+;; taken from https://github.com/minad/consult/wiki#toggle-preview-during-active-completion-session
+;; only useful for lists with automatic preview enabled, behaves oddly with manually invoked previews (using `C-space`)
+(defvar-local consult-toggle-preview-orig nil)
+
+(defun consult-toggle-preview ()
+  "Command to enable/disable preview."
+  (interactive)
+  (if consult-toggle-preview-orig
+      (setq consult--preview-function consult-toggle-preview-orig
+            consult-toggle-preview-orig nil)
+    (setq consult-toggle-preview-orig consult--preview-function
+          consult--preview-function #'ignore)))
+
+;; Bind to `vertico-map' or `selectrum-minibuffer-map'
+(after! vertico
+  (define-key vertico-map (kbd "M-P") #'consult-toggle-preview))
+;; // END search preview
