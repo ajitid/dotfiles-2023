@@ -108,6 +108,7 @@
       :n "h" 'dired-up-directory
       :n "l" 'dired-find-file
       :n "M-l" 'dired-display-file
+      :n "M-k" 'dired-do-kill-lines
       ;; by default it is bound to epa, https://www.gnu.org/software/emacs/manual/html_mono/epa.html
       ;; i don't use it
       :nv ";" 'evil-ex)
