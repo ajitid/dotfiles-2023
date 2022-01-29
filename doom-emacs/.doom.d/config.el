@@ -155,3 +155,5 @@
 
 ;; M-<numeral> to insert from completion
 (setq company-show-quick-access t)
+
+(add-hook! typescript-tsx-mode 'turn-on-evil-matchit-mode)
