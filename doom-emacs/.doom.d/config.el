@@ -118,9 +118,9 @@
 (setq dired-dwim-target t)
 
 (map! :leader :n "e" #'flycheck-explain-error-at-point
-      :leader :n "E" #'flycheck-buffer
-      :m "]e" #'flycheck-next-error
-      :m "[e" #'flycheck-previous-error)
+      :leader :n "E" #'flycheck-buffer)
+(map! :m "[e" #'flycheck-previous-error)
+(map! :m "]e" #'flycheck-next-error)
 
 ;; start emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
