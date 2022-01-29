@@ -106,7 +106,8 @@
 ;; h and l to move up/down the directory
 (map! :map dired-mode-map
       :n "h" 'dired-up-directory
-      :n "l" 'dired-find-file)
+      :n "l" 'dired-find-file
+      :n "M-l" 'dired-display-file)
 
 (map! :leader :n "e" #'flycheck-explain-error-at-point)
 
