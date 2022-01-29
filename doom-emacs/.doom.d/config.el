@@ -76,10 +76,10 @@
 ;; needs prettier installed globally, otherwise it will silently fail
 (setq +format-with-lsp nil)
 
-(map! :nvo "0" #'evil-first-non-blank)
-(map! :nvo "^" #'evil-beginning-of-line)
-(map! :nvo "g0" #'evil-first-non-blank-of-visual-line)
-(map! :nvo "g^" #'evil-beginning-of-visual-line)
+(map! :nvo "0" #'evil-first-non-blank
+      :nvo "^" #'evil-beginning-of-line
+      :nvo "g0" #'evil-first-non-blank-of-visual-line
+      :nvo "g^" #'evil-beginning-of-visual-line)
 
 (map! :nv ";" #'evil-ex)
 
@@ -119,8 +119,8 @@
 
 (map! :leader :n "e" #'flycheck-explain-error-at-point
       :leader :n "E" #'flycheck-buffer)
-(map! :m "[e" #'flycheck-previous-error)
-(map! :m "]e" #'flycheck-next-error)
+(map! :m "[e" #'flycheck-previous-error
+      :m "]e" #'flycheck-next-error)
 
 ;; start emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
