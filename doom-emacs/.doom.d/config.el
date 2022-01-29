@@ -118,6 +118,7 @@
 (setq dired-dwim-target t)
 
 (map! :leader :n "e" #'flycheck-explain-error-at-point)
+(map! :leader :n "E" #'flycheck-buffer)
 
 ;; start emacs maximized
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
