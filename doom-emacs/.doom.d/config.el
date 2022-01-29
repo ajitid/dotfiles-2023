@@ -107,7 +107,14 @@
 (map! :map dired-mode-map
       :n "h" 'dired-up-directory
       :n "l" 'dired-find-file
-      :n "M-l" 'dired-display-file)
+      :n "M-l" 'dired-display-file
+      ;; by default it is bound to epa, https://www.gnu.org/software/emacs/manual/html_mono/epa.html
+      ;; i don't use it
+      :nv ";" 'evil-ex)
+
+;; if two dired for dir d1 and d2 are open,
+;; upon copy file from d1, dired would by default suggest to put it into d2
+(setq dired-dwim-target t)
 
 (map! :leader :n "e" #'flycheck-explain-error-at-point)
 
