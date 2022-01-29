@@ -161,3 +161,22 @@
 (setq company-show-quick-access t)
 
 (add-hook! typescript-tsx-mode 'turn-on-evil-matchit-mode)
+
+;; taken from https://gist.github.com/Blaisorblade/c7349438b06e7b1e034db775408ac4cb
+;; // BEG flycheck
+(defun flycheck-next-error-loop-advice (orig-fun &optional n reset)
+  (condition-case err
+      (apply orig-fun (list n reset))
+    ((user-error)
+     (let ((error-count (length flycheck-current-errors)))
+       (if (and
+            (> error-count 0)
+            (equal (error-message-string err) "No more Flycheck errors"))
+           (let* ((req-n (if (numberp n) n 1))
+                  (curr-pos (if (> req-n 0) (- error-count 1) 0))
+                  (next-pos (mod (+ curr-pos req-n) error-count)))
+             (apply orig-fun (list (+ 1 next-pos) 'reset)))
+         (signal (car err) (cdr err)))))))
+
+(advice-add 'flycheck-next-error :around #'flycheck-next-error-loop-advice)
+;; // END flycheck
