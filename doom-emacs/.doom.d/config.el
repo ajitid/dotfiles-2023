@@ -126,10 +126,11 @@
       :n "h" 'dired-up-directory
       :n "l" 'dired-find-file
       :n "M-l" 'dired-display-file
-      :n "C-k" 'dired-do-kill-lines
-      ;; by default it is bound to epa, https://www.gnu.org/software/emacs/manual/html_mono/epa.html,
-      ;; but i don't use it
-      :nv ";" 'evil-ex)
+      :n "C-k" 'dired-do-kill-lines)
+
+;; by default it is bound to epa, https://www.gnu.org/software/emacs/manual/html_mono/epa.html
+;; but i don't use it
+(after! dired (map! :map dired-mode-map :nv ";" 'evil-ex))
 
 ;; if two dired for dir d1 and d2 are open,
 ;; upon copy file from d1, dired would by default suggest to put it into d2
