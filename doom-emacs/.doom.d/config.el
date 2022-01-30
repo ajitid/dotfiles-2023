@@ -206,3 +206,18 @@
 (after! vertico
   (define-key vertico-map (kbd "M-P") #'consult-toggle-preview))
 ;; // END search preview
+
+;; Taken from https://stackoverflow.com/a/65685019
+;; Equivalent to `:noa w`
+;; After running this command, if the buffer is in saved state
+;; but you want to run the formatter, use `:w!`
+(defun save-buffer-as-is ()
+  "Save file \"as is\", that is in read-only-mode."
+  (interactive)
+  (if buffer-read-only
+      (save-buffer)
+    (read-only-mode 1)
+    (save-buffer)
+    (read-only-mode 0)))
+
+(evil-ex-define-cmd "noa w" #'save-buffer-as-is)
