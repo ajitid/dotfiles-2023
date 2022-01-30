@@ -86,6 +86,11 @@
 ;; needs prettier installed globally, otherwise it will silently fail
 (setq +format-with-lsp nil)
 
+;; see https://discord.com/channels/406534637242810369/406554085794381833/937168709326340146
+;; a vimmy bind would be `g/`, but I would prefer ergonomics here
+(map! :nv "gh" (kbd! "g s SPC"))
+;; putting space between gh `g h` works too
+
 (map! :nvo "0" #'evil-first-non-blank
       :nvo "^" #'evil-beginning-of-line
       :nvo "g0" #'evil-first-non-blank-of-visual-line
@@ -100,8 +105,6 @@
 (evil-define-key '(normal motion) evil-snipe-local-mode-map
   "s" nil
   "S" nil)
-
-(map! :leader "j" #'evil-avy-goto-char-2)
 
 (map! :i "M-o" #'evil-open-below)
 (map! :i "M-O" #'evil-open-above)
