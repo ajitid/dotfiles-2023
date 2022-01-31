@@ -112,8 +112,10 @@
   "s" nil
   "S" nil)
 
-(map! :i "M-o" #'evil-open-below)
-(map! :i "M-O" #'evil-open-above)
+(map! :ni "M-o" #'evil-open-below)
+(map! :ni "M-O" #'evil-open-above)
+
+(map! :ni "M-u" #'universal-argument)
 
 ;; Switch to the new window after splitting. Taken from https://github.com/sagittaros/doom.d/blob/main/%2Beditor.el
 (setq evil-split-window-below t
