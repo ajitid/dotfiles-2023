@@ -337,5 +337,5 @@ abbr huge "du -h --max-depth=1 | sort -hr"
 
 export PATH="$PATH:$HOME/.emacs.d/bin"
 
-# tmp fix, see https://github.com/microsoft/wslg/issues/641#issuecomment-1025490260
+# TODO tmp fix, see https://github.com/microsoft/wslg/issues/641#issuecomment-1025490260
 export GDK_BACKEND="x11"

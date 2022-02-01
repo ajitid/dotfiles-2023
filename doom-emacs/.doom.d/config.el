@@ -76,7 +76,8 @@
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 ;; just integrate system clipboard with emacs already https://www.reddit.com/r/emacs/comments/l46om0/utilise_wsl_clipboard_in_doom_emacs/gknmko6/
-(setq save-interprogram-paste-before-kill t)
+;; i don't think it is actually needed
+;; (setq save-interprogram-paste-before-kill t)
 
 (add-hook! typescript-tsx-mode 'turn-on-evil-matchit-mode)
 
