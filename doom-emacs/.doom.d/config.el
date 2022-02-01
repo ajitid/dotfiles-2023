@@ -223,3 +223,14 @@
     (read-only-mode 0)))
 
 (evil-ex-define-cmd "noa w" #'save-buffer-as-is)
+
+;; TODO remove this tmp fix
+;; from https://www.reddit.com/r/DoomEmacs/comments/shp6ez/comment/hv5lmat/?utm_source=share&utm_medium=web2x&context=3
+;; best to be viewed using new reddit
+(add-hook! 'doom-init-ui-hook
+           :append ;; ensure it gets added to the end.
+           #'(lambda () (require 'uniquify) (setq uniquify-buffer-name-style 'forward)))
+;; https://www.r-bloggers.com/2009/10/making-emacs-buffer-names-unique-using-the-uniquify-package/
+
+;; from http://pragmaticemacs.com/emacs/uniquify-your-buffer-names/
+(setq uniquify-ignore-buffers-re "^\\*") ;; don't muck with with special buffers
