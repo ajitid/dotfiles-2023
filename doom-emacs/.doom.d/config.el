@@ -235,3 +235,14 @@
 
 ;; from http://pragmaticemacs.com/emacs/uniquify-your-buffer-names/
 (setq uniquify-ignore-buffers-re "^\\*") ;; don't muck with with special buffers
+
+;; from https://github.com/hlissner/doom-emacs/issues/581#issuecomment-645448095
+(defun doom/ediff-init-and-example ()
+  "ediff the current `init.el' with the example in doom-emacs-dir"
+  (interactive)
+  (ediff-files (concat doom-private-dir "init.el")
+               (concat doom-emacs-dir "init.example.el")))
+
+(define-key! help-map
+  "di"   #'doom/ediff-init-and-example
+  )
