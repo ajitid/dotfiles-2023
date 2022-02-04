@@ -40,7 +40,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/ghq/github.com/ajitid/notes-org/")
 
 ;; for M-x org-timer-set-timer
 ;; shorthand: 0:3 for sec and 23 for mins
