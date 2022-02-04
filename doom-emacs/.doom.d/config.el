@@ -23,7 +23,7 @@
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 (setq doom-font (font-spec :family "iosevka term ss08" :size 18)
       doom-variable-pitch-font ()
-      doom-unicode-font ()
+      doom-unicode-font (font-spec :family "noto sans devanagri")
       doom-big-font (font-spec :family "iosevka term ss08" :size 22))
 
 (setq default-text-properties '(line-spacing 0.1 line-height 1.1))
