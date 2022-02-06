@@ -30,19 +30,12 @@
 (map! :ni "M-o" #'evil-open-below)
 (map! :ni "M-O" #'evil-open-above)
 
-(map! :ni "M-u" #'universal-argument)
-
 ;; Switch to the new window after splitting. Taken from https://github.com/sagittaros/doom.d/blob/main/%2Beditor.el
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
 
 ;; vim like scrolloff. More at https://www.reddit.com/r/emacs/comments/4hpjwp/vim_like_scrolling_in_emacs/d2rh8g4/
 (setq scroll-margin 2)
-
-;; see https://discord.com/channels/406534637242810369/406554085794381833/937168709326340146
-;; a vimmy bind would be `g/`, but I would prefer ergonomics here
-(map! :nv "gh" (kbd! "g s SPC"))
-;; putting space between gh `g h` works too
 
 (map! :map dired-mode-map
       :n "h" 'dired-up-directory
@@ -57,15 +50,6 @@
 ;; if two dired for dir d1 and d2 are open,
 ;; upon copy file from d1, dired would by default suggest to put it into d2
 (setq dired-dwim-target t)
-
-;; M-<numeral> to insert from completion
-(setq company-show-quick-access t)
-
-;; Projectile, you do a terrible job of caching file names. I'll manually enable it when I'd need to.
-;; If you want to enable caching back, see this first: https://emacs.stackexchange.com/questions/2164/projectile-does-not-show-all-files-in-project
-;; Use SPC p i (projectile-invalidate-cache) if you're still seeing files that the project currently doesn't has.
-(setq projectile-enable-caching nil)
-;; Also see https://docs.projectile.mx/projectile/configuration.html#project-indexing-method
 
 (map! :leader :nv "r" #'evil-replace-with-register)
 
@@ -93,24 +77,10 @@
 (advice-add 'flycheck-next-error :around #'flycheck-next-error-loop-advice)
 ;; // END flycheck
 
-;; // BEG search preview
-;; taken from https://github.com/minad/consult/wiki#toggle-preview-during-active-completion-session
-;; only useful for lists with automatic preview enabled, behaves oddly with manually invoked previews (using `C-space`)
-(defvar-local consult-toggle-preview-orig nil)
-
-(defun consult-toggle-preview ()
-  "Command to enable/disable preview."
-  (interactive)
-  (if consult-toggle-preview-orig
-      (setq consult--preview-function consult-toggle-preview-orig
-            consult-toggle-preview-orig nil)
-    (setq consult-toggle-preview-orig consult--preview-function
-          consult--preview-function #'ignore)))
-
-;; Bind to `vertico-map' or `selectrum-minibuffer-map'
-(after! vertico
-  (define-key vertico-map (kbd "M-P") #'consult-toggle-preview))
-;; // END search preview
+;; see https://discord.com/channels/406534637242810369/406554085794381833/937168709326340146
+;; a vimmy bind would be `g/`, but I would prefer ergonomics here
+(map! :nv "gh" (kbd! "g s SPC"))
+;; putting space between gh `g h` works too
 
 ;; Taken from https://stackoverflow.com/a/65685019
 ;; Equivalent to `:noa w`
@@ -148,3 +118,32 @@
 
 ;; from http://pragmaticemacs.com/emacs/uniquify-your-buffer-names/
 (setq uniquify-ignore-buffers-re "^\\*") ;; don't muck with with special buffers
+
+;; // BEG search preview
+;; taken from https://github.com/minad/consult/wiki#toggle-preview-during-active-completion-session
+;; only useful for lists with automatic preview enabled, behaves oddly with manually invoked previews (using `C-space`)
+(defvar-local consult-toggle-preview-orig nil)
+
+(defun consult-toggle-preview ()
+  "Command to enable/disable preview."
+  (interactive)
+  (if consult-toggle-preview-orig
+      (setq consult--preview-function consult-toggle-preview-orig
+            consult-toggle-preview-orig nil)
+    (setq consult-toggle-preview-orig consult--preview-function
+          consult--preview-function #'ignore)))
+
+(after! vertico
+  (define-key vertico-map (kbd "M-P") #'consult-toggle-preview))
+;; // END search preview
+
+(map! :ni "M-u" #'universal-argument)
+
+;; M-<numeral> to insert from completion
+(setq company-show-quick-access t)
+
+;; Projectile, you do a terrible job of caching file names. I'll manually enable it when I'd need to.
+;; If you want to enable caching back, see this first: https://emacs.stackexchange.com/questions/2164/projectile-does-not-show-all-files-in-project
+;; Use SPC p i (projectile-invalidate-cache) if you're still seeing files that the project currently doesn't has.
+(setq projectile-enable-caching nil)
+;; Also see https://docs.projectile.mx/projectile/configuration.html#project-indexing-method

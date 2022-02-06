@@ -55,6 +55,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(load-file "~/.doom.d/mine/better.el")
+(load-file "~/.doom.d/mine/org.el")
+(load-file "~/.doom.d/mine/langs.el")
+
  ;;  josh
  ;;  sam
  ;;  jed         →    "josh", "jed", "sam", "C.J.", "toby"
@@ -71,7 +75,3 @@
           (split-string (buffer-substring start end)) ", ")))
     (delete-region start end)
     (insert insertion)))
-
-(load-file "~/.doom.d/mine/better.el")
-(load-file "~/.doom.d/mine/org.el")
-(load-file "~/.doom.d/mine/langs.el")
