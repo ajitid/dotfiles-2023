@@ -9,4 +9,5 @@
 (setq org-show-notification-handler 'message)
 
 ;; otherwise operations like `dj` would behave differently
-(add-hook! org-mode (setq-local visual-line-mode nil))
+(add-hook! 'org-mode-hook
+  (visual-line-mode -1))
