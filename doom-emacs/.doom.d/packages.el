@@ -54,3 +54,5 @@
 
 (package! evil-replace-with-register)
 (package! evil-matchit)
+
+(package! deadgrep)
