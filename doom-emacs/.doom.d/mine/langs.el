@@ -1,3 +1,5 @@
+;;; $DOOMDIR/mine/langs.el -*- lexical-binding: t; -*-
+
 (add-hook! typescript-tsx-mode 'turn-on-evil-matchit-mode)
 
 ;; TypeScript LSP creates log files directly into project dir, this removes that
