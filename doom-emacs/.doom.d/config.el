@@ -72,6 +72,6 @@
     (delete-region start end)
     (insert insertion)))
 
-(load-file "./mine/better.el")
-(load-file "./mine/org.el")
-(load-file "./mine/langs.el")
+(load-file "~/.doom.d/mine/better.el")
+(load-file "~/.doom.d/mine/org.el")
+(load-file "~/.doom.d/mine/langs.el")
