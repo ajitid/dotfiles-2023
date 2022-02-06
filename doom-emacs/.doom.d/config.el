@@ -247,3 +247,5 @@
 (define-key! help-map
   "di"   #'doom/ediff-init-and-example
   )
+
+(add-hook! org-mode (setq-local visual-line-mode nil))
