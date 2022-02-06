@@ -79,21 +79,6 @@
 ;; i don't think it is actually needed
 ;; (setq save-interprogram-paste-before-kill t)
 
-(add-hook! typescript-tsx-mode 'turn-on-evil-matchit-mode)
-
-;; TypeScript LSP creates log files directly into project dir, this removes that
-(setenv "TSSERVER_LOG_FILE" "/tmp/tsserver.log")
-
-;; to rename a TS/JS file, there's code for that https://github.com/emacs-lsp/lsp-mode/commit/1d9da9f24fd477faa2a38b369842a27fe5bda160
-;; only thing being to rename, it copies fileA to fileB, and doesn't deletes fileB by itself, which I should code it in
-;; also mentioned here https://discord.com/channels/789885435026604033/789890622424219658/931959632937746522
-
-;; don't format with LSP. By default if LSP is avialable, formatter (like prettier) isn't used
-;; from https://docs.doomemacs.org/latest/modules/editor/format/
-;; needs prettier installed globally, otherwise it will silently fail
-(setq +format-with-lsp nil)
-(setq lsp-enable-symbol-highlighting nil)
-
 ;; see https://discord.com/channels/406534637242810369/406554085794381833/937168709326340146
 ;; a vimmy bind would be `g/`, but I would prefer ergonomics here
 (map! :nv "gh" (kbd! "g s SPC"))
@@ -249,3 +234,5 @@
   )
 
 (add-hook! org-mode (setq-local visual-line-mode nil))
+
+(load-file "./mine/langs.el")
