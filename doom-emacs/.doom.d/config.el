@@ -92,6 +92,7 @@
 ;; from https://docs.doomemacs.org/latest/modules/editor/format/
 ;; needs prettier installed globally, otherwise it will silently fail
 (setq +format-with-lsp nil)
+(setq lsp-enable-symbol-highlighting nil)
 
 ;; see https://discord.com/channels/406534637242810369/406554085794381833/937168709326340146
 ;; a vimmy bind would be `g/`, but I would prefer ergonomics here
