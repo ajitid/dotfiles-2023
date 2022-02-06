@@ -55,9 +55,9 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(load-file "~/.doom.d/mine/better.el")
-(load-file "~/.doom.d/mine/org.el")
-(load-file "~/.doom.d/mine/langs.el")
+(load! "mine/enhance.el")
+(load! "mine/org.el")
+(load! "mine/langs.el")
 
  ;;  josh
  ;;  sam
@@ -75,3 +75,11 @@
           (split-string (buffer-substring start end)) ", ")))
     (delete-region start end)
     (insert insertion)))
+
+
+;; from https://tecosaur.github.io/emacs-config/config.html
+;; or https://github.com/tecosaur/emacs-config
+(setq undo-limit 80000000                         ; Raise undo-limit to 80M, for reason see https://www.dr-qubit.org/Lost_undo-tree_history.html
+      truncate-string-ellipsis "…"
+      scroll-preserve-screen-position nil         ; Don't have point jump around. There's ~'always~ too (use mouse scroll to see the difference).
+)

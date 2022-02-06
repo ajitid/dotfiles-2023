@@ -1,4 +1,4 @@
-;;; $DOOMDIR/mine/better.el -*- lexical-binding: t; -*-
+;;; $DOOMDIR/mine/enhance.el -*- lexical-binding: t; -*-
 
 (setq display-line-numbers-type 'relative)
 
