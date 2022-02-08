@@ -81,11 +81,6 @@ set smartcase
 nnoremap <leader>/ /\V
 nnoremap <leader>? ?\V
 
-augroup highlight_yank
-  autocmd!
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank {higroup="IncSearch", timeout=350}
-augroup END
-
 " line up down in visual mode using ctrl+j/k
 vnoremap <silent><c-j> :m '>+1<cr>gv=gv
 vnoremap <silent><c-k> :m '<-2<cr>gv=gv
@@ -293,6 +288,11 @@ nnoremap ]o <cmd>call <sid>BlankDown(v:count1)<cr>
 
 nnoremap gl :call cursor()<left>
 
+augroup highlight_yank
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank {higroup="IncSearch", timeout=350}
+augroup END
+
 augroup yank_restore_cursor
   autocmd!
   autocmd VimEnter,CursorMoved *
@@ -302,6 +302,16 @@ augroup yank_restore_cursor
     \   call setpos('.', s:cursor) |
     \ endif
 augroup END
+
+" Paste last yank we made (let's don't muck with black hole register)
+nmap <leader>p "0p
+vmap <leader>p "0p
+nmap <leader>P "0P
+vmap <leader>P "0P
+nmap <leader>gp "0gp
+vmap <leader>gp "0gp
+nmap <leader>gP "0gP
+vmap <leader>gP "0gP
 
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
 
@@ -327,6 +337,32 @@ ts.setup {
   highlight = {
     enable = true,
   },
+}
+EOF
+
+lua <<EOF
+require'lspconfig'.gopls.setup{
+  on_attach = function()
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
+    vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {buffer=0})
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0})
+
+    vim.keymap.set("n", "<leader>df", "<cmd>Telescope diagnostics<cr>", {buffer=0})
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer=0})
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {buffer=0})
+  end,
+}
+EOF
+
+lua << EOF
+require('telescope').setup{
+  defaults = require("telescope.themes").get_ivy {
+    layout_config = {
+      height = 15,
+    },
+  }
 }
 EOF
 
