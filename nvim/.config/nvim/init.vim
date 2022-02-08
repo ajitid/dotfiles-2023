@@ -1,25 +1,42 @@
+source vim/plugins.vim
+
 set fillchars=eob:\ ,
-set shm+=I
-set shortmess+=c
-set wildcharm=<c-z>
-set modelines=0
+set shm+=Ic
 set noswapfile
 set lazyredraw
+
+" prevents security exploits, see http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html
+" for better solutions see:
+" there might be a better solution for it, see:
+" - https://news.ycombinator.com/item?id=20098691 and
+" - https://github.com/ciaranm/securemodelines
+" there is also `secure` https://vi.stackexchange.com/questions/5055/why-is-set-exrc-dangerous
+" ii14/exrc.vim which I've installed might help to guard against this
+set modelines=0
+
+" FixCursorHold.nvim
+let g:cursorhold_updatetime = 400
 
 if has('termguicolors')
   set termguicolors
 endif
+
+" need this to change cursor color https://github.com/neovim/neovim/issues/12626#issuecomment-799077796
+set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
+aug kitty_cursor
+  au!
+  au Colorscheme * set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
+aug END
+
+colorscheme kanagawa
 
 nnoremap <space> <nop>
 let mapleader = "\<Space>"
 
 set mouse=nv
 
-" set signcolumn=yes
+set signcolumn=yes
 set number relativenumber
-
-set completeopt=menuone,noinsert,noselect
-set pumheight=8
 
 set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/dist/*,*/build/*,.idea/**,*DS_Store*,*/coverage/*,*/.git/*,*/package-lock.json
 
@@ -286,6 +303,17 @@ set diffopt+=algorithm:histogram,indent-heuristic,vertical
 
 nnoremap <leader>l <cmd>noh<cr><cmd>echo ''<cr>
 
-" hides default mode display as we are using custom statusline
-" set noshowmode
-" set laststatus=2
+" noshowmode hides default mode display as we are using custom statusline
+set noshowmode
+lua << END
+require('lualine').setup()
+END
+
+" for completion
+set wildcharm=<c-z>
+set completeopt=menuone,noinsert,noselect
+set pumheight=8
+
+let g:lastplace_open_folds = 0
+let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
+
