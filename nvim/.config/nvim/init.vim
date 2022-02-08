@@ -40,6 +40,11 @@ set number relativenumber
 
 set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/dist/*,*/build/*,.idea/**,*DS_Store*,*/coverage/*,*/.git/*,*/package-lock.json
 
+if executable('rg')
+  set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
+  set grepformat=%f:%l:%c:%m
+endif
+
 set foldlevel=21
 set foldmethod=expr
 
@@ -299,6 +304,9 @@ augroup yank_restore_cursor
 augroup END
 
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
+
+" use q to quickly escape out from vim help
+autocmd Filetype help nnoremap <buffer> q :q<cr>
 
 nnoremap <leader>l <cmd>noh<cr><cmd>echo ''<cr>
 
