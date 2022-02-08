@@ -15,4 +15,7 @@ Plug 'airblade/vim-rooter'
 " styling
 Plug 'rebelot/kanagawa.nvim'
 Plug 'nvim-lualine/lualine.nvim'
+
+" smort
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()

@@ -86,7 +86,7 @@ vnoremap <silent><c-j> :m '>+1<cr>gv=gv
 vnoremap <silent><c-k> :m '<-2<cr>gv=gv
 
 if has("persistent_undo")
-  let target_path = expand('~/nvimfiles/.undodir')
+  let target_path = expand('~/mytmp/.undodir')
 
   " create the directory and any parent directories
   " if the location does not exist.
@@ -155,7 +155,6 @@ function! SummarizeTabs()
     echohl None
   endtry
 endfunction
-" ^ FIXME logs on the same line on which it has taken input
 
 " for file type ~/.vim/after/ftplugin/html.vim as `setlocal shiftwidth=2`
 " other way could be: autocmd BufRead,BufNewFile   *.c,*.h,*.java set noic cin noexpandtab
@@ -309,11 +308,22 @@ lua << END
 require('lualine').setup()
 END
 
+let g:lastplace_open_folds = 0
+let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
+
+lua <<EOF
+local ts = require'nvim-treesitter.configs'
+
+ts.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+
 " for completion
 set wildcharm=<c-z>
 set completeopt=menuone,noinsert,noselect
 set pumheight=8
-
-let g:lastplace_open_folds = 0
-let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
