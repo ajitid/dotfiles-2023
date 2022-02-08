@@ -1,4 +1,4 @@
-source vim/plugins.vim
+source ~/.config/nvim/vim/plugins.vim
 
 set fillchars=eob:\ ,
 set shm+=Ic
