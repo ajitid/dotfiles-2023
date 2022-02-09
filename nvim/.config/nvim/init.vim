@@ -336,20 +336,7 @@ END
 let g:lastplace_open_folds = 0
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
-lua <<EOF
-local ts = require'nvim-treesitter.configs'
-
-ts.setup {
-  ensure_installed = "maintained",
-  highlight = {
-    enable = true,
-  },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
-}
-EOF
+luafile ~/.config/nvim/mine/treesitter-and-comment.lua
 
 lua <<EOF
 require('telescope').setup{
@@ -370,34 +357,6 @@ luafile ~/.config/nvim/mine/lsp.lua
 
 lua <<EOF
 require"fidget".setup{}
-EOF
-
-lua <<EOF
-require('Comment').setup({
-  ---@param ctx Ctx
-  pre_hook = function(ctx)
-      -- Only calculate commentstring for tsx filetypes
-      if vim.bo.filetype == 'typescriptreact' then
-          local U = require('Comment.utils')
-
-          -- Detemine whether to use linewise or blockwise commentstring
-          local type = ctx.ctype == U.ctype.line and '__default' or '__multiline'
-
-          -- Determine the location where to calculate commentstring from
-          local location = nil
-          if ctx.ctype == U.ctype.block then
-              location = require('ts_context_commentstring.utils').get_cursor_location()
-          elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-              location = require('ts_context_commentstring.utils').get_visual_start_location()
-          end
-
-          return require('ts_context_commentstring.internal').calculate_commentstring({
-              key = type,
-              location = location,
-          })
-      end
-  end,
-})
 EOF
 
 nmap <leader>ff <cmd>Telescope find_files<cr>
