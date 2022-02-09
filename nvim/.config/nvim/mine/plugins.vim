@@ -40,4 +40,5 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'onsails/lspkind-nvim'
 Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 Plug 'romgrk/nvim-treesitter-context'
+Plug 'ajitid/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
 call plug#end()

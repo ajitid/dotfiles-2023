@@ -120,7 +120,19 @@ fun! SetupCommandAlias(from, to)
 endfun
 
 call SetupCommandAlias("nt","tabnew")
-call SetupCommandAlias("rg","Grep")
+call SetupCommandAlias("rg","GrepLiteral")
+
+let g:bettergrep_no_mappings = 0
+let g:bettergrep_no_abbrev = 0
+
+command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
+function! GrepLiteral(query)
+  " -F is passed to ripgrep to make a literal search
+  execute("Grep -F " . "'" . a:query . "'")
+endfunction
+
+" other ways to grab current word are listed here https://stackoverflow.com/questions/31755115/call-vim-function-with-current-word
+nmap <leader>* <cmd>call GrepLiteral(expand('<cword>'))<cr>
 
 set nowrap
 
@@ -401,4 +413,3 @@ require'treesitter-context'.setup{
 EOF
 
 nmap <silent><leader>cc <cmd>TSContextToggle<cr>
-
