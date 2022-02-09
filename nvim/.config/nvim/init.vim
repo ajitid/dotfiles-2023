@@ -122,8 +122,8 @@ endfun
 call SetupCommandAlias("nt","tabnew")
 call SetupCommandAlias("rg","GrepLiteral")
 
-let g:bettergrep_no_mappings = 0
-let g:bettergrep_no_abbrev = 0
+let g:bettergrep_no_mappings = 1
+let g:bettergrep_no_abbrev = 1
 
 command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
 function! GrepLiteral(query)
@@ -366,7 +366,6 @@ require('telescope').setup{
 EOF
 
 " for completion
-set wildcharm=<c-z>
 set completeopt=menu,menuone,noselect
 set pumheight=8
 
@@ -419,3 +418,15 @@ nnoremap <leader>fyp <cmd>let @" = expand("%")<cr>
 nnoremap <leader>fyP <cmd>let @+ = expand("%")<cr>
 nnoremap <leader>fyn <cmd>let @" = expand("%:t")<cr>
 nnoremap <leader>fyN <cmd>let @+ = expand("%:t")<cr>
+
+" We are using <c-z> to simulate tab, see
+" https://stackoverflow.com/questions/32513835/create-vim-map-that-executes-tab-autocomplete
+set wildcharm=<c-z>
+
+" show an option to edit wrt file's parent dir, useful to create a file at the
+" same place where buffer's file lives
+nnoremap <leader>f. :e %:.:h<c-z><space><bs>
+" space and backspace are added to prevent autosuggest from showing parent folder suggestions
+" Also, we are using : over <cmd> so vim doesn't ask us to append <cr> at the
+" end. More separators here ->
+" http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
