@@ -104,11 +104,21 @@ lsp_installer.on_server_ready(function(server)
           client.resolved_capabilities.document_formatting = false
           -- this, if I remember correctly is to improve perf. I'm keeping it commented for now:
           -- client.config.flags.allow_incremental_sync = true
+        elseif server.name == "jsonls" then
+          client.resolved_capabilities.document_formatting = false
         else
           format_on_save(client)
         end
       end,
     }
+
+    if server.name == "jsonls" then
+      opts.settings = {
+        json = {
+          schemas = require('schemastore').json.schemas(),
+        },
+      }
+    end
 
     server:setup(opts)
 end)
