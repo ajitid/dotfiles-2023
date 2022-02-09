@@ -98,9 +98,6 @@ if has("persistent_undo")
   set undofile
 endif
 
-" indent last pasted text using SPC =
-nnoremap <leader>= V`]
-
 set splitbelow
 set splitright
 
@@ -302,6 +299,16 @@ augroup yank_restore_cursor
     \   call setpos('.', s:cursor) |
     \ endif
 augroup END
+
+" paste + indent
+nnoremap p p=`]
+vnoremap p p=`]
+nnoremap P P=`]
+vnoremap P P=`]
+nnoremap gp gp=`]
+vnoremap gp gp=`]
+nnoremap gP gP=`]
+vnoremap gP gP=`]
 
 " Paste last yank we made (let's don't muck with black hole register)
 nmap <leader>p "0p
