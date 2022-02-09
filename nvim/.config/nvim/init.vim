@@ -413,3 +413,9 @@ require'treesitter-context'.setup{
 EOF
 
 nmap <silent><leader>cc <cmd>TSContextToggle<cr>
+
+" yank file name/relative path wrt project root to default/system clipboard
+nnoremap <leader>fyp <cmd>let @" = expand("%")<cr>
+nnoremap <leader>fyP <cmd>let @+ = expand("%")<cr>
+nnoremap <leader>fyn <cmd>let @" = expand("%:t")<cr>
+nnoremap <leader>fyN <cmd>let @+ = expand("%:t")<cr>
