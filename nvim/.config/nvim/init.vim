@@ -469,3 +469,6 @@ nmap S <cmd>PounceRepeat<CR>
 vmap s <cmd>Pounce<CR>
 " as 's' is used by vim-surround:
 omap gs <cmd>Pounce<CR>
+
+xmap gs <Plug>(EasyAlign)
+nmap gs <Plug>(EasyAlign)

@@ -46,4 +46,5 @@ Plug 'b0o/schemastore.nvim'
 Plug 'tpope/vim-repeat'
 Plug 'machakann/vim-sandwich'
 Plug 'rlane/pounce.nvim'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
