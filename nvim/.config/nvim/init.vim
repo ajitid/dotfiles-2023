@@ -14,6 +14,9 @@ set lazyredraw
 " ii14/exrc.vim which I've installed might help to guard against this
 set modelines=0
 
+" which key prompt wait time
+set timeoutlen=1500
+
 " FixCursorHold.nvim
 let g:cursorhold_updatetime = 400
 
@@ -454,3 +457,7 @@ augroup highlight_line
   autocmd CursorMoved * autocmd highlight_line CursorMoved * call ClearHighlightLine()
 augroup END
 " }}}
+
+" indent file without leaving cursor pos
+" from https://stackoverflow.com/a/20110045/7683365
+nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <CR>:echo "file indented"<CR>
