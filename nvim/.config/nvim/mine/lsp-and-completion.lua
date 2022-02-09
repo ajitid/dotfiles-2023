@@ -123,4 +123,10 @@ cmp.setup({
     native_menu = false,
     ghost_text = true,
   },
+  formatting = {
+    format = require'lspkind'.cmp_format({
+      mode = 'text',
+      maxwidth = 50,
+    })
+  },
 })

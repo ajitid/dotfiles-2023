@@ -37,4 +37,5 @@ Plug 'tpope/vim-eunuch'
 Plug 'j-hui/fidget.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'onsails/lspkind-nvim'
 call plug#end()
