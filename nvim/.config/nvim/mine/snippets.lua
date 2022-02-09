@@ -68,25 +68,30 @@ local i = ls.insert_node
 -- rep(<position>)
 local rep = require("luasnip.extras").rep
 
-local js_log = ls.parser.parse_snippet("log", "console.log($0)")
+-- for reason, see https://stackoverflow.com/a/50478498/7683365
+table.unpack = table.unpack or unpack
+
+local js_common = {
+  ls.parser.parse_snippet("log", "console.log($0)"),
+}
 
 ls.snippets = {
   all = {
     -- Available in any filetype
-    -- ls.parser.parse_snippet("expand", "-- this is what was expanded"),
   },
   lua = {
+    -- prefer s( over ls.parser.parse_snippet(
     s("req", fmt("local {} = require('{}')", { i(1, "default"), rep(1) })),
     ls.parser.parse_snippet("lf", "local $1 = function($2)\n  $0\nend"),
   },
   javascript = {
-    js_log,
+    table.unpack(js_common),
   },
   typescript = {
-    js_log,
+    table.unpack(js_common),
   },
   typescriptreact = {
-    js_log,
+    table.unpack(js_common),
     -- TODO capitalize doesn't work
     ls.parser.parse_snippet("rus", "const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState(${3})"),
   },
