@@ -463,3 +463,9 @@ augroup END
 nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <CR>:echo "file indented"<CR>
 
 runtime macros/sandwich/keymap/surround.vim
+
+nmap s <cmd>Pounce<CR>
+nmap S <cmd>PounceRepeat<CR>
+vmap s <cmd>Pounce<CR>
+" as 's' is used by vim-surround:
+omap gs <cmd>Pounce<CR>

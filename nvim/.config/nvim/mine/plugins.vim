@@ -45,4 +45,5 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'b0o/schemastore.nvim'
 Plug 'tpope/vim-repeat'
 Plug 'machakann/vim-sandwich'
+Plug 'rlane/pounce.nvim'
 call plug#end()
