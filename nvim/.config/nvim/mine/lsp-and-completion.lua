@@ -68,7 +68,7 @@ end
 function typescript_rename_file_command()
   local old_name = vim.fn.expand('%:p:.')
   local new_name = vim.fn.input("Rename file to: ", old_name, "file")
-  local root_dir = vim.fn.FindRootDirectory()
+  local root_dir = vim.fn.getcwd()
   function on_ok()
       vim.api.nvim_command('Move ' .. new_name)
   end
