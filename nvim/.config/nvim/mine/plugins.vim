@@ -36,4 +36,5 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'tpope/vim-eunuch'
 Plug 'j-hui/fidget.nvim'
 Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 call plug#end()
