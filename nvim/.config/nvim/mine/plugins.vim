@@ -41,4 +41,5 @@ Plug 'onsails/lspkind-nvim'
 Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'ajitid/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
+Plug 'jose-elias-alvarez/null-ls.nvim'
 call plug#end()

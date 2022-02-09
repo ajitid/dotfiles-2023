@@ -16,10 +16,26 @@ function basic_keymaps()
   vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help, {buffer=0})
 end
 
+function format_on_save(client)
+  if client.resolved_capabilities.document_formatting then
+    vim.keymap.set("n", "<leader>f=", vim.lsp.buf.formatting_sync, {buffer=0})
+
+    vim.api.nvim_command [[augroup Format]]
+    vim.api.nvim_command [[autocmd! * <buffer>]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+    vim.api.nvim_command [[augroup END]]
+  end
+
+  if client.resolved_capabilities.document_range_formatting then
+    vim.keymap.set("v", "<leader>=", vim.lsp.buf.range_formatting, {buffer=0})
+  end
+end
+
 require'lspconfig'.gopls.setup{
   capabilities = capabilities,
-  on_attach = function()
+  on_attach = function(client)
     basic_keymaps()
+    format_on_save(client)
   end,
 }
 
@@ -78,11 +94,18 @@ end
 lsp_installer.on_server_ready(function(server)
     local opts = {
       capabilities = capabilities,
-      on_attach = function()
+      on_attach = function(client)
         basic_keymaps()
 
         if server.name == "tsserver" then
           vim.keymap.set("n", "<leader>cR", typescript_rename_file_command, {buffer=0})
+
+          -- needed, otherwise on save nvim would ask whether to save using null-ls (prettier) or tsserver
+          client.resolved_capabilities.document_formatting = false
+          -- this, if I remember correctly is to improve perf. I'm keeping it commented for now:
+          -- client.config.flags.allow_incremental_sync = true
+        else
+          format_on_save(client)
         end
       end,
     }
@@ -130,3 +153,33 @@ cmp.setup({
     })
   },
 })
+
+
+-- null-ls stuff is mostly taken from https://github.com/Gelio/ubuntu-dotfiles/blob/master/install/neovim/stowed/.config/nvim/lua/lsp/null-ls.lua
+-- other links to refer:
+-- https://old.reddit.com/r/neovim/comments/qckrnp/share_your_prettier_and_eslint_formatting_setup/
+-- https://old.reddit.com/r/neovim/comments/rn0dnp/formatting_markdown_with_nullls_and_prettierd_not/
+-- https://old.reddit.com/r/neovim/comments/rjvmht/lua_vimlspbufformatting_sync_doesnt_always_run/hpa0u21/
+-- old but still https://old.reddit.com/r/neovim/comments/oxl9pz/whats_the_recommended_way_to_handle_formatting/
+
+local null_ls = require("null-ls")
+
+local prettierd_filetypes = { unpack(null_ls.builtins.formatting.prettierd.filetypes) }
+table.insert(prettierd_filetypes, "jsonc")
+
+local sources = {
+  -- if prettierd is not present, the command will silently fail
+  null_ls.builtins.formatting.prettierd.with({
+    filetypes = prettierd_filetypes,
+  }),
+}
+
+local config = {
+  on_attach = function(client, bufnr)
+    format_on_save(client)
+  end,
+  sources = sources,
+}
+
+null_ls.setup(config)
+
