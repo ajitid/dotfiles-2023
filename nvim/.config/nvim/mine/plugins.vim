@@ -43,4 +43,6 @@ Plug 'romgrk/nvim-treesitter-context'
 Plug 'ajitid/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'b0o/schemastore.nvim'
+Plug 'tpope/vim-repeat'
+Plug 'machakann/vim-sandwich'
 call plug#end()

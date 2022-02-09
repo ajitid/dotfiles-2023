@@ -461,3 +461,5 @@ augroup END
 " indent file without leaving cursor pos
 " from https://stackoverflow.com/a/20110045/7683365
 nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <CR>:echo "file indented"<CR>
+
+runtime macros/sandwich/keymap/surround.vim
