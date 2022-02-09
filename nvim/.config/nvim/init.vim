@@ -353,6 +353,7 @@ set wildcharm=<c-z>
 set completeopt=menu,menuone,noselect
 set pumheight=8
 
+luafile ~/.config/nvim/mine/snippets.lua
 luafile ~/.config/nvim/mine/lsp-and-completion.lua
 
 lua <<EOF
