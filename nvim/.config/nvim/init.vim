@@ -368,5 +368,7 @@ lua <<EOF
 require"fidget".setup{}
 EOF
 
+lua require('Comment').setup()
+
 nmap <leader>ff <cmd>Telescope find_files<cr>
 
