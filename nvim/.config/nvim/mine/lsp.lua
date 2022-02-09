@@ -12,6 +12,8 @@ function basic_keymaps()
   vim.keymap.set("n", "<leader>df", "<cmd>Telescope diagnostics<cr>", {buffer=0})
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer=0})
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {buffer=0})
+
+  vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help, {buffer=0})
 end
 
 require'lspconfig'.gopls.setup{
@@ -109,6 +111,8 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    -- more ways at https://old.reddit.com/r/neovim/comments/so4g5e/if_you_guys_arent_using_lsp_signaturenvim_what/
+    { name = 'nvim_lsp_signature_help' },
     { name = 'luasnip' },
   }, {
     { name = 'buffer' },
