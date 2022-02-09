@@ -20,20 +20,24 @@ require'lspconfig'.gopls.setup{
 local lsp_installer = require("nvim-lsp-installer")
 
 -- from https://github.com/williamboman/nvim-lsp-installer/blob/b14bd0c5d75ca9da91d7675e98b89450b08f0143/lua/nvim-lsp-installer/extras/tsserver.lua
--- also see https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils
+-- also see https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils/blob/627963630691c3f3113a8b549fca4246ed4960eb/lua/nvim-lsp-ts-utils/rename-file.lua#L14-L22
 function send_client_request(client_name, ...)
     for _, client in pairs(vim.lsp.get_active_clients()) do
         if client.name == client_name then
-            client.request(...)
+            return client.request(...)
         end
     end
 end
 
-function typescript_rename_file(old, new)
-    local old_uri = vim.uri_from_fname(old)
-    local new_uri = vim.uri_from_fname(new)
+echo_warning = function(message)
+    api.nvim_echo({ { "LSP: " .. message, "WarningMsg" } }, true, {})
+end
 
-    send_client_request("tsserver", "workspace/executeCommand", {
+function typescript_rename_file(old_name, new_name, on_ok)
+    local old_uri = vim.uri_from_fname(old_name)
+    local new_uri = vim.uri_from_fname(new_name)
+
+    local ok = send_client_request("tsserver", "workspace/executeCommand", {
         command = "_typescript.applyRenameFile",
         arguments = {
             {
@@ -42,12 +46,22 @@ function typescript_rename_file(old, new)
             },
         },
     })
+
+    if not ok then
+      echo_warning("failed to rename " .. old_name)
+    else
+      on_ok()
+    end
 end
 
 function rename_file_command()
   local old_name = vim.fn.expand('%:p:.')
   local new_name = vim.fn.input("File: ", old_name, "file")
-  typescript_rename_file(old_name, new_name)
+  local root_dir = vim.fn.FindRootDirectory()
+  function on_ok()
+      vim.api.nvim_command('Move ' .. old_name .. " " .. new_name)
+  end
+  typescript_rename_file(root_dir .. "/" .. old_name, root_dir .. "/" .. new_name, on_ok)
 end
 
 lsp_installer.on_server_ready(function(server)
