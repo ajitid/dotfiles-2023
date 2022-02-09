@@ -299,7 +299,7 @@ nnoremap gl :call cursor()<left>
 
 augroup highlight_yank
   autocmd!
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank {higroup="IncSearch", timeout=350}
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank {higroup="IncSearch", timeout=250}
 augroup END
 
 augroup yank_restore_cursor
@@ -430,3 +430,27 @@ nnoremap <leader>f. :e %:.:h<c-z><space><bs>
 " Also, we are using : over <cmd> so vim doesn't ask us to append <cr> at the
 " end. More separators here ->
 " http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
+
+" {{{ highlight line
+function! HighlightLine()
+  if !exists("b:highlightline")
+    setlocal cursorline
+    let b:highlightline=1
+  else
+    setlocal nocursorline
+    unlet b:highlightline
+  endif
+endfunction
+
+function! ClearHighlightLine()
+  if exists("b:highlightline")
+    setlocal nocursorline
+    unlet b:highlightline
+  endif
+endfunction
+
+augroup highlight_line
+  autocmd!
+  autocmd CursorMoved * autocmd highlight_line CursorMoved * call ClearHighlightLine()
+augroup END
+" }}}
