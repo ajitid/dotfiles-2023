@@ -33,7 +33,12 @@ echo_warning = function(message)
     api.nvim_echo({ { "LSP: " .. message, "WarningMsg" } }, true, {})
 end
 
+function noop()
+end
+
 function typescript_rename_file(old_name, new_name, on_ok)
+    on_ok = on_ok or noop
+
     local old_uri = vim.uri_from_fname(old_name)
     local new_uri = vim.uri_from_fname(new_name)
 
@@ -54,12 +59,12 @@ function typescript_rename_file(old_name, new_name, on_ok)
     end
 end
 
-function rename_file_command()
+function typescript_rename_file_command()
   local old_name = vim.fn.expand('%:p:.')
-  local new_name = vim.fn.input("File: ", old_name, "file")
+  local new_name = vim.fn.input("Rename file to: ", old_name, "file")
   local root_dir = vim.fn.FindRootDirectory()
   function on_ok()
-      vim.api.nvim_command('Move ' .. old_name .. " " .. new_name)
+      vim.api.nvim_command('Move ' .. new_name)
   end
   typescript_rename_file(root_dir .. "/" .. old_name, root_dir .. "/" .. new_name, on_ok)
 end
@@ -75,16 +80,16 @@ lsp_installer.on_server_ready(function(server)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0})
         vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, {buffer=0})
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {buffer=0})
-        vim.keymap.set("n", "<leader>cR", rename_file_command, {buffer=0})
+
+        if server.name == "tsserver" then
+          vim.keymap.set("n", "<leader>cR", typescript_rename_file_command, {buffer=0})
+        end
 
         vim.keymap.set("n", "<leader>df", "<cmd>Telescope diagnostics<cr>", {buffer=0})
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer=0})
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {buffer=0})
       end,
     }
-
-    if server.name == "tsserver" then
-    end
 
     server:setup(opts)
 end)
