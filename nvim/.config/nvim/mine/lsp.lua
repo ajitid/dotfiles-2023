@@ -93,11 +93,6 @@ end)
 local cmp = require'cmp'
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
   mapping = {
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -113,8 +108,19 @@ cmp.setup({
     { name = 'nvim_lsp' },
     -- more ways at https://old.reddit.com/r/neovim/comments/so4g5e/if_you_guys_arent_using_lsp_signaturenvim_what/
     { name = 'nvim_lsp_signature_help' },
+    { name = 'path' },
     { name = 'luasnip' },
+    { name = 'buffer', keyword_length = 4 },
   }, {
     { name = 'buffer' },
-  })
+  }),
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  experimental = {
+    native_menu = false,
+    ghost_text = true,
+  },
 })
