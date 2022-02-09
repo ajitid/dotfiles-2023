@@ -320,7 +320,12 @@ vmap <leader>gp "0gp
 nmap <leader>gP "0gP
 vmap <leader>gP "0gP
 
+" better diffing
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
+" haven't tried this:
+" set diffopt+=iwhite
+" you can set context too, see https://unix.stackexchange.com/a/290501
+" more https://unix.stackexchange.com/a/352204
 
 " use q to quickly escape out from vim help
 autocmd Filetype help nnoremap <buffer> q :q<cr>
@@ -362,3 +367,4 @@ EOF
 
 nmap <leader>ff <cmd>Telescope find_files<cr>
 
+lua require('pqf').setup()

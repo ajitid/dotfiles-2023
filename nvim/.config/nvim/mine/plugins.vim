@@ -38,4 +38,5 @@ Plug 'j-hui/fidget.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'onsails/lspkind-nvim'
+Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 call plug#end()
