@@ -368,3 +368,37 @@ EOF
 nmap <leader>ff <cmd>Telescope find_files<cr>
 
 lua require('pqf').setup()
+
+lua <<EOF
+require'treesitter-context'.setup{
+    enable = false,
+    throttle = true,
+    max_lines = 4,
+    patterns = {
+        default = {
+            'class',
+            'function',
+            'method',
+            'for',
+            'while',
+            'if',
+            'switch',
+            'case',
+        },
+        -- Example for a specific filetype.
+        -- If a pattern is missing, *open a PR* so everyone can benefit.
+        --   rust = {
+        --       'impl_item',
+        --   },
+    },
+    exact_patterns = {
+        -- Example for a specific filetype with Lua patterns
+        -- Treat patterns.rust as a Lua pattern (i.e "^impl_item$" will
+        -- exactly match "impl_item" only)
+        -- rust = true, 
+    }
+}
+EOF
+
+nmap <silent><leader>cc <cmd>TSContextToggle<cr>
+

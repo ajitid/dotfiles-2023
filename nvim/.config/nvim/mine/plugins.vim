@@ -39,4 +39,5 @@ Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'onsails/lspkind-nvim'
 Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
+Plug 'romgrk/nvim-treesitter-context'
 call plug#end()
