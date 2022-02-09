@@ -364,3 +364,5 @@ set pumheight=8
 
 luafile ~/.config/nvim/mine/lsp.lua
 
+nmap <leader>ff <cmd>Telescope find_files<cr>
+
