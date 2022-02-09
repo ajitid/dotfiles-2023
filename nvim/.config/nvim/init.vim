@@ -347,7 +347,7 @@ ts.setup {
 }
 EOF
 
-lua << EOF
+lua <<EOF
 require('telescope').setup{
   defaults = require("telescope.themes").get_ivy {
     layout_config = {
@@ -363,6 +363,10 @@ set completeopt=menu,menuone,noselect
 set pumheight=8
 
 luafile ~/.config/nvim/mine/lsp.lua
+
+lua <<EOF
+require"fidget".setup{}
+EOF
 
 nmap <leader>ff <cmd>Telescope find_files<cr>
 

@@ -34,4 +34,5 @@ Plug 'saadparwaiz1/cmp_luasnip'
 
 " others
 Plug 'tpope/vim-eunuch'
+Plug 'j-hui/fidget.nvim'
 call plug#end()
