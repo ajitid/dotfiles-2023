@@ -186,6 +186,8 @@ augroup END
 " what is the point of saving blank (empty) windows?
 set sessionoptions-=blank
 
+set jumpoptions+=stack
+
 " goto file and create it if is not present
 " from https://stackoverflow.com/a/29068665/7683365
 function! Gf()
@@ -492,7 +494,7 @@ command! TrimTrailingWhitespaces
       \ call s:TrimTrailingWhitespaces()
 " autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>TrimTrailingWhitespaces()
 
-" from https://gist.github.com/PeterRincker/69b536f303f648cc21ec2ff2282f8c4a
+" modified form of https://gist.github.com/PeterRincker/69b536f303f648cc21ec2ff2282f8c4a
 function! Diff(mods, spec)
   let l:mods = a:mods
   if !len(l:mods) && &diffopt =~ 'vertical'
@@ -525,3 +527,14 @@ command! -nargs=? Diff call Diff(<q-mods>, <q-args>)
 
 " let g:python3_host_prog = "$HOME/miniconda3/bin/python3"
 
+function! s:PutModifiedFilesInArglist()
+  arglocal
+  silent! argdelete *
+  bufdo if &modified | argadd | endif
+  first
+endfunction
+
+command! PutModifiedFilesInArglist
+      \ call s:PutModifiedFilesInArglist()
+
+command! PutErrorsInLocationList lua vim.lsp.diagnostic.set_loclist()
