@@ -293,7 +293,7 @@ endfunction
 command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
 " command! RedirToCurrentBuffer silent let w:scratch = 1
 
-nnoremap gl :call cursor()<left>
+nmap <leader>fl :call cursor()<left>
 
 augroup highlight_yank
   autocmd!
@@ -471,8 +471,8 @@ vmap s <cmd>Pounce<CR>
 " as 's' is used by vim-surround:
 omap gs <cmd>Pounce<CR>
 
-xmap gs <Plug>(EasyAlign)
-nmap gs <Plug>(EasyAlign)
+xmap gl <Plug>(EasyAlign)
+nmap gl <Plug>(EasyAlign)
 
 " put folders and hidden files first
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r'
