@@ -494,19 +494,19 @@ command! TrimTrailingWhitespaces
 
 " from https://gist.github.com/PeterRincker/69b536f303f648cc21ec2ff2282f8c4a
 function! Diff(mods, spec)
-  let mods = a:mods
-  if !len(mods) && &diffopt =~ 'vertical'
-    let mods = 'vertical'
+  let l:mods = a:mods
+  if !len(l:mods) && &diffopt =~ 'vertical'
+    let l:mods = 'vertical'
   endif
-  execute 'topleft ' . mods . ' new'
+  execute 'topleft ' . l:mods . ' new'
   setlocal bufhidden=wipe buftype=nofile nobuflisted noswapfile
-  let cmd = "++edit #"
+  let l:cmd = "++edit #"
 
   if len(a:spec)
-    let cmd = "!git show " . a:spec . ":./#"
+    let l:cmd = "!git show " . a:spec . ":./#"
   endif
 
-  execute "read " . cmd
+  execute "read " . l:cmd
   silent 0d_
   let &filetype = getbufvar('#', '&filetype')
   augroup Diff
