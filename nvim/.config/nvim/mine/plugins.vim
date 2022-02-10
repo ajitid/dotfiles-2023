@@ -50,4 +50,12 @@ Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-unimpaired'
 Plug 'kevinhwang91/nvim-bqf'
+Plug 'tommcdo/vim-exchange'
+Plug 'svermeulen/vim-subversive'
+Plug 'kana/vim-textobj-user'
+Plug 'sgur/vim-textobj-parameter'
+Plug 'Julian/vim-textobj-variable-segment'
+Plug 'tommcdo/vim-nowchangethat'
+" there's also https://github.com/RRethy/nvim-treesitter-textsubjects
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 call plug#end()

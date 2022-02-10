@@ -463,3 +463,14 @@ nmap gs <Plug>(EasyAlign)
 " put folders and hidden files first
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r'
 
+nmap <leader>r <plug>(SubversiveSubstitute)
+nmap <leader>rr <plug>(SubversiveSubstituteLine)
+nmap <leader>R <plug>(SubversiveSubstituteToEndOfLine)
+
+nmap \ <plug>(SubversiveSubstituteRange)
+xmap \ <plug>(SubversiveSubstituteRange)
+nmap \\ <plug>(SubversiveSubstituteWordRange)
+" commenting as it interferes with `c` command in visual mode
+" nmap c\ <plug>(SubversiveSubstituteRangeConfirm)
+" xmap c\ <plug>(SubversiveSubstituteRangeConfirm)
+" nmap c\\ <plug>(SubversiveSubstituteWordRangeConfirm)
