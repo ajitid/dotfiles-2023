@@ -181,6 +181,7 @@ augroup filetype_based_indentation
   autocmd!
   autocmd VimEnter * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd FileType python,rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 augroup END
 
 " what is the point of saving blank (empty) windows?
@@ -573,3 +574,5 @@ function! s:Arrayify(line1, line2, ...) abort
   silent execute("s/.$/")
 endfunction
 command! -nargs=* -range Arrayify call <sid>Arrayify(<line1>, <line2>, <f-args>)
+
+nmap <leader>b <cmd>Telescope buffers<cr>
