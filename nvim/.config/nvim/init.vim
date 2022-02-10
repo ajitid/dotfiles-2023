@@ -548,8 +548,8 @@ lua require"gitlinker".setup()
 
 nmap <leader>a <c-^>
 " <leader>A for quickswitch?
-
-nmap <leader>; <cmd>e $MYVIMRC<cr>
+nmap <leader>; <cmd>Telescope buffers<cr>
+nmap <leader>` <cmd>e $MYVIMRC<cr>
 
 lua <<EOF
 require"gitlinker".setup()
@@ -575,4 +575,3 @@ function! s:Arrayify(line1, line2, ...) abort
 endfunction
 command! -nargs=* -range Arrayify call <sid>Arrayify(<line1>, <line2>, <f-args>)
 
-nmap <leader>b <cmd>Telescope buffers<cr>
