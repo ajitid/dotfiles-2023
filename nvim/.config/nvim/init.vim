@@ -50,6 +50,12 @@ endif
 
 set foldlevel=21
 set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+" tmp fix for https://github.com/nvim-telescope/telescope.nvim/issues/699
+augroup fix_folds
+  autocmd!
+  autocmd BufNewFile,BufRead *.* norm! zx
+augroup END
 
 nnoremap ; :
 nnoremap , ;
