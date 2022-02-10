@@ -12,6 +12,12 @@ function basic_keymaps()
   vim.keymap.set("n", "<leader>df", "<cmd>Telescope diagnostics<cr>", {buffer=0})
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer=0})
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {buffer=0})
+  vim.keymap.set("n", "]D", function()
+    vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+  end, {buffer=0})
+  vim.keymap.set("n", "[D", function()
+    vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  end, {buffer=0})
 
   vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help, {buffer=0})
 end

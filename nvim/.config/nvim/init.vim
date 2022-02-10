@@ -370,6 +370,9 @@ set pumheight=8
 luafile ~/.config/nvim/mine/snippets.lua
 luafile ~/.config/nvim/mine/lsp-and-completion.lua
 
+command! EchoLineDiagnostics exec("lua require('mine.lsp.diagnostics').echo_line_diagnostics()")
+command! PutErrorsInLocationList lua vim.lsp.diagnostic.set_loclist()
+
 lua <<EOF
 require"fidget".setup{}
 EOF
@@ -539,8 +542,6 @@ endfunction
 
 command! PutModifiedFilesInArglist
       \ call s:PutModifiedFilesInArglist()
-
-command! PutErrorsInLocationList lua vim.lsp.diagnostic.set_loclist()
 
 source ~/.config/nvim/mine/blame.vim
 
