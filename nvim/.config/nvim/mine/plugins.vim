@@ -4,6 +4,7 @@ Plug 'ii14/exrc.vim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'romainl/vim-cool'
 Plug 'pbrisbin/vim-mkdir'
+Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 
 " slightly intelligent vim
 Plug 'tpope/vim-sleuth'
@@ -38,7 +39,6 @@ Plug 'j-hui/fidget.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'onsails/lspkind-nvim'
-Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'ajitid/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
 Plug 'jose-elias-alvarez/null-ls.nvim'
