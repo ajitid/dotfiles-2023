@@ -58,5 +58,5 @@ Plug 'Julian/vim-textobj-variable-segment'
 Plug 'tommcdo/vim-nowchangethat'
 " there's also https://github.com/RRethy/nvim-treesitter-textsubjects
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'ruifm/gitlinker.nvim'
+Plug 'ajitid/gitlinker.nvim', { 'branch': 'fix/respect-nil-mapping' }
 call plug#end()
