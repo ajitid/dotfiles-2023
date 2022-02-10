@@ -375,6 +375,7 @@ require"fidget".setup{}
 EOF
 
 nmap <leader>ff <cmd>Telescope find_files<cr>
+nmap <leader>fo <cmd>Telescope oldfiles cwd_only=true<cr>
 
 lua require('pqf').setup()
 
