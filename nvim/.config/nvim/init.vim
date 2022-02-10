@@ -480,3 +480,48 @@ nmap \\ <plug>(SubversiveSubstituteWordRange)
 " nmap c\ <plug>(SubversiveSubstituteRangeConfirm)
 " xmap c\ <plug>(SubversiveSubstituteRangeConfirm)
 " nmap c\\ <plug>(SubversiveSubstituteWordRangeConfirm)
+
+function! <SID>TrimTrailingWhitespaces()
+  if !&binary && &filetype != 'diff'
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+  endif
+endfun
+command! TrimTrailingWhitespaces
+      \ call s:TrimTrailingWhitespaces()
+" autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>TrimTrailingWhitespaces()
+
+" from https://gist.github.com/PeterRincker/69b536f303f648cc21ec2ff2282f8c4a
+function! Diff(mods, spec)
+  let mods = a:mods
+  if !len(mods) && &diffopt =~ 'vertical'
+    let mods = 'vertical'
+  endif
+  execute 'topleft ' . mods . ' new'
+  setlocal bufhidden=wipe buftype=nofile nobuflisted noswapfile
+  let cmd = "++edit #"
+
+  if len(a:spec)
+    let cmd = "!git show " . a:spec . ":./#"
+  endif
+
+  execute "read " . cmd
+  silent 0d_
+  let &filetype = getbufvar('#', '&filetype')
+  augroup Diff
+    autocmd!
+    autocmd BufWipeout <buffer> diffoff!
+  augroup END
+  diffthis
+  nnoremap <buffer>q <C-W>c
+
+  wincmd p
+  diffthis
+
+  wincmd p
+endfunction
+command! -nargs=? Diff call Diff(<q-mods>, <q-args>)
+
+" let g:python3_host_prog = "$HOME/miniconda3/bin/python3"
+
