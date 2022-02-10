@@ -377,6 +377,7 @@ EOF
 nmap <leader>ff <cmd>Telescope find_files<cr>
 nmap <leader><space> <cmd>Telescope find_files<cr>
 nmap <leader>fo <cmd>Telescope oldfiles cwd_only=true<cr>
+nmap <leader>- <cmd>Telescope open_dir open_dir<cr>
 
 lua require('pqf').setup()
 
