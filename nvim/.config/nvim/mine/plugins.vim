@@ -49,4 +49,5 @@ Plug 'rlane/pounce.nvim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-unimpaired'
+Plug 'kevinhwang91/nvim-bqf'
 call plug#end()
