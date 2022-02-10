@@ -551,3 +551,10 @@ nmap <leader>a <c-^>
 " <leader>A for quickswitch?
 
 nmap <leader>; <cmd>e $MYVIMRC<cr>
+
+lua <<EOF
+require"gitlinker".setup({ mappings = nil })
+vim.api.nvim_set_keymap('n', '<leader>cg', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+vim.api.nvim_set_keymap('v', '<leader>cg', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
+EOF
+
