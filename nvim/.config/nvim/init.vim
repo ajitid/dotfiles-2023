@@ -375,6 +375,7 @@ require"fidget".setup{}
 EOF
 
 nmap <leader>ff <cmd>Telescope find_files<cr>
+nmap <leader><space> <cmd>Telescope find_files<cr>
 nmap <leader>fo <cmd>Telescope oldfiles cwd_only=true<cr>
 
 lua require('pqf').setup()
@@ -543,3 +544,6 @@ command! PutErrorsInLocationList lua vim.lsp.diagnostic.set_loclist()
 source ~/.config/nvim/mine/blame.vim
 
 lua require"gitlinker".setup()
+
+nmap <leader>a <c-^>
+" <leader>A for quickswitch?
