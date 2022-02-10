@@ -10,7 +10,7 @@ function basic_keymaps()
   vim.keymap.set("n", "<leader>ca",  "<cmd>Telescope lsp_code_actions<cr>", {buffer=0})
   vim.keymap.set("v", "<leader>ca",  "<cmd>Telescope lsp_range_code_actions<cr>", {buffer=0})
   vim.keymap.set("n", "<leader>fs",  "<cmd>Telescope lsp_document_symbols<cr>", {buffer=0})
-  vim.keymap.set("n", "<leader>ps",  ":Telescope lsp_workspace_symbols query=", {buffer=0})
+  vim.keymap.set("n", "<leader>ws",  ":Telescope lsp_workspace_symbols query=", {buffer=0})
 
 
   vim.keymap.set("n", "<leader>df", "<cmd>Telescope diagnostics<cr>", {buffer=0})
