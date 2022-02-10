@@ -549,3 +549,5 @@ lua require"gitlinker".setup()
 
 nmap <leader>a <c-^>
 " <leader>A for quickswitch?
+
+nmap <leader>; <cmd>e $MYVIMRC<cr>
