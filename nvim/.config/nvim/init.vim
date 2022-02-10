@@ -556,19 +556,20 @@ vim.api.nvim_set_keymap('n', '<leader>cg', '<cmd>lua require"gitlinker".get_buf_
 vim.api.nvim_set_keymap('v', '<leader>cg', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
 EOF
 
-function! s:Arrayify(line1, line2, quote) abort
+function! s:Arrayify(line1, line2, ...) abort
   if a:line1 == a:line2
     return
   endif
 
-  echo a:quote
-  let l:quote = len(a:quote) ? a:quote : '"'
+  " from https://stackoverflow.com/a/33775128/7683365
+  let l:start_quote = get(a:, '1', '"')
+  let l:end_quote = get(a:, '2', l:start_quote)
   " delete empty lines first
   silent execute "'<,'>g/^$/d"
-  silent execute("'<,'>s/^/" . l:quote)
-  silent execute("'<,'>s/$/" . l:quote . ",")
+  silent execute("'<,'>s/^/" . l:start_quote)
+  silent execute("'<,'>s/$/" . l:end_quote . ",")
   execute("'<,'>join")
   " remove extraneous comma at the end
   silent execute("s/.$/")
 endfunction
-command! -nargs=? -range Arrayify call <sid>Arrayify(<line1>, <line2>, <q-args>)
+command! -nargs=* -range Arrayify call <sid>Arrayify(<line1>, <line2>, <f-args>)
