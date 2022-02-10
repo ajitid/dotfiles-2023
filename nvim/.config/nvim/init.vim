@@ -472,3 +472,6 @@ omap gs <cmd>Pounce<CR>
 
 xmap gs <Plug>(EasyAlign)
 nmap gs <Plug>(EasyAlign)
+
+" put folders and hidden files first
+let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r'
