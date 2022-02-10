@@ -538,3 +538,5 @@ command! PutModifiedFilesInArglist
       \ call s:PutModifiedFilesInArglist()
 
 command! PutErrorsInLocationList lua vim.lsp.diagnostic.set_loclist()
+
+source ~/.config/nvim/mine/blame.vim
