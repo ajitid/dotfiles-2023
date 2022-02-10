@@ -285,19 +285,6 @@ endfunction
 command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
 " command! RedirToCurrentBuffer silent let w:scratch = 1
 
-function! s:BlankUp(count) abort
-  put!=repeat(nr2char(10), a:count)
-  ']+1
-endfunction
-
-function! s:BlankDown(count) abort
-  put =repeat(nr2char(10), a:count)
-  '[-1
-endfunction
-
-nnoremap [o <cmd>call <sid>BlankUp(v:count1)<cr>
-nnoremap ]o <cmd>call <sid>BlankDown(v:count1)<cr>
-
 nnoremap gl :call cursor()<left>
 
 augroup highlight_yank
@@ -475,3 +462,4 @@ nmap gs <Plug>(EasyAlign)
 
 " put folders and hidden files first
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r'
+
