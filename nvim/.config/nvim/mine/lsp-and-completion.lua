@@ -108,7 +108,7 @@ lsp_installer.on_server_ready(function(server)
         basic_keymaps()
 
         if server.name == "tsserver" then
-          vim.keymap.set("n", "<leader>cR", typescript_rename_file_command, {buffer=0})
+          vim.keymap.set("n", "<leader>fr", typescript_rename_file_command, {buffer=0})
 
           -- needed, otherwise on save nvim would ask whether to save using null-ls (prettier) or tsserver
           client.resolved_capabilities.document_formatting = false
