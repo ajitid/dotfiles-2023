@@ -665,3 +665,13 @@ endfunction
 command! -nargs=1 E call s:OpenRelated(<f-args>)
 command! -nargs=1 EV call s:OpenRelated(<f-args>, 'vsp')
 command! A call s:OpenRelated('alt')
+
+nmap <leader>~_ <cmd>Snek<cr>
+xmap <leader>~_ :Snek<cr>
+nmap <leader>~C <cmd>Camel<cr>
+xmap <leader>~C :Camel<cr>
+nmap <leader>~c <cmd>CamelB<cr>
+xmap <leader>~c :CamelB<cr>
+nmap <leader>~- <cmd>Kebab<cr>
+xmap <leader>~- :Kebab<cr>
+
