@@ -12,8 +12,7 @@ function basic_keymaps()
   vim.keymap.set("n", "<leader>fs",  "<cmd>Telescope lsp_document_symbols<cr>", {buffer=0})
   vim.keymap.set("n", "<leader>ws",  ":Telescope lsp_workspace_symbols query=", {buffer=0})
 
-
-  vim.keymap.set("n", "<leader>df", "<cmd>Telescope diagnostics<cr>", {buffer=0})
+  vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, {buffer=0})
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer=0})
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {buffer=0})
   vim.keymap.set("n", "]D", function()

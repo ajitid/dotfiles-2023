@@ -314,15 +314,9 @@ augroup yank_restore_cursor
     \ endif
 augroup END
 
-" paste + indent
-nnoremap p p=`]
-vnoremap p p=`]
-nnoremap P P=`]
-vnoremap P P=`]
-nnoremap gp gp=`]
-vnoremap gp gp=`]
-nnoremap gP gP=`]
-vnoremap gP gP=`]
+" select the lines where I just pasted
+" useful when `=` is pressed after it to do an indent on that pasted text
+nmap <leader>= V`]
 
 " Paste last yank we made (let's don't muck with black hole register)
 nmap <leader>p "0p
@@ -333,6 +327,20 @@ nmap <leader>gp "0gp
 vmap <leader>gp "0gp
 nmap <leader>gP "0gP
 vmap <leader>gP "0gP
+
+" slightly modified vimtip mentioned in https://github.com/inkarkat/vim-UnconditionalPaste
+function! PasteJointCharacterwise(regname, pastecmd)
+  let l:reg_type = getregtype(a:regname)
+  let l:reg_val = getreg(a:regname)
+  call setreg(a:regname, l:reg_val, "c")
+  exe 'normal "'. a:regname . a:pastecmd
+  call setreg(a:regname, l:reg_val, l:reg_type)
+  exe 'normal `[v`]gJ'
+endfunction
+nmap <silent><Leader>ip :call PasteJointCharacterwise(v:register, "p")<CR>
+nmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
+vmap <silent><Leader>ip :call PasteJointCharacterwise(v:register, "p")<CR>
+vmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
 
 " better diffing
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
