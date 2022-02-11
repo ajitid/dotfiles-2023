@@ -188,6 +188,8 @@ augroup END
 set sessionoptions-=blank
 
 set jumpoptions+=stack
+" also see keepjumps command in help, useful in your scripts
+" and changelist for general movements
 
 " goto file and create it if is not present
 " from https://stackoverflow.com/a/29068665/7683365
@@ -293,6 +295,7 @@ endfunction
 
 command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>, <range>, <line1>, <line2>)
 " command! RedirToCurrentBuffer silent let w:scratch = 1
+" Eg. :Redir g=term-to-search
 
 nmap <leader>fl :call cursor()<left>
 
@@ -479,14 +482,8 @@ let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r'
 nmap <leader>r <plug>(SubversiveSubstitute)
 nmap <leader>rr <plug>(SubversiveSubstituteLine)
 nmap <leader>R <plug>(SubversiveSubstituteToEndOfLine)
-
-nmap \ <plug>(SubversiveSubstituteRange)
-xmap \ <plug>(SubversiveSubstituteRange)
-nmap \\ <plug>(SubversiveSubstituteWordRange)
-" commenting as it interferes with `c` command in visual mode
-" nmap c\ <plug>(SubversiveSubstituteRangeConfirm)
-" xmap c\ <plug>(SubversiveSubstituteRangeConfirm)
-" nmap c\\ <plug>(SubversiveSubstituteWordRangeConfirm)
+" there's more, but I don't use it (I use LSP Code action instead). Find them
+" in 2021 dotfiles.
 
 function! <SID>TrimTrailingWhitespaces()
   if !&binary && &filetype != 'diff'
