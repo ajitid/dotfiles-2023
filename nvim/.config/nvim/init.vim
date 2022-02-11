@@ -428,6 +428,8 @@ nnoremap <leader>f. :e %:.:h<c-z><space><bs>
 " end. More separators here ->
 " http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
 
+nmap <leader>. <cmd>lua require"telescope.builtin".find_files({ cwd = require"telescope.utils".buffer_dir() })<cr>
+
 " {{{ highlight line
 function! HighlightLine()
   if !exists("b:highlightline")
