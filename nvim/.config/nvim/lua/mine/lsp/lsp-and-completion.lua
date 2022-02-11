@@ -31,127 +31,6 @@ function basic_keymaps()
   vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help, {buffer=0})
 end
 
-
--- lsp signature on method
--- taken from https://www.reddit.com/r/neovim/comments/so4g5e/comment/hw7ft3i/?utm_source=share&utm_medium=web2x&context=3
-local M = {}
-
--- Thanks to @akinsho for this brilliant function white waiting for builtin autocmd in lua
--- https://github.com/akinsho/dotfiles/blob/main/.config/nvim/lua/as/globals.lua
-M.augroup = function(name, commands, buffer)
-    _G.__seblj_global_callbacks = __seblj_global_callbacks or {}
-
-    _G.seblj = {
-        _store = __seblj_global_callbacks,
-    }
-
-    vim.cmd('augroup ' .. name)
-    if buffer then
-        vim.cmd('au! * <buffer>')
-    else
-        vim.cmd('au!')
-    end
-    if #commands > 0 then
-        for _, c in ipairs(commands) do
-            M.autocmd(c)
-        end
-    else
-        M.autocmd(commands)
-    end
-    vim.cmd('augroup END')
-end
-
-M.autocmd = function(c)
-    _G.__seblj_global_callbacks = __seblj_global_callbacks or {}
-
-    _G.seblj = {
-        _store = __seblj_global_callbacks,
-    }
-
-    local command = c.command
-    if type(command) == 'function' then
-        table.insert(seblj._store, command)
-        local fn_id = #seblj._store
-        command = string.format('lua seblj._store[%s](args)', fn_id)
-    end
-    local event = c.event
-    if type(c.event) == 'table' then
-        event = table.concat(c.event, ',')
-    end
-
-    local pattern = c.pattern or ''
-    if type(c.pattern) == 'table' then
-        pattern = table.concat(c.pattern, ',')
-    end
-
-    local once = ''
-    if c.once == true then
-        once = '++once '
-    end
-    local nested = ''
-    if c.nested == true then
-        nested = '++nested '
-    end
-
-    vim.cmd(string.format('autocmd %s %s %s %s %s', event, pattern, once, nested, command))
-end
-
-local clients = {}
-
-local check_trigger_char = function(line_to_cursor, triggers)
-    if not triggers then
-        return false
-    end
-
-    for _, trigger_char in ipairs(triggers) do
-        local current_char = line_to_cursor:sub(#line_to_cursor, #line_to_cursor)
-        local prev_char = line_to_cursor:sub(#line_to_cursor - 1, #line_to_cursor - 1)
-        if current_char == trigger_char then
-            return true
-        end
-        if current_char == ' ' and prev_char == trigger_char then
-            return true
-        end
-    end
-    return false
-end
-
-local open_signature = function()
-    local triggered = false
-
-    for _, client in pairs(clients) do
-        local triggers = client.server_capabilities.signatureHelpProvider.triggerCharacters
-
-        -- csharp has wrong trigger chars for some odd reason
-        if client.name == 'csharp' then
-            triggers = { '(', ',' }
-        end
-
-        local pos = vim.api.nvim_win_get_cursor(0)
-        local line = vim.api.nvim_get_current_line()
-        local line_to_cursor = line:sub(1, pos[2])
-
-        if not triggered then
-            triggered = check_trigger_char(line_to_cursor, triggers)
-        end
-    end
-
-    if triggered then
-        vim.lsp.buf.signature_help()
-    end
-end
-
-local signature_setup = function(client)
-    table.insert(clients, client)
-    M.augroup('Signature', {
-        event = 'TextChangedI',
-        pattern = '<buffer>',
-        command = function()
-            open_signature()
-        end,
-    }, true)
-end
-
 function format_on_save(client)
   if client.resolved_capabilities.document_formatting then
     vim.keymap.set("n", "<leader>f=", vim.lsp.buf.formatting_sync, {buffer=0})
@@ -167,15 +46,18 @@ function format_on_save(client)
   end
 end
 
+function signature_help(client)
+  if client.server_capabilities.signatureHelpProvider then
+    require"mine.lsp.signature-help".signature_setup(client)
+  end
+end
+
 require'lspconfig'.gopls.setup{
   capabilities = capabilities,
   on_attach = function(client)
     basic_keymaps()
     format_on_save(client)
-
-    if client.server_capabilities.signatureHelpProvider then
-      require('config.lspconfig.signature').setup(client)
-    end
+    signature_help(client)
   end,
 }
 
@@ -237,9 +119,7 @@ lsp_installer.on_server_ready(function(server)
       on_attach = function(client)
         basic_keymaps()
 
-        if client.server_capabilities.signatureHelpProvider then
-          signature_setup(client)
-        end
+        signature_help(client)
 
         if server.name == "tsserver" then
           vim.keymap.set("n", "<leader>fr", typescript_rename_file_command, {buffer=0})
