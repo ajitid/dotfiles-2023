@@ -60,4 +60,5 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'ajitid/gitlinker.nvim', { 'branch': 'fix/respect-nil-mapping' }
 " there's also https://github.com/arthurxavierx/vim-caser
 Plug 'nicwest/vim-camelsnek'
+Plug 'eugen0329/vim-esearch'
 call plug#end()

@@ -86,10 +86,6 @@ set inccommand=nosplit
 set ignorecase
 set smartcase
 
-" that \V is related to magic/no-magic in vim incremental search
-nnoremap <leader>/ /\V
-nnoremap <leader>? ?\V
-
 " line up down in visual mode using ctrl+j/k
 vnoremap <silent><c-j> :m '>+1<cr>gv=gv
 vnoremap <silent><c-k> :m '<-2<cr>gv=gv
@@ -130,18 +126,6 @@ endfun
 
 call SetupCommandAlias("nt","tabnew")
 call SetupCommandAlias("rg","GrepLiteral")
-
-let g:bettergrep_no_mappings = 1
-let g:bettergrep_no_abbrev = 1
-
-command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
-function! GrepLiteral(query)
-  " -F is passed to ripgrep to make a literal search
-  execute("Grep -g '!*yarn.lock' -g '!*package-lock.json' -F " . "'" . a:query . "'")
-endfunction
-
-" other ways to grab current word are listed here https://stackoverflow.com/questions/31755115/call-vim-function-with-current-word
-nmap <leader>* <cmd>call GrepLiteral(expand('<cword>'))<cr>
 
 set nowrap
 
@@ -675,3 +659,19 @@ xmap <leader>~c :CamelB<cr>
 nmap <leader>~- <cmd>Kebab<cr>
 xmap <leader>~- :Kebab<cr>
 
+let g:bettergrep_no_mappings = 1
+let g:bettergrep_no_abbrev = 1
+
+command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
+function! GrepLiteral(query)
+  " -F is passed to ripgrep to make a literal search
+  execute("Grep -g '!*yarn.lock' -g '!*package-lock.json' -F " . "'" . a:query . "'")
+endfunction
+
+" other ways to grab current word are listed here https://stackoverflow.com/questions/31755115/call-vim-function-with-current-word
+nmap <leader>* <cmd>call GrepLiteral(expand('<cword>'))<cr>
+
+nmap <leader>/ <plug>(esearch)
+map  <leader>? <plug>(operator-esearch-prefill)
+let g:esearch = {}
+let g:esearch.root_markers = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
