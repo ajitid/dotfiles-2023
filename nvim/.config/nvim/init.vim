@@ -336,8 +336,6 @@ set diffopt+=algorithm:histogram,indent-heuristic,vertical
 " use q to quickly escape out from vim help
 autocmd Filetype help nnoremap <buffer> q :q<cr>
 
-nnoremap <leader>l <cmd>noh<cr><cmd>echo ''<cr>
-
 " noshowmode hides default mode display as we are using custom statusline
 set noshowmode
 lua << END
