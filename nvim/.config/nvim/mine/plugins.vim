@@ -61,4 +61,5 @@ Plug 'ajitid/gitlinker.nvim', { 'branch': 'fix/respect-nil-mapping' }
 Plug 'nicwest/vim-camelsnek'
 Plug 'eugen0329/vim-esearch'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 call plug#end()

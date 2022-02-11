@@ -366,7 +366,7 @@ luafile ~/.config/nvim/mine/snippets.lua
 lua require"mine.lsp"
 
 command! EchoLineDiagnostics lua require('mine.lsp.diagnostics').echo_line_diagnostics()
-command! PutErrorsInLocationList lua vim.diagnostic.setloclist()
+command! PutErrorsInLocationList lua vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.ERROR })
 
 lua <<EOF
 require"fidget".setup{}
@@ -676,3 +676,6 @@ nmap <leader>/ <plug>(esearch)
 map  <leader>? <plug>(operator-esearch-prefill)
 let g:esearch = {}
 let g:esearch.root_markers = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
+
+lua vim.diagnostic.config({ virtual_text = false })
+lua require("lsp_lines").register_lsp_virtual_lines()
