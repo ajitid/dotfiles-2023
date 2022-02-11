@@ -650,3 +650,18 @@ nmap <leader>tc <cmd>TSContextToggle<cr>
 nmap <leader>wm <cmd>Telescope marks<cr>
 nmap <leader>fu :undolist<CR>:u<Space>
 nmap <leader>wt <cmd>Telescope tagstack<cr>
+
+" wrap for comments, see :h gq
+nnoremap Q gq_
+
+source ~/.config/nvim/mine/quickswitch.vim
+function! s:OpenRelated(to_open, mode = v:null)
+  " :r removes extension (see :h %:r)
+  " removing extension two times is fine as both names `app.js` and `app.test.js` will
+  " result in `app`
+  let l:file_name = expand('%:t:r:r')
+  call QuickSwitch(a:to_open, l:file_name, a:mode)
+endfunction
+command! -nargs=1 E call s:OpenRelated(<f-args>)
+command! -nargs=1 EV call s:OpenRelated(<f-args>, 'vsp')
+command! A call s:OpenRelated('alt')
