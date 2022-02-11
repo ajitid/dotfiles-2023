@@ -637,3 +637,5 @@ nnoremap ]q <cmd>cnext<cr>
 nnoremap [Q <cmd>cfirst<cr>
 nnoremap ]Q <cmd>clast<cr>
 
+nmap <leader>tc <cmd>TSContextToggle<cr>
+
