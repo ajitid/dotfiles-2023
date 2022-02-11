@@ -374,8 +374,8 @@ set pumheight=8
 luafile ~/.config/nvim/mine/snippets.lua
 luafile ~/.config/nvim/mine/lsp-and-completion.lua
 
-command! EchoLineDiagnostics exec("lua require('mine.lsp.diagnostics').echo_line_diagnostics()")
-command! PutErrorsInLocationList lua vim.lsp.diagnostic.set_loclist()
+command! EchoLineDiagnostics lua require('mine.lsp.diagnostics').echo_line_diagnostics()
+command! PutErrorsInLocationList lua vim.diagnostic.setloclist()
 
 lua <<EOF
 require"fidget".setup{}
@@ -572,3 +572,18 @@ function! s:Arrayify(line1, line2, ...) abort
 endfunction
 command! -nargs=* -range Arrayify call <sid>Arrayify(<line1>, <line2>, <f-args>)
 
+lua <<EOF
+-- from https://stackoverflow.com/questions/9168058/how-to-dump-a-table-to-console
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+EOF
