@@ -2,6 +2,11 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 function basic_keymaps()
   vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
+  vim.keymap.set("n", "<leader>K", function()
+    vim.api.nvim_command [[exe "norm KK"]]
+    vim.api.nvim_command [[sleep 60m]]
+    vim.api.nvim_command [[exe "norm \<c-w>J"]]
+  end, {buffer=0})
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
   vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {buffer=0})
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
@@ -149,8 +154,6 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    -- more ways at https://old.reddit.com/r/neovim/comments/so4g5e/if_you_guys_arent_using_lsp_signaturenvim_what/
-    { name = 'nvim_lsp_signature_help' },
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 4 },
