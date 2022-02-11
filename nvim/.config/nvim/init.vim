@@ -587,3 +587,53 @@ function dump(o)
    end
 end
 EOF
+
+" from unimpared.vim
+function! s:BlankUp(count) abort
+  put!=repeat(nr2char(10), a:count)
+  ']+1
+endfunction
+
+function! s:BlankDown(count) abort
+  put =repeat(nr2char(10), a:count)
+  '[-1
+endfunction
+
+nnoremap [o <cmd>call <sid>BlankUp(v:count1)<cr>
+nnoremap ]o <cmd>call <sid>BlankDown(v:count1)<cr>
+
+" https://superuser.com/a/581669
+" and `ga` in normal mode to get char info
+function! s:SpaceBefore(count) abort
+  " https://vi.stackexchange.com/a/12480
+  call feedkeys(a:count . '"=nr2char(32)' . "\<CR>" . 'Pl')
+  " https://stackoverflow.com/a/47789099/7683365
+  call feedkeys(":echo\<cr>")
+endfunction
+
+function! s:SpaceAfter(count) abort
+  call feedkeys(a:count . '"=nr2char(32)' . "\<CR>" . 'p`[h')
+  call feedkeys(":echo\<cr>")
+endfunction
+
+nnoremap [<space> <cmd>call <sid>SpaceBefore(v:count1)<cr>
+nnoremap ]<space> <cmd>call <sid>SpaceAfter(v:count1)<cr>
+
+" unimpared like mapping for arglist
+nnoremap [a <cmd>prev<cr>
+nnoremap ]a <cmd>next<cr>
+nnoremap [A <cmd>first<cr>
+nnoremap ]A <cmd>last<cr>
+
+" unimpared like mapping for location list
+nnoremap [l <cmd>lprev<cr>
+nnoremap ]l <cmd>lnext<cr>
+nnoremap [L <cmd>lfirst<cr>
+nnoremap ]L <cmd>llast<cr>
+
+" unimpared like mapping for quickfix list
+nnoremap [q <cmd>cprev<cr>
+nnoremap ]q <cmd>cnext<cr>
+nnoremap [Q <cmd>cfirst<cr>
+nnoremap ]Q <cmd>clast<cr>
+
