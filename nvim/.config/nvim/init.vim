@@ -137,7 +137,7 @@ let g:bettergrep_no_abbrev = 1
 command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
 function! GrepLiteral(query)
   " -F is passed to ripgrep to make a literal search
-  execute("Grep -F " . "'" . a:query . "'")
+  execute("Grep -g '!*yarn.lock' -g '!*package-lock.json' -F " . "'" . a:query . "'")
 endfunction
 
 " other ways to grab current word are listed here https://stackoverflow.com/questions/31755115/call-vim-function-with-current-word
