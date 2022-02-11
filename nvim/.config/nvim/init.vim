@@ -337,10 +337,10 @@ function! PasteJointCharacterwise(regname, pastecmd)
   call setreg(a:regname, l:reg_val, l:reg_type)
   exe 'normal `[v`]gJ'
 endfunction
-nmap <silent><Leader>ip :call PasteJointCharacterwise(v:register, "p")<CR>
-nmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
-vmap <silent><Leader>ip :call PasteJointCharacterwise(v:register, "p")<CR>
-vmap <silent><Leader>iP :call PasteJointCharacterwise(v:register, "P")<CR>
+nmap <silent><Leader>cp :call PasteJointCharacterwise(v:register, "p")<CR>
+nmap <silent><Leader>cP :call PasteJointCharacterwise(v:register, "P")<CR>
+vmap <silent><Leader>cp :call PasteJointCharacterwise(v:register, "p")<CR>
+vmap <silent><Leader>cP :call PasteJointCharacterwise(v:register, "P")<CR>
 
 " better diffing
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
@@ -647,3 +647,6 @@ nnoremap ]Q <cmd>clast<cr>
 
 nmap <leader>tc <cmd>TSContextToggle<cr>
 
+nmap <leader>wm <cmd>Telescope marks<cr>
+nmap <leader>fu :undolist<CR>:u<Space>
+nmap <leader>wt <cmd>Telescope tagstack<cr>
