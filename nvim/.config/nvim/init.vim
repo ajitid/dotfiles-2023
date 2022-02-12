@@ -373,7 +373,13 @@ command! EchoLineDiagnostics lua require('mine.lsp.diagnostics').echo_line_diagn
 command! PutErrorsInLocationList lua vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.ERROR })
 
 lua <<EOF
-require"fidget".setup{}
+require"fidget".setup{
+  sources = {
+    ltex = {
+      ignore = true,
+    },
+  },
+}
 EOF
 
 nmap <leader>ff <cmd>Telescope find_files<cr>
