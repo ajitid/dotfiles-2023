@@ -613,6 +613,7 @@ endfunction
 nnoremap [<space> <cmd>call <sid>SpaceBefore(v:count1)<cr>
 nnoremap ]<space> <cmd>call <sid>SpaceAfter(v:count1)<cr>
 
+" TODO add vim-repeat to next/prev, same for navigating to next/prev diagnostic
 " unimpared like mapping for arglist
 nnoremap [a <cmd>prev<cr>
 nnoremap ]a <cmd>next<cr>
