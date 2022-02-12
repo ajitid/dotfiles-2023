@@ -305,3 +305,5 @@ export PATH="$PATH:$HOME/.emacs.d/bin"
 
 # TODO tmp fix, see https://github.com/microsoft/wslg/issues/641#issuecomment-1025490260
 export GDK_BACKEND="x11"
+
+alias icat="kitty +kitten icat"
