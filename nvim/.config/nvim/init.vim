@@ -680,32 +680,3 @@ let g:esearch.root_markers = ['src', '.git', 'Makefile', 'node_modules', 'go.mod
 lua vim.diagnostic.config({ virtual_text = false })
 lua require("lsp_lines").register_lsp_virtual_lines()
 
-lua <<EOF
-local util = require"vim.lsp.util"
-
-function my_very_first_hover()
-  vim.lsp.buf_request(0, 'textDocument/hover', util.make_position_params(), function(_, result, ctx, config)
-    config = config or {}
-    config.focus_id = ctx.method
-    if not (result and result.contents) then
-      -- return { 'No information available' }
-      return
-    end
-    local markdown_lines = util.convert_input_to_markdown_lines(result.contents)
-    -- trims beg and end of whole content
-    markdown_lines = util.trim_empty_lines(markdown_lines)
-    if vim.tbl_isempty(markdown_lines) then
-      return
-    end
-
-    -- print(dump(markdown_lines))
-    vim.api.nvim_command [[ vnew ]]
-    vim.api.nvim_buf_set_lines(0, 0, 1, false, markdown_lines)
-    vim.api.nvim_command [[ setlocal ft=markdown ]]
-    -- vim.api.nvim_command [[ setlocal ft=lsp_markdown ]]
-    -- and conceal backticks
-  end)
-end
-
--- vim.keymap.set('n', '<leader>k', my_very_first_hover)
-EOF
