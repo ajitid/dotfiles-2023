@@ -326,6 +326,21 @@ nmap <silent><Leader>cP :call PasteJointCharacterwise(v:register, "P")<CR>
 vmap <silent><Leader>cp :call PasteJointCharacterwise(v:register, "p")<CR>
 vmap <silent><Leader>cP :call PasteJointCharacterwise(v:register, "P")<CR>
 
+function s:decideForSysClipboard()
+  let l:char = nr2char(getchar())
+
+  if l:char == 'r' || l:char == 'c'
+    return '"+' . g:mapleader . l:char
+  elseif empty(l:char)
+    return ''
+  else
+    return '"+' . l:char
+  end
+endfunction
+
+nmap <expr> <leader>v <sid>decideForSysClipboard()
+vmap <expr> <leader>v <sid>decideForSysClipboard()
+
 " better diffing
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
 " haven't tried this:
