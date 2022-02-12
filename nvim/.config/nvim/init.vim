@@ -692,7 +692,8 @@ function my_very_first_hover()
       return
     end
     local markdown_lines = util.convert_input_to_markdown_lines(result.contents)
-    -- markdown_lines = util.trim_empty_lines(markdown_lines)
+    -- trims beg and end of whole content
+    markdown_lines = util.trim_empty_lines(markdown_lines)
     if vim.tbl_isempty(markdown_lines) then
       return
     end
@@ -701,8 +702,8 @@ function my_very_first_hover()
     vim.api.nvim_command [[ vnew ]]
     vim.api.nvim_buf_set_lines(0, 0, 1, false, markdown_lines)
     vim.api.nvim_command [[ setlocal ft=markdown ]]
-    -- conceal backticks
     -- vim.api.nvim_command [[ setlocal ft=lsp_markdown ]]
+    -- and conceal backticks
   end)
 end
 
