@@ -8,7 +8,7 @@ function basic_keymaps()
   --   vim.api.nvim_command [[exe "norm \<c-w>J"]]
   -- end, {buffer=0})
   -- ^ same solution below, but longer (and w/ different a syntax highlight way)
-  vim.keymap.set('n', '<leader>k', require"mine.lsp.hover".hover)
+  vim.keymap.set('n', '<leader>K', require"mine.lsp.hover".hover)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
   vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {buffer=0})
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})

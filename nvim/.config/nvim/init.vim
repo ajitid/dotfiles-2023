@@ -683,6 +683,23 @@ map  <leader>? <plug>(operator-esearch-prefill)
 let g:esearch = {}
 let g:esearch.root_markers = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
-lua vim.diagnostic.config({ virtual_text = false })
-lua require("lsp_lines").register_lsp_virtual_lines()
+lua <<EOF
+vim.diagnostic.config({ virtual_text = false })
+require("lsp_lines").register_lsp_virtual_lines()
+
+local enabled = true
+vim.diagnostic.config({ virtual_lines = enabled })
+
+function toggle_diagnostics()
+  if enabled then
+    vim.diagnostic.config({ virtual_lines = false })
+    enabled = false
+  else
+    vim.diagnostic.config({ virtual_lines = true })
+    enabled = true
+  end
+end
+vim.keymap.set("n", "<leader>td", toggle_diagnostics)
+EOF
+
 

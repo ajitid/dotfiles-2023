@@ -1,5 +1,6 @@
 call plug#begin()
 " sane vim
+" there's also https://github.com/windwp/nvim-projectconfig
 Plug 'ii14/exrc.vim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'romainl/vim-cool'
