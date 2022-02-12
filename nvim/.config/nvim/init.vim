@@ -355,6 +355,8 @@ require('telescope').setup{
     },
   }
 }
+
+require('telescope').load_extension('fzf')
 EOF
 
 " for completion
@@ -375,6 +377,7 @@ EOF
 
 nmap <leader>ff <cmd>Telescope find_files<cr>
 nmap <leader><space> <cmd>Telescope find_files<cr>
+" more options for oldfiles in issue's minimal config https://github.com/nvim-telescope/telescope.nvim/issues/1300#issue-1014120393
 nmap <leader>fo <cmd>Telescope oldfiles cwd_only=true<cr>
 nmap <leader>- <cmd>Telescope open_dir open_dir<cr>
 
