@@ -23,7 +23,8 @@ M.hover = function()
     vim.api.nvim_buf_set_lines(0, 0, 1, false, markdown_lines)
     vim.api.nvim_command [[ setlocal ft=markdown ]]
     vim.api.nvim_command [[ nnoremap <buffer>q <C-W>c ]]
-    vim.api.nvim_command [[ setlocal buftype=nofile ]]
+    vim.api.nvim_command [[ setlocal buftype+=nofile ]]
+    vim.api.nvim_command [[ setlocal nobl ]]
     vim.api.nvim_command [[ setlocal conceallevel=2 ]]
     vim.api.nvim_command [[ setlocal concealcursor+=n ]]
     -- vim.api.nvim_command [[ setlocal ft=lsp_markdown ]]
