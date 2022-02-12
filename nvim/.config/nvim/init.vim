@@ -363,6 +363,7 @@ EOF
 set completeopt=menu,menuone,noselect
 set pumheight=8
 
+autocmd BufRead,BufNewFile */node_modules/* LspStop
 luafile ~/.config/nvim/mine/snippets.lua
 " luafile ~/.config/nvim/mine/lsp-and-completion.lua
 lua require('nvim-autopairs').setup{}
