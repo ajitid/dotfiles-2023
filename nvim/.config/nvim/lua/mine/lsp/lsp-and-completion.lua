@@ -179,7 +179,7 @@ cmp.setup({
   },
   formatting = {
     format = require'lspkind'.cmp_format({
-      mode = 'text',
+      mode = 'symbol',
       maxwidth = 50,
 
       -- more options (apart from inbuilt) at https://github.com/onsails/lspkind-nvim/issues/18#issuecomment-913205575
