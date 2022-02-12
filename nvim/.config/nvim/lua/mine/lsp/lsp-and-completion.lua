@@ -33,8 +33,10 @@ function format_on_save(client)
     vim.keymap.set("n", "<leader>f=", vim.lsp.buf.formatting_sync, {buffer=0})
 
     vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+    vim.api.nvim_command [[autocmd!]]
+    -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+    -- this one doesn't asks which server to use to format:
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.api.nvim_command [[augroup END]]
   end
 
@@ -201,6 +203,7 @@ local sources = {
   null_ls.builtins.formatting.prettierd.with({
     filetypes = prettierd_filetypes,
   }),
+  null_ls.builtins.formatting.goimports,
 }
 
 local config = {
