@@ -363,8 +363,6 @@ EOF
 set completeopt=menu,menuone,noselect
 set pumheight=8
 
-
-lua require('lspkind').init({ preset = 'codicons' })
 autocmd BufRead,BufNewFile */node_modules/* LspStop
 luafile ~/.config/nvim/mine/snippets.lua
 " luafile ~/.config/nvim/mine/lsp-and-completion.lua

@@ -38,7 +38,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'j-hui/fidget.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'onsails/lspkind-nvim'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'ajitid/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
 Plug 'jose-elias-alvarez/null-ls.nvim'
