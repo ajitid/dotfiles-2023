@@ -363,6 +363,7 @@ set pumheight=8
 
 luafile ~/.config/nvim/mine/snippets.lua
 " luafile ~/.config/nvim/mine/lsp-and-completion.lua
+lua require('nvim-autopairs').setup{}
 lua require"mine.lsp"
 
 command! EchoLineDiagnostics lua require('mine.lsp.diagnostics').echo_line_diagnostics()

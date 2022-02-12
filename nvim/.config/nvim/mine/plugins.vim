@@ -62,4 +62,5 @@ Plug 'nicwest/vim-camelsnek'
 Plug 'eugen0329/vim-esearch'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+Plug 'windwp/nvim-autopairs'
 call plug#end()
