@@ -625,20 +625,20 @@ nnoremap ]<space> <cmd>call <sid>SpaceAfter(v:count1)<cr>
 
 " TODO add vim-repeat to next/prev, same for navigating to next/prev diagnostic
 " unimpared like mapping for arglist
-nnoremap [a <cmd>prev<cr>
-nnoremap ]a <cmd>next<cr>
+nnoremap [a <cmd>prev<cr><cmd>call repeat#set("[a")<cr>
+nnoremap ]a <cmd>next<cr><cmd>call repeat#set("]a")<cr>
 nnoremap [A <cmd>first<cr>
 nnoremap ]A <cmd>last<cr>
 
 " unimpared like mapping for location list
-nnoremap [l <cmd>lprev<cr>
-nnoremap ]l <cmd>lnext<cr>
+nnoremap [l <cmd>lprev<cr><cmd>call repeat#set("[l")<cr>
+nnoremap ]l <cmd>lnext<cr><cmd>call repeat#set("]l")<cr>
 nnoremap [L <cmd>lfirst<cr>
 nnoremap ]L <cmd>llast<cr>
 
 " unimpared like mapping for quickfix list
-nnoremap [q <cmd>cprev<cr>
-nnoremap ]q <cmd>cnext<cr>
+nnoremap [q <cmd>cprev<cr><cmd>call repeat#set("[q")<cr>
+nnoremap ]q <cmd>cnext<cr><cmd>call repeat#set("]q")<cr>
 nnoremap [Q <cmd>cfirst<cr>
 nnoremap ]Q <cmd>clast<cr>
 
