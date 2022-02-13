@@ -400,6 +400,18 @@ require('telescope').setup{
     layout_config = {
       height = 15,
     },
+
+    file_ignore_patterns = {
+      ".git/",
+      ".DS_Store", ".vscode/",
+      "node_modules/", "__pycache__/",
+      "package%-lock.json", "yarn.lock", "pnpm%-lock.yaml",
+      "build/", "dist/",
+    },
+    -- ^ telescope uses lua's pattern matching library, see:
+    -- https://github.com/nvim-telescope/telescope.nvim/issues/780
+    -- https://gitspartv.github.io/lua-patterns/
+
   }
 }
 
