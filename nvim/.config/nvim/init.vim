@@ -15,7 +15,7 @@ set lazyredraw
 set modelines=0
 
 " which key prompt wait time
-set timeoutlen=1500
+set timeoutlen=800
 lua << EOF
   require("which-key").setup {
     -- your configuration comes here
@@ -288,8 +288,6 @@ command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>
 " command! RedirToCurrentBuffer silent let w:scratch = 1
 " Eg. :Redir g=term-to-search
 
-nmap <leader>fl :call cursor()<left>
-
 augroup highlight_yank
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank {higroup="IncSearch", timeout=250}
@@ -404,12 +402,6 @@ require"fidget".setup{
 }
 EOF
 
-nmap <leader>ff <cmd>Telescope find_files<cr>
-nmap <leader><space> <cmd>Telescope find_files<cr>
-" more options for oldfiles in issue's minimal config https://github.com/nvim-telescope/telescope.nvim/issues/1300#issue-1014120393
-nmap <leader>fo <cmd>Telescope oldfiles cwd_only=true<cr>
-nmap <leader>- <cmd>Telescope open_dir open_dir<cr>
-
 lua require('pqf').setup()
 
 lua <<EOF
@@ -443,23 +435,9 @@ require'treesitter-context'.setup{
 }
 EOF
 
-" yank file name/relative path wrt project root to default/system clipboard
-nnoremap <leader>fyp <cmd>let @" = expand("%")<cr>
-nnoremap <leader>fyP <cmd>let @+ = expand("%")<cr>
-nnoremap <leader>fyn <cmd>let @" = expand("%:t")<cr>
-nnoremap <leader>fyN <cmd>let @+ = expand("%:t")<cr>
-
 " We are using <c-z> to simulate tab, see
 " https://stackoverflow.com/questions/32513835/create-vim-map-that-executes-tab-autocomplete
 set wildcharm=<c-z>
-
-" show an option to edit wrt file's parent dir, useful to create a file at the
-" same place where buffer's file lives
-nnoremap <leader>f. :e %:.:h<c-z><space><bs>
-" space and backspace are added to prevent autosuggest from showing parent folder suggestions
-" Also, we are using : over <cmd> so vim doesn't ask us to append <cr> at the
-" end. More separators here ->
-" http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
 
 nmap <leader>. <cmd>lua require"telescope.builtin".find_files({ cwd = require"telescope.utils".buffer_dir() })<cr>
 
@@ -664,10 +642,6 @@ nnoremap ]q <cmd>cnext<cr><cmd>call repeat#set("]q")<cr>
 nnoremap [Q <cmd>cfirst<cr>
 nnoremap ]Q <cmd>clast<cr>
 
-nmap <leader>wm <cmd>Telescope marks<cr>
-nmap <leader>fu :undolist<CR>:u<Space>
-nmap <leader>wt <cmd>Telescope tagstack<cr>
-
 " wrap for comments, see :h gq
 nnoremap Q gq_
 
@@ -732,10 +706,38 @@ keymap({
       name = "toggle",
       d = { toggle_diagnostics, "diagnostics" },
       c = { "<cmd>TSContextToggle<cr>", "code context" },
-    }
+    },
+    w = {
+      name = "workspace",
+      m  = { "<cmd>Telescope marks<cr>", "marks" },
+      t  = { "<cmd>Telescope tagstack<cr>", "tagstack" },
+    },
+    f = {
+      name = "file",
+      f  = { "<cmd>Telescope find_files<cr>", "find" },
+      -- more options for oldfiles in issue's minimal config https://github.com/nvim-telescope/telescope.nvim/issues/1300#issue-1014120393
+      o  = { "<cmd>Telescope oldfiles cwd_only=true<cr>", "oldfiles" },
+      u  = { ":undolist<CR>:u<Space>", "oldfiles" },
+      -- show an option to edit wrt file's parent dir, useful to create a file at the
+      -- same place where buffer's file lives
+      ["."]  = { ":e %:.:h<c-z><space><bs>", "find wrt current buffer" },
+      -- space and backspace are added to prevent autosuggest from showing parent folder suggestions
+      -- Also, we are using : over <cmd> so vim doesn't ask us to append <cr> at the
+      -- end. More separators here ->
+      -- http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
+      l = { ":call cursor()<left>", "goto line" },
+      y = {
+        name = "yank",
+        p  = { '<cmd>let @" = expand("%")<cr>', "path" },
+        P  = { '<cmd>let @+ = expand("%")<cr>', "path to clipboard" },
+        n  = { '<cmd>let @" = expand("%:t")<cr>', "name" },
+        N  = { '<cmd>let @+ = expand("%:t")<cr>', "name to clipboard" },
+      },
+    },
+    ["<space>"] = { "<cmd>Telescope find_files<cr>", "find files" },
+    ["-"] = { "<cmd>Telescope open_dir open_dir<cr>", "find dir" },
   }, {
     prefix = "<leader>",
   })
 EOF
-
 
