@@ -73,6 +73,7 @@ eval /home/zlksnk/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # abbr can be used too, see https://github.com/jonhoo/configs/blob/master/shell/.config/fish/config.fish#L1
 # seems like it must be preferred over alias https://www.sean.sh/log/when-an-alias-should-actually-be-an-abbr/
 abbr v 'nvim.appimage'
+abbr vv 'nvim.appimage --cmd "let g:rooter_manual_only=1"'
 abbr e 'emacs &'
 
 # abbr process running on a port "sudo lsof -i:3000"
