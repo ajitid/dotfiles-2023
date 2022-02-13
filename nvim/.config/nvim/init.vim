@@ -16,6 +16,13 @@ set modelines=0
 
 " which key prompt wait time
 set timeoutlen=1500
+lua << EOF
+  require("which-key").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
 
 " FixCursorHold.nvim
 let g:cursorhold_updatetime = 400
@@ -657,8 +664,6 @@ nnoremap ]q <cmd>cnext<cr><cmd>call repeat#set("]q")<cr>
 nnoremap [Q <cmd>cfirst<cr>
 nnoremap ]Q <cmd>clast<cr>
 
-nmap <leader>tc <cmd>TSContextToggle<cr>
-
 nmap <leader>wm <cmd>Telescope marks<cr>
 nmap <leader>fu :undolist<CR>:u<Space>
 nmap <leader>wt <cmd>Telescope tagstack<cr>
@@ -720,7 +725,17 @@ function toggle_diagnostics()
     enabled = true
   end
 end
-vim.keymap.set("n", "<leader>td", toggle_diagnostics)
+
+local keymap = require("which-key").register
+keymap({
+    t = {
+      name = "toggle",
+      d = { toggle_diagnostics, "diagnostics" },
+      c = { "<cmd>TSContextToggle<cr>", "code context" },
+    }
+  }, {
+    prefix = "<leader>",
+  })
 EOF
 
 

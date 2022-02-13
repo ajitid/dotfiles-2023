@@ -1,24 +1,52 @@
+local keymap = require("which-key").register
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 function basic_keymaps()
+  keymap({
+    d = { vim.lsp.buf.definition, "definition", buffer=0 },
+    D = { vim.lsp.buf.type_definition, "type definition", buffer=0 },
+    i = { vim.lsp.buf.implementation, "implementation", buffer=0 },
+    r = { vim.lsp.buf.references, "references", buffer=0 },
+  }, {
+    prefix = "g"
+  })
+
   vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
-  -- vim.keymap.set("n", "<leader>K", function()
-  --   vim.api.nvim_command [[exe "norm KK"]]
-  --   vim.api.nvim_command [[sleep 60m]]
-  --   vim.api.nvim_command [[exe "norm \<c-w>J"]]
-  -- end, {buffer=0})
-  -- ^ same solution below, but longer (and w/ different a syntax highlight way)
-  vim.keymap.set('n', '<leader>K', require"mine.lsp.hover".hover)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
-  vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {buffer=0})
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0})
-  vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, {buffer=0})
-  vim.keymap.set("n", "<leader>cc", vim.lsp.buf.incoming_calls, {buffer=0})
-  vim.keymap.set("n", "<leader>ca",  "<cmd>Telescope lsp_code_actions<cr>", {buffer=0})
-  vim.keymap.set("v", "<leader>ca",  "<cmd>Telescope lsp_range_code_actions<cr>", {buffer=0})
-  vim.keymap.set("n", "<leader>fs",  "<cmd>Telescope lsp_document_symbols<cr>", {buffer=0})
-  vim.keymap.set("n", "<leader>ws",  ":Telescope lsp_workspace_symbols query=", {buffer=0})
+  keymap({
+    -- vim.keymap.set("n", "<leader>K", function()
+    --   vim.api.nvim_command [[exe "norm KK"]]
+    --   vim.api.nvim_command [[sleep 60m]]
+    --   vim.api.nvim_command [[exe "norm \<c-w>J"]]
+    -- end, {buffer=0})
+    -- ^ same solution below, but longer (and w/ different a syntax highlight way)
+    K = { require"mine.lsp.hover".hover, "doc in a buffer", buffer=0 },
+    c = {
+      name = "code",
+      r = { vim.lsp.buf.rename, "rename symbol", buffer=0 },
+      c = { vim.lsp.buf.incoming_calls, "callers for symbol", buffer=0 },
+      a = { "<cmd>Telescope lsp_code_actions<cr>", "code actions", buffer=0 },
+    },
+    f = {
+      name = "file",
+      s = { "<cmd>Telescope lsp_document_symbols<cr>", "symbols", buffer=0 },
+    },
+    w = {
+      name = "workspace",
+      s = { ":Telescope lsp_workspace_symbols query=", "symbols", buffer=0 },
+    },
+  }, {
+      prefix = "<leader>"
+  })
+
+  keymap({
+    c = {
+      a = { "<cmd>Telescope lsp_range_code_actions<cr>", "code actions", buffer=0 },
+    },
+  }, {
+    mode = "v",
+    prefix = "<leader>"
+  })
 
   vim.keymap.set("n", "]d", function() 
     vim.diagnostic.goto_next({ float = false }) 

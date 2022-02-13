@@ -64,4 +64,5 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'folke/which-key.nvim'
 call plug#end()
