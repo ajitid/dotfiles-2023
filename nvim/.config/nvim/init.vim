@@ -136,6 +136,17 @@ call SetupCommandAlias("rg","GrepLiteral")
 
 set nowrap
 
+" makes:
+"    1. some content to
+" display
+"
+" to display like this:
+"    1. some content to
+"       display
+set breakindent
+set briopt=list:-1
+" related stuff at https://github.com/tpope/vim-markdown/pull/169
+
 " Set tabstop, softtabstop and shiftwidth to the same value
 command! -nargs=* Stabs call Stabs()
 function! Stabs()
