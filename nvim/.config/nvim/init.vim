@@ -377,7 +377,20 @@ let g:lastplace_open_folds = 0
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
 let g:matchup_matchparen_deferred = 1
-let g:matchup_matchparen_offscreen = {'method': 'popup'}
+
+let g:matchup_matchparen_offscreen = {}
+let s:show_matchup_popup = v:false
+function! <sid>MatchupPairPopupToggle()
+  if s:show_matchup_popup
+    let s:show_matchup_popup = v:false
+    let g:matchup_matchparen_offscreen = {}
+  else
+    let s:show_matchup_popup = v:true
+    let g:matchup_matchparen_offscreen = {'method': 'popup'}
+  endif
+endfunction
+command! MatchupPairPopupToggle
+      \ call s:MatchupPairPopupToggle()
 
 luafile ~/.config/nvim/mine/treesitter-and-comment.lua
 
@@ -693,13 +706,14 @@ end
 local keymap = require("which-key").register
 keymap({
     s = {
-      -- to temporarily show stuff
+      -- to temporarily show stuff/to show stuff one-time
       name = "show",
       c = { "<cmd>MatchupWhereAmI??<cr>", "code context" },
     },
     t = {
-      name = "toggle",
+      name = "toggle visibility",
       d = { toggle_diagnostics, "diagnostics" },
+      ["%"] = { "<cmd>MatchupPairPopupToggle<cr>", "matching pair if offscreen" },
     },
     w = {
       name = "workspace",
