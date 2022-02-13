@@ -58,7 +58,7 @@ endif
 set foldlevel=21
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-" tmp fix for https://github.com/nvim-telescope/telescope.nvim/issues/699
+" FIXME tmp fix for https://github.com/nvim-telescope/telescope.nvim/issues/699
 augroup fix_folds
   autocmd!
   autocmd BufNewFile,BufRead *.* norm! zx
@@ -393,13 +393,20 @@ command! EchoLineDiagnostics lua require('mine.lsp.diagnostics').echo_line_diagn
 command! PutErrorsInLocationList lua vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.ERROR })
 
 lua <<EOF
-require"fidget".setup{
-  sources = {
-    ltex = {
-      ignore = true,
-    },
-  },
-}
+--[[
+FIXME renable it by removing * when the following get resolved:
+https://github.com/j-hui/fidget.nvim/issues/28
+https://github.com/j-hui/fidget.nvim/issues/17#issuecomment-1023550617
+keep ignoring `ltex` though
+--]]
+
+-- require"fidget".setup{
+--   sources = {
+--     ltex = {
+--       ignore = true,
+--     },
+--   },
+-- }
 EOF
 
 lua require('pqf').setup()
