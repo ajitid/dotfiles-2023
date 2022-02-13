@@ -434,10 +434,9 @@ command! PutErrorsInLocationList lua vim.diagnostic.setloclist({ severity = vim.
 
 lua <<EOF
 --[[
-FIXME renable it by removing * when the following get resolved:
+FIXME renable it when the following get resolved:
 https://github.com/j-hui/fidget.nvim/issues/28
 https://github.com/j-hui/fidget.nvim/issues/17#issuecomment-1023550617
-keep ignoring `ltex` though
 --]]
 
 -- require"fidget".setup{
@@ -456,30 +455,6 @@ lua require('pqf').setup()
 set wildcharm=<c-z>
 
 nmap <leader>. <cmd>lua require"telescope.builtin".find_files({ cwd = require"telescope.utils".buffer_dir(), hidden = true })<cr>
-
-" {{{ highlight line
-function! HighlightLine()
-  if !exists("b:highlightline")
-    setlocal cursorline
-    let b:highlightline=1
-  else
-    setlocal nocursorline
-    unlet b:highlightline
-  endif
-endfunction
-
-function! ClearHighlightLine()
-  if exists("b:highlightline")
-    setlocal nocursorline
-    unlet b:highlightline
-  endif
-endfunction
-
-augroup highlight_line
-  autocmd!
-  autocmd CursorMoved * autocmd highlight_line CursorMoved * call ClearHighlightLine()
-augroup END
-" }}}
 
 " indent file without leaving cursor pos
 " from https://stackoverflow.com/a/20110045/7683365
