@@ -454,7 +454,7 @@ lua require('pqf').setup()
 " https://stackoverflow.com/questions/32513835/create-vim-map-that-executes-tab-autocomplete
 set wildcharm=<c-z>
 
-nmap <leader>. <cmd>lua require"telescope.builtin".find_files({ cwd = require"telescope.utils".buffer_dir() })<cr>
+nmap <leader>. <cmd>lua require"telescope.builtin".find_files({ cwd = require"telescope.utils".buffer_dir(), hidden = true })<cr>
 
 " {{{ highlight line
 function! HighlightLine()
