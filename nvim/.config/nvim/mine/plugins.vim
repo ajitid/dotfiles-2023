@@ -38,7 +38,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'j-hui/fidget.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'romgrk/nvim-treesitter-context'
 Plug 'ajitid/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'b0o/schemastore.nvim'
@@ -65,4 +64,5 @@ Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'folke/which-key.nvim'
 Plug 'ZhiyuanLck/smart-pairs'
+Plug 'andymass/vim-matchup'
 call plug#end()
