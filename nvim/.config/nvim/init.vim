@@ -734,10 +734,10 @@ keymap({
     },
     f = {
       name = "file",
-      f  = { "<cmd>Telescope find_files<cr>", "find" },
+      f  = { "<cmd>Telescope find_files hidden=true<cr>", "find" },
       -- more options for oldfiles in issue's minimal config https://github.com/nvim-telescope/telescope.nvim/issues/1300#issue-1014120393
-      o  = { "<cmd>Telescope oldfiles cwd_only=true<cr>", "oldfiles" },
-      u  = { ":undolist<CR>:u<Space>", "oldfiles" },
+      o  = { "<cmd>Telescope oldfiles cwd_only=true<cr>", "old files" },
+      u  = { ":undolist<CR>:u<Space>", "undo list" },
       -- show an option to edit wrt file's parent dir, useful to create a file at the
       -- same place where buffer's file lives
       ["."]  = { ":e %:.:h<c-z><space><bs>", "find wrt current buffer" },
@@ -754,7 +754,7 @@ keymap({
         N  = { '<cmd>let @+ = expand("%:t")<cr>', "name to clipboard" },
       },
     },
-    ["<space>"] = { "<cmd>Telescope find_files<cr>", "find files" },
+    ["<space>"] = { "<cmd>Telescope find_files hidden=true<cr>", "find files" },
     ["-"] = { "<cmd>Telescope open_dir open_dir<cr>", "find dir" },
   }, {
     prefix = "<leader>",
