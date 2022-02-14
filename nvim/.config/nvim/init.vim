@@ -135,6 +135,8 @@ call SetupCommandAlias("nt","tabnew")
 call SetupCommandAlias("rg","GrepLiteral")
 
 set nowrap
+" https://stackoverflow.com/questions/13294489/make-vim-only-do-a-soft-word-wrap-not-hard-word-wrap
+set linebreak
 
 " makes:
 "    1. some content to
@@ -720,6 +722,8 @@ let g:esearch = {}
 let g:esearch.root_markers = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
 lua <<EOF
+vim.diagnostic.config({ virtual_text = false, severity_sort = true })
+
 local keymap = require("which-key").register
 keymap({
     d = { "<cmd>lua vim.diagnostic.open_float({scope = 'c'})<cr>", "diagnostic at cursor" },
