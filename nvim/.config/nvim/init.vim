@@ -720,27 +720,11 @@ let g:esearch = {}
 let g:esearch.root_markers = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
 lua <<EOF
-vim.diagnostic.config({ virtual_text = false })
-require("lsp_lines").register_lsp_virtual_lines()
-
-local enabled = true
-vim.diagnostic.config({ virtual_lines = enabled })
-
-function toggle_diagnostics()
-  if enabled then
-    vim.diagnostic.config({ virtual_lines = false })
-    enabled = false
-  else
-    vim.diagnostic.config({ virtual_lines = true })
-    enabled = true
-  end
-end
-
 local keymap = require("which-key").register
 keymap({
+    d = { "<cmd>lua vim.diagnostic.open_float({scope = 'c'})<cr>", "diagnostic at cursor" },
     t = {
       name = "toggle visibility",
-      d = { toggle_diagnostics, "diagnostics" },
       -- if offscreen
       ["%"] = { "<cmd>TSContextDisable<cr><cmd>MatchupPairPopupToggle<cr>", "matching pair" },
       -- if offscreen
