@@ -436,7 +436,16 @@ set completeopt=menu,menuone,noselect
 set pumheight=8
 
 lua <<EOF
+local ts_map = {
+  {'`', '`'},
+}
+
 require("pairs"):setup({
+  pairs = {
+    javascript = ts_map,
+    typescript = ts_map,
+    typescriptreact = ts_map,
+  },
   enter = {
     enable_mapping = false,
   },
