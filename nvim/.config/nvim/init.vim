@@ -378,19 +378,29 @@ let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
 let g:matchup_matchparen_deferred = 1
 
-let g:matchup_matchparen_offscreen = {}
 let s:show_matchup_popup = v:false
+let g:matchup_matchparen_offscreen = {}
 function! <sid>MatchupPairPopupToggle()
   if s:show_matchup_popup
     let s:show_matchup_popup = v:false
     let g:matchup_matchparen_offscreen = {}
+    call matchup#matchparen#update()
   else
     let s:show_matchup_popup = v:true
     let g:matchup_matchparen_offscreen = {'method': 'popup'}
+    call matchup#matchparen#update()
   endif
 endfunction
 command! MatchupPairPopupToggle
       \ call s:MatchupPairPopupToggle()
+
+function! <sid>MatchupPairPopupDisable()
+  let s:show_matchup_popup = v:false
+  let g:matchup_matchparen_offscreen = {}
+  call matchup#matchparen#update()
+endfunction
+command! MatchupPairPopupDisable
+      \ call s:MatchupPairPopupDisable()
 
 luafile ~/.config/nvim/mine/treesitter-and-comment.lua
 
@@ -449,6 +459,37 @@ https://github.com/j-hui/fidget.nvim/issues/17#issuecomment-1023550617
 EOF
 
 lua require('pqf').setup()
+
+lua <<EOF
+require'treesitter-context'.setup{
+    enable = false,
+    throttle = true,
+    max_lines = 4,
+    patterns = {
+        default = {
+            'class',
+            'function',
+            'method',
+            'for',
+            'while',
+            'if',
+            'switch',
+            'case',
+        },
+        -- Example for a specific filetype.
+        -- If a pattern is missing, *open a PR* so everyone can benefit.
+        --   rust = {
+        --       'impl_item',
+        --   },
+    },
+    exact_patterns = {
+        -- Example for a specific filetype with Lua patterns
+        -- Treat patterns.rust as a Lua pattern (i.e "^impl_item$" will
+        -- exactly match "impl_item" only)
+        -- rust = true, 
+    }
+}
+EOF
 
 " We are using <c-z> to simulate tab, see
 " https://stackoverflow.com/questions/32513835/create-vim-map-that-executes-tab-autocomplete
@@ -693,15 +734,13 @@ end
 
 local keymap = require("which-key").register
 keymap({
-    s = {
-      -- to temporarily show stuff/to show stuff one-time
-      name = "show",
-      c = { "<cmd>MatchupWhereAmI??<cr>", "code context" },
-    },
     t = {
       name = "toggle visibility",
       d = { toggle_diagnostics, "diagnostics" },
-      ["%"] = { "<cmd>MatchupPairPopupToggle<cr>", "matching pair if offscreen" },
+      -- if offscreen
+      ["%"] = { "<cmd>TSContextDisable<cr><cmd>MatchupPairPopupToggle<cr>", "matching pair" },
+      -- if offscreen
+      c = { "<cmd>MatchupPairPopupDisable<cr><cmd>TSContextToggle<cr>", "code context" },
     },
     w = {
       name = "workspace",

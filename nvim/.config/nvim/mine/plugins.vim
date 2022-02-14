@@ -66,4 +66,5 @@ Plug 'ZhiyuanLck/smart-pairs'
 Plug 'andymass/vim-matchup'
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'natecraddock/telescope-zf-native.nvim'
+Plug 'romgrk/nvim-treesitter-context'
 call plug#end()
