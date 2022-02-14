@@ -435,7 +435,13 @@ EOF
 set completeopt=menu,menuone,noselect
 set pumheight=8
 
-lua require"pairs":setup()
+lua <<EOF
+require("pairs"):setup({
+  enter = {
+    enable_mapping = false,
+  },
+})
+EOF
 autocmd BufRead,BufNewFile */node_modules/* lua vim.diagnostic.disable(0)
 luafile ~/.config/nvim/mine/snippets.lua
 " luafile ~/.config/nvim/mine/lsp-and-completion.lua
