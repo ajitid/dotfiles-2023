@@ -79,8 +79,9 @@
 
 ;; see https://discord.com/channels/406534637242810369/406554085794381833/937168709326340146
 ;; a vimmy bind would be `g/`, but I would prefer ergonomics here
-(map! :nv "gh" (kbd! "g s SPC"))
+;; (map! :nv "gh" (kbd! "g s SPC"))
 ;; putting space between gh `g h` works too
+(map! :nm "s" (kbd! "g s SPC"))
 
 ;; Taken from https://stackoverflow.com/a/65685019
 ;; Equivalent to `:noa w`
