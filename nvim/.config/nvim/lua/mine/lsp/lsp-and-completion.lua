@@ -254,6 +254,16 @@ cmp.setup({
   },
 })
 
+local kind = cmp.lsp.CompletionItemKind
+
+cmp.event:on("confirm_done", function(event)
+  local item = event.entry:get_completion_item()
+  local parensDisabled = item.data and item.data.funcParensDisabled or false
+  if not parensDisabled and (item.kind == kind.Method or item.kind == kind.Function) then
+    require("pairs.bracket").type_left("(")
+  end
+end)
+
 -- null-ls stuff is mostly taken from https://github.com/Gelio/ubuntu-dotfiles/blob/master/install/neovim/stowed/.config/nvim/lua/lsp/null-ls.lua
 -- other links to refer:
 -- https://old.reddit.com/r/neovim/comments/qckrnp/share_your_prettier_and_eslint_formatting_setup/

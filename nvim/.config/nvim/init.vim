@@ -494,6 +494,13 @@ EOF
 " We are using <c-z> to simulate tab, see
 " https://stackoverflow.com/questions/32513835/create-vim-map-that-executes-tab-autocomplete
 set wildcharm=<c-z>
+" space and backspace are added to prevent autosuggest from showing parent folder
+" suggestions
+" Also, we are using : over <cmd> so vim doesn't ask us to append <cr> at the
+" end. More separators here ->
+" http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
+nnoremap <leader>f. :e %:.:h<c-z><space><bs>
+" nnoremap <leader>n :e %:.:h<c-z>
 
 nmap <leader>. <cmd>lua require"telescope.builtin".find_files({ cwd = require"telescope.utils".buffer_dir(), hidden = true })<cr>
 
@@ -753,13 +760,6 @@ keymap({
       -- more options for oldfiles in issue's minimal config https://github.com/nvim-telescope/telescope.nvim/issues/1300#issue-1014120393
       o  = { "<cmd>Telescope oldfiles cwd_only=true<cr>", "old files" },
       u  = { ":undolist<CR>:u<Space>", "undo list" },
-      -- show an option to edit wrt file's parent dir, useful to create a file at the
-      -- same place where buffer's file lives
-      ["."]  = { ":e %:.:h<c-z><space><bs>", "find wrt current buffer" },
-      -- space and backspace are added to prevent autosuggest from showing parent folder suggestions
-      -- Also, we are using : over <cmd> so vim doesn't ask us to append <cr> at the
-      -- end. More separators here ->
-      -- http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
       l = { ":call cursor()<left>", "goto line" },
       y = {
         name = "yank",
