@@ -15,7 +15,7 @@ set lazyredraw
 set modelines=0
 
 " which key prompt wait time
-set timeoutlen=800
+set timeoutlen=1000
 lua << EOF
   require("which-key").setup {
     -- your configuration comes here
@@ -25,7 +25,7 @@ lua << EOF
 EOF
 
 " FixCursorHold.nvim
-let g:cursorhold_updatetime = 400
+let g:cursorhold_updatetime = 150
 
 if has('termguicolors')
   set termguicolors
@@ -372,7 +372,14 @@ autocmd Filetype help nnoremap <buffer> q :q<cr>
 " noshowmode hides default mode display as we are using custom statusline
 set noshowmode
 lua << END
-require('lualine').setup()
+require('lualine').setup({
+  options = {
+    icons_enabled = false,
+  },
+  sections = {
+    lualine_b = {'diagnostics'},
+  },
+})
 END
 
 let g:lastplace_open_folds = 0
@@ -775,3 +782,5 @@ keymap({
     prefix = "<leader>",
   })
 EOF
+
+lua require('neogen').setup {}
