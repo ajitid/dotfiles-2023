@@ -131,7 +131,9 @@ fun! SetupCommandAlias(from, to)
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfun
 
-call SetupCommandAlias("nt","tabnew")
+" call SetupCommandAlias("nt","tabnew")
+" creates a new tab and opens the last buffer in which you were in https://superuser.com/a/892024
+call SetupCommandAlias("nt","tab sb %")
 call SetupCommandAlias("rg","GrepLiteral")
 
 set nowrap
@@ -609,7 +611,7 @@ lua require"gitlinker".setup()
 
 nmap <leader>a <c-^>
 " <leader>A for quickswitch?
-nmap <leader>; <cmd>Telescope buffers<cr>
+nmap <leader>s <cmd>Telescope buffers<cr>
 nmap <leader>` <cmd>e $MYVIMRC<cr>
 
 lua <<EOF
@@ -748,6 +750,7 @@ vim.diagnostic.config({ virtual_text = false, severity_sort = true })
 
 local keymap = require("which-key").register
 keymap({
+    ["'"] = { "<cmd>Telescope resume<cr>", "resume search" },
     d = { "<cmd>lua vim.diagnostic.open_float({scope = 'c'})<cr>", "diagnostic at cursor" },
     t = {
       name = "toggle visibility",
