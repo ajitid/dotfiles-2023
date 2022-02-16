@@ -542,6 +542,7 @@ set wildcharm=<c-z>
 " end. More separators here ->
 " http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
 nnoremap <leader>f. :e %:.:h<c-z>
+nnoremap <leader>> :e %:.:h<c-z>
 
 nmap <leader>. <cmd>lua require"telescope.builtin".find_files({ cwd = require"telescope.utils".buffer_dir(), hidden = true })<cr>
 
@@ -737,6 +738,7 @@ command! -nargs=1 E call s:OpenRelated(<f-args>)
 command! -nargs=1 EV call s:OpenRelated(<f-args>, 'vsp')
 command! A call s:OpenRelated('alt')
 
+" TODO add operator map
 nmap <leader>~_ <cmd>Snek<cr>
 xmap <leader>~_ :Snek<cr>
 nmap <leader>~C <cmd>Camel<cr>

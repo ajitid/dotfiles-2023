@@ -145,7 +145,6 @@ lsp_installer.on_server_ready(function(server)
       capabilities = capabilities,
       on_attach = function(client)
         basic_keymaps()
-
         signature_help(client)
 
         if server.name == "tsserver" then
