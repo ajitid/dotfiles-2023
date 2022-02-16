@@ -235,13 +235,20 @@ function! Gf()
   endif
 
   let l:curr_buf_path = expand("%:h")
-  let l:fullpath = l:curr_buf_path . l:filepath[1:]
   try
-    " resolve paths relative to cwd and in correct form
-    " see https://stackoverflow.com/a/23496813/7683365 and https://learnvimscriptthehardway.stevelosh.com/chapters/40.html
-    " if you want to make this more flexible
-    if l:filepath[0:len('./')-1] ==# './' && filereadable(l:fullpath)
-      exec 'edit ' . l:fullpath
+    if l:filepath[0:len('./')-1] ==# './' || l:filepath[0:len('../')-1] ==# '../'
+      let l:fullpath = split(execute('!realpath ' . expand('%:h') . '/' . expand('<cfile>')), '\n')[2]
+
+      if !filereadable(l:fullpath)
+        exec "normal! gf"
+      endif
+
+      let l:cwd = getcwd()
+      if getcwd() ==# l:fullpath[0:len(l:cwd)-1]
+        exec 'edit ' . l:fullpath[len(l:cwd)+1:]
+      else
+        exec 'edit ' l:fullpath
+      endif
     else
       exec "normal! gf"
     endif
@@ -262,6 +269,7 @@ function! Gf()
     " from
     " https://github.com/zlksnk/vaffle.vim/commit/099cf689e25f525098415a517fff0209080dd0c9#diff-447d11dad6ddd636f8cb5436d1984ea4b33048feab8d0f5e3e3e20ea01e6cdeaR33
     if l:filepath[0:len('./')-1] ==# './'
+      let l:fullpath = l:curr_buf_path . l:filepath[1:]
       exec 'edit ' . l:fullpath
     else
       edit <cfile>
