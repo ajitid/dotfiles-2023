@@ -206,9 +206,6 @@ augroup filetype_based_indentation
   autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 augroup END
 
-" what is the point of saving blank (empty) windows?
-set sessionoptions-=blank
-
 set jumpoptions+=stack
 " also see keepjumps command in help, useful in your scripts
 " and changelist for general movements
@@ -402,9 +399,6 @@ require('lualine').setup({
   },
 })
 END
-
-let g:lastplace_open_folds = 0
-let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
 let g:matchup_matchparen_deferred = 1
 
@@ -822,3 +816,10 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " highlight QuickScopePrimary guifg='#6bdeba' gui=underline ctermfg=81
 highlight QuickScopePrimary guifg='#6ade93' gui=underline ctermfg=81
 highlight QuickScopeSecondary guifg='#ffa9d5' gui=underline ctermfg=81
+
+let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
+let g:lastplace_open_folds = 0
+
+" what is the point of saving blank (empty) windows?
+set sessionoptions-=blank
+set sessionoptions+=winpos,terminal
