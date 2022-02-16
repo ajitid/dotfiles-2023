@@ -308,3 +308,5 @@ export PATH="$PATH:$HOME/.emacs.d/bin"
 export GDK_BACKEND="x11"
 
 alias icat="kitty +kitten icat"
+
+source ~/.config/fish/kanagawa.fish

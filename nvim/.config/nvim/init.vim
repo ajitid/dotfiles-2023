@@ -32,11 +32,28 @@ if has('termguicolors')
 endif
 
 " need this to change cursor color https://github.com/neovim/neovim/issues/12626#issuecomment-799077796
-set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
-aug kitty_cursor
-  au!
-  au Colorscheme * set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
-aug END
+" disabling this for kanagawa as txt color is same as cursor color so text
+" becomes hard to read
+" set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
+" aug kitty_cursor
+"   au!
+"   au Colorscheme * set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
+" aug END
+
+function! CustomKanagawa() abort
+  " hi Cursor guibg=#094638
+endfunction
+
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme kanagawa call CustomKanagawa()
+augroup END
+
+lua <<EOF
+require('kanagawa').setup({
+  undercurl = true,
+})
+EOF
 
 colorscheme kanagawa
 
