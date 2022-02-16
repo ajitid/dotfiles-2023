@@ -419,7 +419,7 @@ lua <<EOF
 require('telescope').setup{
   defaults = require("telescope.themes").get_ivy {
     layout_config = {
-      height = 15,
+      height = 22,
     },
 
     file_ignore_patterns = {
@@ -432,7 +432,6 @@ require('telescope').setup{
     -- ^ telescope uses lua's pattern matching library, see:
     -- https://github.com/nvim-telescope/telescope.nvim/issues/780
     -- https://gitspartv.github.io/lua-patterns/
-
   }
 }
 
@@ -786,4 +785,12 @@ keymap({
   })
 EOF
 
-lua require('neogen').setup {}
+lua <<EOF
+require('neogen').setup {}
+
+require"bqf".setup {
+  preview = {
+    win_height = 999
+  }
+}
+EOF
