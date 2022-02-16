@@ -237,6 +237,9 @@ function! Gf()
   let l:curr_buf_path = expand("%:h")
   let l:fullpath = l:curr_buf_path . l:filepath[1:]
   try
+    " resolve paths relative to cwd and in correct form
+    " see https://stackoverflow.com/a/23496813/7683365 and https://learnvimscriptthehardway.stevelosh.com/chapters/40.html
+    " if you want to make this more flexible
     if l:filepath[0:len('./')-1] ==# './' && filereadable(l:fullpath)
       exec 'edit ' . l:fullpath
     else
