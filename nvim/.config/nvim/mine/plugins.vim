@@ -68,6 +68,11 @@ Plug 'andymass/vim-matchup'
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'natecraddock/telescope-zf-native.nvim'
 Plug 'romgrk/nvim-treesitter-context'
-Plug 'danymat/neogen'
 Plug 'unblevable/quick-scope'
+
+"""""""" evaluate
+" Plug 'danymat/neogen'
+" Plug 'jubnzv/virtual-types.nvim'
+" subcommand mode
+" Plug 'tomtom/tinykeymap_vim'
 call plug#end()

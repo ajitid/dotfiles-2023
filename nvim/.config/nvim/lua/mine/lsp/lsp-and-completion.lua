@@ -81,10 +81,13 @@ end
 
 require'lspconfig'.gopls.setup{
   capabilities = capabilities,
-  on_attach = function(client)
+  on_attach = function(client, bufnr)
     basic_keymaps()
     format_on_save(client)
     signature_help(client)
+    -- doesn't throws a warning but doesn't work either https://github.com/jubnzv/virtual-types.nvim
+    -- g< to echo warnings doesn't work
+    -- require'virtualtypes'.on_attach(client, bufnr)
   end,
 }
 

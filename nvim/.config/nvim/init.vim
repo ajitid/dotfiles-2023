@@ -807,7 +807,7 @@ keymap({
 EOF
 
 lua <<EOF
-require('neogen').setup {}
+-- require('neogen').setup {}
 
 require"bqf".setup {
   preview = {
