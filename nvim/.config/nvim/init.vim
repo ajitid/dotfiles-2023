@@ -794,3 +794,10 @@ require"bqf".setup {
   }
 }
 EOF
+
+" quick horizontal find
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" Quick scope (horizontal navigation using find) token colors
+" highlight QuickScopePrimary guifg='#6bdeba' gui=underline ctermfg=81
+highlight QuickScopePrimary guifg='#6ade93' gui=underline ctermfg=81
+highlight QuickScopeSecondary guifg='#ffa9d5' gui=underline ctermfg=81

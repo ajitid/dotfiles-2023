@@ -69,4 +69,5 @@ Plug 'andymass/vim-matchup'
 Plug 'natecraddock/telescope-zf-native.nvim'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'danymat/neogen'
+Plug 'unblevable/quick-scope'
 call plug#end()
