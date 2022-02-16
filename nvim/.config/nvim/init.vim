@@ -370,6 +370,9 @@ set diffopt+=algorithm:histogram,indent-heuristic,vertical
 
 " use q to quickly escape out from vim help
 autocmd Filetype help nnoremap <buffer> q :q<cr>
+" F5 to execute the command while keeping the command window open
+autocmd CmdwinEnter * nnoremap <buffer><silent> <F5> :let g:CmdWindowLineMark=line(".")<CR><CR>q::execute "normal ".g:CmdWindowLineMark."G"<CR>
+" <c-c> quits command window, so don't map q or esc for it
 
 " noshowmode hides default mode display as we are using custom statusline
 set noshowmode
