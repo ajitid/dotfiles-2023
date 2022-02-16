@@ -148,9 +148,8 @@ fun! SetupCommandAlias(from, to)
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfun
 
-" call SetupCommandAlias("nt","tabnew")
-" creates a new tab and opens the last buffer in which you were in https://superuser.com/a/892024
-call SetupCommandAlias("nt","tab sb %")
+" do `nt %` to open current buffer in new tab
+call SetupCommandAlias("nt","tabnew")
 call SetupCommandAlias("rg","GrepLiteral")
 
 set nowrap
