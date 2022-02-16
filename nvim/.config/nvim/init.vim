@@ -235,9 +235,10 @@ function! Gf()
   endif
 
   let l:curr_buf_path = expand("%:h")
+  let l:fullpath = ''
   try
     if l:filepath[0:len('./')-1] ==# './' || l:filepath[0:len('../')-1] ==# '../'
-      let l:fullpath = split(execute('!realpath ' . expand('%:h') . '/' . expand('<cfile>')), '\n')[2]
+      let l:fullpath = split(execute('!realpath ' . l:curr_buf_path . '/' . l:filepath), '\n')[2]
 
       if !filereadable(l:fullpath)
         exec "normal! gf"
@@ -266,11 +267,13 @@ function! Gf()
 
     exec "norm :echo ''\<cr>"
 
-    " from
-    " https://github.com/zlksnk/vaffle.vim/commit/099cf689e25f525098415a517fff0209080dd0c9#diff-447d11dad6ddd636f8cb5436d1984ea4b33048feab8d0f5e3e3e20ea01e6cdeaR33
-    if l:filepath[0:len('./')-1] ==# './'
-      let l:fullpath = l:curr_buf_path . l:filepath[1:]
-      exec 'edit ' . l:fullpath
+    if len(l:fullpath)
+      let l:cwd = getcwd()
+      if getcwd() ==# l:fullpath[0:len(l:cwd)-1]
+        exec 'edit ' . l:fullpath[len(l:cwd)+1:]
+      else
+        exec 'edit ' l:fullpath
+      endif
     else
       edit <cfile>
     endif
