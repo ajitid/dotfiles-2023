@@ -234,8 +234,14 @@ function! Gf()
     return
   endif
 
+  let l:curr_buf_path = expand("%:h")
+  let l:fullpath = l:curr_buf_path . l:filepath[1:]
   try
-    exec "normal! gf"
+    if l:filepath[0:len('./')-1] ==# './' && filereadable(l:fullpath)
+      exec 'edit ' . l:fullpath
+    else
+      exec "normal! gf"
+    endif
   catch /E447/
     " if I'm going into edit mode, I'm not technically creating it
     echo "File doesn't exist, `edit` it anyway? (y/N) "
@@ -253,7 +259,6 @@ function! Gf()
     " from
     " https://github.com/zlksnk/vaffle.vim/commit/099cf689e25f525098415a517fff0209080dd0c9#diff-447d11dad6ddd636f8cb5436d1984ea4b33048feab8d0f5e3e3e20ea01e6cdeaR33
     if l:filepath[0:len('./')-1] ==# './'
-      let l:fullpath = expand("%:h") . l:filepath[1:]
       exec 'edit ' . l:fullpath
     else
       edit <cfile>
