@@ -234,11 +234,11 @@ function! Gf()
     return
   endif
 
-  let l:curr_buf_path = expand("%:h")
+  let l:curr_buf_path = expand("%:p:h")
   let l:fullpath = ''
   try
     if l:filepath[0:len('./')-1] ==# './' || l:filepath[0:len('../')-1] ==# '../'
-      let l:fullpath = split(execute('!realpath ' . l:curr_buf_path . '/' . l:filepath), '\n')[2]
+      let l:fullpath = resolve(l:curr_buf_path . '/' . l:filepath)
 
       if !filereadable(l:fullpath)
         exec "normal! gf"
