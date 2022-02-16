@@ -11,8 +11,8 @@ Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 Plug 'tpope/vim-sleuth'
 Plug 'editorconfig/editorconfig-vim'
 
-Plug 'farmergreg/vim-lastplace'
 Plug 'airblade/vim-rooter'
+Plug 'tpope/vim-obsession'
 
 " styling
 Plug 'rebelot/kanagawa.nvim'

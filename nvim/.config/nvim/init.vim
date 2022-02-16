@@ -818,7 +818,6 @@ highlight QuickScopePrimary guifg='#6ade93' gui=underline ctermfg=81
 highlight QuickScopeSecondary guifg='#ffa9d5' gui=underline ctermfg=81
 
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
-let g:lastplace_open_folds = 0
 
 " what is the point of saving blank (empty) windows?
 set sessionoptions-=blank
