@@ -30,6 +30,7 @@ function basic_keymaps()
     f = {
       name = "file",
       s = { "<cmd>Telescope lsp_document_symbols<cr>", "symbols", buffer=0 },
+      S = { "<cmd>AerialToggle<cr>", "symbols", buffer=0 },
     },
     w = {
       name = "workspace",
@@ -85,6 +86,7 @@ require'lspconfig'.gopls.setup{
     basic_keymaps()
     format_on_save(client)
     signature_help(client)
+    require("aerial").on_attach(client, bufnr)
     -- doesn't throws a warning but doesn't work either https://github.com/jubnzv/virtual-types.nvim
     -- g< to echo warnings doesn't work
     -- require'virtualtypes'.on_attach(client, bufnr)
@@ -146,9 +148,10 @@ end
 lsp_installer.on_server_ready(function(server)
     local opts = {
       capabilities = capabilities,
-      on_attach = function(client)
+      on_attach = function(client, bufnr)
         basic_keymaps()
         signature_help(client)
+        require("aerial").on_attach(client, bufnr)
 
         if server.name == "tsserver" then
           vim.keymap.set("n", "<leader>fr", typescript_rename_file_command, {buffer=0})
