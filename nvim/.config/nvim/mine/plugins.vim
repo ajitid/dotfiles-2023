@@ -70,6 +70,7 @@ Plug 'natecraddock/telescope-zf-native.nvim'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'unblevable/quick-scope'
 Plug 'stevearc/aerial.nvim'
+Plug 'kosayoda/nvim-lightbulb'
 
 """""""" evaluate
 " Plug 'danymat/neogen'

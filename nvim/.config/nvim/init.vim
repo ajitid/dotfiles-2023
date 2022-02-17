@@ -390,6 +390,7 @@ require('lualine').setup({
   },
   sections = {
     lualine_b = {'diagnostics'},
+    lualine_x = {"require'nvim-lightbulb'.get_status_text()", 'filetype'},
   },
 })
 END
@@ -816,3 +817,5 @@ let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 " what is the point of saving blank (empty) windows?
 set sessionoptions-=blank
 set sessionoptions+=winpos,terminal
+
+autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({sign = { enabled = false }, status_text = { enabled = true }})
