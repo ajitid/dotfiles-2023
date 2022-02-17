@@ -142,8 +142,9 @@ fun! SetupCommandAlias(from, to)
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfun
 
-" do `nt %` to open current buffer in new tab
 call SetupCommandAlias("nt","tabnew")
+" keeps cursor at same place when cloning the buffer in new tab
+call SetupCommandAlias("bt","tab sb")
 call SetupCommandAlias("rg","GrepLiteral")
 
 set nowrap

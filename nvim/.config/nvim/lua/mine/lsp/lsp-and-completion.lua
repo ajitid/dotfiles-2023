@@ -2,6 +2,11 @@ local keymap = require("which-key").register
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  silent = true, -- don't tell me "No signature help available"
+  focusable = false, -- needed otherwise popup will get focus when space is typed after comma quickly inside fn call
+})
+
 function basic_keymaps()
   keymap({
     d = { vim.lsp.buf.definition, "definition", buffer=0 },
@@ -34,7 +39,7 @@ function basic_keymaps()
     },
     w = {
       name = "workspace",
-      s = { ":Telescope lsp_workspace_symbols query=", "symbols", buffer=0 },
+      s = { ":Telescope lsp_workspace_symbols query=", "symbols", buffer=0, silent=false },
     },
   }, {
       prefix = "<leader>"
