@@ -49,12 +49,6 @@ augroup MyColors
   autocmd ColorScheme kanagawa call CustomKanagawa()
 augroup END
 
-lua <<EOF
-require('kanagawa').setup({
-  undercurl = true,
-})
-EOF
-
 colorscheme kanagawa
 
 nnoremap <space> <nop>
