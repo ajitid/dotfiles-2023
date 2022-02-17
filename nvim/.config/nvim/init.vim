@@ -214,28 +214,9 @@ set jumpoptions+=stack
 " from https://stackoverflow.com/a/29068665/7683365
 function! Gf()
   let l:filepath = expand('<cfile>')
-
-  " check if it is a URL, if it is then load it up
-  if l:filepath[0:len('https://')-1] ==# 'https://' || l:filepath[0:len('http://')-1] ==# 'http://'
-    " from autoload/fugitive.vim s:BrowserOpen function
-    if !exists('g:loaded_netrw')
-      runtime! autoload/netrw.vim
-    endif
-
-    if exists('*netrw#BrowseX')
-      call netrw#BrowseX(l:filepath, 0)
-    endif
-
-    if has('clipboard')
-      let @+ = l:filepath
-      echo 'Opening URL in browser, it has been copied to clipboard too.'
-    endif
-
-    return
-  endif
-
   let l:curr_buf_path = expand("%:p:h")
   let l:fullpath = ''
+
   try
     if l:filepath[0:len('./')-1] ==# './' || l:filepath[0:len('../')-1] ==# '../'
       let l:fullpath = resolve(l:curr_buf_path . '/' . l:filepath)
@@ -648,8 +629,8 @@ nmap <leader>` <cmd>e $MYVIMRC<cr>
 
 lua <<EOF
 require"gitlinker".setup()
-vim.api.nvim_set_keymap('n', '<leader>cg', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
-vim.api.nvim_set_keymap('v', '<leader>cg', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
+vim.api.nvim_set_keymap('n', '<leader>fgx', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+vim.api.nvim_set_keymap('v', '<leader>fgx', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
 EOF
 
 function! s:Arrayify(line1, line2, ...) abort
