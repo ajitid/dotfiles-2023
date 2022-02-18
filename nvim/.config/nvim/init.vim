@@ -199,7 +199,7 @@ augroup filetype_based_indentation
   autocmd!
   autocmd VimEnter * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd FileType python,rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+  autocmd FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 augroup END
 
 set jumpoptions+=stack

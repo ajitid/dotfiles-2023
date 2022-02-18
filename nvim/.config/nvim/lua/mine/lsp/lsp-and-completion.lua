@@ -89,6 +89,8 @@ require'lspconfig'.gopls.setup{
     basic_keymaps()
     format_on_save(client)
     require("aerial").on_attach(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+
     -- doesn't throws a warning but doesn't work either https://github.com/jubnzv/virtual-types.nvim
     -- g< to echo warnings doesn't work
     -- require'virtualtypes'.on_attach(client, bufnr)
@@ -282,6 +284,7 @@ local sources = {
     filetypes = prettierd_filetypes,
   }),
   null_ls.builtins.formatting.goimports,
+  null_ls.builtins.formatting.gofmt,
 }
 
 local config = {
