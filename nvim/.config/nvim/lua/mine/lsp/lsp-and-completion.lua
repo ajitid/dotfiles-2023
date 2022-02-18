@@ -5,10 +5,11 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 require "lsp_signature".setup({
   bind=true,
   handler_opts = {
-    border = "none",   -- double, rounded, single, shadow, none
+    border = "none",
   },
   padding = ' ',
   hint_enable = false,
+  doc_lines = 0,
 })
 
 function basic_keymaps()
