@@ -99,7 +99,8 @@ nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
 
 set scrolloff=3
 
-set list listchars=tab:ᐅ\ ,trail:·,extends:>,precedes:<,nbsp:~
+" set list listchars=tab:ᐅ\ ,trail:·,extends:>,precedes:<,nbsp:~
+set list listchars=tab:\ \ ,trail:·,extends:>,precedes:<,nbsp:~
 
 set inccommand=nosplit
 set ignorecase
@@ -199,7 +200,7 @@ augroup filetype_based_indentation
   autocmd!
   autocmd VimEnter * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd FileType python,rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  autocmd FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+  autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 augroup END
 
 set jumpoptions+=stack
