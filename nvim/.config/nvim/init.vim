@@ -465,9 +465,6 @@ require("pairs"):setup({
     typescript = ts_map,
     typescriptreact = ts_map,
   },
-  enter = {
-    enable_mapping = false,
-  },
 })
 EOF
 autocmd BufRead,BufNewFile */node_modules/* lua vim.diagnostic.disable(0)

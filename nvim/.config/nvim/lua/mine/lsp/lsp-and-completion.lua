@@ -223,11 +223,7 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ["<CR>"] = cmp.mapping(function(fallback)
-      if not cmp.confirm({ select = true }) then
-        require("pairs.enter").type()
-      end
-    end),
+    ["<tab>"] = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
