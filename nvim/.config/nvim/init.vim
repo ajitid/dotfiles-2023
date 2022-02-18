@@ -41,6 +41,7 @@ endif
 " aug END
 
 function! CustomKanagawa() abort
+  hi CmpGhostText guifg=#727169
   " hi Cursor guibg=#094638
 endfunction
 

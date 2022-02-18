@@ -242,7 +242,9 @@ cmp.setup({
   },
   experimental = {
     -- native_menu = false,
-    ghost_text = true,
+    ghost_text = {
+      hl_group = 'CmpGhostText'
+    },
   },
   formatting = {
     format = function(_, vim_item)
