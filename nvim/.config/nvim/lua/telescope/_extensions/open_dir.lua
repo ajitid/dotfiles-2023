@@ -56,6 +56,8 @@ local open_dir = function()
         local selection = action_state.get_selected_entry()
         actions.close(prompt_bufnr)
         vim.cmd("call feedkeys(':e " .. selection.value .. "/')")
+        -- this if you want to execute stuff instead:
+        -- vim.api.nvim_exec('edit ~/ghq/' .. selection.value, false)
       end)
       return true
     end,

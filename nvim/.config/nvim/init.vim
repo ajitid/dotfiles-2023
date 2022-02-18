@@ -551,6 +551,11 @@ nmap gl <Plug>(EasyAlign)
 
 " put folders and hidden files first
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r | silent keeppatterns g/\.git\/$/d'
+augroup dirvish_config
+  autocmd!
+  autocmd FileType dirvish nnoremap <silent><buffer>
+        \ gh :silent keeppatterns g@\v/\.[^\/]+/?$@d _<cr>:setl cole=3<cr>
+augroup END
 
 nmap <leader>r <plug>(SubversiveSubstitute)
 nmap <leader>rr <plug>(SubversiveSubstituteLine)
