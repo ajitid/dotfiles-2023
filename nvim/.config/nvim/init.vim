@@ -550,7 +550,7 @@ xmap gl <Plug>(EasyAlign)
 nmap gl <Plug>(EasyAlign)
 
 " put folders and hidden files first
-let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r'
+let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r | silent keeppatterns g/\.git\/$/d'
 
 nmap <leader>r <plug>(SubversiveSubstitute)
 nmap <leader>rr <plug>(SubversiveSubstituteLine)
