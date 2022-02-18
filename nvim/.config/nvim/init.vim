@@ -472,7 +472,6 @@ require("pairs"):setup({
 EOF
 autocmd BufRead,BufNewFile */node_modules/* lua vim.diagnostic.disable(0)
 luafile ~/.config/nvim/mine/snippets.lua
-" luafile ~/.config/nvim/mine/lsp-and-completion.lua
 lua require"mine.lsp"
 
 command! EchoLineDiagnostics lua require('mine.lsp.diagnostics').echo_line_diagnostics()
