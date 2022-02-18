@@ -71,6 +71,7 @@ Plug 'romgrk/nvim-treesitter-context'
 Plug 'unblevable/quick-scope'
 Plug 'stevearc/aerial.nvim'
 Plug 'kosayoda/nvim-lightbulb'
+Plug 'ray-x/lsp_signature.nvim'
 
 """""""" evaluate
 " Plug 'danymat/neogen'

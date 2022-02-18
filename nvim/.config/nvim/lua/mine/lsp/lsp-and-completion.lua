@@ -2,9 +2,13 @@ local keymap = require("which-key").register
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  silent = true, -- don't tell me "No signature help available"
-  focusable = false, -- needed otherwise popup will get focus when space is typed after comma quickly inside fn call
+require "lsp_signature".setup({
+  bind=true,
+  handler_opts = {
+    border = "none",   -- double, rounded, single, shadow, none
+  },
+  padding = ' ',
+  hint_enable = false,
 })
 
 function basic_keymaps()
@@ -59,7 +63,7 @@ function basic_keymaps()
   vim.keymap.set("n", "]D", function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end, {buffer=0})
   vim.keymap.set("n", "[D", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end, {buffer=0})
 
-  vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help, {buffer=0})
+  vim.keymap.set({"i", "n"}, "<c-s>", vim.lsp.buf.signature_help, {buffer=0})
 end
 
 function format_on_save(client)
@@ -79,18 +83,11 @@ function format_on_save(client)
   end
 end
 
-function signature_help(client)
-  if client.server_capabilities.signatureHelpProvider then
-    require"mine.lsp.signature-help".signature_setup(client)
-  end
-end
-
 require'lspconfig'.gopls.setup{
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     basic_keymaps()
     format_on_save(client)
-    signature_help(client)
     require("aerial").on_attach(client, bufnr)
     -- doesn't throws a warning but doesn't work either https://github.com/jubnzv/virtual-types.nvim
     -- g< to echo warnings doesn't work
@@ -155,7 +152,6 @@ lsp_installer.on_server_ready(function(server)
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         basic_keymaps()
-        signature_help(client)
         require("aerial").on_attach(client, bufnr)
 
         if server.name == "tsserver" then
