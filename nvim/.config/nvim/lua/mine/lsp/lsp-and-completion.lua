@@ -259,6 +259,10 @@ cmp.setup({
 local kind = cmp.lsp.CompletionItemKind
 
 cmp.event:on("confirm_done", function(event)
+  if vim.bo.filetype == 'go' then
+    return
+  end
+
   local item = event.entry:get_completion_item()
   local parensDisabled = item.data and item.data.funcParensDisabled or false
   if not parensDisabled and (item.kind == kind.Method or item.kind == kind.Function) then
