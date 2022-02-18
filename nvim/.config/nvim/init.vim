@@ -646,6 +646,7 @@ endfunction
 command! -nargs=* -range Arrayify call <sid>Arrayify(<line1>, <line2>, <f-args>)
 
 lua <<EOF
+-- Update: use `lua =obj` rather `lua print(dump(obj))`
 -- from https://stackoverflow.com/questions/9168058/how-to-dump-a-table-to-console
 function dump(o)
    if type(o) == 'table' then

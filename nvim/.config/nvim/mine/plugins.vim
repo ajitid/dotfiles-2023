@@ -78,4 +78,5 @@ Plug 'ray-x/lsp_signature.nvim'
 " Plug 'jubnzv/virtual-types.nvim'
 " subcommand mode
 " Plug 'tomtom/tinykeymap_vim'
+" https://github.com/tjdevries/stackmap.nvim/
 call plug#end()
