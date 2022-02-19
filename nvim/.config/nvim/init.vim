@@ -566,8 +566,12 @@ augroup END
 nmap <leader>r <plug>(SubversiveSubstitute)
 nmap <leader>rr <plug>(SubversiveSubstituteLine)
 nmap <leader>R <plug>(SubversiveSubstituteToEndOfLine)
-" there's more, but I don't use it (I use LSP Code action instead). Find them
-" in 2021 dotfiles.
+nmap \ <plug>(SubversiveSubstituteRange)
+xmap \ <plug>(SubversiveSubstituteRange)
+nmap \\ <plug>(SubversiveSubstituteWordRange)
+nmap <leader>\ <plug>(SubversiveSubstituteRangeConfirm)
+xmap <leader>\ <plug>(SubversiveSubstituteRangeConfirm)
+nmap <leader>\\ <plug>(SubversiveSubstituteWordRangeConfirm)
 
 function! <SID>TrimTrailingWhitespaces()
   if !&binary && &filetype != 'diff'
