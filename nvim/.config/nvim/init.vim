@@ -31,26 +31,29 @@ if has('termguicolors')
   set termguicolors
 endif
 
-" need this to change cursor color https://github.com/neovim/neovim/issues/12626#issuecomment-799077796
-" disabling this for kanagawa as txt color is same as cursor color so text
-" becomes hard to read
+" Need this to change cursor color https://github.com/neovim/neovim/issues/12626#issuecomment-799077796.
+" Disabling this for zenbones as txt color is same as cursor color so text becomes hard to read
 " set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
 " aug kitty_cursor
 "   au!
 "   au Colorscheme * set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
 " aug END
 
-function! CustomKanagawa() abort
-  hi CmpGhostText guifg=#727169
-  " hi Cursor guibg=#094638
+function! CustomZenbones() abort
+  hi CmpGhostText guifg=#6E6763
+  highlight link PounceMatch NormalFloat
+  highlight link PounceGap NormalFloat
+  hi PounceKey guifg=#6099C0 guibg=#202223 gui=bold
+  hi link PounceAccept PounceKey
+  hi link PounceAcceptBest PounceKey
 endfunction
 
 augroup MyColors
   autocmd!
-  autocmd ColorScheme kanagawa call CustomKanagawa()
+  autocmd ColorScheme zenbones call CustomZenbones()
 augroup END
 
-colorscheme kanagawa
+colorscheme zenbones
 
 nnoremap <space> <nop>
 let mapleader = "\<Space>"

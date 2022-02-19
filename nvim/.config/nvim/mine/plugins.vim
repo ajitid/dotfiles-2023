@@ -15,7 +15,8 @@ Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-obsession'
 
 " styling
-Plug 'rebelot/kanagawa.nvim'
+Plug 'rktjmp/lush.nvim'
+Plug 'mcchrish/zenbones.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 
 " smort
