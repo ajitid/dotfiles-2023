@@ -39,6 +39,9 @@ Plug 'j-hui/fidget.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'ajitid/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
+" see https://github.com/nvim-lua/wishlist/issues/9#issuecomment-1025085677
+" and https://old.reddit.com/r/neovim/comments/oxl9pz/whats_the_recommended_way_to_handle_formatting/h7ndya2/
+" before adding a formatter or a linter
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'b0o/schemastore.nvim'
 Plug 'tpope/vim-repeat'
