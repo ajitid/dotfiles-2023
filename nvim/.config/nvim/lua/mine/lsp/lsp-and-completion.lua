@@ -253,19 +253,8 @@ cmp.setup({
   },
 })
 
-local kind = cmp.lsp.CompletionItemKind
-
-cmp.event:on("confirm_done", function(event)
-  if vim.bo.filetype == 'go' then
-    return
-  end
-
-  local item = event.entry:get_completion_item()
-  local parensDisabled = item.data and item.data.funcParensDisabled or false
-  if not parensDisabled and (item.kind == kind.Method or item.kind == kind.Function) then
-    require("pairs.bracket").type_left("(")
-  end
-end)
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 
 -- null-ls stuff is mostly taken from https://github.com/Gelio/ubuntu-dotfiles/blob/master/install/neovim/stowed/.config/nvim/lua/lsp/null-ls.lua
 -- other links to refer:

@@ -68,6 +68,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'ZhiyuanLck/smart-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'andymass/vim-matchup'
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'natecraddock/telescope-zf-native.nvim'

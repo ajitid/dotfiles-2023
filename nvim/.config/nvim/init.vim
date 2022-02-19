@@ -457,34 +457,7 @@ EOF
 set completeopt=menu,menuone,noselect
 set pumheight=8
 
-lua <<EOF
-local ts_map = {
-  {'`', '`'},
-}
-
--- from https://github.com/ZhiyuanLck/smart-pairs/blob/master/doc/delete.md
-local fb = require('pairs.fallback')
-
-require("pairs"):setup({
-  pairs = {
-    javascript = ts_map,
-    typescript = ts_map,
-    typescriptreact = ts_map,
-  },
-  delete = {
-    empty_pre = {
-      enable_cond = false,
-    },
-    empty_line = {
-      text_bracket = {
-        one = {
-          strategy = 'leave_zero_above',
-        },
-      }
-    }
-  }
-})
-EOF
+lua require('nvim-autopairs').setup{}
 autocmd BufRead,BufNewFile */node_modules/* lua vim.diagnostic.disable(0)
 luafile ~/.config/nvim/mine/snippets.lua
 lua require"mine.lsp"
