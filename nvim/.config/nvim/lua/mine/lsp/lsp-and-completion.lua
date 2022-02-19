@@ -59,10 +59,35 @@ function basic_keymaps()
     prefix = "<leader>"
   })
 
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer=0})
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {buffer=0})
-  vim.keymap.set("n", "]D", function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end, {buffer=0})
-  vim.keymap.set("n", "[D", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end, {buffer=0})
+  vim.keymap.set("n", "]d", function()
+    vim.diagnostic.goto_next({
+      float = { scope = 'line' },
+      -- see https://vi.stackexchange.com/questions/21086/get-the-length-number-of-colums-in-the-current-line-row#comment36973_21087
+      -- and https://stackoverflow.com/a/65615609/7683365
+      -- like (0) acts for curr buf, in vimscript `'.'` acts for current line
+      cursor_position = {vim.api.nvim_win_get_cursor(0)[1], vim.api.nvim_eval('col("$")')}
+    }) 
+  end, {buffer=0})
+  vim.keymap.set("n", "[d", function()
+    vim.diagnostic.goto_prev({
+      float = { scope = 'line' },
+      cursor_position = {vim.api.nvim_win_get_cursor(0)[1], 0}
+    }) 
+  end, {buffer=0})
+  vim.keymap.set("n", "]D", function()
+    vim.diagnostic.goto_next({
+      float = { scope = 'line' },
+      severity = vim.diagnostic.severity.ERROR,
+      cursor_position = {vim.api.nvim_win_get_cursor(0)[1], vim.api.nvim_eval('col("$")')}
+    })
+  end, {buffer=0})
+  vim.keymap.set("n", "[D", function()
+    vim.diagnostic.goto_prev({
+      float = { scope = 'line' },
+      severity = vim.diagnostic.severity.ERROR,
+      cursor_position = {vim.api.nvim_win_get_cursor(0)[1], 0}
+    })
+  end, {buffer=0})
 
   vim.keymap.set({"i", "n"}, "<c-s>", vim.lsp.buf.signature_help, {buffer=0})
 end

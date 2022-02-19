@@ -46,6 +46,11 @@ function! CustomZenbones() abort
   hi PounceKey guifg=#6099C0 guibg=#202223 gui=bold
   hi link PounceAccept PounceKey
   hi link PounceAcceptBest PounceKey
+
+  sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
+  sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
+  sign define DiagnosticSignInfo text=│ texthl=DiagnosticSignInfo
+  sign define DiagnosticSignHint text=│ texthl=DiagnosticSignHint
 endfunction
 
 augroup MyColors
@@ -481,7 +486,16 @@ https://github.com/j-hui/fidget.nvim/issues/17#issuecomment-1023550617
 -- }
 EOF
 
-lua require('pqf').setup()
+lua <<EOF
+require('pqf').setup({
+  signs = {
+    error = 'E',
+    warning = 'W',
+    info = 'I',
+    hint = 'H'
+  }
+})
+EOF
 
 lua <<EOF
 require'treesitter-context'.setup{
@@ -761,12 +775,12 @@ let g:esearch = {}
 let g:esearch.root_markers = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
 lua <<EOF
-vim.diagnostic.config({ virtual_text = false, severity_sort = true })
+vim.diagnostic.config({ virtual_text = false, severity_sort = true, underline = false })
 
 local keymap = require("which-key").register
 keymap({
     ["'"] = { "<cmd>Telescope resume<cr>", "resume search" },
-    d = { "<cmd>lua vim.diagnostic.open_float({scope = 'c'})<cr>", "diagnostic at cursor" },
+    d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "diagnostic at cursor" },
     t = {
       name = "toggle visibility",
       -- if offscreen
