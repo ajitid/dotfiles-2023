@@ -462,12 +462,27 @@ local ts_map = {
   {'`', '`'},
 }
 
+-- from https://github.com/ZhiyuanLck/smart-pairs/blob/master/doc/delete.md
+local fb = require('pairs.fallback')
+
 require("pairs"):setup({
   pairs = {
     javascript = ts_map,
     typescript = ts_map,
     typescriptreact = ts_map,
   },
+  delete = {
+    empty_pre = {
+      enable_cond = false,
+    },
+    empty_line = {
+      text_bracket = {
+        one = {
+          strategy = 'leave_zero_above',
+        },
+      }
+    }
+  }
 })
 EOF
 autocmd BufRead,BufNewFile */node_modules/* lua vim.diagnostic.disable(0)
