@@ -44,6 +44,7 @@ function basic_keymaps()
       r = { vim.lsp.buf.rename, "rename symbol", buffer=0 },
       c = { vim.lsp.buf.incoming_calls, "callers for symbol", buffer=0 },
       a = { "<cmd>Telescope lsp_code_actions<cr>", "code actions", buffer=0 },
+      s = { vim.lsp.buf.signature_help, "fn signature", buffer=0 },
     },
     f = {
       name = "file",
@@ -96,8 +97,6 @@ function basic_keymaps()
       cursor_position = {vim.api.nvim_win_get_cursor(0)[1], 0}
     })
   end, {buffer=0})
-
-  vim.keymap.set({"i", "n"}, "<c-c>", vim.lsp.buf.signature_help, {buffer=0})
 end
 
 function format_on_save(client)

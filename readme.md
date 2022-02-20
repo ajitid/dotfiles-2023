@@ -1,4 +1,4 @@
-# Ajit's dotfiles
+## tweaking dotfiles for eternity
 
 _You need to be inside dotfiles dir to perform these commands._
 
