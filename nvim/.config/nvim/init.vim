@@ -114,6 +114,8 @@ set inccommand=nosplit
 set ignorecase
 set smartcase
 
+set shiftround
+
 " line up down in visual mode using ctrl+j/k
 vnoremap <silent><c-j> :m '>+1<cr>gv=gv
 vnoremap <silent><c-k> :m '<-2<cr>gv=gv

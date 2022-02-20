@@ -16,6 +16,7 @@ function basic_keymaps()
   keymap({
     d = { vim.lsp.buf.definition, "definition", buffer=0 },
     D = { vim.lsp.buf.type_definition, "type definition", buffer=0 },
+    r = { vim.lsp.buf.references, "references", buffer=0 },
   }, {
     prefix = "g"
   })
@@ -26,6 +27,7 @@ function basic_keymaps()
     D = { vim.lsp.buf.type_definition, "type definition", buffer=0 },
     i = { vim.lsp.buf.implementation, "implementation", buffer=0 },
     r = { vim.lsp.buf.references, "references", buffer=0 },
+    c = { vim.lsp.buf.incoming_calls, "callers for symbol", buffer=0 },
   }, {
     prefix = "<leader>g"
   })
@@ -42,7 +44,6 @@ function basic_keymaps()
     c = {
       name = "code",
       r = { vim.lsp.buf.rename, "rename symbol", buffer=0 },
-      c = { vim.lsp.buf.incoming_calls, "callers for symbol", buffer=0 },
       a = { "<cmd>Telescope lsp_code_actions<cr>", "code actions", buffer=0 },
       s = { vim.lsp.buf.signature_help, "fn signature", buffer=0 },
     },
