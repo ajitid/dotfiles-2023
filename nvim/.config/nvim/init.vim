@@ -406,8 +406,6 @@ require('lualine').setup({
 })
 END
 
-let g:matchup_matchparen_deferred = 1
-
 let s:show_matchup_popup = v:false
 let g:matchup_matchparen_offscreen = {}
 function! <sid>MatchupPairPopupToggle()

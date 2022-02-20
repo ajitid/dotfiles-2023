@@ -69,6 +69,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'folke/which-key.nvim'
 Plug 'ZhiyuanLck/smart-pairs'
 Plug 'windwp/nvim-autopairs'
+" disable matchup completely if you're facing scrolling issues during hjkl
+" movement
 Plug 'andymass/vim-matchup'
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'natecraddock/telescope-zf-native.nvim'

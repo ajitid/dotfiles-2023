@@ -16,10 +16,18 @@ function basic_keymaps()
   keymap({
     d = { vim.lsp.buf.definition, "definition", buffer=0 },
     D = { vim.lsp.buf.type_definition, "type definition", buffer=0 },
+  }, {
+    prefix = "g"
+  })
+
+  keymap({
+    name = "goto",
+    d = { vim.lsp.buf.definition, "definition", buffer=0 },
+    D = { vim.lsp.buf.type_definition, "type definition", buffer=0 },
     i = { vim.lsp.buf.implementation, "implementation", buffer=0 },
     r = { vim.lsp.buf.references, "references", buffer=0 },
   }, {
-    prefix = "g"
+    prefix = "<leader>g"
   })
 
   vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
