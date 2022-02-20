@@ -60,25 +60,22 @@ Plug 'tommcdo/vim-nowchangethat'
 " there's also https://github.com/RRethy/nvim-treesitter-textsubjects
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'ajitid/gitlinker.nvim', { 'branch': 'fix/respect-nil-mapping' }
-" there's also https://github.com/arthurxavierx/vim-caser
-Plug 'nicwest/vim-camelsnek'
 Plug 'eugen0329/vim-esearch'
 Plug 'AndrewRadev/splitjoin.vim'
 " shifts the code too much
 " Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 Plug 'folke/which-key.nvim'
-Plug 'ZhiyuanLck/smart-pairs'
 Plug 'windwp/nvim-autopairs'
-" disable matchup completely if you're facing scrolling issues during hjkl
-" movement
 Plug 'andymass/vim-matchup'
-" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'natecraddock/telescope-zf-native.nvim'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'unblevable/quick-scope'
 Plug 'stevearc/aerial.nvim'
 Plug 'kosayoda/nvim-lightbulb'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'tpope/vim-abolish'
+" see https://github.com/ajitid/dotfiles/blob/cd797dfa99eb094dc454886103f31d4bdb4eedda/archived/nvim-2021/.config/nvim/plugins.vim#L135
+Plug 'Konfekt/vim-CtrlXA'
 
 """""""" evaluate
 " Plug 'danymat/neogen'

@@ -97,7 +97,7 @@ function basic_keymaps()
     })
   end, {buffer=0})
 
-  vim.keymap.set({"i", "n"}, "<c-s>", vim.lsp.buf.signature_help, {buffer=0})
+  vim.keymap.set({"i", "n"}, "<c-c>", vim.lsp.buf.signature_help, {buffer=0})
 end
 
 function format_on_save(client)

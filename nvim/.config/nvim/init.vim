@@ -452,7 +452,6 @@ require('telescope').setup{
   }
 }
 
--- require('telescope').load_extension('fzf')
 require("telescope").load_extension("zf-native")
 EOF
 
@@ -551,6 +550,11 @@ omap gs <cmd>Pounce<CR>
 
 xmap gl <Plug>(EasyAlign)
 nmap gl <Plug>(EasyAlign)
+let g:easy_align_delimiters = {
+      \   '/': {
+      \       'pattern': '\/\/',
+      \   },
+      \ }
 
 " put folders and hidden files first
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r | silent keeppatterns g/\.git\/$/d'
@@ -745,16 +749,6 @@ command! -nargs=1 E call s:OpenRelated(<f-args>)
 command! -nargs=1 EV call s:OpenRelated(<f-args>, 'vsp')
 command! A call s:OpenRelated('alt')
 
-" TODO add operator map
-nmap <leader>~_ <cmd>Snek<cr>
-xmap <leader>~_ :Snek<cr>
-nmap <leader>~C <cmd>Camel<cr>
-xmap <leader>~C :Camel<cr>
-nmap <leader>~c <cmd>CamelB<cr>
-xmap <leader>~c :CamelB<cr>
-nmap <leader>~- <cmd>Kebab<cr>
-xmap <leader>~- :Kebab<cr>
-
 let g:bettergrep_no_mappings = 1
 let g:bettergrep_no_abbrev = 1
 
@@ -841,3 +835,9 @@ autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({s
 
 " runs command on cursor line and replaces the line with shell output
 nmap <leader>! !!$SHELL<CR>
+
+" ctrl+s to save
+inoremap <c-s> <esc><cmd>w<cr>
+" to keep yourself in insert mode, use inoremap <c-s> <c-o><cmd>w<cr>
+nnoremap <c-s> <esc><cmd>w<cr>
+xnoremap <c-s> <esc><cmd>w<cr>gv
