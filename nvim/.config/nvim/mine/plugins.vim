@@ -36,7 +36,6 @@ Plug 'saadparwaiz1/cmp_luasnip'
 
 " others
 Plug 'tpope/vim-eunuch'
-Plug 'j-hui/fidget.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'ajitid/vim-bettergrep', { 'branch': 'modifications-zlksnk' }

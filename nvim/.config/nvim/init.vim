@@ -468,22 +468,6 @@ command! EchoLineDiagnostics lua require('mine.lsp.diagnostics').echo_line_diagn
 command! PutErrorsInLocationList lua vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.ERROR })
 
 lua <<EOF
---[[
-FIXME renable it when the following get resolved:
-https://github.com/j-hui/fidget.nvim/issues/28
-https://github.com/j-hui/fidget.nvim/issues/17#issuecomment-1023550617
---]]
-
--- require"fidget".setup{
---   sources = {
---     ltex = {
---       ignore = true,
---     },
---   },
--- }
-EOF
-
-lua <<EOF
 require('pqf').setup({
   signs = {
     error = 'E',
