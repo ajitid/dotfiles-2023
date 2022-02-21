@@ -434,11 +434,25 @@ command! MatchupPairPopupDisable
 
 luafile ~/.config/nvim/mine/treesitter-and-comment.lua
 
+" exit fzf using <c-c> or <c-q> https://github.com/junegunn/fzf.vim/issues/544
+" from https://github.com/junegunn/fzf/issues/1393#issuecomment-426576577
+" commenting as when used inside nvim-bqf, it removes qf list buffer too
+" autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
+
 lua <<EOF
+local actions = require"telescope.actions"
+
 require('telescope').setup{
   defaults = require("telescope.themes").get_ivy {
     layout_config = {
       height = 22,
+    },
+
+    mappings = {
+      i = {
+        -- had to comment it as pressing esc moves the cursor left by one char
+        -- ["<esc>"] = actions.close
+      }
     },
 
     file_ignore_patterns = {
