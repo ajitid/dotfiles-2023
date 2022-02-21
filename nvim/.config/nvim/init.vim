@@ -681,25 +681,8 @@ function! s:BlankDown(count) abort
   '[-1
 endfunction
 
-nnoremap [o <cmd>call <sid>BlankUp(v:count1)<cr>
-nnoremap ]o <cmd>call <sid>BlankDown(v:count1)<cr>
-
-" https://superuser.com/a/581669
-" and `ga` in normal mode to get char info
-function! s:SpaceBefore(count) abort
-  " https://vi.stackexchange.com/a/12480
-  call feedkeys(a:count . '"=nr2char(32)' . "\<CR>" . 'Pl')
-  " https://stackoverflow.com/a/47789099/7683365
-  call feedkeys(":echo\<cr>")
-endfunction
-
-function! s:SpaceAfter(count) abort
-  call feedkeys(a:count . '"=nr2char(32)' . "\<CR>" . 'p`[h')
-  call feedkeys(":echo\<cr>")
-endfunction
-
-nnoremap [<space> <cmd>call <sid>SpaceBefore(v:count1)<cr>
-nnoremap ]<space> <cmd>call <sid>SpaceAfter(v:count1)<cr>
+nnoremap [<space> <cmd>call <sid>BlankUp(v:count1)<cr>
+nnoremap ]<space> <cmd>call <sid>BlankDown(v:count1)<cr>
 
 " TODO add vim-repeat to next/prev, same for navigating to next/prev diagnostic
 " unimpared like mapping for arglist
