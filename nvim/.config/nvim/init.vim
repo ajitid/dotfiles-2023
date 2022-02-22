@@ -772,7 +772,6 @@ keymap({
       name = "file",
       f  = { "<cmd>Telescope find_files hidden=true<cr>", "find" },
       ["/"] = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "search buffer"},
-      -- more options for oldfiles in issue's minimal config https://github.com/nvim-telescope/telescope.nvim/issues/1300#issue-1014120393
       o  = { "<cmd>Telescope oldfiles cwd_only=true<cr>", "old files" },
       u  = { ":undolist<CR>:u<Space>", "undo list" },
       l = { ":call cursor()<left>", "goto line" },

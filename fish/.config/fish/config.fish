@@ -308,6 +308,19 @@ export PATH="$PATH:$HOME/.emacs.d/bin"
 # TODO tmp fix, see https://github.com/microsoft/wslg/issues/641#issuecomment-1025490260
 export GDK_BACKEND="x11"
 
+# needs imagemagick, also see ranger and nnn
 alias icat="kitty +kitten icat"
 
 source ~/.config/fish/kanagawa.fish
+
+# in case kitty's F1 shortcut isn't available, this is the way to pipe stuff to nvim:
+
+# capture the output of a command so it can be retrieved with ret
+function cap
+  tee /tmp/capture.out
+end
+
+# return the output of the most recent command that was captured by cap
+function ret
+  cat /tmp/capture.out
+end
