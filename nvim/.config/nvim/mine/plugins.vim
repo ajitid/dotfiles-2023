@@ -55,6 +55,9 @@ Plug 'svermeulen/vim-subversive'
 Plug 'kana/vim-textobj-user'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'Julian/vim-textobj-variable-segment'
+" TODO use nvim-ts-context-commentstring to update comment string for
+" JavaScript based files
+Plug 'glts/vim-textobj-comment'
 Plug 'tommcdo/vim-nowchangethat'
 " there's also https://github.com/RRethy/nvim-treesitter-textsubjects
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
