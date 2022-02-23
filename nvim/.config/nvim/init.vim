@@ -531,8 +531,11 @@ set wildcharm=<c-z>
 " We are using : over <cmd> so vim doesn't ask us to append <cr> at the
 " end. More separators here ->
 " http://vimdoc.sourceforge.net/htmldoc/cmdline.html#filename-modifiers
-nnoremap <leader>f. :e %:.:h<c-z>
-nnoremap <leader>> :e %:.:h<c-z>
+"
+" space and backspace are added to prevent autosuggest from showing parent folder
+" suggestions
+nnoremap <leader>f. :e %:.:h<c-z><space><bs>
+nnoremap <leader>> :e %:.:h<c-z><space><bs>
 
 nmap <leader>. <cmd>lua require"telescope.builtin".find_files({ cwd = require"telescope.utils".buffer_dir(), hidden = true })<cr>
 
