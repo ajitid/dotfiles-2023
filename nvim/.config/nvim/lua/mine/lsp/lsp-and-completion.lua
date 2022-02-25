@@ -124,10 +124,6 @@ require'lspconfig'.gopls.setup{
     format_on_save(client)
     require("aerial").on_attach(client, bufnr)
     client.resolved_capabilities.document_formatting = false
-
-    -- doesn't throws a warning but doesn't work either https://github.com/jubnzv/virtual-types.nvim
-    -- g< to echo warnings doesn't work
-    -- require'virtualtypes'.on_attach(client, bufnr)
   end,
 }
 

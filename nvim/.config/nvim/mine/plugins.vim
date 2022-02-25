@@ -81,7 +81,6 @@ Plug 'Konfekt/vim-CtrlXA'
 
 """""""" evaluate
 " Plug 'danymat/neogen'
-" Plug 'jubnzv/virtual-types.nvim'
 " subcommand mode
 " Plug 'tomtom/tinykeymap_vim'
 " https://github.com/tjdevries/stackmap.nvim/
