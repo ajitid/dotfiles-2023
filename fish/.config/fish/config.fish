@@ -308,7 +308,7 @@ export PATH="$PATH:$HOME/.emacs.d/bin"
 # TODO tmp fix, see https://github.com/microsoft/wslg/issues/641#issuecomment-1025490260
 export GDK_BACKEND="x11"
 
-# needs imagemagick, also see ranger and nnn
+# needs imagemagick, also see nnn
 alias icat="kitty +kitten icat"
 
 source ~/.config/fish/kanagawa.fish
@@ -324,3 +324,5 @@ end
 function ret
   cat /tmp/capture.out
 end
+
+set -x EDITOR "nvim.appimage"
