@@ -648,8 +648,8 @@ nmap <leader>` <cmd>e $MYVIMRC<cr>
 
 lua <<EOF
 require"gitlinker".setup()
-vim.api.nvim_set_keymap('n', '<leader>fgx', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
-vim.api.nvim_set_keymap('v', '<leader>fgx', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
+vim.api.nvim_set_keymap('n', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+vim.api.nvim_set_keymap('v', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
 EOF
 
 function! s:Arrayify(line1, line2, ...) abort
@@ -720,8 +720,9 @@ nnoremap ]q <cmd>cnext<cr><cmd>call repeat#set("]q")<cr>
 nnoremap [Q <cmd>cfirst<cr>
 nnoremap ]Q <cmd>clast<cr>
 
-" wrap for comments, see :h gq
-nnoremap Q gq_
+" wrap for comments, see :h gq. Earlier it was mapped to gq_ (not to be
+" confused with g_ which is used to go to last non-whitespace char)
+nnoremap Q gqic
 
 source ~/.config/nvim/mine/quickswitch.vim
 function! s:OpenRelated(to_open, mode = v:null)
@@ -856,3 +857,9 @@ let g:mkdp_browserfunc = 'MarkdownPreviewInBrowserFn'
 function! DateStrPretty() range
   return system('date "+%Y-%m-%d %H:%M:%S" | tr -d "\n"')
 endfunction
+
+let g:vmt_fence_text = 'TOC'
+let g:vmt_fence_closing_text = '/TOC'
+" allows you to delete GFM from opening fence text and still use update toc
+" command
+let g:vmt_fence_hidden_markdown_style = 'GFM'
