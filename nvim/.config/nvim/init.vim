@@ -834,3 +834,25 @@ nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
 nnoremap <silent> n :call WordNavigation(1)<cr>
 nnoremap <silent> N :call WordNavigation(0)<cr>
 let g:interestingWordsGUIColors =["#ffa724", "#aeee00", "#8cffba", "#b88853", "#ff9eb8", "#ff2c4b"] 
+
+function! MarkdownPreviewInBrowserFn(url) abort
+  " taken from https://github.com/ajitid/dotfiles/blob/da7fcc455fd6e9d89b7b79be8b19216d32aaf055/archived/nvim-2021/.config/nvim/init.vim#L575-L587
+  if !exists('g:loaded_netrw')
+    runtime! autoload/netrw.vim
+  endif
+
+  if exists('*netrw#BrowseX')
+    call netrw#BrowseX(a:url, 0)
+  endif
+
+  if has('clipboard')
+    let @+ = a:url
+    echo 'Opening URL in browser, it has been copied to clipboard too.'
+  endif
+endfunction
+let g:mkdp_browserfunc = 'MarkdownPreviewInBrowserFn'
+
+" from https://github.com/marcelbeumer/dotfiles/blob/8fbe4d2ab5e812f1315626fb642fca386ee281e7/nvim/lua/nvim_marcel/etc/date.lua#L2
+function! DateStrPretty() range
+  return system('date "+%Y-%m-%d %H:%M:%S" | tr -d "\n"')
+endfunction

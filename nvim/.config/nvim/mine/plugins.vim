@@ -79,6 +79,7 @@ Plug 'tpope/vim-abolish'
 " see https://github.com/ajitid/dotfiles/blob/cd797dfa99eb094dc454886103f31d4bdb4eedda/archived/nvim-2021/.config/nvim/plugins.vim#L135
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'lfv89/vim-interestingwords'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 """""""" evaluate
 " Plug 'danymat/neogen'
