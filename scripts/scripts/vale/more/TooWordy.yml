@@ -19,6 +19,7 @@ tokens:
   - adjacent to
   - adjustment
   - admissible
+  - advancing backwards
   - advantageous
   - adversely impact
   - advise
@@ -29,6 +30,7 @@ tokens:
   - all things considered
   - alleviate
   - allocate
+  - alludes explicitly to
   - along the lines of
   - already existing
   - alternatively
@@ -53,16 +55,19 @@ tokens:
   - belated
   - benefit from
   - bestow
+  - build down
   - by means of
-  - by virtue of the fact that
   - by virtue of
+  - by virtue of the fact that
   - cease
   - close proximity
   - commence
+  - completely obsolete
   - comply with
   - concerning
   - consequently
   - consolidate
+  - conspicuous absence
   - constitutes
   - demonstrate
   - depart
@@ -80,10 +85,12 @@ tokens:
   - equivalent
   - evaluate
   - evidenced
+  - exact estimate
   - exclusively
   - expedite
   - expend
   - expiration
+  - explicitly alludes to
   - facilitate
   - factual evidence
   - feasible
@@ -94,6 +101,8 @@ tokens:
   - for the purpose of
   - forfeit
   - formulate
+  - found missing
+  - generally always
   - have a tendency to
   - honest truth
   - however
@@ -124,19 +133,22 @@ tokens:
   - in the near future
   - in the process of
   - inception
+  - increasingly less
   - incumbent upon
   - indicate
   - indication
   - initiate
+  - intense apathy
   - irregardless
   - is applicable to
   - is authorized to
   - is responsible for
-  - it is essential
   - it is
+  - it is essential
   - it seems that
   - it was
   - magnitude
+  - mandatory choice
   - maximum
   - methodology
   - minimize
@@ -161,6 +173,7 @@ tokens:
   - on the other hand
   - one particular
   - optimum
+  - organized mess
   - overall
   - owing to the fact that
   - participate
@@ -193,6 +206,7 @@ tokens:
   - shall
   - should you wish
   - similar to
+  - so to speak
   - solicit
   - span across
   - strategize
@@ -205,11 +219,14 @@ tokens:
   - the point I am trying to make
   - therefore
   - time period
+  - to a certain degree
   - took advantage of
+  - totally obsolete
   - transmit
   - transpire
   - type of
   - until such time as
+  - usually always
   - utilization
   - utilize
   - validate
@@ -219,3 +236,4 @@ tokens:
   - with respect to
   - with the exception of
   - witnessed
+  - would argue that
