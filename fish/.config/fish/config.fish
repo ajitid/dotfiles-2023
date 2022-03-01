@@ -3,7 +3,8 @@ if status is-interactive
 	cd $HOME
 end
 
-starship init fish | source
+set -U fish_greeting
+# starship init fish | source
 
 # use `eval (ssh-agent -c)` or github.com/danhper/fish-ssh-agent
 
