@@ -90,5 +90,7 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " Plug 'danymat/neogen'
 " subcommand mode
 " Plug 'tomtom/tinykeymap_vim'
+" https://github.com/kana/vim-submode
+" https://github.com/kana/vim-arpeggio/
 " https://github.com/tjdevries/stackmap.nvim/
 call plug#end()
