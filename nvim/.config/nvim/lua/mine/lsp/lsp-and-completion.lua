@@ -68,7 +68,9 @@ function basic_keymaps()
     mode = "v",
     prefix = "<leader>"
   })
+end
 
+function diagnostic_keymaps()
   vim.keymap.set("n", "]d", function()
     vim.diagnostic.goto_next({
       float = { scope = 'line' },
@@ -121,6 +123,7 @@ require'lspconfig'.gopls.setup{
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     basic_keymaps()
+    diagnostic_keymaps()
     format_on_save(client)
     require("aerial").on_attach(client, bufnr)
     client.resolved_capabilities.document_formatting = false
@@ -184,6 +187,7 @@ lsp_installer.on_server_ready(function(server)
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         basic_keymaps()
+        diagnostic_keymaps()
         require("aerial").on_attach(client, bufnr)
 
         if server.name == "tsserver" then
@@ -310,6 +314,7 @@ local sources = {
 local config = {
   on_attach = function(client, bufnr)
     format_on_save(client)
+    diagnostic_keymaps()
   end,
   sources = sources,
 }

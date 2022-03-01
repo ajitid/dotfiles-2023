@@ -13,7 +13,12 @@ function M.echo_line_diagnostics(bufnr, line_nr, client_id)
 
     for i, diagnostic in ipairs(line_diagnostics) do
         local prefix_text = diagnostic.source or '(unknown)'
-        local code = diagnostic.user_data.lsp.code
+
+        local code = nil
+        if diagnostic.user_data then
+            code = diagnostic.user_data.lsp.code
+        end
+
         if code then
           prefix_text = prefix_text .. ' ' .. code
         end
