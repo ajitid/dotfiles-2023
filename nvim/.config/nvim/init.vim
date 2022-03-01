@@ -46,6 +46,8 @@ function! CustomZenbones() abort
   hi PounceKey guifg=#6099C0 guibg=#202223 gui=bold
   hi link PounceAccept PounceKey
   hi link PounceAcceptBest PounceKey
+  " switch to CursorLine if it bothers you
+  hi link MatchWord NormalFloat
 
   sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
   sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
@@ -863,3 +865,5 @@ let g:vmt_fence_closing_text = '/TOC'
 " allows you to delete GFM from opening fence text and still use update toc
 " command
 let g:vmt_fence_hidden_markdown_style = 'GFM'
+
+let g:Hexokinase_highlighters = ['backgroundfull']
