@@ -33,7 +33,6 @@ abbr getclip "xclip -selection c -o"
 # more options at https://unix.stackexchange.com/questions/360540/append-to-a-pipe-and-pass-on
 abbr gi "cd ~/ghq/(ghq list | fzf)"
 abbr gg "ghq get -p"
-abbr ge "emacs --eval \"(magit-status)\" &"
 
 fzf_configure_bindings --directory=\cf --git_log --git_status --variables
 
@@ -76,7 +75,6 @@ eval /home/zlksnk/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 abbr v 'nvim.appimage'
 abbr vv 'nvim.appimage -S'
 abbr v. 'nvim.appimage --cmd "let g:rooter_manual_only=1"'
-abbr e 'emacs &'
 
 # abbr process running on a port "sudo lsof -i:3000"
 
@@ -300,11 +298,6 @@ end
 # where r stands to show high to low in folder size
 abbr huge "du -h --max-depth=1 | sort -hr"
 # alternative https://github.com/bootandy/dust
-
-# remove emacs log files, run this from ~
-# rm -r (fd -t d -H '\.log')
-
-export PATH="$PATH:$HOME/.emacs.d/bin"
 
 # TODO tmp fix, see https://github.com/microsoft/wslg/issues/641#issuecomment-1025490260
 export GDK_BACKEND="x11"
