@@ -789,7 +789,7 @@ keymap({
         N  = { '<cmd>let @+ = expand("%:t")<cr>', "name to clipboard" },
       },
     },
-    ["<space>"] = { "<cmd>Telescope find_files hidden=true<cr>", "find files" },
+    ["<space>"] = { "<cmd>Telescope tags<cr>", "find files" },
     ["-"] = { "<cmd>Telescope open_dir open_dir<cr>", "find dir" },
   }, {
     prefix = "<leader>",
@@ -814,6 +814,8 @@ highlight QuickScopePrimary guifg='#6ade93' gui=underline ctermfg=81
 highlight QuickScopeSecondary guifg='#ffa9d5' gui=underline ctermfg=81
 
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
+
+let g:gutentags_project_root = ['src', 'go.mod']
 
 " what is the point of saving blank (empty) windows?
 set sessionoptions-=blank
