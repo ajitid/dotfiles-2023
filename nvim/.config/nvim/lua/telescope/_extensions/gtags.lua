@@ -92,11 +92,7 @@ function gen_from_ctags(opts)
     end
 
     local tag_entry = {}
-    if opts.only_sort_tags then
-      tag_entry.ordinal = tag
-    else
-      tag_entry.ordinal = file .. ": " .. tag
-    end
+    tag_entry.ordinal = tag
 
     tag_entry.display = make_display
     tag_entry.scode = scode
@@ -112,7 +108,6 @@ end
 local gtags = function(opts)
   opts = opts or {}
   opts.bufnr = opts.bufnr or 0
-  opts.only_sort_tags = true
 
   local tagfiles = opts.ctags_file and { opts.ctags_file } or vim.fn.tagfiles()
   if vim.tbl_isempty(tagfiles) then
