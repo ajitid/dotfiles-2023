@@ -566,13 +566,12 @@ let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r | silent keeppatterns g/\.git\/$
 augroup dirvish_config
   autocmd!
   autocmd FileType dirvish nnoremap <silent><buffer>
-        \ gh :silent keeppatterns g@\v/\.[^\/]+/?$@d _<cr>:setl cole=3<cr>
+        \ gh :silent keeppatterns g@\v/\.[^\/]+/?$@d _<cr>:setl cole=2<cr>
+  autocmd FileType dirvish nnoremap <silent><buffer> r <cmd>setlocal conceallevel=2<cr>
   autocmd FileType dirvish nmap <silent><buffer> h <Plug>(dirvish_up)
   autocmd FileType dirvish nmap <silent><buffer> l <cmd>call dirvish#open("edit", 0)<cr>
   autocmd FileType dirvish silent! unmap <buffer> -
   autocmd FileType dirvish nmap <silent><buffer> - <cmd>Dirvish<cr>
-  autocmd FileType dirvish nmap <silent><buffer> <tab> <Plug>(dirvish_arg) \| j
-  autocmd FileType dirvish xmap <silent><buffer> <tab> <Plug>(dirvish_arg)
 augroup END
 
 nmap <leader>r <plug>(SubversiveSubstitute)
