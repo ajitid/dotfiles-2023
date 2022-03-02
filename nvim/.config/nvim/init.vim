@@ -832,13 +832,14 @@ inoremap <c-s> <esc><cmd>w<cr>
 nnoremap <c-s> <esc><cmd>w<cr>
 xnoremap <c-s> <esc><cmd>w<cr>gv
 
+let g:interestingWordsGUIColors =["#ffa724", "#aeee00", "#8cffba", "#b88853", "#ff9eb8", "#ff2c4b"] 
 let g:interestingWordsDefaultMappings = 0
 nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
 vnoremap <silent> <leader>m :call InterestingWords('v')<cr>
 nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
-nnoremap <silent> n :call WordNavigation(1)<cr>
-nnoremap <silent> N :call WordNavigation(0)<cr>
-let g:interestingWordsGUIColors =["#ffa724", "#aeee00", "#8cffba", "#b88853", "#ff9eb8", "#ff2c4b"] 
+" conflicts with vim-cool, hides [3/34] that appears at bottom right
+" nnoremap <silent> n :call WordNavigation(1)<cr>
+" nnoremap <silent> N :call WordNavigation(0)<cr>
 
 function! MarkdownPreviewInBrowserFn(url) abort
   " taken from https://github.com/ajitid/dotfiles/blob/da7fcc455fd6e9d89b7b79be8b19216d32aaf055/archived/nvim-2021/.config/nvim/init.vim#L575-L587
