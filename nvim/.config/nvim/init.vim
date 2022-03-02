@@ -817,6 +817,24 @@ let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
 let g:gutentags_project_root = ['src', 'go.mod']
 
+function <sid>GutentagsAutoUpdate() abort
+  if !exists(':GutentagsUpdate')
+    return
+  endif
+  GutentagsUpdate!
+endfunction
+
+augroup gutentags_auto_update
+  autocmd!
+  " VimEnter probably won't be called as first buffer on open is an empty
+  " buffer, but let's keep it for sake of completeness.
+  "
+  " ^ This means that you would find tags to be out of date if you switch a
+  " branch and then open nvim
+  autocmd VimEnter * call <sid>GutentagsAutoUpdate()
+  autocmd FocusGained * call <sid>GutentagsAutoUpdate()
+augroup END
+
 " what is the point of saving blank (empty) windows?
 set sessionoptions-=blank
 set sessionoptions+=winpos,terminal
