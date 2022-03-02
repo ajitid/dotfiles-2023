@@ -816,6 +816,7 @@ highlight QuickScopeSecondary guifg='#ffa9d5' gui=underline ctermfg=81
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
 let g:gutentags_project_root = ['src', 'go.mod']
+let g:gutentags_generate_on_empty_buffer = 1
 
 function <sid>GutentagsAutoUpdate() abort
   if !exists(':GutentagsUpdate')
@@ -826,12 +827,6 @@ endfunction
 
 augroup gutentags_auto_update
   autocmd!
-  " VimEnter probably won't be called as first buffer on open is an empty
-  " buffer, but let's keep it for sake of completeness.
-  "
-  " ^ This means that you would find tags to be out of date if you switch a
-  " branch and then open nvim
-  autocmd VimEnter * call <sid>GutentagsAutoUpdate()
   autocmd FocusGained * call <sid>GutentagsAutoUpdate()
 augroup END
 
