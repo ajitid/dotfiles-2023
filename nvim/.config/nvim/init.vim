@@ -789,7 +789,7 @@ keymap({
         N  = { '<cmd>let @+ = expand("%:t")<cr>', "name to clipboard" },
       },
     },
-    ["<space>"] = { "<cmd>Telescope tags<cr>", "find files" },
+    ["<space>"] = { "<cmd>Telescope gtags gtags<cr>", "find files" },
     ["-"] = { "<cmd>Telescope open_dir open_dir<cr>", "find dir" },
   }, {
     prefix = "<leader>",
