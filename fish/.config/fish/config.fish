@@ -1,6 +1,6 @@
 # cd ~
 if status is-interactive
-	cd $HOME
+  cd $HOME
 end
 
 set -U fish_greeting
@@ -39,11 +39,11 @@ fzf_configure_bindings --directory=\cf --git_log --git_status --variables
 alias l='ls  -alhp --group-directories-first --color=never'
 
 function mkcd --description 'Create and enter directory'
-	if mkdir $argv
-		if string match -qv -- '-*' $argv[-1]
-			cd $argv[-1]
-		end
-	end
+  if mkdir $argv
+    if string match -qv -- '-*' $argv[-1]
+      cd $argv[-1]
+    end
+  end
 end
 
 # set -gx VOLTA_HOME "$HOME/.volta"

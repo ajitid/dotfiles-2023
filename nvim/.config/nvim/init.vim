@@ -165,55 +165,7 @@ set nowrap
 " https://stackoverflow.com/questions/13294489/make-vim-only-do-a-soft-word-wrap-not-hard-word-wrap
 set linebreak
 
-" makes:
-"    1. some content to
-" display
-"
-" to display like this:
-"    1. some content to
-"       display
-set breakindent
-set briopt=list:-1
-" related stuff at https://github.com/tpope/vim-markdown/pull/169
-
-" Set tabstop, softtabstop and shiftwidth to the same value
-command! -nargs=* Stabs call Stabs()
-function! Stabs()
-  let l:tabstop = 1 * input('setlocal tabstop = softtabstop = shiftwidth = ')
-  if l:tabstop > 0
-    let &l:sts = l:tabstop
-    let &l:ts = l:tabstop
-    let &l:sw = l:tabstop
-  endif
-  echo "\r"
-  call SummarizeTabs()
-endfunction
-
-function! SummarizeTabs()
-  try
-    echohl ModeMsg
-    echon 'tabstop='.&l:ts
-    echon ' shiftwidth='.&l:sw
-    echon ' softtabstop='.&l:sts
-    if &l:et
-      echon ' expandtab'
-    else
-      echon ' noexpandtab'
-    endif
-  finally
-    echohl None
-  endtry
-endfunction
-
-" for file type ~/.vim/after/ftplugin/html.vim as `setlocal shiftwidth=2`
-" other way could be: autocmd BufRead,BufNewFile   *.c,*.h,*.java set noic cin noexpandtab
-" TODO doesn't sets indentation
-augroup filetype_based_indentation
-  autocmd!
-  autocmd VimEnter * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  autocmd FileType python,rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  autocmd FileType go setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-augroup END
+source ~/.config/nvim/mine/indent.vim
 
 set jumpoptions+=stack
 " also see keepjumps command in help, useful in your scripts
@@ -882,3 +834,4 @@ let g:vmt_fence_closing_text = '/TOC'
 let g:vmt_fence_hidden_markdown_style = 'GFM'
 
 let g:Hexokinase_highlighters = ['backgroundfull']
+
