@@ -1,0 +1,14 @@
+# GENERAL
+--exclude=.git
+--exclude=.DS_Store
+
+--exclude=*.json
+--exclude=*.css
+--exclude=*.sass
+--exclude=*.scss
+--exclude=*.patch
+
+# JAVASCRIPT
+--exclude=node_modules
+--exclude=package-lock.json
+--exclude=yarn.lock
