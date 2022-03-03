@@ -13,6 +13,10 @@ set lazyredraw
 " there is also `secure` https://vi.stackexchange.com/questions/5055/why-is-set-exrc-dangerous
 " ii14/exrc.vim which I've installed might help to guard against this
 set modelines=0
+" additionally see this: https://github.com/jsatk/dotfiles/blob/52aa72c9a277d8caaa01ace7df4c888e46b5bb8e/tag-vim/vimrc#L712-L713
+" Notice `:h secure` says to put itself at the bottom of vimrc. Also, with
+" `set exrc` set, I might not need exrc plugin (but why it then exists at the
+" very first place?)
 
 " which key prompt wait time
 set timeoutlen=1000
@@ -109,8 +113,13 @@ nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
 
 set scrolloff=3
 
-" set list listchars=tab:ᐅ\ ,trail:·,extends:>,precedes:<,nbsp:~
-set list listchars=tab:\ \ ,trail:·,extends:>,precedes:<,nbsp:~
+" set list listchars=tab:ᐅ\ ,extends:>,precedes:<,nbsp:~
+set list listchars=tab:\ \ ,extends:>,precedes:<,nbsp:~
+augroup trailing
+  autocmd!
+  autocmd InsertEnter * :set listchars-=trail:·
+  autocmd InsertLeave * :set listchars+=trail:·
+augroup END
 
 set inccommand=nosplit
 set ignorecase
@@ -801,7 +810,8 @@ let g:interestingWordsDefaultMappings = 0
 nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
 vnoremap <silent> <leader>m :call InterestingWords('v')<cr>
 nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
-" conflicts with vim-cool, hides [3/34] that appears at bottom right
+" somehow results in hiding [3/34] that appears at bottom right at command
+" line
 " nnoremap <silent> n :call WordNavigation(1)<cr>
 " nnoremap <silent> N :call WordNavigation(0)<cr>
 
@@ -835,3 +845,27 @@ let g:vmt_fence_hidden_markdown_style = 'GFM'
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 
+" This function defines what folded text looks like.
+function! MyFoldText()
+  let line = getline(v:foldstart)
+
+  let nucolwidth = &fdc + &number * &numberwidth
+  let windowwidth = winwidth(0) - nucolwidth - 3
+  let foldedlinecount = v:foldend - v:foldstart
+
+  " expand tabs into spaces
+  let onetab = strpart(' ', 0, &tabstop)
+  let line = substitute(line, '\t', onetab, 'g')
+
+  let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+  let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+  return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction
+set foldtext=MyFoldText()
+
+" highlight current line when that window (buffer) is not in focus
+augroup cline
+  autocmd!
+  autocmd WinLeave * set cursorline
+  autocmd WinEnter * set nocursorline
+augroup END
