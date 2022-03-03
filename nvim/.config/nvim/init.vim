@@ -622,11 +622,18 @@ function! s:Arrayify(line1, line2, ...) abort
   " from https://stackoverflow.com/a/33775128/7683365
   let l:start_quote = get(a:, '1', '"')
   let l:end_quote = get(a:, '2', l:start_quote)
+
   " delete empty lines first
   let l:rng = a:line1 . ',' . a:line2
-  let l:newline2 = a:line2 - len(split(execute('g=^$'), '\n'))
+  let l:find_empty_res = split(execute(l:rng . 'g=^$'), '\n')
+  let l:newline2 = a:line2
+  if l:find_empty_res[0] !=# 'Pattern not found: ^$'
+    let l:newline2 = a:line2 - len(l:find_empty_res)
+  endif
   silent execute l:rng . "g/^$/d"
+
   let l:rng = a:line1 . ',' . l:newline2
+
   silent execute l:rng . "s/^/" . l:start_quote
   silent execute l:rng . "s/$/" . l:end_quote . ","
   execute(l:rng . "join")
