@@ -623,10 +623,13 @@ function! s:Arrayify(line1, line2, ...) abort
   let l:start_quote = get(a:, '1', '"')
   let l:end_quote = get(a:, '2', l:start_quote)
   " delete empty lines first
-  silent execute "'<,'>g/^$/d"
-  silent execute("'<,'>s/^/" . l:start_quote)
-  silent execute("'<,'>s/$/" . l:end_quote . ",")
-  execute("'<,'>join")
+  let l:rng = a:line1 . ',' . a:line2
+  let l:newline2 = a:line2 - len(split(execute('g=^$'), '\n'))
+  silent execute l:rng . "g/^$/d"
+  let l:rng = a:line1 . ',' . l:newline2
+  silent execute l:rng . "s/^/" . l:start_quote
+  silent execute l:rng . "s/$/" . l:end_quote . ","
+  execute(l:rng . "join")
   " remove extraneous comma at the end
   silent execute("s/.$/")
 endfunction
