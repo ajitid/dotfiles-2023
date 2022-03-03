@@ -675,7 +675,7 @@ nnoremap ]Q <cmd>clast<cr>
 
 " wrap for comments, see :h gq. Earlier it was mapped to gq_ (not to be
 " confused with g_ which is used to go to last non-whitespace char)
-nnoremap Q gqic
+nmap Q gqic
 
 source ~/.config/nvim/mine/quickswitch.vim
 function! s:OpenRelated(to_open, mode = v:null)
