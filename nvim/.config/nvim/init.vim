@@ -614,33 +614,22 @@ vim.api.nvim_set_keymap('n', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf
 vim.api.nvim_set_keymap('v', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
 EOF
 
-function! s:Arrayify(line1, line2, ...) abort
-  if a:line1 == a:line2
-    return
+function! s:arrayify(bang, ...) range abort
+  let quote_begin = get(a:, 1, "")
+  let quote_end   = get(a:, 2, quote_begin)
+  let lines = getline(a:firstline, a:lastline)
+  if a:bang == '!'
+    " bang => filter out empty lines
+    call filter(lines, {_, l -> l !~ '^\s*$'})
   endif
-
-  " from https://stackoverflow.com/a/33775128/7683365
-  let l:start_quote = get(a:, '1', '"')
-  let l:end_quote = get(a:, '2', l:start_quote)
-
-  " delete empty lines first
-  let l:rng = a:line1 . ',' . a:line2
-  let l:find_empty_res = split(execute(l:rng . 'g=^$'), '\n')
-  let l:newline2 = a:line2
-  if l:find_empty_res[0] !=# 'Pattern not found: ^$'
-    let l:newline2 = a:line2 - len(l:find_empty_res)
-  endif
-  silent execute l:rng . "g/^$/d"
-
-  let l:rng = a:line1 . ',' . l:newline2
-
-  silent execute l:rng . "s/^/" . l:start_quote
-  silent execute l:rng . "s/$/" . l:end_quote . ","
-  execute(l:rng . "join")
-  " remove extraneous comma at the end
-  silent execute("s/.$/")
+  call map(lines, {_, l -> l:quote_begin . l . l:quote_end})
+        \ ->join(', ')
+        \ ->setline(a:firstline)
+  call deletebufline('%', a:firstline+1, a:lastline)
 endfunction
-command! -nargs=* -range Arrayify call <sid>Arrayify(<line1>, <line2>, <f-args>)
+
+command! -bang -nargs=* -range=1 Arrayify
+      \ <line1>,<line2>call s:arrayify("<bang>", <f-args>)
 
 lua <<EOF
 -- Update: use `lua =obj` rather `lua print(dump(obj))`
