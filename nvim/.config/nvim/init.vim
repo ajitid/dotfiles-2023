@@ -618,8 +618,8 @@ function! s:arrayify(bang, ...) range abort
   let quote_begin = get(a:, 1, "")
   let quote_end   = get(a:, 2, quote_begin)
   let lines = getline(a:firstline, a:lastline)
-  if a:bang == '!'
-    " bang => filter out empty lines
+  if a:bang != '!'
+    " bang => don't filter out empty lines
     call filter(lines, {_, l -> l !~ '^\s*$'})
   endif
   call map(lines, {_, l -> l:quote_begin . l . l:quote_end})
