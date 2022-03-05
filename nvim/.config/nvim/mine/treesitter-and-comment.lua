@@ -31,10 +31,16 @@ ts.setup {
       set_jumps = false,
 
       goto_next_start = {
-        ["]f"] = "@function.outer",
+        ["]]"] = "@function.outer",
       },
       goto_previous_start = {
-        ["[f"] = "@function.outer",
+        ["[["] = "@function.outer",
+      },
+      goto_next_end = {
+        ["]["] = "@function.outer",
+      },
+      goto_previous_end = {
+        ["[]"] = "@function.outer",
       },
     },
   },
