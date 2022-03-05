@@ -6,7 +6,8 @@ ts.setup {
     enable = true,
   },
   indent = {
-    enable = true,
+    -- TODO breaks comment indent
+    -- enable = true,
   },
   matchup = {
     enable = true,
@@ -19,13 +20,21 @@ ts.setup {
     select = {
       enable = true,
 
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = false,
+
+      goto_next_start = {
+        ["]f"] = "@function.outer",
+      },
+      goto_previous_start = {
+        ["[f"] = "@function.outer",
       },
     },
   },
