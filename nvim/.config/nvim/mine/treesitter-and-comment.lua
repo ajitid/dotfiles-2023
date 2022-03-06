@@ -19,7 +19,6 @@ ts.setup {
   textobjects = {
     select = {
       enable = true,
-
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
@@ -28,8 +27,6 @@ ts.setup {
     },
     move = {
       enable = true,
-      set_jumps = false,
-
       goto_next_start = {
         ["]]"] = "@function.outer",
       },
