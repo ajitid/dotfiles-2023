@@ -604,11 +604,6 @@ source ~/.config/nvim/mine/blame.vim
 
 lua require"gitlinker".setup()
 
-nmap <leader>a <c-^>
-" <leader>A for quickswitch?
-nmap <leader>s <cmd>Telescope buffers<cr>
-nmap <leader>` <cmd>e $MYVIMRC<cr>
-
 lua <<EOF
 require"gitlinker".setup()
 vim.api.nvim_set_keymap('n', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
@@ -720,6 +715,9 @@ vim.diagnostic.config({ virtual_text = false, severity_sort = true, underline = 
 
 local keymap = require("which-key").register
 keymap({
+    ["`"] = { "<cmd>e $MYVIMRC<cr>", "edit vimrc" },
+    a = { "<c-^>", "alt buffer" },
+    s = { "<cmd>Telescope buffers<cr>", "switch to buffer" },
     ["'"] = { "<cmd>Telescope resume<cr>", "resume search" },
     d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "diagnostic at cursor" },
     t = {
