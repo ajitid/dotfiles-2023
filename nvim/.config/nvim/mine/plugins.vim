@@ -16,6 +16,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-obsession'
 
+" condition not needed as it doesn't interferes with vim's session management
+" if index(v:argv, '-S') == -1
+" commented only to encourage the use of sessions
+" Plug 'farmergreg/vim-lastplace'
+
 " styling
 Plug 'rktjmp/lush.nvim'
 Plug 'mcchrish/zenbones.nvim'
