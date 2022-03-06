@@ -1,5 +1,6 @@
+.projectile
 .exrc
 Session.vim
 .quickswitch.json
-.projectile
 tags
+.notags

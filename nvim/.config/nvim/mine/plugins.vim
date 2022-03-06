@@ -87,6 +87,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " - https://stackoverflow.com/a/58768939/7683365
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+" cd ~; rm (fd -It f '^tags$')
 Plug 'ludovicchabant/vim-gutentags'
 
 """""""" evaluate
