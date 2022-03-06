@@ -81,10 +81,11 @@ if executable('rg')
   set grepformat=%f:%l:%c:%m
 endif
 
-set foldlevel=21
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+
 " FIXME tmp fix for https://github.com/nvim-telescope/telescope.nvim/issues/699
+set foldlevel=21
 augroup fix_folds
   autocmd!
   autocmd BufNewFile,BufRead *.* norm! zx
