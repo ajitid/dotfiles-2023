@@ -15,7 +15,6 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-obsession'
-
 " condition not needed as it doesn't interferes with vim's session management
 " if index(v:argv, '-S') == -1
 " commented only to encourage the use of sessions
@@ -56,6 +55,9 @@ Plug 'machakann/vim-sandwich'
 Plug 'rlane/pounce.nvim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-dirvish'
+" these are relevant and helpful
+" https://stackoverflow.com/a/51962260/7683365
+" https://www.reddit.com/r/vim/comments/7dv9as/how_to_edit_the_vim_quickfix_list/
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'tommcdo/vim-exchange'
 Plug 'svermeulen/vim-subversive'
@@ -71,7 +73,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'ajitid/gitlinker.nvim', { 'branch': 'fix/respect-nil-mapping' }
 Plug 'eugen0329/vim-esearch'
 Plug 'AndrewRadev/splitjoin.vim'
-" shifts the code too much
+" shifts the code too much:
 " Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'windwp/nvim-autopairs'
