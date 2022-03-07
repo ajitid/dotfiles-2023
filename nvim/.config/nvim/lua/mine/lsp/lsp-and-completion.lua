@@ -174,7 +174,14 @@ end
 
 function typescript_rename_file_command()
   local old_name = vim.fn.expand('%:p:.')
-  local new_name = vim.fn.input("Rename file to: ", old_name, "file")
+  local new_name = nil
+  -- err occurs when one presses ctrl+c (Keyboard interrupt)
+  local status, err = pcall(function() new_name = vim.fn.input("Rename file to: ", old_name, "file") end)
+  -- new_name is '' when esc key is pressed
+  if err ~= nil or new_name == '' then
+    return
+  end
+
   local root_dir = vim.fn.getcwd()
   function on_ok()
       vim.api.nvim_command('Move ' .. new_name)
