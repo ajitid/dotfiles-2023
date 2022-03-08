@@ -358,6 +358,8 @@ autocmd Filetype help nnoremap <buffer> q :q<cr>
 autocmd CmdwinEnter * nnoremap <buffer><silent> <F5> :let g:CmdWindowLineMark=line(".")<CR><CR>q::execute "normal ".g:CmdWindowLineMark."G"<CR>
 " <c-c> quits command window, so don't map q or esc for it
 
+let g:root_markers = ['src', 'package.json', 'go.mod', 'Makefile', '.git']
+
 " noshowmode hides default mode display as we are using custom statusline
 set noshowmode
 lua << END
@@ -708,7 +710,7 @@ nmap <leader>* <cmd>call GrepLiteral(expand('<cword>'))<cr>
 nmap <leader>/ <plug>(esearch)
 map  <leader>? <plug>(operator-esearch-prefill)
 let g:esearch = {}
-let g:esearch.root_markers = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
+let g:esearch.root_markers = g:root_markers
 
 lua <<EOF
 vim.diagnostic.config({ virtual_text = false, severity_sort = true, underline = false })
@@ -771,7 +773,7 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 highlight QuickScopePrimary guifg='#6ade93' gui=underline ctermfg=81
 highlight QuickScopeSecondary guifg='#ffa9d5' gui=underline ctermfg=81
 
-let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
+let g:rooter_patterns = g:root_markers
 
 " don't search for parent directory for tags
 " https://vi.stackexchange.com/questions/13509/use-only-closest-tagfile-to-working-directory-of-buffer-or-of-vim-process
@@ -786,7 +788,7 @@ set tags=
 " git branch for example (as GutentagsUpdate command is not available in
 " Dirvish)
 
-let g:gutentags_project_root = ['src', 'go.mod']
+let g:gutentags_project_root = g:root_markers
 let g:gutentags_generate_on_empty_buffer = 1
 
 function <sid>GutentagsAutoUpdate() abort
