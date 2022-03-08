@@ -787,6 +787,9 @@ set tags=
 " this would load up the tagfile, but (probably) won't update tags if you change
 " git branch for example (as GutentagsUpdate command is not available in
 " Dirvish)
+"
+" so unless the repo isn't monorepo, I would still suggest to put `.notags`
+" file at root to avoid extraneous tag generation
 
 let g:gutentags_project_root = g:root_markers
 let g:gutentags_generate_on_empty_buffer = 1
