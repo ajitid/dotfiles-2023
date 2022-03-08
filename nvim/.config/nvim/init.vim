@@ -133,7 +133,7 @@ vnoremap <silent><c-j> :m '>+1<cr>gv=gv
 vnoremap <silent><c-k> :m '<-2<cr>gv=gv
 
 if has("persistent_undo")
-  let target_path = expand('~/mytmp/.undodir')
+  let target_path = expand('~/.local/share/nvim/.undodir')
 
   " create the directory and any parent directories
   " if the location does not exist.
@@ -790,6 +790,7 @@ set tags=
 
 let g:gutentags_project_root = g:root_markers
 let g:gutentags_generate_on_empty_buffer = 1
+let g:gutentags_cache_dir = '~/.cache/nvim/project-tags'
 
 function <sid>GutentagsAutoUpdate() abort
   if !exists(':GutentagsUpdate')
