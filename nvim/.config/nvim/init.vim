@@ -776,7 +776,15 @@ let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 " don't search for parent directory for tags
 " https://vi.stackexchange.com/questions/13509/use-only-closest-tagfile-to-working-directory-of-buffer-or-of-vim-process
 " (PS: turns out setglobal tags?, set tags? and setlocal tags? give different values)
+" Now I have two solutions, one being:
 set tags=
+" ^ this works perfectly in all cases but doesn't generate tags and loads tag file
+" when Dirvish is opened.
+" another is to do:
+" set tags=tags
+" this would load up the tagfile, but (probably) won't update tags if you change
+" git branch for example (as GutentagsUpdate command is not available in
+" Dirvish)
 
 let g:gutentags_project_root = ['src', 'go.mod']
 let g:gutentags_generate_on_empty_buffer = 1
