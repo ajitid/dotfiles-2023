@@ -773,6 +773,11 @@ highlight QuickScopeSecondary guifg='#ffa9d5' gui=underline ctermfg=81
 
 let g:rooter_patterns = ['src', '.git', 'Makefile', 'node_modules', 'go.mod']
 
+" don't search for parent directory for tags
+" https://vi.stackexchange.com/questions/13509/use-only-closest-tagfile-to-working-directory-of-buffer-or-of-vim-process
+" (PS: turns out setglobal tags?, set tags? and setlocal tags? give different values)
+set tags=
+
 let g:gutentags_project_root = ['src', 'go.mod']
 let g:gutentags_generate_on_empty_buffer = 1
 

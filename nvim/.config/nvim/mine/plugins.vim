@@ -48,7 +48,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'tpope/vim-eunuch'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'ajitid/vim-bettergrep', { 'branch': 'modifications-zlksnk' }
+Plug 'qalshidi/vim-bettergrep'
 " see https://github.com/nvim-lua/wishlist/issues/9#issuecomment-1025085677
 " and https://old.reddit.com/r/neovim/comments/oxl9pz/whats_the_recommended_way_to_handle_formatting/h7ndya2/
 " before adding a formatter or a linter

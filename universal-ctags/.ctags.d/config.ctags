@@ -1,14 +1,23 @@
-# GENERAL
+# brace expanision has limits, see https://stackoverflow.com/a/42771377/7683365
+
+# General
 --exclude=.git
 --exclude=.DS_Store
+--exclude=*.patch
 
+--exclude=tmp
+--exclude=temp
+--exclude=build
+--exclude=dist
+
+# Frontend
 --exclude=*.json
 --exclude=*.css
 --exclude=*.sass
 --exclude=*.scss
---exclude=*.patch
 
-# JAVASCRIPT
 --exclude=node_modules
 --exclude=package-lock.json
 --exclude=yarn.lock
+--exclude=pnpm-lock.yaml
+
