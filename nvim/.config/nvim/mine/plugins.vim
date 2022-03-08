@@ -23,6 +23,7 @@ Plug 'tpope/vim-obsession'
 " if index(v:argv, '-S') == -1
 " commented only to encourage the use of sessions
 " Plug 'farmergreg/vim-lastplace'
+" also g; basically moves you to last position
 
 " styling
 Plug 'rktjmp/lush.nvim'

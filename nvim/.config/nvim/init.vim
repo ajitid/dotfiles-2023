@@ -417,7 +417,8 @@ require('telescope').setup{
     mappings = {
       i = {
         -- had to comment it as pressing esc moves the cursor left by one char
-        -- ["<esc>"] = actions.close
+        -- ^ TODO uncommented as we've a filed issue: https://github.com/nvim-telescope/telescope.nvim/issues/1185
+        ["<esc>"] = actions.close
       }
     },
 

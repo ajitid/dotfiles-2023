@@ -7,6 +7,7 @@ ts.setup {
   },
   indent = {
     -- TODO breaks comment indent
+    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/2544
     -- enable = true,
   },
   matchup = {
