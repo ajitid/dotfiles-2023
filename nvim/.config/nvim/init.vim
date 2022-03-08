@@ -602,7 +602,7 @@ command! PutModifiedFilesInArglist
 
 source ~/.config/nvim/mine/blame.vim
 
-lua require"gitlinker".setup()
+lua require"gitlinker".setup({ mappings = false })
 
 lua <<EOF
 require"gitlinker".setup()
