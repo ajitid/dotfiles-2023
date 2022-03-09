@@ -312,6 +312,8 @@ local sources = {
   null_ls.builtins.formatting.prettierd.with({
     filetypes = prettierd_filetypes,
   }),
+  -- needs
+  -- go install golang.org/x/tools/cmd/goimports@latest
   null_ls.builtins.formatting.goimports,
   null_ls.builtins.formatting.gofmt,
   null_ls.builtins.diagnostics.vale,

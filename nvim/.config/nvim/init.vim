@@ -897,3 +897,6 @@ function! DosToUnix()
   update
 endfunction
 command! DosToUnix call DosToUnix()
+
+" stolen parts from https://github.com/fatih/vim-go/
+source ~/.config/nvim/mine/go/init.vim

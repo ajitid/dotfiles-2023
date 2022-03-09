@@ -81,6 +81,7 @@ abbr v. 'nvim.appimage --cmd "let g:rooter_manual_only=1"'
 # see for info https://github.com/mhinz/neovim-remote/
 # and https://thoughtbot.com/upcase/videos/neovim-remote-as-preferred-editor
 alias vr "NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim.appimage"
+
 alias rm-win-identifiers "rm (fd -H 'Zone.Identifier' | xargs -n 1)"
 
 export PATH="$PATH:$HOME/execs"
