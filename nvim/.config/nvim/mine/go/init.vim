@@ -9,4 +9,7 @@ source ~/.config/nvim/mine/go/job.vim
 " modify tags using g:go_addtags_transform, see https://github.com/fatih/vim-go/issues/1265#issuecomment-299694718
 source ~/.config/nvim/mine/go/tags.vim
 source ~/.config/nvim/mine/go/cmd.vim
+" needs
+" go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
+source ~/.config/nvim/mine/go/fillstruct.vim
 source ~/.config/nvim/mine/go/commands.vim

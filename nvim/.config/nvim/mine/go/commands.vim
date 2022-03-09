@@ -7,3 +7,6 @@ command! -nargs=* -bang GoBuild call go#cmd#Build(<bang>0,<f-args>)
 " -- tags
 command! -nargs=* -range GoAddTags call go#tags#Add(<line1>, <line2>, <count>, <f-args>)
 command! -nargs=* -range GoRemoveTags call go#tags#Remove(<line1>, <line2>, <count>, <f-args>)
+
+" -- fillstruct
+command! -nargs=0 GoFillStruct call go#fillstruct#FillStruct()
