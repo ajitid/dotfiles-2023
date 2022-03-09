@@ -892,5 +892,8 @@ function! DosToUnix()
   setlocal ff=unix
   update
   edit
+  " repeating same commands again is intentional:
+  setlocal ff=unix
+  update
 endfunction
 command! DosToUnix call DosToUnix()
