@@ -696,7 +696,9 @@ command! A call s:OpenRelated('alt')
 
 let g:bettergrep_no_mappings = 1
 let g:bettergrep_no_abbrev = 1
-let g:bettergrepprg = "rg --vimgrep --smart-case -g '!*yarn.lock' -g '!*package-lock.json'"
+" better if adjusted per-project using .exrc:
+" let g:bettergrepprg = "rg --vimgrep --smart-case -g '!*yarn.lock' -g '!*package-lock.json'"
+let g:bettergrepprg = "rg --vimgrep --smart-case"
 
 command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
 function! GrepLiteral(query)
