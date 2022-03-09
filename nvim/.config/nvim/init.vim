@@ -605,10 +605,8 @@ command! PutModifiedFilesInArglist
 
 source ~/.config/nvim/mine/blame.vim
 
-lua require"gitlinker".setup({ mappings = false })
-
 lua <<EOF
-require"gitlinker".setup()
+require"gitlinker".setup({ mappings = false })
 vim.api.nvim_set_keymap('n', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
 vim.api.nvim_set_keymap('v', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
 EOF
