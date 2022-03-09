@@ -722,8 +722,23 @@ function! GrepLiteral(query)
   execute("Grep -g '!*yarn.lock' -g '!*package-lock.json' -F " . "'" . l:query . "'")
 endfunction
 
+" from https://stackoverflow.com/a/6271254/7683365
+function! GetVisualSelection()
+    " Why is this not a built-in Vim script function?!
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+        return ''
+    endif
+    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
+endfunction
+
 " other ways to grab current word are listed here https://stackoverflow.com/questions/31755115/call-vim-function-with-current-word
 nmap <leader>* <cmd>call GrepLiteral(expand('<cword>'))<cr>
+vmap <leader>* :<c-u>execute "GrepLiteral " . GetVisualSelection()<cr>
 
 nmap <leader>/ <plug>(esearch)
 map  <leader>? <plug>(operator-esearch-prefill)
