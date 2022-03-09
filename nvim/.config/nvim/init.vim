@@ -700,8 +700,26 @@ let g:bettergrepprg = "rg --vimgrep --smart-case"
 
 command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
 function! GrepLiteral(query)
+  let l:query = a:query
+
+  " counts deduced by hit and trial:
+  " execute("Grep -F '\\\"pack'")
+  " execute("Grep -F '\\\\\\'pack'")
+
+  let l:c = 1
+  while l:c <=3
+    let l:query = escape(l:query, '"')
+    let l:c += 1
+  endwhile
+
+  let l:c = 1
+  while l:c <=6
+    let l:query = escape(l:query, "'")
+    let l:c += 1
+  endwhile
+
   " -F is passed to ripgrep to make a literal search
-  execute("Grep -g '!*yarn.lock' -g '!*package-lock.json' -F " . "'" . a:query . "'")
+  execute("Grep -g '!*yarn.lock' -g '!*package-lock.json' -F " . "'" . l:query . "'")
 endfunction
 
 " other ways to grab current word are listed here https://stackoverflow.com/questions/31755115/call-vim-function-with-current-word
