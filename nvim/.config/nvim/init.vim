@@ -698,6 +698,7 @@ command! A call s:OpenRelated('alt')
 
 let g:bettergrep_no_mappings = 1
 let g:bettergrep_no_abbrev = 1
+let g:bettergrepprg = "rg --vimgrep --smart-case"
 
 command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
 function! GrepLiteral(query)
