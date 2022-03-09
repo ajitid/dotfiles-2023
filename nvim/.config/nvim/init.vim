@@ -36,15 +36,15 @@ if has('termguicolors')
 endif
 
 " Need this to change cursor color https://github.com/neovim/neovim/issues/12626#issuecomment-799077796.
-" Disabling this for zenbones as txt color is same as cursor color so text becomes hard to read
+" Disabling this for zenwritten as txt color is same as cursor color so text becomes hard to read
 " set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
 " aug kitty_cursor
 "   au!
 "   au Colorscheme * set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
 " aug END
 
-function! CustomZenbones() abort
-  hi CmpGhostText guifg=#6E6763
+function! CustomZenwritten() abort
+  hi CmpGhostText guifg=#686868
   highlight link PounceMatch NormalFloat
   highlight link PounceGap NormalFloat
   hi PounceKey guifg=#6099C0 guibg=#202223 gui=bold
@@ -61,10 +61,10 @@ endfunction
 
 augroup MyColors
   autocmd!
-  autocmd ColorScheme zenbones call CustomZenbones()
+  autocmd ColorScheme zenwritten call CustomZenwritten()
 augroup END
 
-colorscheme zenbones
+colorscheme zenwritten
 
 nnoremap <space> <nop>
 let mapleader = "\<Space>"
@@ -886,3 +886,11 @@ augroup cline
   autocmd WinLeave * set cursorline
   autocmd WinEnter * set nocursorline
 augroup END
+
+" removes ^M sign, from https://vim.fandom.com/wiki/File_format#Converting_the_current_file
+function! DosToUnix()
+  setlocal ff=unix
+  update
+  edit
+endfunction
+command! DosToUnix call DosToUnix()
