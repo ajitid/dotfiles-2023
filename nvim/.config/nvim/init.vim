@@ -696,7 +696,7 @@ command! A call s:OpenRelated('alt')
 
 let g:bettergrep_no_mappings = 1
 let g:bettergrep_no_abbrev = 1
-let g:bettergrepprg = "rg --vimgrep --smart-case"
+let g:bettergrepprg = "rg --vimgrep --smart-case -g '!*yarn.lock' -g '!*package-lock.json'"
 
 command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
 function! GrepLiteral(query)
@@ -719,7 +719,7 @@ function! GrepLiteral(query)
   endwhile
 
   " -F is passed to ripgrep to make a literal search
-  execute("Grep -g '!*yarn.lock' -g '!*package-lock.json' -F " . "'" . l:query . "'")
+  execute("Grep -F " . "'" . l:query . "'")
 endfunction
 
 " from https://stackoverflow.com/a/6271254/7683365
