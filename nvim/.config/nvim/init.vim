@@ -660,6 +660,11 @@ endfunction
 nnoremap [<space> <cmd>call <sid>BlankUp(v:count1)<cr>
 nnoremap ]<space> <cmd>call <sid>BlankDown(v:count1)<cr>
 
+function s:PutFileName() abort
+  call feedkeys(expand('%:t:r'))
+endfunction
+imap <c-g>n <cmd>call <sid>PutFileName()<cr>
+
 " TODO add vim-repeat to next/prev, same for navigating to next/prev diagnostic
 " unimpared like mapping for arglist
 nnoremap [a <cmd>prev<cr><cmd>call repeat#set("[a")<cr>
