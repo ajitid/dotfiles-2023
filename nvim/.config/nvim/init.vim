@@ -74,7 +74,7 @@ set mouse=nv
 set signcolumn=yes
 set number relativenumber
 
-set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/dist/*,*/build/*,.idea/**,*DS_Store*,*/coverage/*,*/.git/*,*/package-lock.json
+set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/dist/*,*/build/*,.idea/**,*DS_Store*,*/coverage/*,*/.git/*,*/package-lock.json,*/yarn.lock,*/go.sum
 
 if executable('rg')
   set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
@@ -428,6 +428,7 @@ require('telescope').setup{
       "node_modules/", "__pycache__/",
       "package%-lock.json", "yarn.lock", "pnpm%-lock.yaml",
       "build/", "dist/",
+      "go.sum",
     },
     -- ^ telescope uses lua's pattern matching library, see:
     -- https://github.com/nvim-telescope/telescope.nvim/issues/780
@@ -698,6 +699,7 @@ let g:bettergrep_no_mappings = 1
 let g:bettergrep_no_abbrev = 1
 " better if adjusted per-project using .exrc:
 " let g:bettergrepprg = "rg --vimgrep --smart-case -g '!*yarn.lock' -g '!*package-lock.json'"
+" not sure how I can re-use wildignore here (or even if it is needed)
 let g:bettergrepprg = "rg --vimgrep --smart-case"
 
 command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
