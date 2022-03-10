@@ -101,6 +101,7 @@ Plug 'mzlogin/vim-markdown-toc'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " cd ~; rm (fd -It f '^tags$')
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'tpope/vim-capslock'
 
 """""""" evaluate
 " Plug 'danymat/neogen'
