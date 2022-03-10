@@ -11,5 +11,7 @@ source ~/.config/nvim/mine/go/tags.vim
 source ~/.config/nvim/mine/go/cmd.vim
 " needs
 " go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
+" ^ lsp code action only fills the topmost struct, that's why this pkg
+" is still useful
 source ~/.config/nvim/mine/go/fillstruct.vim
 source ~/.config/nvim/mine/go/commands.vim
