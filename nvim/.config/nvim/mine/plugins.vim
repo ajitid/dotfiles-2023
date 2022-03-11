@@ -7,8 +7,9 @@ call plug#begin()
 " there's also https://github.com/windwp/nvim-projectconfig
 Plug 'ii14/exrc.vim'
 Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'romainl/vim-cool'
 Plug 'pbrisbin/vim-mkdir'
+Plug 'romainl/vim-cool'
+Plug 'rktjmp/highlight-current-n.nvim'
 Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 " hey, sensible (n)vim already tries to make `Y` consistent, why not `cw`
 Plug 'ap/vim-you-keep-using-that-word'
