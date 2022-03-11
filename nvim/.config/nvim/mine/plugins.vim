@@ -103,6 +103,9 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " cd ~; rm (fd -It f '^tags$')
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-capslock'
+Plug 'vim-scripts/CmdlineComplete'
+" ^ this works well too:
+" Plug 'vim-scripts/sherlock.vim'
 
 """""""" evaluate
 " Plug 'danymat/neogen'

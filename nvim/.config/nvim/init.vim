@@ -947,3 +947,6 @@ lua require("highlight_current_n").setup({})
 nmap n <Plug>(highlight-current-n-n)
 nmap N <Plug>(highlight-current-n-N)
 autocmd CmdlineLeave /,\? lua require('highlight_current_n')['/,?']()
+
+cmap <c-j> <Plug>CmdlineCompleteForward
+cmap <c-k> <Plug>CmdlineCompleteBackward
