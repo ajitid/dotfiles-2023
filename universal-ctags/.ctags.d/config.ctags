@@ -10,6 +10,9 @@
 --exclude=build
 --exclude=dist
 
+# Editors and IDEs
+--exclude=.idea
+
 # Frontend
 --exclude=*.json
 --exclude=*.css

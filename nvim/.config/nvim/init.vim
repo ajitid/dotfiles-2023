@@ -424,7 +424,7 @@ require('telescope').setup{
 
     file_ignore_patterns = {
       ".git/",
-      ".DS_Store", ".vscode/",
+      ".DS_Store", ".vscode/", ".idea/",
       "node_modules/", "__pycache__/",
       "package%-lock.json", "yarn.lock", "pnpm%-lock.yaml",
       "build/", "dist/",
@@ -527,8 +527,12 @@ let g:easy_align_delimiters = {
       \   },
       \ }
 
+let s:dirvish_exclude = ['\.git/$', '\.idea/$']
+let s:dirvish_exclude_pattern = join(s:dirvish_exclude, '\|')
+let s:dirvish_exclude_pattern = substitute(s:dirvish_exclude_pattern, '/', '\\/', 'g')
+
 " put folders and hidden files first
-let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r | silent keeppatterns g/\.git\/$/d'
+let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r | silent keeppatterns g/\(' . s:dirvish_exclude_pattern . '\)/d'
 augroup dirvish_config
   autocmd!
   autocmd FileType dirvish nnoremap <silent><buffer>
