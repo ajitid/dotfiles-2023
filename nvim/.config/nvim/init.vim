@@ -70,7 +70,8 @@ nnoremap <space> <nop>
 let mapleader = "\<Space>"
 
 set mouse=nv
-
+set cursorline
+set cursorlineopt=number
 set signcolumn=yes
 set number relativenumber
 
@@ -925,13 +926,6 @@ function! MyFoldText()
   return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
 endfunction
 set foldtext=MyFoldText()
-
-" highlight current line when that window (buffer) is not in focus
-augroup cline
-  autocmd!
-  autocmd WinLeave * set cursorline
-  autocmd WinEnter * set nocursorline
-augroup END
 
 " removes ^M sign, from https://vim.fandom.com/wiki/File_format#Converting_the_current_file
 function! DosToUnix()
