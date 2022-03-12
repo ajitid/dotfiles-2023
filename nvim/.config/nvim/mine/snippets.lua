@@ -58,11 +58,11 @@ local s = ls.s
 -- It takes a format string, and a list of nodes
 -- fmt(<fmt_string>, {...nodes})
 local fmt = require("luasnip.extras.fmt").fmt
+local l = require("luasnip.extras").lambda
+local dl = require("luasnip.extras").dynamic_lambda
 
--- This is an insert node
--- It takes a position (like $1) and optionally some default text
--- i(<position>, [default_text])
 local i = ls.insert_node
+local t = ls.text_node
 
 -- Repeats a node
 -- rep(<position>)
@@ -73,11 +73,17 @@ table.unpack = table.unpack or unpack
 
 local js_common = {
   ls.parser.parse_snippet("log", "console.log($0)"),
+  s("rus", fmt("const [{}, set{}] = useState({})", { i(1), dl(2, l._1:gsub("^%l", string.upper), 1), i(3) })),
 }
 
 ls.snippets = {
   all = {
     -- Available in any filetype
+  },
+  go = {
+    s("log", fmt("fmt.Println({})", i(1))),
+    ls.parser.parse_snippet("fn", "func ${1}(${2}) ${3}{\n\t${0}\n}"),
+    s("pm", t({"package main", "", ""})),
   },
   lua = {
     -- prefer s( over ls.parser.parse_snippet(
@@ -93,7 +99,6 @@ ls.snippets = {
   typescriptreact = {
     table.unpack(js_common),
     -- TODO capitalize doesn't work
-    ls.parser.parse_snippet("rus", "const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState(${3})"),
   },
 }
 
