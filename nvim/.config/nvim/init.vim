@@ -787,7 +787,7 @@ keymap({
       ["/"] = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "search buffer"},
       o  = { "<cmd>Telescope oldfiles cwd_only=true<cr>", "old files" },
       u  = { ":undolist<CR>:u<Space>", "undo list" },
-      l = { ":call cursor()<left>", "goto line" },
+      l = { ":call cursor()<left>", "goto line", silent=false },
       y = {
         name = "yank",
         p  = { '<cmd>let @" = expand("%")<cr>', "path" },
