@@ -783,6 +783,7 @@ keymap({
     f = {
       name = "file",
       f  = { "<cmd>Telescope find_files hidden=true<cr>", "find" },
+      s  = { "<cmd>Telescope current_buffer_tags<cr>", "symbols" },
       ["/"] = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "search buffer"},
       o  = { "<cmd>Telescope oldfiles cwd_only=true<cr>", "old files" },
       u  = { ":undolist<CR>:u<Space>", "undo list" },
@@ -839,7 +840,6 @@ set tags=
 
 let g:gutentags_project_root = g:root_markers
 let g:gutentags_generate_on_empty_buffer = 1
-let g:gutentags_cache_dir = stdpath('cache') . '/project-tags'
 
 function <sid>GutentagsAutoUpdate() abort
   if !exists(':GutentagsUpdate')
