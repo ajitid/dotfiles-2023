@@ -541,7 +541,6 @@ augroup dirvish_config
   autocmd FileType dirvish nnoremap <silent><buffer> r <cmd>setlocal conceallevel=2<cr>
   autocmd FileType dirvish nmap <silent><buffer> h <Plug>(dirvish_up)
   autocmd FileType dirvish nmap <silent><buffer> l <cmd>call dirvish#open("edit", 0)<cr>
-  autocmd FileType dirvish silent! unmap <buffer> -
   autocmd FileType dirvish nmap <silent><buffer> - <cmd>Dirvish<cr>
 augroup END
 

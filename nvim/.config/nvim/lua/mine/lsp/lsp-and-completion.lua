@@ -278,8 +278,10 @@ cmp.setup({
       require('luasnip').lsp_expand(args.body)
     end,
   },
+  view = {
+    entries = 'native'
+  },
   experimental = {
-    native_menu = false,
     ghost_text = {
       hl_group = 'CmpGhostText'
     },
