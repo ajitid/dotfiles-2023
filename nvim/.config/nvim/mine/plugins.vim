@@ -107,6 +107,13 @@ Plug 'vim-scripts/CmdlineComplete'
 " ^ this works well too:
 " Plug 'vim-scripts/sherlock.vim'
 
+" needs:
+" go install github.com/josharian/impl@latest
+Plug 'mattn/vim-goimpl'
+" ^ other options
+" https://github.com/rhysd/vim-go-impl
+" https://github.com/sasha-s/goimpl
+
 """""""" evaluate
 " Plug 'danymat/neogen'
 " subcommand mode
