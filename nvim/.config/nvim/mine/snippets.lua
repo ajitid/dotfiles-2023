@@ -58,8 +58,10 @@ local s = ls.s
 -- It takes a format string, and a list of nodes
 -- fmt(<fmt_string>, {...nodes})
 local fmt = require("luasnip.extras.fmt").fmt
+local fmta = require("luasnip.extras.fmt").fmta
 local l = require("luasnip.extras").lambda
 local dl = require("luasnip.extras").dynamic_lambda
+local ne = require("luasnip.extras").nonempty
 
 local i = ls.insert_node
 local t = ls.text_node
@@ -73,7 +75,7 @@ table.unpack = table.unpack or unpack
 
 local js_common = {
   ls.parser.parse_snippet("log", "console.log($0)"),
-  s("rus", fmt("const [{}, set{}] = useState({})", { i(1), dl(2, l._1:gsub("^%l", string.upper), 1), i(3) })),
+  s("rus", fmt("const [{}, {}] = useState({})", { i(1), dl(2, "set" .. l._1:gsub("^%l", string.upper), 1), i(3) })),
 }
 
 ls.snippets = {
@@ -82,7 +84,7 @@ ls.snippets = {
   },
   go = {
     s("log", fmt("fmt.Println({})", i(1))),
-    ls.parser.parse_snippet("fn", "func ${1}(${2}) ${3}{${0}\n}"),
+    s("fn", fmta("func <>(<>) <><>{<>\n}", {i(1), i(2), i(3), ne(3, " ", ""), i(0)})),
     s("pm", t({"package main", "", ""})),
   },
   lua = {
