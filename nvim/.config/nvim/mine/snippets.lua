@@ -82,7 +82,7 @@ ls.snippets = {
   },
   go = {
     s("log", fmt("fmt.Println({})", i(1))),
-    ls.parser.parse_snippet("fn", "func ${1}(${2}) ${3}{\n\t${0}\n}"),
+    ls.parser.parse_snippet("fn", "func ${1}(${2}) ${3}{${0}\n}"),
     s("pm", t({"package main", "", ""})),
   },
   lua = {
