@@ -64,7 +64,7 @@ augroup MyColors
   autocmd ColorScheme zenwritten call CustomZenwritten()
 augroup END
 
-let g:zenwritten = #{ italic_comments: v:false }
+" let g:zenwritten = #{ italic_comments: v:false }
 colorscheme zenwritten
 
 nnoremap <space> <nop>
@@ -413,7 +413,7 @@ local actions = require"telescope.actions"
 require('telescope').setup{
   defaults = require("telescope.themes").get_ivy {
     layout_config = {
-      height = 22,
+      height = 20,
     },
 
     mappings = {
