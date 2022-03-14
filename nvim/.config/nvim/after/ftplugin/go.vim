@@ -9,3 +9,6 @@ command! -buffer -nargs=* -range GoRemoveTags call go#tags#Remove(<line1>, <line
 
 " -- fillstruct
 command! -buffer -nargs=0 GoFillStruct call go#fillstruct#FillStruct()
+
+" -- impl
+command! -buffer -nargs=* -complete=customlist,go#impl#Complete GoImpl call go#impl#Impl(<f-args>)

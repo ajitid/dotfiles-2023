@@ -79,8 +79,6 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'ajitid/gitlinker.nvim', {'branch': 'fix/mapping'}
 Plug 'eugen0329/vim-esearch'
 Plug 'AndrewRadev/splitjoin.vim'
-" shifts the code too much:
-" Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'andymass/vim-matchup'
@@ -104,18 +102,8 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-capslock'
 Plug 'vim-scripts/CmdlineComplete'
-" ^ this works well too:
-" Plug 'vim-scripts/sherlock.vim'
-
-" needs:
-" go install github.com/josharian/impl@latest
-Plug 'mattn/vim-goimpl'
-" ^ other options
-" https://github.com/rhysd/vim-go-impl
-" https://github.com/sasha-s/goimpl
 
 """""""" evaluate
-" Plug 'danymat/neogen'
 " subcommand mode
 " Plug 'tomtom/tinykeymap_vim'
 " https://github.com/kana/vim-submode

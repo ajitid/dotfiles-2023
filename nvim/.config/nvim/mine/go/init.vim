@@ -14,4 +14,5 @@ source ~/.config/nvim/mine/go/cmd.vim
 " ^ lsp code action only fills the topmost struct, that's why this pkg
 " is still useful
 source ~/.config/nvim/mine/go/fillstruct.vim
+source ~/.config/nvim/mine/go/impl.vim
 source ~/.config/nvim/mine/go/commands.vim
