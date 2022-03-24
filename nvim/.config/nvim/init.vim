@@ -941,10 +941,5 @@ command! DosToUnix call DosToUnix()
 " stolen parts from https://github.com/fatih/vim-go/
 source ~/.config/nvim/mine/go/init.vim
 
-lua require("highlight_current_n").setup({})
-nmap n <Plug>(highlight-current-n-n)
-nmap N <Plug>(highlight-current-n-N)
-autocmd CmdlineLeave /,\? lua require('highlight_current_n')['/,?']()
-
 cmap <c-j> <Plug>CmdlineCompleteForward
 cmap <c-k> <Plug>CmdlineCompleteBackward
