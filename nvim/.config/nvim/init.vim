@@ -64,7 +64,7 @@ augroup MyColors
   autocmd ColorScheme zenwritten call CustomZenwritten()
 augroup END
 
-" let g:zenwritten = #{ italic_comments: v:false }
+let g:zenwritten = #{ italic_comments: v:false }
 colorscheme zenwritten
 
 nnoremap <space> <nop>
