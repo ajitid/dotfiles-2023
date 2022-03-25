@@ -670,7 +670,6 @@ function s:PutFileName() abort
 endfunction
 imap <c-g>n <cmd>call <sid>PutFileName()<cr>
 
-" TODO add vim-repeat to next/prev, same for navigating to next/prev diagnostic
 " unimpared like mapping for arglist
 nnoremap [a <cmd>prev<cr><cmd>call repeat#set("[a")<cr>
 nnoremap ]a <cmd>next<cr><cmd>call repeat#set("]a")<cr>
@@ -684,8 +683,8 @@ nnoremap ]Q <cmd>cnf<cr><cmd>call repeat#set("]Q")<cr>
 " unimpared like mapping for location list
 nnoremap [l <cmd>lprev<cr><cmd>call repeat#set("[l")<cr>
 nnoremap ]l <cmd>lnext<cr><cmd>call repeat#set("]l")<cr>
-" Location list is a window local qf list, but as I don't use it that way, 
-" I won't be adding shortcuts for lpf and lnf.
+nnoremap [L <cmd>lpf<cr><cmd>call repeat#set("[L")<cr>
+nnoremap ]L <cmd>lnf<cr><cmd>call repeat#set("]L")<cr>
 
 " wrap for comments, see :h gq. Earlier it was mapped to gq_ (not to be
 " confused with g_ which is used to go to last non-whitespace char)
@@ -731,7 +730,7 @@ function! GrepLiteral(query)
   endwhile
 
   " -F is passed to ripgrep to make a literal search
-  execute("Grep -F " . "'" . l:query . "'")
+  execute("LGrep -F " . "'" . l:query . "'")
 endfunction
 
 " from https://stackoverflow.com/a/6271254/7683365
