@@ -76,7 +76,6 @@ Plug 'tommcdo/vim-nowchangethat'
 " there's also https://github.com/RRethy/nvim-treesitter-textsubjects
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'ajitid/gitlinker.nvim', {'branch': 'fix/mapping'}
-Plug 'eugen0329/vim-esearch'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'folke/which-key.nvim'
 Plug 'windwp/nvim-autopairs'
@@ -103,6 +102,9 @@ Plug 'tpope/vim-capslock'
 Plug 'vim-scripts/CmdlineComplete'
 
 """""""" evaluate
+" Plug 'eugen0329/vim-esearch'
+" trouble nvim + that plugin that doesn't move splits when folke/trouble.nvim
+" visibility toggles
 " subcommand mode
 " Plug 'tomtom/tinykeymap_vim'
 " https://github.com/kana/vim-submode
