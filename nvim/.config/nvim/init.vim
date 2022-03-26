@@ -431,6 +431,7 @@ require('telescope').setup{
       "package%-lock.json", "yarn.lock", "pnpm%-lock.yaml",
       "build/", "dist/",
       "go.sum",
+      "tags",
     },
     -- ^ telescope uses lua's pattern matching library, see:
     -- https://github.com/nvim-telescope/telescope.nvim/issues/780
@@ -529,7 +530,7 @@ let g:easy_align_delimiters = {
       \   },
       \ }
 
-let s:dirvish_exclude = ['\.git/$', '\.idea/$']
+let s:dirvish_exclude = ['\.git/$', '\.idea/$', '/tags$']
 let s:dirvish_exclude_pattern = join(s:dirvish_exclude, '\|')
 let s:dirvish_exclude_pattern = substitute(s:dirvish_exclude_pattern, '/', '\\/', 'g')
 
