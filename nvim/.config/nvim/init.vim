@@ -367,13 +367,9 @@ set noshowmode
 lua << END
 local function buf_for_file()
   local has_path = vim.fn.expand('%:p') ~= ''
-  -- no `nofile` or something:
   local is_normal_buf = vim.api.nvim_eval('&buftype') == ''
-  -- outputs empty string when cursor is in cmd line (a bug in vim's implementation maybe?)
-  local filereadable_out = vim.api.nvim_exec("echo filereadable(expand('%'))", true)
-  local file_exists_on_disk = filereadable_out == '1'
-  local is_cmd_mode = vim.api.nvim_get_mode().mode == 'c'
-  if has_path and is_normal_buf and not file_exists_on_disk and not is_cmd_mode then
+  local file_exists_on_disk = vim.fn.filereadable(vim.fn.expand('%')) == 1
+  if has_path and is_normal_buf and not file_exists_on_disk then
     return '🚫'
   end
   return ''
