@@ -369,7 +369,9 @@ local function buf_for_file()
   local has_path = vim.fn.expand('%:p') ~= ''
   -- no `nofile` or something:
   local is_normal_buf = vim.api.nvim_eval('&buftype') == ''
-  local file_exists_on_disk = vim.api.nvim_exec("echo filereadable(expand('%'))", true) == '1'
+  local file_readable_out = vim.api.nvim_exec("echo filereadable(expand('%'))", true)
+  -- outputs empty string when cursor is in cmd line
+  local file_exists_on_disk = file_readable_out == '1' or file_readable_out == ''
   if has_path and is_normal_buf and not file_exists_on_disk then
     return '🚫'
   end
