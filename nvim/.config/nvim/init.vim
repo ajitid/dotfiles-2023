@@ -365,12 +365,24 @@ let g:root_markers = ['src', 'package.json', 'go.mod', 'Makefile', '.git']
 " noshowmode hides default mode display as we are using custom statusline
 set noshowmode
 lua << END
+local function buf_for_file()
+  local has_path = vim.fn.expand('%:p') ~= ''
+  -- no `nofile` or something:
+  local is_normal_buf = vim.api.nvim_eval('&buftype') == ''
+  local file_exists_on_disk = vim.api.nvim_exec("echo filereadable(expand('%'))", true) == '1'
+  if has_path and is_normal_buf and not file_exists_on_disk then
+    return '🚫'
+  end
+  return ''
+end
+
 require('lualine').setup({
   options = {
     icons_enabled = false,
   },
   sections = {
     lualine_b = {'diagnostics'},
+    lualine_c = {'filename', buf_for_file},
     lualine_x = {"require'nvim-lightbulb'.get_status_text()", 'filetype'},
   },
 })
