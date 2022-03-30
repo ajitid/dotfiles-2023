@@ -303,7 +303,7 @@ abbr huge "du -h --max-depth=1 | sort -hr"
 # alternative https://github.com/bootandy/dust
 
 # TODO tmp fix, see https://github.com/microsoft/wslg/issues/641#issuecomment-1025490260
-export GDK_BACKEND="x11"
+# export GDK_BACKEND="x11"
 
 # needs imagemagick, also see nnn
 alias icat="kitty +kitten icat"

@@ -384,6 +384,9 @@ require('lualine').setup({
     lualine_c = {'filename', buf_for_file},
     lualine_x = {"require'nvim-lightbulb'.get_status_text()", 'filetype'},
   },
+  inactive_sections = {
+    lualine_c = {'filename', buf_for_file},
+  },
 })
 END
 
@@ -952,3 +955,7 @@ source ~/.config/nvim/mine/go/init.vim
 
 cmap <c-j> <Plug>CmdlineCompleteForward
 cmap <c-k> <Plug>CmdlineCompleteBackward
+
+" copy to register `a` for example (useful to append stuff using `A` later
+" when deleting)
+nmap <leader>" :let @a=@"<left><left><left>
