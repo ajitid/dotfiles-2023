@@ -1,4 +1,7 @@
 source ~/.config/nvim/mine/plugins.vim
+" didn't worked for me (tell me it could find plug command) but have a look at it anyway:
+" https://github.com/junegunn/vim-plug/issues/954#issuecomment-608878431
+" PlugSnapshot ~/.config/nvim/mine/plug-snapshot.vim
 
 set fillchars=eob:\ ,
 set shm+=Ic
