@@ -78,7 +78,7 @@ local js_common = {
   s("rus", fmt("const [{}, {}] = useState({})", { i(1), dl(2, "set" .. l._1:gsub("^%l", string.upper), 1), i(3) })),
 }
 
-ls.snippets = {
+ls.add_snippets(nil, {
   all = {
     -- Available in any filetype
   },
@@ -102,5 +102,5 @@ ls.snippets = {
     table.unpack(js_common),
     -- TODO capitalize doesn't work
   },
-}
+})
 
