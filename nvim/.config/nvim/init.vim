@@ -836,7 +836,7 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 highlight QuickScopePrimary guifg='#6ade93' gui=underline ctermfg=81
 highlight QuickScopeSecondary guifg='#ffa9d5' gui=underline ctermfg=81
 
-let g:rooter_patterns = g:root_markers
+let g:rooter_patterns = ['!^node_modules'] + g:root_markers
 
 " don't search for parent directory for tags
 " https://vi.stackexchange.com/questions/13509/use-only-closest-tagfile-to-working-directory-of-buffer-or-of-vim-process
@@ -913,6 +913,8 @@ let g:mkdp_browserfunc = 'MarkdownPreviewInBrowserFn'
 
 " from https://github.com/marcelbeumer/dotfiles/blob/8fbe4d2ab5e812f1315626fb642fca386ee281e7/nvim/lua/nvim_marcel/etc/date.lua#L2
 function! DateStrPretty() range
+  " yep, system and user defined functions can be run through expression
+  " register too https://vimeo.com/4446843
   return system('date "+%Y-%m-%d %H:%M:%S" | tr -d "\n"')
 endfunction
 
