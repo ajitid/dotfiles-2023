@@ -10,12 +10,12 @@ set -U fish_greeting
 
 # export PATH="$PATH:/mnt/c/Windows/System32"
 
-zoxide init --cmd j fish | source
-set _ZO_ECHO 1
-
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/scripts/git"
+
+zoxide init --cmd j fish | source
+set _ZO_ECHO 1
 
 export PATH="$PATH:"(go env GOPATH)"/bin"
 #  export GOPHERJS_GOROOT=(go env GOROOT)
@@ -51,7 +51,7 @@ end
 
 # remove Windows from PATH
 # see https://github.com/microsoft/WSL/issues/1493#issuecomment-797575704
-set PATH (/usr/bin/printenv PATH | /usr/bin/perl -ne 'print join(":", grep { !/\/mnt\/[a-z]/ } split(/:/));')
+# set PATH (/usr/bin/printenv PATH | /usr/bin/perl -ne 'print join(":", grep { !/\/mnt\/[a-z]/ } split(/:/));')
 
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$HOME/miniconda3/bin:$PATH"
