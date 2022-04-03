@@ -812,7 +812,7 @@ keymap({
         N  = { '<cmd>let @+ = expand("%:t")<cr>', "name to clipboard" },
       },
     },
-    ["<space>"] = { "<cmd>Telescope gtags gtags<cr>", "find files" },
+    ["<space>"] = { "<cmd>Telescope tags<cr>", "find symbol" },
     ["-"] = { "<cmd>Telescope open_dir open_dir<cr>", "find dir" },
   }, {
     prefix = "<leader>",
@@ -854,6 +854,10 @@ set tags=
 " so unless the repo isn't monorepo, I would still suggest to put `.notags`
 " file at root to avoid extraneous tag generation
 
+if executable('fd')
+  " for rg it would be `rg --files`
+  let g:gutentags_file_list_command = 'fd . -t f'
+endif
 let g:gutentags_project_root = g:root_markers
 let g:gutentags_generate_on_empty_buffer = 1
 
