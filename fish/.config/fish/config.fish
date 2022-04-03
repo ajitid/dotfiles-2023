@@ -20,8 +20,8 @@ set _ZO_ECHO 1
 export PATH="$PATH:"(go env GOPATH)"/bin"
 #  export GOPHERJS_GOROOT=(go env GOROOT)
 
-abbr setclip "xclip -selection c"
-abbr getclip "xclip -selection c -o"
+# to pipe and copy contents to clipboard, other ways mentioned here https://askubuntu.com/a/705658/726406
+abbr clip "xsel -ib"
 
 # this coud've worked but just didn't: `ghq list | fzf | sed 's|^|~/ghq/|' | xargs cd`
 # ^ replace `cd` with `echo` to confirm output

@@ -16,3 +16,11 @@ source ~/.config/nvim/mine/go/cmd.vim
 source ~/.config/nvim/mine/go/fillstruct.vim
 source ~/.config/nvim/mine/go/impl.vim
 source ~/.config/nvim/mine/go/commands.vim
+
+" so to install all go intelli-deps, do:
+" ```shell
+" go install golang.org/x/tools/gopls@latest
+" go install github.com/fatih/gomodifytags@latest
+" go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
+" go install golang.org/x/tools/cmd/goimports@latest
+" ```

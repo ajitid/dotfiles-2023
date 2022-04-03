@@ -102,10 +102,12 @@ Plug 'tpope/vim-capslock'
 Plug 'vim-scripts/CmdlineComplete'
 
 """""""" evaluate
+" https://github.com/tommcdo/vim-ninja-feet
+" https://www.reddit.com/r/vim/comments/22ggej/comment/cgmkz6b/?utm_source=share&utm_medium=web2x&context=3
+" https://github.com/danymat/neogen
 " Plug 'eugen0329/vim-esearch'
 " trouble nvim + that plugin that doesn't move splits when folke/trouble.nvim
-" visibility toggles
-" subcommand mode
+
 " Plug 'tomtom/tinykeymap_vim'
 " https://github.com/kana/vim-submode
 " https://github.com/kana/vim-arpeggio/
