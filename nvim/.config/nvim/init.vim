@@ -88,9 +88,9 @@ endif
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+set foldlevel=21
 
 " FIXME tmp fix for https://github.com/nvim-telescope/telescope.nvim/issues/699
-set foldlevel=21
 augroup fix_folds
   autocmd!
   autocmd BufNewFile,BufRead *.* norm! zx
@@ -968,3 +968,6 @@ cmap <c-k> <Plug>CmdlineCompleteBackward
 " copy to register `a` for example (useful to append stuff using `A` later
 " when deleting)
 nmap <leader>" :let @a=@"<left><left><left>
+
+" place current line to top using c-h while in insert mode
+imap <c-h> <c-o>zt
