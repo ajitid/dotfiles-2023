@@ -288,8 +288,14 @@ function deathbysnusnu
 
   set -l grep_arg (string join '|' (string split ' ' $argv))
 
-  # grep -E so that I can do something like `deathbysnusnu 'nvim|smerge'`
-  kill -9 (ps -ef | grep -E $grep_arg | grep -v grep | awk '{print $2}')
+  # grep -E so that processes can be found using `'nvim|smerge'`
+  set -l ids (ps -ef | grep -E $grep_arg | grep -v grep | awk '{print $2}')
+  if [ "$ids" = "" ]
+    echo "deathbysnusnu: no active program to end"
+    return 1
+  end
+
+  kill -9 $ids
 end
 
 function openinwin
