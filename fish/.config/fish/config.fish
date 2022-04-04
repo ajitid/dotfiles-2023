@@ -66,6 +66,13 @@ eval /home/zlksnk/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # uncommented here to ensure it remains updated
 # pdm completion fish > ~/.config/fish/completions/pdm.fish
 
+# output of `pdm --pep582 fish >> ~/.config/fish/config.fish`
+if test -n "$PYTHONPATH"
+    set -x PYTHONPATH '/home/zlksnk/.local/share/pdm/venv/lib/python3.9/site-packages/pdm/pep582' $PYTHONPATH
+else
+    set -x PYTHONPATH '/home/zlksnk/.local/share/pdm/venv/lib/python3.9/site-packages/pdm/pep582'
+end
+
 # not needed anymore, this also used to hang Fish when a command is ran
 # export DISPLAY=(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 # export LIBGL_ALWAYS_INDIRECT=0
