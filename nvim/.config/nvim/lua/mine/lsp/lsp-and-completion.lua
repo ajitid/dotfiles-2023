@@ -261,7 +261,6 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
-      c = cmp.mapping.close(),
     }),
     ["<tab>"] = cmp.mapping.confirm({ select = true }),
   },

@@ -38,6 +38,10 @@ if has('termguicolors')
   set termguicolors
 endif
 
+" I don't need this but commenting here for the sake of completeness
+" background flash in kitty nvim
+" https://github.com/kovidgoyal/kitty/issues/4817#issue-1166764542
+
 " Need this to change cursor color https://github.com/neovim/neovim/issues/12626#issuecomment-799077796.
 " Disabling this for zenwritten as txt color is same as cursor color so text becomes hard to read
 " set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
@@ -72,6 +76,17 @@ colorscheme zenwritten
 
 nnoremap <space> <nop>
 let mapleader = "\<Space>"
+
+" from https://github.com/neovim/neovim/issues/17867#issuecomment-1079934289
+" actual PR that enables this feature https://github.com/neovim/neovim/pull/17825
+" more context https://github.com/neovim/neovim/issues/5916
+" needed to differentiate b/w <tab> and <c-i> key for example
+" introduced in nvim v0.7
+if $TERM ==# 'xterm-kitty'
+  autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif
+  autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif
+endif
+nmap <tab> %
 
 set mouse=nv
 set cursorline
