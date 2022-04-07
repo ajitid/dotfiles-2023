@@ -1,0 +1,2 @@
+--langmap=markdown:.md.mdx
+# to add links and image links (which I don't think I need): https://github.com/p0deje/dotfiles/blob/9b7d2232936f2288eaee553256e1e3ee6c105fda/.ctags.d/markdown.ctags
