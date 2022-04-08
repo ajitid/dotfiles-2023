@@ -986,3 +986,5 @@ nmap <leader>" :let @a=@"<left><left><left>
 
 " place current line to top using c-h while in insert mode
 imap <c-h> <c-o>zt
+" place cursor to the end
+imap <c-;> <c-o>$
