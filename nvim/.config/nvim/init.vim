@@ -699,7 +699,8 @@ nnoremap [<space> <cmd>call <sid>BlankUp(v:count1)<cr>
 nnoremap ]<space> <cmd>call <sid>BlankDown(v:count1)<cr>
 
 function s:PutFileName() abort
-  call feedkeys(expand('%:t:r'))
+  " extra :r to remove 2nd extension like `.test` from `filename.test.ts` if it exists
+  call feedkeys(expand('%:t:r:r'))
 endfunction
 imap <c-g>n <cmd>call <sid>PutFileName()<cr>
 
