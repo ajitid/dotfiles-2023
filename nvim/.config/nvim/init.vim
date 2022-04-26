@@ -896,7 +896,7 @@ set sessionoptions+=winpos,terminal
 autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({sign = { enabled = false }, status_text = { enabled = true }})
 
 " runs command on cursor line and replaces the line with shell output
-nmap <leader>! !!$SHELL<CR>
+nmap <leader>! yyp!!$SHELL<CR>
 
 " ctrl+s to save
 inoremap <c-s> <esc><cmd>w<cr>
