@@ -1,5 +1,10 @@
 local keymap = require("which-key").register
 
+require("nvim-lsp-installer").setup({
+  ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver' }
+})
+local lspconfig = require'lspconfig'
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require "lsp_signature".setup({
@@ -102,7 +107,7 @@ function diagnostic_keymaps()
   end, {buffer=0})
 end
 
-function format_on_save(client)
+function format_keymaps(client)
   if client.resolved_capabilities.document_formatting then
     vim.keymap.set("n", "<leader>f=", vim.lsp.buf.formatting_sync, {buffer=0})
 
@@ -119,14 +124,24 @@ function format_on_save(client)
   end
 end
 
-require'lspconfig'.gopls.setup{
+function disable_formatting(client)
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+end
+
+function common_on_attach(client, bufnr)
+  basic_keymaps()
+  diagnostic_keymaps()
+  format_keymaps(client)
+  require("aerial").on_attach(client, bufnr)
+end
+
+-- install manually
+lspconfig.gopls.setup{
   capabilities = capabilities,
   on_attach = function(client, bufnr)
-    basic_keymaps()
-    diagnostic_keymaps()
-    format_on_save(client)
-    require("aerial").on_attach(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+    disable_formatting(client)
+    common_on_attach(client, bufnr)
   end,
 }
 
@@ -189,39 +204,41 @@ function typescript_rename_file_command()
   typescript_rename_file(root_dir .. "/" .. old_name, root_dir .. "/" .. new_name, on_ok)
 end
 
-lsp_installer.on_server_ready(function(server)
-    local opts = {
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        basic_keymaps()
-        diagnostic_keymaps()
-        require("aerial").on_attach(client, bufnr)
+lspconfig.tsserver.setup{
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    -- needed, otherwise on save nvim would ask whether to save using null-ls (prettier) or tsserver
+    disable_formatting(client)
+    -- this, if I remember correctly is to improve perf. I'm keeping it commented for now:
+    -- client.config.flags.allow_incremental_sync = true
 
-        if server.name == "tsserver" then
-          vim.keymap.set("n", "<leader>fr", typescript_rename_file_command, {buffer=0})
+    common_on_attach(client, bufnr)
+    vim.keymap.set("n", "<leader>fr", typescript_rename_file_command, {buffer=0})
+  end,
+}
 
-          -- needed, otherwise on save nvim would ask whether to save using null-ls (prettier) or tsserver
-          client.resolved_capabilities.document_formatting = false
-          -- this, if I remember correctly is to improve perf. I'm keeping it commented for now:
-          -- client.config.flags.allow_incremental_sync = true
-        elseif server.name == "jsonls" then
-          client.resolved_capabilities.document_formatting = false
-        else
-          format_on_save(client)
-        end
-      end,
-    }
+lspconfig.jsonls.setup{
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    disable_formatting(client)
+    common_on_attach(client, bufnr)
+  end,
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+    },
+  },
+}
 
-    if server.name == "jsonls" then
-      opts.settings = {
-        json = {
-          schemas = require('schemastore').json.schemas(),
-        },
-      }
-    end
+lspconfig.pyright.setup{
+  capabilities = capabilities,
+  on_attach = common_on_attach,
+}
 
-    server:setup(opts)
-end)
+lspconfig.eslint.setup{
+  capabilities = capabilities,
+  on_attach = common_on_attach,
+}
 
 local cmp = require'cmp'
 
@@ -256,9 +273,9 @@ local cmp_kinds = {
 
 cmp.setup({
   mapping = {
-    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i' }),
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
     }),
@@ -322,7 +339,7 @@ local sources = {
 
 local config = {
   on_attach = function(client, bufnr)
-    format_on_save(client)
+    format_keymaps(client)
     diagnostic_keymaps()
   end,
   sources = sources,
