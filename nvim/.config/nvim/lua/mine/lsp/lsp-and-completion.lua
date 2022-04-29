@@ -108,7 +108,7 @@ function diagnostic_keymaps()
 end
 
 function format_keymaps(client)
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.documentFormattingProvider then
     vim.keymap.set("n", "<leader>f=", vim.lsp.buf.formatting_sync, {buffer=0})
 
     vim.api.nvim_command [[augroup Format]]
@@ -119,14 +119,14 @@ function format_keymaps(client)
     vim.api.nvim_command [[augroup END]]
   end
 
-  if client.resolved_capabilities.document_range_formatting then
+  if client.server_capabilities.documentRangeFormattingProvider then
     vim.keymap.set("v", "<leader>=", vim.lsp.buf.range_formatting, {buffer=0})
   end
 end
 
 function disable_formatting(client)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
 end
 
 function common_on_attach(client, bufnr)
@@ -339,6 +339,7 @@ local sources = {
 
 local config = {
   on_attach = function(client, bufnr)
+    -- don't use `disable_formatting`, it is discouraged, see https://github.com/jose-elias-alvarez/null-ls.nvim/issues/778#issuecomment-1103053724
     format_keymaps(client)
     diagnostic_keymaps()
   end,
