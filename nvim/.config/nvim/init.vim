@@ -870,6 +870,9 @@ set tags=
 " so unless the repo isn't monorepo, I would still suggest to put `.notags`
 " file at root to avoid extraneous tag generation
 
+" if you're noticing a slowdown when opening tag list using <space><space>,
+" check if the repo is initialized with git and has a well defined `.gitignore`
+" this type of slowdown is not usually a gutentags or a telescope issue
 if executable('fd')
   " for rg it would be `rg --files`
   let g:gutentags_file_list_command = 'fd . -t f'
