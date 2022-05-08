@@ -49,7 +49,7 @@ function basic_keymaps()
     c = {
       name = "code",
       r = { vim.lsp.buf.rename, "rename symbol", buffer=0 },
-      a = { "<cmd>Telescope lsp_code_actions<cr>", "code actions", buffer=0 },
+      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "code actions", buffer=0 },
       s = { vim.lsp.buf.signature_help, "fn signature", buffer=0 },
     },
     f = {
@@ -67,7 +67,7 @@ function basic_keymaps()
 
   keymap({
     c = {
-      a = { "<cmd>Telescope lsp_range_code_actions<cr>", "code actions", buffer=0 },
+      a = { "<cmd>lua vim.lsp.buf.range_code_action()<cr>", "code actions", buffer=0 },
     },
   }, {
     mode = "v",
