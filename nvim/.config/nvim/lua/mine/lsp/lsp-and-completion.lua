@@ -132,7 +132,9 @@ function disable_formatting(client)
 end
 
 function common_on_attach(client, bufnr)
-  vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr')
+  -- not sure how much useful this setting is
+  vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr')
+
   basic_keymaps()
   diagnostic_keymaps()
   format_keymaps(client)
