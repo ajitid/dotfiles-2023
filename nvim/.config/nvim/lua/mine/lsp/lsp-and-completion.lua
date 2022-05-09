@@ -109,14 +109,16 @@ end
 
 function format_keymaps(client)
   if client.server_capabilities.documentFormattingProvider then
-    vim.keymap.set("n", "<leader>f=", vim.lsp.buf.formatting_sync, {buffer=0})
+    vim.keymap.set("n", "<leader>f=", function()
+      vim.lsp.buf.format({ timeout_ms = 2500 })
+    end, {buffer=0})
 
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
-    -- this one doesn't asks which server to use to format:
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[augroup END]]
+    vim.cmd([[
+      augroup lsp_document_format
+        autocmd! * <buffer>
+        autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ timeout_ms = 2500 })
+      augroup END
+    ]])
   end
 
   if client.server_capabilities.documentRangeFormattingProvider then
