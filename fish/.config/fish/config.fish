@@ -14,8 +14,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/scripts/git"
 
-zoxide init --cmd j fish | source
+# FIXME zoxide echo stopped working
 set _ZO_ECHO 1
+zoxide init --cmd j fish | source
 
 export PATH="$PATH:"(go env GOPATH)"/bin"
 #  export GOPHERJS_GOROOT=(go env GOROOT)
