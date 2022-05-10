@@ -190,6 +190,8 @@ call SetupCommandAlias("nt","tabnew")
 " keeps cursor at same place when cloning the buffer in new tab
 call SetupCommandAlias("bt","tab sb")
 call SetupCommandAlias("rg","GrepLiteral")
+" originally was write followed by edit, that's why `we` command
+call SetupCommandAlias("we","update \\| edit")
 
 set nowrap
 " https://stackoverflow.com/questions/13294489/make-vim-only-do-a-soft-word-wrap-not-hard-word-wrap
