@@ -77,16 +77,9 @@ colorscheme zenwritten
 nnoremap <space> <nop>
 let mapleader = "\<Space>"
 
-" from https://github.com/neovim/neovim/issues/17867#issuecomment-1079934289
-" actual PR that enables this feature https://github.com/neovim/neovim/pull/17825
-" more context https://github.com/neovim/neovim/issues/5916
-" needed to differentiate b/w <tab> and <c-i> key for example
-" introduced in nvim v0.7
-if $TERM ==# 'xterm-kitty'
-  autocmd UIEnter * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[>1u") | endif
-  autocmd UILeave * if v:event.chan ==# 0 | call chansend(v:stderr, "\x1b[<1u") | endif
-endif
+" from https://github.com/neovim/neovim/pull/17932#issuecomment-1113997721
 nmap <tab> %
+nnoremap <c-i> <c-i>
 
 set mouse=nv
 set cursorline
