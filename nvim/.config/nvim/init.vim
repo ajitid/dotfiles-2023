@@ -543,7 +543,6 @@ nmap <leader>. <cmd>lua require"telescope.builtin".find_files({ cwd = require"te
 nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <CR>:echo "file indented"<CR>
 
 runtime macros/sandwich/keymap/surround.vim
-source ~/.config/nvim/mine/set.vim
 
 nmap s <cmd>Pounce<CR>
 nmap S <cmd>PounceRepeat<CR>
@@ -638,26 +637,6 @@ endfunction
 
 command! PutModifiedFilesInArglist
       \ call s:PutModifiedFilesInArglist()
-
-" put qf list files in arglist
-" useful to perform macros per file in search and not per search result
-function! s:PutQfListInArglist()
-  let l:argFiles = NewSet()
-
-  for item in getqflist()
-    call l:argFiles.add(bufname(item.bufnr))
-  endfor
-
-  arglocal
-  silent! argdelete *
-  for item in l:argFiles.as_list()
-    execute 'argadd ' . item
-  endfor
-  first
-endfunction
-
-command! PutQfListInArglist
-      \ call s:PutQfListInArglist()
 
 source ~/.config/nvim/mine/blame.vim
 
