@@ -99,6 +99,7 @@ set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=21
 
 " FIXME tmp fix for https://github.com/nvim-telescope/telescope.nvim/issues/699
+" also https://github.com/nvim-telescope/telescope.nvim/issues/559#issuecomment-1074076011
 augroup fix_folds
   autocmd!
   autocmd BufNewFile,BufRead *.* norm! zx
@@ -445,8 +446,7 @@ require('telescope').setup{
 
     mappings = {
       i = {
-        -- had to comment it as pressing esc moves the cursor left by one char
-        -- ^ TODO uncommented as we've a filed issue: https://github.com/nvim-telescope/telescope.nvim/issues/1185
+        -- <c-c> would do the same
         ["<esc>"] = actions.close
       }
     },
