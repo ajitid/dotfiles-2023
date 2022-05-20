@@ -795,7 +795,6 @@ keymap({
     a = { "<c-^>", "alt buffer" },
     s = { "<cmd>Telescope buffers<cr>", "switch to buffer" },
     ["'"] = { "<cmd>Telescope resume<cr>", "resume search" },
-    d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "diagnostic at cursor" },
     t = {
       name = "toggle visibility",
       -- if offscreen
