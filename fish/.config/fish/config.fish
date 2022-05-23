@@ -60,7 +60,7 @@ export PATH="$HOME/miniconda3/bin:$PATH"
 ## this is to initialize `base` environment of miniconda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval /home/zlksnk/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+eval $HOME/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
 # need to run one time to update completions, can be
