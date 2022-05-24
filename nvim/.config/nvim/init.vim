@@ -59,6 +59,7 @@ function! CustomZenwritten() abort
   hi link PounceAcceptBest PounceKey
   " switch to CursorLine if it bothers you
   hi link MatchWord NormalFloat
+  hi Visual ctermbg=242 guibg=#303035
 
   sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
   sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
