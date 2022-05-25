@@ -14,6 +14,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/scripts/git"
 
+set -x SUDO_EDITOR "$HOME/.local/bin/nvim.appimage"
+
 set -x _ZO_ECHO 1
 zoxide init --cmd j fish | source
 
