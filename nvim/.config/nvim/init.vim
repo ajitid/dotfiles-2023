@@ -38,8 +38,31 @@ if has('termguicolors')
   set termguicolors
 endif
 
-lua require'kanagawa'.setup({ commentStyle = "NONE", transparent = true, })
-colorscheme kanagawa
+function! CustomRasmus() abort
+  hi CmpGhostText guifg=#686868
+  highlight link PounceMatch NormalFloat
+  highlight link PounceGap NormalFloat
+  hi PounceKey guifg=#222222 guibg=#7bb099 gui=bold
+  hi link PounceAccept PounceKey
+  hi link PounceAcceptBest PounceKey
+  " switch to CursorLine if it bothers you
+  hi link MatchWord NormalFloat
+  hi Visual ctermbg=242 guibg=#303035
+
+  sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
+  sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
+  sign define DiagnosticSignInfo text=│ texthl=DiagnosticSignInfo
+  sign define DiagnosticSignHint text=│ texthl=DiagnosticSignHint
+endfunction
+
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme rasmus call CustomRasmus()
+augroup END
+
+let g:rasmus_transparent = 1
+let g:rasmus_italic_comments = 0
+colorscheme rasmus
 
 nnoremap <space> <nop>
 let mapleader = "\<Space>"
