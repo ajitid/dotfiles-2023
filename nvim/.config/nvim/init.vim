@@ -42,12 +42,12 @@ function! CustomRasmus() abort
   hi CmpGhostText guifg=#686868
   highlight link PounceMatch NormalFloat
   highlight link PounceGap NormalFloat
-  hi PounceKey guifg=#222222 guibg=#7bb099 gui=bold
+  hi PounceKey guifg=wheat guibg=#261f18 gui=bold
   hi link PounceAccept PounceKey
   hi link PounceAcceptBest PounceKey
-  " switch to CursorLine if it bothers you
-  hi link MatchWord NormalFloat
+  hi link MatchWord CursorLine
   hi Visual ctermbg=242 guibg=#303035
+  hi Search guibg=peru guifg=#222222
 
   sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
   sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
