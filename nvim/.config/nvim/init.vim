@@ -38,42 +38,8 @@ if has('termguicolors')
   set termguicolors
 endif
 
-" I don't need this but commenting here for the sake of completeness
-" background flash in kitty nvim
-" https://github.com/kovidgoyal/kitty/issues/4817#issue-1166764542
-
-" Need this to change cursor color https://github.com/neovim/neovim/issues/12626#issuecomment-799077796.
-" Disabling this for zenwritten as txt color is same as cursor color so text becomes hard to read
-" set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
-" aug kitty_cursor
-"   au!
-"   au Colorscheme * set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
-" aug END
-
-function! CustomZenwritten() abort
-  hi CmpGhostText guifg=#686868
-  highlight link PounceMatch NormalFloat
-  highlight link PounceGap NormalFloat
-  hi PounceKey guifg=#6099C0 guibg=#202223 gui=bold
-  hi link PounceAccept PounceKey
-  hi link PounceAcceptBest PounceKey
-  " switch to CursorLine if it bothers you
-  hi link MatchWord NormalFloat
-  hi Visual ctermbg=242 guibg=#303035
-
-  sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
-  sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
-  sign define DiagnosticSignInfo text=│ texthl=DiagnosticSignInfo
-  sign define DiagnosticSignHint text=│ texthl=DiagnosticSignHint
-endfunction
-
-augroup MyColors
-  autocmd!
-  autocmd ColorScheme zenwritten call CustomZenwritten()
-augroup END
-
-let g:zenwritten = #{ italic_comments: v:false }
-colorscheme zenwritten
+lua require'kanagawa'.setup({ commentStyle = "NONE", transparent = true, })
+colorscheme kanagawa
 
 nnoremap <space> <nop>
 let mapleader = "\<Space>"

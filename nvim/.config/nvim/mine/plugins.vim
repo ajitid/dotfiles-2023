@@ -26,8 +26,7 @@ Plug 'tpope/vim-obsession'
 " also g; basically moves you to last position
 
 " styling
-Plug 'rktjmp/lush.nvim'
-Plug 'mcchrish/zenbones.nvim'
+Plug 'rebelot/kanagawa.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 
 " smort
