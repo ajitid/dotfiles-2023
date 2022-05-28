@@ -65,14 +65,13 @@ function basic_keymaps()
       prefix = "<leader>"
   })
 
-  keymap({
-    c = {
-      a = { "<cmd>lua vim.lsp.buf.range_code_action()<cr>", "code actions", buffer=0 },
-    },
-  }, {
-    mode = "v",
-    prefix = "<leader>"
-  })
+  --[[
+    range stuff is wonky, and so becomes range code action
+    https://github.com/ruifm/gitlinker.nvim/issues/48#issuecomment-1042501221
+    do it this way:
+    :'<,'>lua vim.lsp.buf.range_code_action() 
+    want to see the original mapping? git blame it.
+  ]]
 end
 
 function diagnostic_keymaps()
@@ -91,13 +90,13 @@ function diagnostic_keymaps()
       -- and https://stackoverflow.com/a/65615609/7683365
       -- like (0) acts for curr buf, in vimscript `'.'` acts for current line
       cursor_position = {vim.api.nvim_win_get_cursor(0)[1], vim.api.nvim_eval('col("$")')}
-    }) 
+    })
   end, {buffer=0})
   vim.keymap.set("n", "[d", function()
     vim.diagnostic.goto_prev({
       float = { scope = 'line' },
       cursor_position = {vim.api.nvim_win_get_cursor(0)[1], 0}
-    }) 
+    })
   end, {buffer=0})
   vim.keymap.set("n", "]D", function()
     vim.diagnostic.goto_next({
@@ -117,9 +116,15 @@ end
 
 function format_keymaps(client)
   if client.server_capabilities.documentFormattingProvider then
-    vim.keymap.set("n", "<leader>f=", function()
-      vim.lsp.buf.format({ timeout_ms = 2500 })
-    end, {buffer=0})
+    keymap({
+      ["<leader>f="] = {
+        function()
+          vim.lsp.buf.format({ timeout_ms = 2500 })
+        end,
+        "format file",
+        buffer=0
+      }
+    })
 
     vim.cmd([[
       augroup lsp_document_format
@@ -130,7 +135,11 @@ function format_keymaps(client)
   end
 
   if client.server_capabilities.documentRangeFormattingProvider then
-    vim.keymap.set("v", "<leader>=", vim.lsp.buf.range_formatting, {buffer=0})
+    -- range stuff is wonky, and so is range formatting
+    -- https://github.com/ruifm/gitlinker.nvim/issues/48#issuecomment-1042501221
+    -- do it this way:
+    -- :'<,'>lua vim.lsp.buf.range_formatting()
+    -- want to see the original mapping? git blame it.
   end
 end
 
