@@ -332,13 +332,13 @@ cmp.setup({
 
 local null_ls = require("null-ls")
 
-local prettierd_filetypes = { unpack(null_ls.builtins.formatting.prettierd.filetypes) }
-table.insert(prettierd_filetypes, "jsonc")
+local prettier_filetypes = { unpack(null_ls.builtins.formatting.prettier.filetypes) }
+table.insert(prettier_filetypes, "jsonc")
 
 local sources = {
-  -- if prettierd is not present, the command will silently fail
-  null_ls.builtins.formatting.prettierd.with({
-    filetypes = prettierd_filetypes,
+  -- if prettier is not present, the command will silently fail
+  null_ls.builtins.formatting.prettier.with({
+    filetypes = prettier_filetypes,
   }),
   -- needs
   -- go install golang.org/x/tools/cmd/goimports@latest
