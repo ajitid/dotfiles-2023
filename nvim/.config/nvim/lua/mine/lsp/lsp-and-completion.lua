@@ -68,6 +68,7 @@ function basic_keymaps()
   --[[
     range stuff is wonky, and so becomes range code action
     https://github.com/ruifm/gitlinker.nvim/issues/48#issuecomment-1042501221
+    and https://github.com/neovim/neovim/pull/13896#issuecomment-1125540273
     do it this way:
     :'<,'>lua vim.lsp.buf.range_code_action() 
     want to see the original mapping? git blame it.
@@ -136,7 +137,6 @@ function format_keymaps(client)
 
   if client.server_capabilities.documentRangeFormattingProvider then
     -- range stuff is wonky, and so is range formatting
-    -- https://github.com/ruifm/gitlinker.nvim/issues/48#issuecomment-1042501221
     -- do it this way:
     -- :'<,'>lua vim.lsp.buf.range_formatting()
     -- want to see the original mapping? git blame it.

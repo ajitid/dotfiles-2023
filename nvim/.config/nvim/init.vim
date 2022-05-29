@@ -48,6 +48,7 @@ function! CustomRasmus() abort
   hi link MatchWord CursorLine
   hi Visual ctermbg=242 guibg=#303035
   hi Search guibg=peru guifg=#222222
+  hi TSTagAttribute guifg=#8a8a8f gui=italic
 
   sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
   sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
@@ -509,7 +510,7 @@ require'treesitter-context'.setup{
         -- Example for a specific filetype with Lua patterns
         -- Treat patterns.rust as a Lua pattern (i.e "^impl_item$" will
         -- exactly match "impl_item" only)
-        -- rust = true, 
+        -- rust = true,
     }
 }
 EOF
@@ -892,7 +893,7 @@ inoremap <c-s> <esc><cmd>w<cr>
 nnoremap <c-s> <esc><cmd>w<cr>
 xnoremap <c-s> <esc><cmd>w<cr>gv
 
-let g:interestingWordsGUIColors =["#ffa724", "#aeee00", "#8cffba", "#b88853", "#ff9eb8", "#ff2c4b"] 
+let g:interestingWordsGUIColors =["#ffa724", "#aeee00", "#8cffba", "#b88853", "#ff9eb8", "#ff2c4b"]
 let g:interestingWordsDefaultMappings = 0
 nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
 vnoremap <silent> <leader>m :call InterestingWords('v')<cr>
@@ -978,3 +979,8 @@ imap <c-h> <c-o>zt
 " place cursor to the end
 imap <c-;> <c-o>$
 
+" to get element highlight capture...
+" for treesitter, there's
+" https://github.com/nvim-treesitter/nvim-treesitter/issues/94#issuecomment-780010595
+" and for vim we have
+" https://github.com/embark-theme/vim/issues/37#issuecomment-824196634
