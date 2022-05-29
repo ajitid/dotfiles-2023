@@ -4,11 +4,8 @@ if status is-interactive
 end
 
 set -U fish_greeting
-# starship init fish | source
 
 # use `eval (ssh-agent -c)` or github.com/danhper/fish-ssh-agent
-
-# export PATH="$PATH:/mnt/c/Windows/System32"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
@@ -48,13 +45,6 @@ function mkcd --description 'Create and enter directory'
   end
 end
 
-# set -gx VOLTA_HOME "$HOME/.volta"
-# set -gx PATH "$VOLTA_HOME/bin" $PATH
-
-# remove Windows from PATH
-# see https://github.com/microsoft/WSL/issues/1493#issuecomment-797575704
-# set PATH (/usr/bin/printenv PATH | /usr/bin/perl -ne 'print join(":", grep { !/\/mnt\/[a-z]/ } split(/:/));')
-
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$HOME/miniconda3/bin:$PATH"
 
@@ -90,8 +80,6 @@ abbr v. 'nvim.appimage --cmd "let g:rooter_manual_only=1"'
 # see for info https://github.com/mhinz/neovim-remote/
 # and https://thoughtbot.com/upcase/videos/neovim-remote-as-preferred-editor
 alias vr "NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim.appimage"
-
-alias rm-win-identifiers "rm (fd -H 'Zone.Identifier' | xargs -n 1)"
 
 export PATH="$PATH:$HOME/execs"
 alias g "/usr/bin/smerge"
@@ -159,9 +147,6 @@ function up
     cd $found_dir
   end
 end
-
-
-set -gx PATH $PATH "/mnt/c/Users/Ajit.Singh/Downloads/notify-send/"
 
 # this won't work for Sublime Merge. For it, create a `git-gpn` file
 # inside a dir which is present in the `$PATH`. Make it `chmod u+x` and in its content
@@ -307,18 +292,11 @@ function deathbysnusnu
   kill -9 $ids
 end
 
-function openinwin
-  /mnt/c/Windows/explorer.exe (wslpath -w $argv[1])
-end
-
 # folder/file size
 # du -h --max-depth=1 | sort -hr
 # where r stands to show high to low in folder size
 abbr huge "du -h --max-depth=1 | sort -hr"
 # alternative https://github.com/bootandy/dust
-
-# TODO tmp fix, see https://github.com/microsoft/wslg/issues/641#issuecomment-1025490260
-# export GDK_BACKEND="x11"
 
 # needs imagemagick, also see nnn
 alias icat="kitty +kitten icat"
