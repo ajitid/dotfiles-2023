@@ -472,6 +472,7 @@ lua require"mine.lsp"
 
 command! EchoLineDiagnostics lua require('mine.lsp.diagnostics').echo_line_diagnostics()
 command! PutErrorsInLocationList lua vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.ERROR })
+command! PutQfInLocList cclose | call setloclist(0, [], ' ', {'items': get(getqflist({'items': 1}), 'items'), 'title': get(getqflist({'title': 1}), 'title')}) | lopen
 
 lua <<EOF
 require('pqf').setup({
@@ -751,7 +752,7 @@ function! GrepLiteral(query)
   endwhile
 
   " -F is passed to ripgrep to make a literal search
-  execute("LGrep -F " . "'" . l:query . "'")
+  execute("Grep -F " . "'" . l:query . "'")
 endfunction
 
 " from https://stackoverflow.com/a/6271254/7683365
