@@ -1,5 +1,18 @@
 # brace expanision has limits, see https://stackoverflow.com/a/42771377/7683365
 
+# For a complete list of supported languages, the names by which they are recognized,
+# and the kinds of tags which are generated for each,
+# see the --list-languages and --list-kinds-full options.
+#
+# $ ctags --kinds-javascript=-vCpMGS --list-kinds=javascript
+--kinds-javascript=-vCpMGS
+--kinds-typescript=-vpeC
+
+# could be improved (use whitespace capturing at lhs of =, don't include `: type` by doing lazy capturing)
+# https://gist.github.com/romainl/27c1c29462a8c6c868f1a9bf244bc71d#extending-language-support
+--regex-javascript=/const \(.*\).*=.*(/\1/functions/b
+--regex-typescript=/const \(.*\).*=.*(/\1/functions/b
+
 # General
 --exclude=.git
 --exclude=.DS_Store
