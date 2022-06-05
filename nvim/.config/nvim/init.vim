@@ -426,6 +426,9 @@ luafile ~/.config/nvim/mine/treesitter-and-comment.lua
 " commenting as when used inside nvim-bqf, it removes qf list buffer too
 " autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
+" FIXME https://github.com/nvim-telescope/telescope.nvim/issues/1661
+autocmd User TelescopePreviewerLoaded setlocal number
+
 lua <<EOF
 local actions = require"telescope.actions"
 
