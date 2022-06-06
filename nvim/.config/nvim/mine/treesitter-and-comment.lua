@@ -8,7 +8,7 @@ ts.setup {
   indent = {
     -- FIXME commented as it breaks indent https://github.com/nvim-treesitter/nvim-treesitter/issues/2544
     -- and https://github.com/nvim-treesitter/nvim-treesitter/issues/2369
-    enable = true,
+    -- enable = true,
   },
   matchup = {
     enable = true,
