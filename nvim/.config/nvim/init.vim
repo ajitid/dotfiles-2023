@@ -431,6 +431,7 @@ luafile ~/.config/nvim/mine/treesitter-and-comment.lua
 
 lua <<EOF
 local actions = require"telescope.actions"
+local action_layout = require("telescope.actions.layout")
 
 require('telescope').setup{
   defaults = require("telescope.themes").get_ivy {
@@ -441,7 +442,8 @@ require('telescope').setup{
     mappings = {
       i = {
         -- <c-c> would do the same
-        ["<esc>"] = actions.close
+        ["<esc>"] = actions.close,
+        ["?"] = action_layout.toggle_preview,
       }
     },
 
