@@ -172,6 +172,7 @@ lspconfig.gopls.setup{
 }
 
 local lsp_installer = require("nvim-lsp-installer")
+require('aerial').setup({})
 
 -- from https://github.com/williamboman/nvim-lsp-installer/blob/b14bd0c5d75ca9da91d7675e98b89450b08f0143/lua/nvim-lsp-installer/extras/tsserver.lua
 -- also see https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils/blob/627963630691c3f3113a8b549fca4246ed4960eb/lua/nvim-lsp-ts-utils/rename-file.lua#L14-L22

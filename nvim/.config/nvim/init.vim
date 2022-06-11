@@ -477,7 +477,7 @@ lua require"mine.lsp"
 
 command! EchoLineDiagnostics lua require('mine.lsp.diagnostics').echo_line_diagnostics()
 command! PutErrorsInLocationList lua vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.ERROR })
-command! PutQfInLocList cclose | call setloclist(0, [], ' ', {'items': get(getqflist({'items': 1}), 'items'), 'title': get(getqflist({'title': 1}), 'title')}) | lopen
+command! PutQfInLocationList cclose | call setloclist(0, [], ' ', {'items': get(getqflist({'items': 1}), 'items'), 'title': get(getqflist({'title': 1}), 'title')}) | lopen
 
 lua <<EOF
 require('pqf').setup({
@@ -990,3 +990,4 @@ imap <c-;> <c-o>$
 " https://github.com/nvim-treesitter/nvim-treesitter/issues/94#issuecomment-780010595
 " and for vim we have
 " https://github.com/embark-theme/vim/issues/37#issuecomment-824196634
+
