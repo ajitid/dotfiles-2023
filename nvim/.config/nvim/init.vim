@@ -436,7 +436,7 @@ local action_layout = require("telescope.actions.layout")
 require('telescope').setup{
   defaults = require("telescope.themes").get_ivy {
     layout_config = {
-      height = 17,
+      height = 15,
     },
 
     mappings = {
