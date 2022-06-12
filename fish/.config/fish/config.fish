@@ -35,7 +35,7 @@ abbr gg "ghq get -p"
 
 fzf_configure_bindings --directory=\cf --git_log --git_status --variables
 
-alias l='ls  -alhp --group-directories-first --color=never'
+alias l='ls -alhp --group-directories-first'
 
 function mkcd --description 'Create and enter directory'
   if mkdir $argv

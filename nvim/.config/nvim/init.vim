@@ -382,15 +382,21 @@ local action_layout = require("telescope.actions.layout")
 
 require('telescope').setup{
   defaults = require("telescope.themes").get_ivy {
+    borderchars = { "⎯", "", "", "", "", "", "", "" },
     layout_config = {
       height = 17,
+    },
+    dynamic_preview_title = true,
+    results_title = false,
+    preview = {
+      hide_on_startup = true,
     },
 
     mappings = {
       i = {
         -- <c-c> would do the same
         ["<esc>"] = actions.close,
-        ["?"] = action_layout.toggle_preview,
+        ["<a-p>"] = action_layout.toggle_preview,
       }
     },
 
