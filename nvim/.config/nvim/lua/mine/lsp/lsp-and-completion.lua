@@ -17,6 +17,8 @@ require "lsp_signature".setup({
   doc_lines = 0,
 })
 
+local fzf = require"fzf-lua"
+
 function basic_keymaps()
   keymap({
     d = { vim.lsp.buf.definition, "definition", buffer=0 },
@@ -54,7 +56,7 @@ function basic_keymaps()
     },
     f = {
       name = "file",
-      s = { "<cmd>FzfLua lsp_document_symbols<cr>", "symbols", buffer=0 },
+      s = { fzf.lsp_document_symbols, "symbols", buffer=0 },
       S = { "<cmd>AerialToggle<cr>", "symbols", buffer=0 },
     },
     w = {
