@@ -54,7 +54,7 @@ function basic_keymaps()
     },
     f = {
       name = "file",
-      s = { "<cmd>Telescope lsp_document_symbols<cr>", "symbols", buffer=0 },
+      s = { "<cmd>FzfLua lsp_document_symbols<cr>", "symbols", buffer=0 },
       S = { "<cmd>AerialToggle<cr>", "symbols", buffer=0 },
     },
     w = {

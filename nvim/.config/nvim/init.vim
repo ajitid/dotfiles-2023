@@ -733,10 +733,10 @@ endfunction
 nmap <leader>* <cmd>call GrepLiteral(expand('<cword>'))<cr>
 vmap <leader>* :<c-u>execute "GrepLiteral " . GetVisualSelection()<cr>
 
-nmap <leader>/ <plug>(esearch)
-map  <leader>? <plug>(operator-esearch-prefill)
-let g:esearch = {}
-let g:esearch.root_markers = g:root_markers
+" nmap <leader>/ <plug>(esearch)
+" map  <leader>? <plug>(operator-esearch-prefill)
+" let g:esearch = {}
+" let g:esearch.root_markers = g:root_markers
 
 lua <<EOF
 vim.diagnostic.config({ virtual_text = false, severity_sort = true, underline = false })
@@ -777,6 +777,8 @@ keymap({
     },
     ["<space>"] = { "<cmd>FzfLua tags<cr>", "find symbol" },
     ["-"] = { "<cmd>Telescope open_dir open_dir<cr>", "find dir" },
+    ["/"] = { "<cmd>FzfLua live_grep<cr>", "live grep" },
+    e  = { "<cmd>FzfLua files<cr>", "find files" },
   }, {
     prefix = "<leader>",
   })
