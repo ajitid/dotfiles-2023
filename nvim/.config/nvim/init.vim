@@ -50,6 +50,9 @@ function! CustomRasmus() abort
   hi Search guibg=peru guifg=#222222
   hi TSTagAttribute guifg=#8a8a8f gui=italic
 
+  " TODO fix bg https://github.com/nvim-telescope/telescope.nvim/issues/1936
+  " hi TelescopeNormal guibg=#222222
+
   sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
   sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
   sign define DiagnosticSignInfo text=│ texthl=DiagnosticSignInfo
@@ -382,9 +385,9 @@ local action_layout = require("telescope.actions.layout")
 
 require('telescope').setup{
   defaults = require("telescope.themes").get_ivy {
-    borderchars = { "⎯", "", "", "", "", "", "", "" },
+    borderchars = { " ", "", "", "", "", "", "", "" },
     layout_config = {
-      height = 17,
+      height = 15,
     },
     dynamic_preview_title = true,
     results_title = false,
