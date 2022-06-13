@@ -37,7 +37,6 @@ Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
@@ -101,6 +100,8 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'vim-scripts/CmdlineComplete'
 
+Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
+
 """""""" evaluate
 " https://github.com/tommcdo/vim-ninja-feet
 " https://www.reddit.com/r/vim/comments/22ggej/comment/cgmkz6b/?utm_source=share&utm_medium=web2x&context=3
@@ -113,3 +114,4 @@ Plug 'vim-scripts/CmdlineComplete'
 " https://github.com/kana/vim-arpeggio/
 " https://github.com/tjdevries/stackmap.nvim/
 call plug#end()
+

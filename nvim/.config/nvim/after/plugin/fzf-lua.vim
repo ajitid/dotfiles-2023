@@ -1,0 +1,1 @@
+FzfLua register_ui_select

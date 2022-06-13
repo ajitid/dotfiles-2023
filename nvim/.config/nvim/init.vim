@@ -419,7 +419,6 @@ require('telescope').setup{
 }
 
 require("telescope").load_extension("zf-native")
-require("telescope").load_extension("ui-select")
 EOF
 
 " for completion
@@ -746,7 +745,7 @@ local keymap = require("which-key").register
 keymap({
     ["`"] = { "<cmd>e $MYVIMRC<cr>", "edit vimrc" },
     a = { "<c-^>", "alt buffer" },
-    s = { "<cmd>Telescope buffers<cr>", "switch to buffer" },
+    s = { "<cmd>FzfLua buffers<cr>", "switch to buffer" },
     ["'"] = { "<cmd>Telescope resume<cr>", "resume search" },
     t = {
       name = "toggle visibility",
@@ -758,14 +757,14 @@ keymap({
     w = {
       name = "workspace",
       m  = { "<cmd>Telescope marks<cr>", "marks" },
-      t  = { "<cmd>Telescope tagstack<cr>", "tagstack" },
+      t  = { "<cmd>FzfLua tagstack<cr>", "tagstack" },
     },
     f = {
       name = "file",
-      f  = { "<cmd>Telescope find_files hidden=true<cr>", "find" },
-      s  = { "<cmd>Telescope current_buffer_tags<cr>", "symbols" },
-      ["/"] = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "search buffer"},
-      o  = { "<cmd>Telescope oldfiles cwd_only=true<cr>", "old files" },
+      f  = { "<cmd>FzfLua files<cr>", "find" },
+      s  = { "<cmd>FzfLua btags<cr>", "symbols" },
+      ["/"] = {"<cmd>FzfLua grep_curbuf<cr>", "search buffer"},
+      o  = { "<cmd>FzfLua oldfiles<cr>", "old files" },
       u  = { ":undolist<CR>:u<Space>", "undo list" },
       l = { ":call cursor()<left>", "goto line", silent=false },
       y = {
@@ -776,7 +775,7 @@ keymap({
         N  = { '<cmd>let @+ = expand("%:t")<cr>', "name to clipboard" },
       },
     },
-    ["<space>"] = { "<cmd>Telescope tags<cr>", "find symbol" },
+    ["<space>"] = { "<cmd>FzfLua tags<cr>", "find symbol" },
     ["-"] = { "<cmd>Telescope open_dir open_dir<cr>", "find dir" },
   }, {
     prefix = "<leader>",
@@ -947,3 +946,12 @@ imap <c-;> <c-o>$
 " and for vim we have
 " https://github.com/embark-theme/vim/issues/37#issuecomment-824196634
 
+lua <<EOF
+local actions = require "fzf-lua.actions"
+require'fzf-lua'.setup {
+  fullscreen = true,
+  oldfiles = {
+    cwd_only = true,
+  }
+}
+EOF
