@@ -92,13 +92,6 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=21
 
-" FIXME tmp fix for https://github.com/nvim-telescope/telescope.nvim/issues/699
-" also https://github.com/nvim-telescope/telescope.nvim/issues/559#issuecomment-1074076011
-augroup fix_folds
-  autocmd!
-  autocmd BufNewFile,BufRead *.* norm! zx
-augroup END
-
 nnoremap ; :
 nnoremap , ;
 vnoremap ; :
@@ -375,9 +368,6 @@ luafile ~/.config/nvim/mine/treesitter-and-comment.lua
 " from https://github.com/junegunn/fzf/issues/1393#issuecomment-426576577
 " commenting as when used inside nvim-bqf, it removes qf list buffer too
 " autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
-
-" FIXME https://github.com/nvim-telescope/telescope.nvim/issues/1661
-" autocmd User TelescopePreviewerLoaded setlocal number
 
 lua <<EOF
 local actions = require"telescope.actions"
