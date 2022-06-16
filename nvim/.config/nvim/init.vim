@@ -75,11 +75,15 @@ let mapleader = "\<Space>"
 nmap <tab> %
 nnoremap <c-i> <c-i>
 
-set mouse=nv
 set cursorline
 set cursorlineopt=number
 set signcolumn=yes
 set number relativenumber
+
+set mouse=nv
+" https://github.com/ajitid/dotfiles/blob/337e334fda45098198317111b3e7e47979c00362/archived/nvim-2021/.config/nvim/init.vim#L112-L116
+autocmd FocusGained * call timer_start(100, { tid -> execute('set mouse=nv')})
+autocmd FocusLost * set mouse=
 
 set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/dist/*,*/build/*,.idea/**,*DS_Store*,*/coverage/*,*/.git/*,*/package-lock.json,*/yarn.lock,*/go.sum
 
