@@ -948,6 +948,12 @@ require'fzf-lua'.setup {
   fullscreen = true,
   oldfiles = {
     cwd_only = true,
-  }
+  },
+  winopts = {
+    preview = {
+      layout = 'vertical',
+      vertical = 'up:65%',
+    }
+  },
 }
 EOF
