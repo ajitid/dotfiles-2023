@@ -479,10 +479,9 @@ set wildcharm=<c-z>
 "
 " space and backspace are added to prevent autosuggest from showing parent folder
 " suggestions
-nnoremap <leader>f. :e %:.:h<c-z><space><bs>
 nnoremap <leader>> :e %:.:h<c-z><space><bs>
 
-nmap <leader>. <cmd>lua require"telescope.builtin".find_files({ cwd = require"telescope.utils".buffer_dir(), hidden = true })<cr>
+nmap <leader>. <cmd>lua require("fzf-lua").files({ cwd = vim.fn.expand('%:h') })<cr>
 
 " indent file without leaving cursor pos
 " from https://stackoverflow.com/a/20110045/7683365
@@ -755,7 +754,6 @@ keymap({
     },
     f = {
       name = "file",
-      f  = { "<cmd>FzfLua files<cr>", "find" },
       s  = { "<cmd>FzfLua btags<cr>", "symbols" },
       ["/"] = {"<cmd>FzfLua grep_curbuf<cr>", "search buffer"},
       o  = { "<cmd>FzfLua oldfiles<cr>", "old files" },
@@ -773,6 +771,8 @@ keymap({
     ["-"] = { "<cmd>Telescope open_dir open_dir<cr>", "find dir" },
     ["/"] = { "<cmd>FzfLua live_grep<cr>", "live grep" },
     e  = { "<cmd>FzfLua files<cr>", "find files" },
+    [">"] = { ":edit in buffer dir" },
+    ["."] = { "find file in buffer dir" },
   }, {
     prefix = "<leader>",
   })
