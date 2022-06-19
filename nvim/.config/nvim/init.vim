@@ -162,8 +162,9 @@ tnoremap <A-h> <c-\><c-n><C-w>h
 tnoremap <A-j> <c-\><c-n><C-w>j
 tnoremap <A-k> <c-\><c-n><C-w>k
 tnoremap <A-l> <c-\><c-n><C-w>l
-tnoremap <Esc> <c-\><c-n>
-tnoremap <A-[> <Esc>
+tnoremap <A-[> <c-\><c-n>
+" <A-r>0 to paste from 0 register to FZF Lua for example
+tnoremap <expr> <A-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 fun! SetupCommandAlias(from, to)
   exec 'cnoreabbrev <expr> '.a:from
