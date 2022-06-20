@@ -723,6 +723,8 @@ keymap({
     e  = { "<cmd>FzfLua files<cr>", "find files" },
     [">"] = { ":edit in buffer dir" },
     ["."] = { "find file in buffer dir" },
+    ["."] = { "find file in buffer dir" },
+    ["<tab>"] = { "<cmd>Neotree toggle<cr>", "file explorer" }
   }, {
     prefix = "<leader>",
   })
@@ -927,3 +929,32 @@ function! <SID>Bonly()
   endif
 endfun
 command! Bonly call s:Bonly()
+
+let g:neo_tree_remove_legacy_commands = 1
+
+lua <<EOF
+require"neo-tree".setup({
+  enable_git_status = false,
+  enable_diagnostics = false,
+  default_component_configs = {
+    icon = {
+      folder_closed = "🗀 ",
+      folder_open = "🗁 ",
+      folder_empty = "📂",
+      default = " •",
+    },
+  },
+  filesystem = {
+    filtered_items = {
+      hide_gitignored = false,
+      hide_dotfiles = false,
+      never_show = {
+        ".git",
+        "node_modules",
+        "tags",
+      }
+    }
+  }
+})
+EOF
+
