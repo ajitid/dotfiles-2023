@@ -36,8 +36,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
@@ -59,7 +57,7 @@ Plug 'tpope/vim-repeat'
 Plug 'machakann/vim-sandwich'
 Plug 'rlane/pounce.nvim'
 Plug 'junegunn/vim-easy-align'
-Plug 'justinmk/vim-dirvish'
+
 " these are relevant and helpful
 " https://stackoverflow.com/a/51962260/7683365
 " https://www.reddit.com/r/vim/comments/7dv9as/how_to_edit_the_vim_quickfix_list/
@@ -101,6 +99,8 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'vim-scripts/CmdlineComplete'
 
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
+
+Plug 'tpope/vim-vinegar'
 
 """""""" evaluate
 " https://github.com/tommcdo/vim-ninja-feet

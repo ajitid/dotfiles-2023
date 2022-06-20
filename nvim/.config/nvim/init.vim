@@ -50,9 +50,6 @@ function! CustomRasmus() abort
   hi Search guibg=peru guifg=#222222
   hi TSTagAttribute guifg=#8a8a8f gui=italic
 
-  " TODO fix bg https://github.com/nvim-telescope/telescope.nvim/issues/1936
-  " hi TelescopeNormal guibg=#222222
-
   sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
   sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
   sign define DiagnosticSignInfo text=│ texthl=DiagnosticSignInfo
@@ -374,48 +371,6 @@ luafile ~/.config/nvim/mine/treesitter-and-comment.lua
 " commenting as when used inside nvim-bqf, it removes qf list buffer too
 " autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
-lua <<EOF
-local actions = require"telescope.actions"
-local action_layout = require("telescope.actions.layout")
-
-require('telescope').setup{
-  defaults = require("telescope.themes").get_ivy {
-    borderchars = { " ", "", "", "", "", "", "", "" },
-    layout_config = {
-      height = 15,
-    },
-    dynamic_preview_title = true,
-    results_title = false,
-    preview = {
-      hide_on_startup = true,
-    },
-
-    mappings = {
-      i = {
-        -- <c-c> would do the same
-        ["<esc>"] = actions.close,
-        ["<a-p>"] = action_layout.toggle_preview,
-      }
-    },
-
-    file_ignore_patterns = {
-      ".git/",
-      ".DS_Store", ".vscode/", ".idea/",
-      "node_modules/", "__pycache__/",
-      "package%-lock.json", "yarn.lock", "pnpm%-lock.yaml",
-      "build/", "dist/",
-      "go.sum",
-      "tags",
-    },
-    -- ^ telescope uses lua's pattern matching library, see:
-    -- https://github.com/nvim-telescope/telescope.nvim/issues/780
-    -- https://gitspartv.github.io/lua-patterns/
-  }
-}
-
-require("telescope").load_extension("zf-native")
-EOF
-
 " for completion
 set completeopt=menu,menuone,noselect
 set pumheight=8
@@ -504,22 +459,6 @@ let g:easy_align_delimiters = {
       \   },
       \ }
 
-let s:dirvish_exclude = ['\.git/$', '\.idea/$', '/tags$']
-let s:dirvish_exclude_pattern = join(s:dirvish_exclude, '\|')
-let s:dirvish_exclude_pattern = substitute(s:dirvish_exclude_pattern, '/', '\\/', 'g')
-
-" put folders and hidden files first
-let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r | silent keeppatterns g/\(' . s:dirvish_exclude_pattern . '\)/d'
-augroup dirvish_config
-  autocmd!
-  autocmd FileType dirvish nnoremap <silent><buffer>
-        \ gh :silent keeppatterns g@\v/\.[^\/]+/?$@d _<cr>:setl cole=2<cr>
-  autocmd FileType dirvish nnoremap <silent><buffer> r <cmd>setlocal conceallevel=2<cr>
-  autocmd FileType dirvish nmap <silent><buffer> h <Plug>(dirvish_up)
-  autocmd FileType dirvish nmap <silent><buffer> l <cmd>call dirvish#open("edit", 0)<cr>
-  autocmd FileType dirvish nmap <silent><buffer> - <cmd>Dirvish<cr>
-augroup END
-
 nmap <leader>r <plug>(SubversiveSubstitute)
 nmap <leader>rr <plug>(SubversiveSubstituteLine)
 nmap <leader>R <plug>(SubversiveSubstituteToEndOfLine)
@@ -588,8 +527,18 @@ source ~/.config/nvim/mine/blame.vim
 
 lua <<EOF
 require"gitlinker".setup({ mappings = false })
-vim.api.nvim_set_keymap('n', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {silent = true})
+vim.api.nvim_set_keymap('n', '<leader>fgx', '<cmd>lua require"gitlinker".get_buf_range_url("n", {add_current_line_on_normal_mode = false, action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
+vim.api.nvim_set_keymap('n', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
 vim.api.nvim_set_keymap('v', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
+
+local keymap = require("which-key").register
+keymap({
+  fgx = 'file remote URL',
+  cgx = 'line remote URL',
+  cgx = {'range remote URL', mode='v'},
+}, {
+  prefix = "<leader>"
+})
 EOF
 
 function! s:arrayify(bang, ...) range abort
