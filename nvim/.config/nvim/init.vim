@@ -958,3 +958,23 @@ require'fzf-lua'.setup {
   },
 }
 EOF
+
+" keep the current buffer and clean the rest from buffer list
+function! <SID>Bonly()
+  let l:modified_buffers = len(filter(getbufinfo(), 'v:val.changed == 1'))
+  let l:is_current_buffer_modified = getbufinfo('%')[0].changed
+
+  " this weird logic is needed to remove the rest of the buffers 
+  " even though the current one is modified
+
+  if l:modified_buffers >= 2 || (l:modified_buffers == 1 && !l:is_current_buffer_modified)
+    echo "Can't clean rest of the buffers as few of them are modified"
+  else
+    silent! %bd
+    if !l:is_current_buffer_modified
+      exec "normal \<C-o>"
+      silent! bd#
+    endif
+  endif
+endfun
+command! Bonly call s:Bonly()

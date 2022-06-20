@@ -57,7 +57,7 @@ function basic_keymaps()
     f = {
       name = "file",
       s = { fzf.lsp_document_symbols, "symbols", buffer=0 },
-      S = { "<cmd>AerialToggle<cr>", "symbols", buffer=0 },
+      S = { "<cmd>AerialToggle<cr>", "symbols in sidebar", buffer=0 },
     },
     w = {
       name = "workspace",
@@ -242,7 +242,7 @@ lspconfig.tsserver.setup{
     -- client.config.flags.allow_incremental_sync = true
 
     common_on_attach(client, bufnr)
-    vim.keymap.set("n", "<leader>fr", typescript_rename_file_command, {buffer=0})
+    keymap({ ["<leader>fr"] = { typescript_rename_file_command, "rename using LSP", buffer=0 } })
   end,
 }
 
