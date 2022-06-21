@@ -34,3 +34,8 @@ let g:CtrlXA_Toggles = [
     \ ['!==', '==='],
     \ ] + g:CtrlXA_Toggles
 
+
+autocmd FileType gitrebase
+    \ let b:CtrlXA_Toggles = [
+    \ ['pick', 'fixup', 'squash', 'break', 'reword', 'edit', 'drop'],
+    \ ] + g:CtrlXA_Toggles

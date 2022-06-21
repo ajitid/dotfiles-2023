@@ -945,7 +945,7 @@ require"neo-tree".setup({
       folder_closed = "🗀 ",
       folder_open = "🗁 ",
       folder_empty = "📂",
-      default = " •",
+      default = " ○",
     },
   },
   filesystem = {
