@@ -724,11 +724,15 @@ keymap({
     [">"] = { ":edit in buffer dir" },
     ["."] = { "find file in buffer dir" },
     ["."] = { "find file in buffer dir" },
-    ["<tab>"] = { "<cmd>Neotree toggle<cr>", "file explorer" }
   }, {
     prefix = "<leader>",
   })
 EOF
+
+nnoremap _ <cmd>Neotree toggle reveal<cr>
+" opening file while on neo-tree doesn't make me do g;
+" cursorline is not hihglighting in rasmus.nvim
+" autocmd Filetype neo-tree setlocal cursorline
 
 lua <<EOF
 -- require('neogen').setup {}
