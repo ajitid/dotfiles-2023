@@ -1,11 +1,12 @@
 local keymap = require("which-key").register
 
 require("nvim-lsp-installer").setup({
-  ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver', 'rust_analyzer' }
+  ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver', 'cssls', 'rust_analyzer' }
 })
-local lspconfig = require'lspconfig'
+require('aerial').setup({})
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lspconfig = require'lspconfig'
 
 require "lsp_signature".setup({
   bind=true,
@@ -173,9 +174,6 @@ lspconfig.gopls.setup{
   end,
 }
 
-local lsp_installer = require("nvim-lsp-installer")
-require('aerial').setup({})
-
 -- from https://github.com/williamboman/nvim-lsp-installer/blob/b14bd0c5d75ca9da91d7675e98b89450b08f0143/lua/nvim-lsp-installer/extras/tsserver.lua
 -- also see https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils/blob/627963630691c3f3113a8b549fca4246ed4960eb/lua/nvim-lsp-ts-utils/rename-file.lua#L14-L22
 function send_client_request(client_name, ...)
@@ -265,6 +263,11 @@ lspconfig.pyright.setup{
 }
 
 lspconfig.eslint.setup{
+  capabilities = capabilities,
+  on_attach = common_on_attach,
+}
+
+lspconfig.cssls.setup{
   capabilities = capabilities,
   on_attach = common_on_attach,
 }
