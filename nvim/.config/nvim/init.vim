@@ -439,6 +439,24 @@ nnoremap <leader>> :e %:.:h<c-z><space><bs>
 
 nmap <leader>. <cmd>lua require("fzf-lua").files({ cwd = vim.fn.expand('%:h') })<cr>
 
+lua <<EOF
+local fzf = require"fzf-lua"
+
+local function default_action(selected)
+  vim.cmd("call feedkeys(':e " .. selected[1] .. "')")
+end
+
+function find_folder()
+  fzf.files({
+    fd_opts = "-t d",
+    previewer = false,
+    actions = {
+      ["default"] = default_action,
+    },
+  })
+end
+EOF
+
 " indent file without leaving cursor pos
 " from https://stackoverflow.com/a/20110045/7683365
 nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <CR>:echo "file indented"<CR>
@@ -718,7 +736,7 @@ keymap({
       },
     },
     ["<space>"] = { "<cmd>FzfLua tags<cr>", "find symbol" },
-    ["-"] = { "<cmd>Telescope open_dir open_dir<cr>", "find dir" },
+    ["-"] = { find_folder, "find dir" },
     ["/"] = { "<cmd>FzfLua live_grep<cr>", "live grep" },
     e  = { "<cmd>FzfLua files<cr>", "find files" },
     [">"] = { ":edit in buffer dir" },
@@ -729,7 +747,7 @@ keymap({
   })
 EOF
 
-nnoremap _ <cmd>Neotree toggle reveal<cr>
+nnoremap _ <cmd>Neotree current toggle reveal<cr>
 " opening file while on neo-tree doesn't make me do g;
 " cursorline is not hihglighting in rasmus.nvim
 " autocmd Filetype neo-tree setlocal cursorline
@@ -945,10 +963,12 @@ require"neo-tree".setup({
       folder_closed = "🗀 ",
       folder_open = "🗁 ",
       folder_empty = "📂",
-      default = " ○",
+      default = " ·",
     },
   },
   filesystem = {
+    hijack_netrw_behavior = 'open_current',
+    bind_to_cwd = false,
     filtered_items = {
       hide_gitignored = false,
       hide_dotfiles = false,
@@ -961,4 +981,3 @@ require"neo-tree".setup({
   }
 })
 EOF
-
