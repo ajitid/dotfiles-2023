@@ -774,22 +774,18 @@ let g:rooter_patterns = ['!^node_modules'] + g:root_markers
 " don't search for parent directory for tags
 " https://vi.stackexchange.com/questions/13509/use-only-closest-tagfile-to-working-directory-of-buffer-or-of-vim-process
 " (PS: turns out setglobal tags?, set tags? and setlocal tags? give different values)
-" Now I have two solutions, one being:
 set tags=
-" ^ this works perfectly in all cases but doesn't generate tags and loads tag file
-" when Dirvish is opened.
-" another is to do:
-" set tags=tags
-" this would load up the tagfile, but (probably) won't update tags if you change
-" git branch for example (as GutentagsUpdate command is not available in
-" Dirvish)
+" ^ this works perfectly in all cases but doesn't generate tags when Dirvish/nvim-neotree is open. This happens
+" because of https://github.com/ludovicchabant/vim-gutentags/blob/b77b8fabcb0b052c32fe17efcc0d44f020975244/autoload/gutentags.vim#L255
 "
-" so unless the repo isn't monorepo, I would still suggest to put `.notags`
+" unless the repo isn't monorepo, I would suggest to put `.notags`
 " file at root to avoid extraneous tag generation
-
-" if you're noticing a slowdown when opening tag list using <space><space>,
+" (^ root of what? in projects within the monorepo?? can't understand my past
+" self, though `.notags` is certainly needed in some case)
+"
+" experiencing slowdown when opening tag list using `<space><space>`?
 " check if the repo is initialized with git and has a well defined `.gitignore`
-" this type of slowdown is not usually a gutentags or a telescope issue
+
 if executable('fd')
   " for rg it would be `rg --files`
   let g:gutentags_file_list_command = 'fd . -t f'
@@ -829,8 +825,7 @@ let g:interestingWordsDefaultMappings = 0
 nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
 vnoremap <silent> <leader>m :call InterestingWords('v')<cr>
 nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
-" somehow results in hiding [3/34] that appears at bottom right at command
-" line
+" Somehow results in hiding [3/34] that appears at bottom right at command line:
 " nnoremap <silent> n :call WordNavigation(1)<cr>
 " nnoremap <silent> N :call WordNavigation(0)<cr>
 
