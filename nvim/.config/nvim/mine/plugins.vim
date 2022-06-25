@@ -110,6 +110,7 @@ Plug 'nvim-neo-tree/neo-tree.nvim'
 " Plug 'eugen0329/vim-esearch'
 " trouble nvim + that plugin that doesn't move splits when folke/trouble.nvim
 
+" anuvyklack/hydra.nvim
 " Plug 'tomtom/tinykeymap_vim'
 " https://github.com/kana/vim-submode
 " https://github.com/kana/vim-arpeggio/
