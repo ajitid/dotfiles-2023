@@ -272,7 +272,7 @@ vmap <leader>gP "0gP
 function! PasteJointCharacterwise(regname, pastecmd)
   let l:reg_type = getregtype(a:regname)
   let l:reg_val = getreg(a:regname)
-  call setreg(a:regname, l:reg_val, "c")
+  call setreg(a:regname, trim(l:reg_val) . "\n", "c")
   exe 'normal "'. a:regname . a:pastecmd
   call setreg(a:regname, l:reg_val, l:reg_type)
   exe 'normal `[v`]gJ'
@@ -953,6 +953,28 @@ lua <<EOF
 require"neo-tree".setup({
   enable_git_status = false,
   enable_diagnostics = false,
+  use_default_mappings = false,
+  window = {
+    mappings = {
+      ["q"] = "close_window",
+      ["R"] = "refresh",
+      -- ["<bs>"] = "navigate_up",
+      -- ["."] = "set_root",
+      ["l"] = "open",
+      ["<cr>"] = "open",
+      ["h"] = "close_node",
+      ["_"] = "close_all_nodes",
+      ["a"] = "add",
+      ["A"] = "add_directory",
+      ["r"] = "rename",
+      ["c"] = "copy",
+      ["m"] = "move",
+      ["d"] = "delete",
+      ["y"] = "copy_to_clipboard",
+      ["x"] = "cut_to_clipboard",
+      ["p"] = "paste_from_clipboard",
+    },
+  },
   default_component_configs = {
     icon = {
       folder_closed = "🗀 ",
@@ -976,3 +998,4 @@ require"neo-tree".setup({
   }
 })
 EOF
+
