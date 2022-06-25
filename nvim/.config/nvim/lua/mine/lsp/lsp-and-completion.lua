@@ -1,7 +1,7 @@
 local keymap = require("which-key").register
 
 require("nvim-lsp-installer").setup({
-  ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver', 'cssls', 'rust_analyzer' }
+  ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver', 'cssls' }
 })
 require('aerial').setup({})
 
@@ -268,11 +268,6 @@ lspconfig.eslint.setup{
 }
 
 lspconfig.cssls.setup{
-  capabilities = capabilities,
-  on_attach = common_on_attach,
-}
-
-lspconfig.rust_analyzer.setup{
   capabilities = capabilities,
   on_attach = common_on_attach,
 }
