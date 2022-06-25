@@ -1,7 +1,7 @@
 local keymap = require("which-key").register
 
 require("nvim-lsp-installer").setup({
-  ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver', 'cssls' }
+  ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver', 'cssls', 'marksman' }
 })
 require('aerial').setup({})
 
@@ -268,6 +268,11 @@ lspconfig.eslint.setup{
 }
 
 lspconfig.cssls.setup{
+  capabilities = capabilities,
+  on_attach = common_on_attach,
+}
+
+lspconfig.marksman.setup{
   capabilities = capabilities,
   on_attach = common_on_attach,
 }
