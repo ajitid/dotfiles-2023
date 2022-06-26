@@ -44,17 +44,24 @@ if has('termguicolors')
   set termguicolors
 endif
 
-function! CustomRasmus() abort
-  hi CmpGhostText guifg=#686868
-  highlight link PounceMatch NormalFloat
-  highlight link PounceGap NormalFloat
-  hi PounceKey guifg=wheat guibg=#261f18 gui=bold
+function! CustomIceberg() abort
+  hi CmpGhostText guifg=#6b7089
+
+  highlight link PounceMatch EasyMotionShade
+  highlight link PounceGap PounceMatch
+  hi EasyMotionTarget gui=bold
+  hi link PounceKey EasyMotionTarget
   hi link PounceAccept PounceKey
   hi link PounceAcceptBest PounceKey
+
+  hi Search guifg=#cdd1e6 guibg=#3e445e
+
+  " NormalFloat, CursorLine:
   hi link MatchWord CursorLine
-  hi Visual ctermbg=242 guibg=#303035
-  hi Search guibg=peru guifg=#222222
-  hi TSTagAttribute guifg=#8a8a8f gui=italic
+
+  hi LineNr guibg=NONE
+  hi CursorLineNr guibg=NONE
+  hi SignColumn guibg=NONE
 
   sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
   sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
@@ -64,12 +71,10 @@ endfunction
 
 augroup MyColors
   autocmd!
-  autocmd ColorScheme rasmus call CustomRasmus()
+  autocmd ColorScheme iceberg call CustomIceberg()
 augroup END
 
-let g:rasmus_transparent = 1
-let g:rasmus_italic_comments = 0
-colorscheme rasmus
+colorscheme iceberg
 
 nnoremap <space> <nop>
 let mapleader = "\<Space>"
@@ -331,8 +336,49 @@ local function buf_for_file()
   return ''
 end
 
+local colors = {
+  color2   = "#161821",
+  color3   = "#b4be82",
+  -- color4   = "#8c91ab",
+  color4   = "#7f87a5", -- same as color9
+  color5   = "#2e313f",
+  color8   = "#e2a478",
+  color9   = "#7f87a5",
+  color10  = "#0f1117",
+  color11  = "#17171b",
+  color12  = "#818596",
+  color15  = "#84a0c6",
+}
+
+local iceberg = {
+  visual = {
+    a = { fg = colors.color2, bg = colors.color3 , "bold", },
+    b = { fg = colors.color4, bg = colors.color5 },
+  },
+  replace = {
+    a = { fg = colors.color2, bg = colors.color8 , "bold", },
+    b = { fg = colors.color4, bg = colors.color5 },
+  },
+  inactive = {
+    c = { fg = colors.color9, bg = colors.color10 },
+    a = { fg = colors.color9, bg = colors.color10 , "bold", },
+    b = { fg = colors.color9, bg = colors.color10 },
+  },
+  normal = {
+    c = { fg = colors.color9, bg = colors.color10 },
+    a = { fg = colors.color11, bg = colors.color12 , "bold", },
+    b = { fg = colors.color4, bg = colors.color5 },
+  },
+  insert = {
+    a = { fg = colors.color2, bg = colors.color15 , "bold", },
+    b = { fg = colors.color4, bg = colors.color5 },
+  },
+}
+
 require('lualine').setup({
   options = {
+    section_separators = '',
+    theme = iceberg,
     icons_enabled = false,
   },
   sections = {
@@ -929,6 +975,17 @@ require'fzf-lua'.setup {
       layout = 'vertical',
       vertical = 'up:70%',
     }
+  },
+  fzf_colors = {
+      ["fg"]          = { "fg", "Normal" },
+      ["hl"]          = { "fg", "Normal" },
+      ["fg+"]         = { "fg", "Normal" },
+      ["hl+"]         = { "fg", "Normal" },
+      ["bg+"]         = { "bg", "CursorLine" },
+      ["pointer"]     = { "fg", "Label" },
+      ["marker"]      = { "fg", "Special" },
+      ["spinner"]     = { "fg", "Label" },
+      ["gutter"]      = { "bg", "Normal" },
   },
 }
 EOF

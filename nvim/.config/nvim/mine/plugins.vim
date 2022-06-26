@@ -27,6 +27,7 @@ Plug 'tpope/vim-obsession'
 
 " styling
 Plug 'kvrohit/rasmus.nvim'
+Plug 'cocopon/iceberg.vim'
 Plug 'nvim-lualine/lualine.nvim'
 
 " smort
@@ -78,7 +79,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'folke/which-key.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'andymass/vim-matchup'
-Plug 'natecraddock/telescope-zf-native.nvim'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'unblevable/quick-scope'
 Plug 'stevearc/aerial.nvim'
