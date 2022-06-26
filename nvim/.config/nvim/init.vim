@@ -21,18 +21,24 @@ set modelines=0
 " `set exrc` set, I might not need exrc plugin (but why it then exists at the
 " very first place?)
 
+" FixCursorHold.nvim
+let g:cursorhold_updatetime = 150
+
 " which key prompt wait time
 set timeoutlen=1000
 lua << EOF
-  require("which-key").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
+require("which-key").setup {
+  plugins = {
+    registers = false,
+    presets = {
+        g = false,
+        text_objects = false,
+        motions = false,
+        operators = false,
+    },
+  },
+}
 EOF
-
-" FixCursorHold.nvim
-let g:cursorhold_updatetime = 150
 
 if has('termguicolors')
   set termguicolors
@@ -921,7 +927,7 @@ require'fzf-lua'.setup {
   winopts = {
     preview = {
       layout = 'vertical',
-      vertical = 'up:65%',
+      vertical = 'up:70%',
     }
   },
 }
