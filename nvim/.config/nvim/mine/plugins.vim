@@ -89,10 +89,15 @@ Plug 'tpope/vim-abolish'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'lfv89/vim-interestingwords'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
+
 " alt ways:
 " - https://stackoverflow.com/a/42249534
 " - https://stackoverflow.com/a/58768939/7683365
-Plug 'mzlogin/vim-markdown-toc'
+" Plug 'mzlogin/vim-markdown-toc'
+" might not be needed anymore because marksman lsp also provides a code action
+" for this
+
+
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " cd ~; rm (fd -It f '^tags$')
 Plug 'ludovicchabant/vim-gutentags'
