@@ -35,6 +35,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'nvim-treesitter/playground'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+Plug 'narutoxy/dim.lua'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'

@@ -1073,3 +1073,5 @@ require"neo-tree".setup({
 })
 EOF
 
+lua require('dim').setup({})
+
