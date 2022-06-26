@@ -67,6 +67,9 @@ function! CustomIceberg() abort
   sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
   sign define DiagnosticSignInfo text=│ texthl=DiagnosticSignInfo
   sign define DiagnosticSignHint text=│ texthl=DiagnosticSignHint
+
+  " hi DiagnosticSignError guibg=NONE
+  " and same for rest if you want to remove bg
 endfunction
 
 augroup MyColors
