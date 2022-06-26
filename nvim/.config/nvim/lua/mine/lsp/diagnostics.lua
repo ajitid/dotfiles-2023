@@ -2,6 +2,14 @@ local diagnostics = vim.diagnostic
 
 local M = {}
 
+local severity_map = {
+  [1] = 'error',
+  [2] = 'warning',
+  [3] = 'info',
+  [4] = 'hint',
+  [5] = 'deprecation',
+}
+
 function M.echo_line_diagnostics(bufnr, line_nr, client_id)
     bufnr = bufnr or 0
     line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
@@ -12,7 +20,7 @@ function M.echo_line_diagnostics(bufnr, line_nr, client_id)
     local lines = {}
 
     for i, diagnostic in ipairs(line_diagnostics) do
-        local prefix_text = diagnostic.source or '(unknown)'
+        local prefix_text = '(' .. severity_map[diagnostic.severity] .. ') ' .. (diagnostic.source or '(unknown)')
 
         local code = nil
         if diagnostic.user_data then
