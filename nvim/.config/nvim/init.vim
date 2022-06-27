@@ -780,7 +780,7 @@ keymap({
       name = "file",
       s  = { "<cmd>FzfLua btags<cr>", "symbols" },
       ["/"] = {"<cmd>FzfLua grep_curbuf<cr>", "search buffer"},
-      o  = { "<cmd>FzfLua oldfiles<cr>", "old files" },
+      o  = { "<cmd>FzfLua oldfiles previewer=false<cr>", "old files" },
       u  = { ":undolist<CR>:u<Space>", "undo list" },
       l = { ":call cursor()<left>", "goto line", silent=false },
       y = {
@@ -794,7 +794,7 @@ keymap({
     ["<space>"] = { "<cmd>FzfLua tags<cr>", "find symbol" },
     ["-"] = { find_folder, "find dir" },
     ["/"] = { "<cmd>FzfLua live_grep<cr>", "live grep" },
-    e  = { "<cmd>FzfLua files<cr>", "find files" },
+    e  = { "<cmd>FzfLua files previewer=false<cr>", "find files" },
     [">"] = { ":edit in buffer dir" },
     ["."] = { "find file in buffer dir" },
     ["."] = { "find file in buffer dir" },
