@@ -105,7 +105,6 @@ Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-neo-tree/neo-tree.nvim'
-Plug 'tiagovla/scope.nvim'
 
 """""""" evaluate
 " https://github.com/tommcdo/vim-ninja-feet
