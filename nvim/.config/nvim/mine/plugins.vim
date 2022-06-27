@@ -19,11 +19,8 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-obsession'
-" condition not needed as it doesn't interferes with vim's session management
+" conditionally load a plugin on the basis or arguments passed
 " if index(v:argv, '-S') == -1
-" commented only to encourage the use of sessions
-" Plug 'farmergreg/vim-lastplace'
-" also g; basically moves you to last position
 
 " styling
 Plug 'kvrohit/rasmus.nvim'
@@ -108,6 +105,7 @@ Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-neo-tree/neo-tree.nvim'
+Plug 'tiagovla/scope.nvim'
 
 """""""" evaluate
 " https://github.com/tommcdo/vim-ninja-feet

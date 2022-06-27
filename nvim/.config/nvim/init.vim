@@ -185,7 +185,8 @@ endfun
 
 call SetupCommandAlias("nt","tabnew")
 " keeps cursor at same place when cloning the buffer in new tab
-call SetupCommandAlias("bt","tab sb")
+" TODO tmp fix `\\| set buflisted` until this issue is resolved https://github.com/tiagovla/scope.nvim/issues/2#issuecomment-1166761919
+call SetupCommandAlias("bt","tab sb \\| set buflisted")
 call SetupCommandAlias("rg","GrepLiteral")
 " originally was write followed by edit, that's why `we` command
 call SetupCommandAlias("we","update \\| edit")
@@ -1077,4 +1078,5 @@ require"neo-tree".setup({
 EOF
 
 lua require('dim').setup({})
+lua require("scope").setup()
 
