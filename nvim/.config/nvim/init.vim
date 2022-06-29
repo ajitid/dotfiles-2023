@@ -533,6 +533,8 @@ let g:easy_align_delimiters = {
       \ }
 
 nmap <leader>r <plug>(SubversiveSubstitute)
+" looking for a xmap/vmap version for the above?
+" `P` already does that. See `:h put-Visual-mode`
 nmap <leader>rr <plug>(SubversiveSubstituteLine)
 nmap <leader>R <plug>(SubversiveSubstituteToEndOfLine)
 nmap \ <plug>(SubversiveSubstituteRange)
