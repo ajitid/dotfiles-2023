@@ -269,7 +269,10 @@ lspconfig.tsserver.setup{
               end
               if not isReactDTs then
                   -- this sets the value for the quickfix list
-                  util.set_qflist(util.locations_to_items(result))
+                  vim.fn.setqflist({}, ' ', {
+                      title = 'Language Server',
+                      items = util.locations_to_items(result, offset_encoding),
+                  })
                   -- this opens the quickfix window
                   vim.api.nvim_command("copen")
                   vim.api.nvim_command("wincmd p")
