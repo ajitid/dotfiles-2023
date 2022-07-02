@@ -243,6 +243,19 @@ lspconfig.tsserver.setup{
     keymap({ ["<leader>fr"] = { typescript_rename_file_command, "rename using LSP", buffer=0 } })
   end,
   handlers = {
+    -- usually gets called after a code action
+    -- like in moving an anonymous function in outer scope
+    ["_typescript.rename"] = function(_, result, params)
+      local line = result.position.line
+      local character = result.position.character
+      -- see commit msg to find resources to learn about these fns
+      local column = vim.str_byteindex(vim.fn.getline('.'), character, true)
+      vim.fn.cursor(line + 1, column + 1)
+      vim.lsp.buf.rename()
+      return result
+    end,
+
+    -- skip react types when jumping to definition using `gd`
     ["textDocument/definition"] = function(_, result, params)
       local util = require("vim.lsp.util")
       local client = vim.lsp.get_client_by_id(params.client_id)
