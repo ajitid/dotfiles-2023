@@ -244,7 +244,7 @@ lspconfig.tsserver.setup{
   end,
   handlers = {
     -- usually gets called after a code action
-    -- like in moving an anonymous function in outer scope
+    -- like in moving an anonymous function to outer scope
     ["_typescript.rename"] = function(_, result, params)
       local line = result.position.line
       local character = result.position.character
