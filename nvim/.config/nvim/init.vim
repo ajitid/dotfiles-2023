@@ -85,6 +85,7 @@ let mapleader = "\<Space>"
 " from https://github.com/neovim/neovim/pull/17932#issuecomment-1113997721
 nmap <tab> %
 nnoremap <c-i> <c-i>
+xmap <tab> %
 
 set cursorline
 set cursorlineopt=number
