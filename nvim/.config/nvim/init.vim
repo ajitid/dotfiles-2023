@@ -1079,6 +1079,13 @@ require"neo-tree".setup({
 })
 EOF
 
-lua require('dim').setup({})
+lua <<EOF
+require("neodim").setup({
+  alpha = 0.6,
+  blend_color = "#161821", -- matches current theme's bg (Normal highlight guibg)
+  hide = {signs = false},
+  update_in_insert = {enable = false}
+})
+EOF
 
 " TODO implement `:argdedupe` https://vimhelp.org/editing.txt.html#%3Aargdedupe
