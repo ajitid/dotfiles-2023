@@ -256,7 +256,7 @@ command! -nargs=1 -complete=command -bar -range Redir silent call Redir(<q-args>
 
 augroup highlight_yank
   autocmd!
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank {higroup="IncSearch", timeout=250}
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank {higroup="Visual", timeout=250}
 augroup END
 
 augroup yank_restore_cursor
