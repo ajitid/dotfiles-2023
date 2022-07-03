@@ -972,6 +972,7 @@ imap <c-;> <c-o>$
 lua <<EOF
 local actions = require "fzf-lua.actions"
 require'fzf-lua'.setup {
+  border = false,
   fullscreen = true,
   oldfiles = {
     cwd_only = true,
@@ -1088,4 +1089,8 @@ require("neodim").setup({
 })
 EOF
 
+let g:indent_blankline_enabled = v:false
+let g:indent_blankline_show_first_indent_level = v:false
+
 " TODO implement `:argdedupe` https://vimhelp.org/editing.txt.html#%3Aargdedupe
+
