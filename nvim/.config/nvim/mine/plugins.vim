@@ -22,6 +22,8 @@ Plug 'tpope/vim-obsession'
 " conditionally load a plugin on the basis or arguments passed
 " if index(v:argv, '-S') == -1
 
+Plug 'idbrii/vim-focusclip'
+
 Plug 'nvim-lua/plenary.nvim'
 
 " smort
