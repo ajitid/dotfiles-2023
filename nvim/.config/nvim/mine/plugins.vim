@@ -22,10 +22,7 @@ Plug 'tpope/vim-obsession'
 " conditionally load a plugin on the basis or arguments passed
 " if index(v:argv, '-S') == -1
 
-" styling
-Plug 'kvrohit/rasmus.nvim'
-Plug 'cocopon/iceberg.vim'
-Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-lua/plenary.nvim'
 
 " smort
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -34,13 +31,17 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'narutoxy/dim.lua'
 
-Plug 'nvim-lua/plenary.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+
+" styling
+Plug 'kvrohit/rasmus.nvim'
+Plug 'cocopon/iceberg.vim'
+Plug 'nvim-lualine/lualine.nvim'
 
 " others
 Plug 'tpope/vim-eunuch'
