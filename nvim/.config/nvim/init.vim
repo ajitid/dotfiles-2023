@@ -981,6 +981,9 @@ require'fzf-lua'.setup {
     preview = {
       layout = 'vertical',
       vertical = 'up:70%',
+    },
+    hl = {
+      search = 'Visual',
     }
   },
   fzf_colors = {
