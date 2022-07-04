@@ -250,7 +250,7 @@ lspconfig.tsserver.setup{
       local character = result.position.character
       -- see commit msg to find resources to learn about these fns
       local column = vim.str_byteindex(vim.fn.getline('.'), character, true)
-      vim.fn.cursor(line + 1, column + 1)
+      vim.api.nvim_win_set_cursor(0, {line+1, column})
       vim.lsp.buf.rename()
       return result
     end,
