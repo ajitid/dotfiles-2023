@@ -984,7 +984,17 @@ require'fzf-lua'.setup {
     },
     hl = {
       search = 'Visual',
+      border = 'Normal',
     }
+  },
+  file_ignore_patterns = {
+    ".git/",
+    ".DS_Store", ".vscode/", ".idea/",
+    "node_modules/", "__pycache__/",
+    "package%-lock.json", "yarn.lock", "pnpm%-lock.yaml",
+    "build/", "dist/",
+    "go.sum",
+    "tags",
   },
   fzf_colors = {
       ["fg"]          = { "fg", "Normal" },
