@@ -993,7 +993,7 @@ require'fzf-lua'.setup {
     "node_modules/", "__pycache__/",
     "package%-lock.json", "yarn.lock", "pnpm%-lock.yaml",
     "build/", "dist/",
-    "go.sum",
+    "go.sum", "go/src/",
     "tags",
   },
   fzf_colors = {
