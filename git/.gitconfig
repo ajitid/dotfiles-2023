@@ -1,15 +1,24 @@
 [user]
 	name = ajit
 	email = zlksnkwork@gmail.com
+	signingkey = 2F48AC189D93FC22
+
 [core]
 	autocrlf = false
 	excludesfile = ~/.gitignoreglobal
+
+[commit]
+	gpgSign = true
+
 [init]
 	defaultBranch = main
+
 [alias]
 	pn = !git_push_and_notify
+
 [gc]
 	reflogexpireunreachable = 90
 	reflogexpire = 90
+
 [push]
 	default = current

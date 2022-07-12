@@ -75,7 +75,7 @@ table.unpack = table.unpack or unpack
 
 local js_common = {
   ls.parser.parse_snippet("log", "console.log($0)"),
-  ls.parser.parse_snippet("logd", "console.log('dbg:', $0)"),
+  ls.parser.parse_snippet("logd", "console.log(\"dbg:\", $0)"),
   s("rus", fmt("const [{}, {}] = useState({})", { i(1), dl(2, "set" .. l._1:gsub("^%l", string.upper), 1), i(3) })),
 }
 

@@ -34,6 +34,7 @@ function! SummarizeTabs()
     else
       echon ' noexpandtab'
     endif
+    echon '. Run :RetabIndent to apply whitespace changes.'
   finally
     echohl None
   endtry
