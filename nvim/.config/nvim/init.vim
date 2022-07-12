@@ -758,7 +758,12 @@ vmap <leader>* :<c-u>execute "GrepLiteral " . GetVisualSelection()<cr>
 " let g:esearch.root_markers = g:root_markers
 
 lua <<EOF
-vim.diagnostic.config({ virtual_text = false, severity_sort = true, underline = false })
+vim.diagnostic.config({ virtual_text = true, severity_sort = true, underline = false })
+
+local function toggle_diagnostic()
+  local current = vim.diagnostic.config()
+  vim.diagnostic.config({ virtual_text = not current.virtual_text })
+end
 
 local keymap = require("which-key").register
 keymap({
@@ -772,6 +777,7 @@ keymap({
       ["%"] = { "<cmd>TSContextDisable<cr><cmd>MatchupPairPopupToggle<cr>", "matching pair" },
       -- if offscreen
       c = { "<cmd>MatchupPairPopupDisable<cr><cmd>TSContextToggle<cr>", "code context" },
+      d = { toggle_diagnostic, "toggle inline diagnostics" },
     },
     w = {
       name = "workspace",
