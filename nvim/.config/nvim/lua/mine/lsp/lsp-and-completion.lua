@@ -332,6 +332,7 @@ lspconfig.marksman.setup{
 }
 
 local cmp = require'cmp'
+local cmp_buffer = require'cmp_buffer'
 
 -- needs codicon fonts to render, grab it from https://github.com/microsoft/vscode-codicons/blob/main/dist/codicon.ttf
 local cmp_kinds = {
@@ -380,6 +381,12 @@ cmp.setup({
   }, {
     { name = 'buffer' },
   }),
+  sorting = {
+    comparators = {
+      function(...) return cmp_buffer:compare_locality(...) end,
+      unpack(cmp.get_config().sorting.comparators),
+    },
+  },
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
