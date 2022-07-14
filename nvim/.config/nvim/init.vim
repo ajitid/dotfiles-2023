@@ -757,6 +757,9 @@ vmap <leader>* :<c-u>execute "GrepLiteral " . GetVisualSelection()<cr>
 " let g:esearch = {}
 " let g:esearch.root_markers = g:root_markers
 
+" see "Searching with / and ?" of https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
+vnoremap <M-/> <Esc>/\%V
+
 lua <<EOF
 vim.diagnostic.config({ virtual_text = true, severity_sort = true, underline = false })
 
