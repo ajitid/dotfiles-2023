@@ -711,7 +711,7 @@ let g:bettergrep_no_abbrev = 1
 let g:bettergrepprg = "rg --vimgrep --smart-case"
 
 command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
-function! GrepLiteral(query)
+function! GrepLiteral(query, word = v:false)
   let l:query = a:query
 
   " counts deduced by hit and trial:
@@ -731,7 +731,9 @@ function! GrepLiteral(query)
   endwhile
 
   " -F is passed to ripgrep to make a literal search
-  execute("Grep -F " . "'" . l:query . "'")
+  let l:flags = a:word ? " -w -F " : " -F "
+
+  execute("Grep" . l:flags . "'" . l:query . "'")
 endfunction
 
 " from https://stackoverflow.com/a/6271254/7683365
@@ -749,7 +751,7 @@ function! GetVisualSelection()
 endfunction
 
 " other ways to grab current word are listed here https://stackoverflow.com/questions/31755115/call-vim-function-with-current-word
-nmap <leader>* <cmd>call GrepLiteral(expand('<cword>'))<cr>
+nmap <leader>* <cmd>call GrepLiteral(expand('<cword>'), v:true)<cr>
 vmap <leader>* :<c-u>execute "GrepLiteral " . GetVisualSelection()<cr>
 
 " nmap <leader>/ <plug>(esearch)
@@ -757,8 +759,10 @@ vmap <leader>* :<c-u>execute "GrepLiteral " . GetVisualSelection()<cr>
 " let g:esearch = {}
 " let g:esearch.root_markers = g:root_markers
 
+" do word match
+nmap <M-/> /\V\C\<\><left><left>
 " see "Searching with / and ?" of https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
-vnoremap <M-/> <Esc>/\%V
+vmap <leader>/ <Esc>/\%V
 
 lua <<EOF
 vim.diagnostic.config({ virtual_text = true, severity_sort = true, underline = false })
@@ -791,6 +795,8 @@ keymap({
       name = "file",
       s  = { "<cmd>FzfLua btags<cr>", "symbols" },
       ["/"] = {"<cmd>FzfLua grep_curbuf<cr>", "search buffer"},
+      -- https://github.com/ibhagwan/fzf-lua/blob/4707adc1ec9c5019590f6070ce578f68ed3a085c/lua/fzf-lua/providers/oldfiles.lua#L16
+      -- current session's oldfiles aren't shown by default
       o  = { "<cmd>FzfLua oldfiles previewer=false<cr>", "old files" },
       u  = { ":undolist<CR>:u<Space>", "undo list" },
       l = { ":call cursor()<left>", "goto line", silent=false },
