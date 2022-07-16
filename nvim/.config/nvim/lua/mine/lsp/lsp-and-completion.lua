@@ -383,8 +383,9 @@ cmp.setup({
   }),
   sorting = {
     comparators = {
+      require"cmp".config.compare.kind,
       function(...) return cmp_buffer:compare_locality(...) end,
-      unpack(cmp.get_config().sorting.comparators),
+      -- unpack(cmp.get_config().sorting.comparators),
     },
   },
   snippet = {
