@@ -399,6 +399,8 @@ cmp.setup({
     { name = 'buffer' },
   }),
   sorting = {
+    -- TODO not needed but interesting, symbol prioritization:
+    -- https://github.com/hrsh7th/nvim-cmp/issues/156#issuecomment-916338617
     comparators = {
       require"cmp".config.compare.exact,
       require"cmp".config.compare.score,
@@ -423,6 +425,8 @@ cmp.setup({
     },
   },
   formatting = {
+    -- TODO see thread https://www.reddit.com/r/neovim/comments/unlj8d/is_there_any_way_to_show_types_in_nvimcmp/i89oqbg/
+    -- to show more context in completion
     format = function(_, vim_item)
       vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
       return vim_item
