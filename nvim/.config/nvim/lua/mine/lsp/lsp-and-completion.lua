@@ -364,13 +364,7 @@ local cmp_kinds = {
   TypeParameter = '  ',
 }
 
--- the idea is to redo `lua =require"cmp".compare.kind` function (see file lua/cmp/config/compare.lua for `kind` fn)
--- but without snippets part. This should put:
--- 1. lsp completions
--- 2. snippets from LuaSnip or LSP
--- 3. buffer completions
--- ^ see comparator and sources attr in cmp setup to see why this would happen
-local function lsp_above_snippets(entry1, entry2)
+local function lsp_above(entry1, entry2)
   local kind1 = entry1:get_kind()
   kind1 = kind1 == types.lsp.CompletionItemKind.Text and 100 or kind1
   local kind2 = entry2:get_kind()
@@ -406,9 +400,10 @@ cmp.setup({
   }),
   sorting = {
     comparators = {
-      lsp_above_snippets,
-      require"cmp".config.compare.kind,
+      lsp_above,
       function(...) return cmp_buffer:compare_locality(...) end,
+      -- keeping the commented code only for reference:
+      -- require"cmp".config.compare.kind,
       -- unpack(cmp.get_config().sorting.comparators),
     },
   },
