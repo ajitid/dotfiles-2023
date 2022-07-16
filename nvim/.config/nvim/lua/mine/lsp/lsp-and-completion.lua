@@ -400,6 +400,8 @@ cmp.setup({
   }),
   sorting = {
     comparators = {
+      require"cmp".config.compare.exact,
+      require"cmp".config.compare.score,
       lsp_above,
       function(...) return cmp_buffer:compare_locality(...) end,
       -- keeping the commented code only for reference:
