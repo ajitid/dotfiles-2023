@@ -333,6 +333,7 @@ lspconfig.marksman.setup{
 
 local cmp = require'cmp'
 local cmp_buffer = require'cmp_buffer'
+local types = require('cmp.types')
 
 -- needs codicon fonts to render, grab it from https://github.com/microsoft/vscode-codicons/blob/main/dist/codicon.ttf
 local cmp_kinds = {
@@ -363,6 +364,28 @@ local cmp_kinds = {
   TypeParameter = '  ',
 }
 
+-- the idea is to redo `lua =require"cmp".compare.kind` function (see file lua/cmp/config/compare.lua for `kind` fn)
+-- but without snippets part. This should put:
+-- 1. lsp completions
+-- 2. snippets from LuaSnip or LSP
+-- 3. buffer completions
+-- ^ see comparator and sources attr in cmp setup to see why this would happen
+local function lsp_above_snippets(entry1, entry2)
+  local kind1 = entry1:get_kind()
+  kind1 = kind1 == types.lsp.CompletionItemKind.Text and 100 or kind1
+  local kind2 = entry2:get_kind()
+  kind2 = kind2 == types.lsp.CompletionItemKind.Text and 100 or kind2
+
+  if kind1 ~= kind2 then
+    local diff = kind1 - kind2
+    if diff < 0 then
+      return true
+    elseif diff > 0 then
+      return false
+    end
+  end
+end
+
 cmp.setup({
   mapping = {
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i' }),
@@ -377,12 +400,13 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'luasnip' },
-    { name = 'buffer', keyword_length = 4 },
+    { name = 'buffer', keyword_length = 4, max_item_count = 4 },
   }, {
     { name = 'buffer' },
   }),
   sorting = {
     comparators = {
+      lsp_above_snippets,
       require"cmp".config.compare.kind,
       function(...) return cmp_buffer:compare_locality(...) end,
       -- unpack(cmp.get_config().sorting.comparators),
