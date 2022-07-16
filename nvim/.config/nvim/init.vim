@@ -779,12 +779,13 @@ keymap({
     s = { "<cmd>FzfLua buffers<cr>", "switch to buffer" },
     ["'"] = { "<cmd>Telescope resume<cr>", "resume search" },
     t = {
-      name = "toggle visibility",
+      name = "toggle",
       -- if offscreen
       ["%"] = { "<cmd>TSContextDisable<cr><cmd>MatchupPairPopupToggle<cr>", "matching pair" },
       -- if offscreen
       c = { "<cmd>MatchupPairPopupDisable<cr><cmd>TSContextToggle<cr>", "code context" },
-      d = { toggle_diagnostic, "toggle inline diagnostics" },
+      d = { toggle_diagnostic, "inline diagnostics" },
+      ["1"] = { "<cmd>tabdo windo set relativenumber!<cr>", "relative number" },
     },
     w = {
       name = "workspace",
