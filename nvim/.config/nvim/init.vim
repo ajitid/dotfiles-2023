@@ -201,6 +201,59 @@ set jumpoptions+=stack
 " also see keepjumps command in help, useful in your scripts
 " and changelist for general movements
 
+" goto file and create it if is not present
+" from https://stackoverflow.com/a/29068665/7683365
+function! Gf()
+  let l:filepath = expand('<cfile>')
+  let l:curr_buf_path = expand("%:p:h")
+  let l:fullpath = ''
+
+  try
+    if l:filepath[0:len('./')-1] ==# './' || l:filepath[0:len('../')-1] ==# '../'
+      let l:fullpath = resolve(l:curr_buf_path . '/' . l:filepath)
+
+      if !filereadable(l:fullpath)
+        exec "normal! gf"
+      endif
+
+      let l:cwd = getcwd()
+      if getcwd() ==# l:fullpath[0:len(l:cwd)-1]
+        exec 'edit ' . l:fullpath[len(l:cwd)+1:]
+      else
+        exec 'edit ' l:fullpath
+      endif
+    else
+      exec "normal! gf"
+    endif
+  catch /E447/
+    " if I'm going into edit mode, I'm not technically creating it
+    echo "File doesn't exist, `edit` it anyway? (y/N) "
+    let l:confirm = nr2char(getchar())
+
+    if empty(l:confirm) || l:confirm !=? 'y'
+      " skipping `Press Enter or command to continue` prompt by feeding a key
+      " update: doing this w/ this way
+      exec "norm :echo 'Cancelled'\<cr>"
+      return
+    endif
+
+    exec "norm :echo ''\<cr>"
+
+    if len(l:fullpath)
+      let l:cwd = getcwd()
+      if getcwd() ==# l:fullpath[0:len(l:cwd)-1]
+        exec 'edit ' . l:fullpath[len(l:cwd)+1:]
+      else
+        exec 'edit ' l:fullpath
+      endif
+    else
+      edit <cfile>
+    endif
+  endtry
+endfunction
+
+noremap <silent>gf :call Gf()<CR>
+
 " you can also use a combination of `tabedit %` with `tabclose` or `q`
 " taken from https://stackoverflow.com/a/60639802/7683365
 function! ToggleZoom(zoom)

@@ -319,3 +319,5 @@ set -x EDITOR "nvim.appimage"
 
 # remove duplicate lines (except the blank ones) from welp and put the result into file welp2
 # awk 'length == 0 ? 1 : !a[$0]++' welp > welp2
+
+mcfly init fish | source
