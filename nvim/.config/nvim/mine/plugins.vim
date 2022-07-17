@@ -15,7 +15,6 @@ Plug 'ap/vim-you-keep-using-that-word'
 
 " slightly intelligent vim
 Plug 'tpope/vim-sleuth'
-Plug 'bogado/file-line'
 
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-obsession'
@@ -23,6 +22,9 @@ Plug 'tpope/vim-obsession'
 " if index(v:argv, '-S') == -1
 
 Plug 'idbrii/vim-focusclip'
+Plug 'bogado/file-line'
+Plug 'psliwka/vim-smoothie'
+Plug 'ajitid/vim-searchlist'
 
 Plug 'nvim-lua/plenary.nvim'
 
@@ -112,8 +114,6 @@ Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-neo-tree/neo-tree.nvim'
-
-Plug 'psliwka/vim-smoothie'
 
 """""""" evaluate
 " https://github.com/tommcdo/vim-ninja-feet

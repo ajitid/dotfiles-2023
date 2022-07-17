@@ -1177,3 +1177,5 @@ let g:indent_blankline_show_first_indent_level = v:false
 " TODO implement `:argdedupe` https://vimhelp.org/editing.txt.html#%3Aargdedupe
 
 let g:smoothie_base_speed = 20
+let g:searchlist_maps = "search_only"
+nnoremap <silent> g/ :<C-u>call searchlist#JumpBackwards()<cr>
