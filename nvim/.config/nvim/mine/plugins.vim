@@ -15,6 +15,7 @@ Plug 'ap/vim-you-keep-using-that-word'
 
 " slightly intelligent vim
 Plug 'tpope/vim-sleuth'
+Plug 'bogado/file-line'
 
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-obsession'
