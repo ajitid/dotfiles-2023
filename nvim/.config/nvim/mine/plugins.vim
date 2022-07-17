@@ -113,6 +113,8 @@ Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-neo-tree/neo-tree.nvim'
 
+Plug 'psliwka/vim-smoothie'
+
 """""""" evaluate
 " https://github.com/tommcdo/vim-ninja-feet
 " https://www.reddit.com/r/vim/comments/22ggej/comment/cgmkz6b/?utm_source=share&utm_medium=web2x&context=3
