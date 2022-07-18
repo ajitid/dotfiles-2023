@@ -1068,6 +1068,10 @@ require'fzf-lua'.setup {
     "go.sum", "go/src/",
     "tags",
   },
+  fzf_opts = {
+    ["--info"] = "default",
+    ["--preview-window"] = "wrap",
+  },
   fzf_colors = {
       ["fg"]          = { "fg", "Normal" },
       ["hl"]          = { "fg", "Normal" },
