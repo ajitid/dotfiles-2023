@@ -70,6 +70,9 @@ function! CustomIceberg() abort
 
   " hi DiagnosticSignError guibg=NONE
   " and same for rest if you want to remove bg
+
+  " TODO FIXME
+  hi Todo guifg=#a0ab6c guibg=#161821
 endfunction
 
 augroup MyColors
