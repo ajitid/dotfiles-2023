@@ -1070,7 +1070,6 @@ require'fzf-lua'.setup {
   },
   fzf_opts = {
     ["--info"] = "default",
-    ["--preview-window"] = "wrap",
   },
   fzf_colors = {
       ["fg"]          = { "fg", "Normal" },
