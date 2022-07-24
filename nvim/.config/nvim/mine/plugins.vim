@@ -31,8 +31,9 @@ Plug 'nvim-lua/plenary.nvim'
 " smort
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'nvim-treesitter/playground'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'zbirenbaum/neodim'
 Plug 'lukas-reineke/indent-blankline.nvim'

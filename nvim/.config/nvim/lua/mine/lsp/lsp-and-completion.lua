@@ -1,6 +1,7 @@
 local keymap = require("which-key").register
 
-require("nvim-lsp-installer").setup({
+require("mason").setup {}
+require("mason-lspconfig").setup({
   ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver', 'cssls', 'marksman' }
 })
 require('aerial').setup({})
