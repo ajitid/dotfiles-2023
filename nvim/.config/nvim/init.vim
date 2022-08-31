@@ -80,7 +80,7 @@ augroup MyColors
   autocmd ColorScheme iceberg call CustomIceberg()
 augroup END
 
-colorscheme iceberg
+colorscheme rasmus
 
 nnoremap <space> <nop>
 let mapleader = "\<Space>"
@@ -410,35 +410,9 @@ local colors = {
   color15  = "#84a0c6",
 }
 
-local iceberg = {
-  visual = {
-    a = { fg = colors.color2, bg = colors.color3 , "bold", },
-    b = { fg = colors.color4, bg = colors.color5 },
-  },
-  replace = {
-    a = { fg = colors.color2, bg = colors.color8 , "bold", },
-    b = { fg = colors.color4, bg = colors.color5 },
-  },
-  inactive = {
-    c = { fg = colors.color9, bg = colors.color10 },
-    a = { fg = colors.color9, bg = colors.color10 , "bold", },
-    b = { fg = colors.color9, bg = colors.color10 },
-  },
-  normal = {
-    c = { fg = colors.color9, bg = colors.color10 },
-    a = { fg = colors.color11, bg = colors.color12 , "bold", },
-    b = { fg = colors.color4, bg = colors.color5 },
-  },
-  insert = {
-    a = { fg = colors.color2, bg = colors.color15 , "bold", },
-    b = { fg = colors.color4, bg = colors.color5 },
-  },
-}
-
 require('lualine').setup({
   options = {
     section_separators = '',
-    theme = iceberg,
     icons_enabled = false,
   },
   sections = {

@@ -46,7 +46,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
 " styling
-Plug 'cocopon/iceberg.vim'
+Plug 'kvrohit/rasmus.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 
 " others
