@@ -44,7 +44,7 @@ if has('termguicolors')
   set termguicolors
 endif
 
-function! CustomIceberg() abort
+function! CustomRasmus() abort
   hi CmpGhostText guifg=#6b7089
 
   highlight link PounceMatch EasyMotionShade
@@ -77,7 +77,7 @@ endfunction
 
 augroup MyColors
   autocmd!
-  autocmd ColorScheme iceberg call CustomIceberg()
+  autocmd ColorScheme rasmus call CustomRasmus()
 augroup END
 
 colorscheme rasmus
