@@ -45,16 +45,17 @@ if has('termguicolors')
 endif
 
 function! CustomRasmus() abort
-  hi CmpGhostText guifg=#6b7089
+  hi CmpGhostText guifg=#686868
 
-  highlight link PounceMatch EasyMotionShade
-  highlight link PounceGap PounceMatch
-  hi EasyMotionTarget gui=bold
-  hi link PounceKey EasyMotionTarget
+  highlight link PounceMatch NormalFloat
+  highlight link PounceGap NormalFloat
+  hi PounceKey guifg=wheat guibg=#261f18 gui=bold
   hi link PounceAccept PounceKey
   hi link PounceAcceptBest PounceKey
 
-  hi Search guifg=#cdd1e6 guibg=#3e445e
+  hi Visual ctermbg=242 guibg=#303035
+  hi Search guibg=peru guifg=#222222
+  hi TSTagAttribute guifg=#8a8a8f gui=italic
 
   " NormalFloat, CursorLine:
   hi link MatchWord CursorLine
@@ -70,9 +71,6 @@ function! CustomRasmus() abort
 
   " hi DiagnosticSignError guibg=NONE
   " and same for rest if you want to remove bg
-
-  " TODO FIXME
-  hi Todo guifg=#a0ab6c guibg=#161821
 endfunction
 
 augroup MyColors
@@ -80,6 +78,8 @@ augroup MyColors
   autocmd ColorScheme rasmus call CustomRasmus()
 augroup END
 
+let g:rasmus_transparent = 1
+let g:rasmus_italic_comments = 0
 colorscheme rasmus
 
 nnoremap <space> <nop>
