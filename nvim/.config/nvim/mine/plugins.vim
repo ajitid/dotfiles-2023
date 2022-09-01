@@ -81,7 +81,7 @@ Plug 'tommcdo/vim-nowchangethat'
 " locking it to this hash until
 " https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/215 is
 " resolved
-Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'commit': 'b00b344c0f5a0a458d6e66eb570cfb347ebf4c38'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'ajitid/gitlinker.nvim', {'branch': 'fix/mapping'}
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'folke/which-key.nvim'
