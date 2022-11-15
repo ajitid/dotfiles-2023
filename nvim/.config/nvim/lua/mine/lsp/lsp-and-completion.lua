@@ -6,7 +6,7 @@ require("mason-lspconfig").setup({
 })
 require('aerial').setup({})
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require'lspconfig'
 
 require "lsp_signature".setup({
@@ -163,7 +163,6 @@ function common_on_attach(client, bufnr)
   basic_keymaps()
   diagnostic_keymaps()
   format_keymaps(client)
-  require("aerial").on_attach(client, bufnr)
 end
 
 -- install manually
