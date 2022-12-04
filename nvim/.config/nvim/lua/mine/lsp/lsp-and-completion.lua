@@ -2,7 +2,7 @@ local keymap = require("which-key").register
 
 require("mason").setup {}
 require("mason-lspconfig").setup({
-  ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver', 'cssls', 'marksman' }
+  ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver', 'cssls', 'marksman', 'tailwindcss' }
 })
 require('aerial').setup({})
 
@@ -275,7 +275,8 @@ lspconfig.tsserver.setup{
               local isReactDTs = false
               ---@diagnostic disable-next-line: unused-local
               for key, value in pairs(result) do
-                  if string.match(value.uri, "react/index.d.ts") then
+                  -- ref. https://github.com/typescript-language-server/typescript-language-server/issues/216
+                  if string.match(value.targetUri or value.uri, "react/index.d.ts") then
                       isReactDTs = true
                       break
                   end
@@ -327,6 +328,11 @@ lspconfig.cssls.setup{
 }
 
 lspconfig.marksman.setup{
+  capabilities = capabilities,
+  on_attach = common_on_attach,
+}
+
+lspconfig.tailwindcss.setup{
   capabilities = capabilities,
   on_attach = common_on_attach,
 }
