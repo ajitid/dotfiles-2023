@@ -323,3 +323,7 @@ set -x EDITOR "nvim.appimage"
 # remove duplicate lines (except the blank ones) from welp and put the result into file welp2
 # awk 'length == 0 ? 1 : !a[$0]++' welp > welp2
 
+# pnpm
+set -gx PNPM_HOME "/home/ajitid/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end
