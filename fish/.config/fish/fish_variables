@@ -7,6 +7,7 @@ SETUVAR _fish_abbr_clip:xsel\x20\x2dib
 SETUVAR _fish_abbr_gg:ghq\x20get\x20\x2dp
 SETUVAR _fish_abbr_gi:cd\x20\x7e/ghq/\x28ghq\x20list\x20\x7c\x20fzf\x29
 SETUVAR _fish_abbr_huge:du\x20\x2dh\x20\x2d\x2dmax\x2ddepth\x3d1\x20\x7c\x20sort\x20\x2dhr
+SETUVAR _fish_abbr_pn:pnpm
 SETUVAR _fish_abbr_tarunzip:tar\x20\x2d\x2dextract\x20\x2d\x2done\x2dtop\x2dlevel\x20\x2d\x2dfile
 SETUVAR _fish_abbr_v:nvim\x2eappimage
 SETUVAR _fish_abbr_v_2E_:nvim\x2eappimage\x20\x2d\x2dcmd\x20\x22let\x20g\x3arooter_manual_only\x3d1\x22
