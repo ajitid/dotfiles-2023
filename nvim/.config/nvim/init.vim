@@ -1018,6 +1018,8 @@ imap <c-;> <c-o>$
 lua <<EOF
 local actions = require "fzf-lua.actions"
 require'fzf-lua'.setup {
+  global_git_icons = false,
+  global_file_icons = false,
   border = false,
   fullscreen = true,
   oldfiles = {

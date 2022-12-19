@@ -23,7 +23,7 @@ export PATH="$PATH:"(go env GOPATH)"/bin"
 abbr clip "xsel -ib"
 
 # https://github.com/PatrickF1/fzf.fish/blob/a79dc7510d02f25360c2f30e50287abd0766a588/functions/_fzf_wrapper.fish#L16
-set -x FZF_DEFAULT_OPTS '--layout=reverse --cycle --info=default --height=90% --marker="> " --color=bg+:#1e2132,gutter:-1,pointer:#84a0c6,spinner:#84a0c6,marker:#b4be82,fg+:-1,hl+:-1,fg:-1,hl:-1'
+set -x FZF_DEFAULT_OPTS '--layout=reverse --cycle --info=default --height=90% --no-separator --marker="> " --color=bg+:#1e2132,gutter:-1,pointer:#84a0c6,spinner:#84a0c6,marker:#b4be82,fg+:-1,hl+:-1,fg:-1,hl:-1'
 
 # this coud've worked but just didn't: `ghq list | fzf | sed 's|^|~/ghq/|' | xargs cd`
 # ^ replace `cd` with `echo` to confirm output
