@@ -334,3 +334,7 @@ abbr pn "pnpm"
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+
+# fly.io / Remix
+export FLYCTL_INSTALL="/home/ajitid/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
