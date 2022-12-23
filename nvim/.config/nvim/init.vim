@@ -680,6 +680,13 @@ function dump(o)
       return tostring(o)
    end
 end
+
+-- an iterator that allows you to do `for v in values(some_array) do`
+-- rather `for k, v in pairs(some_array) do`
+function values(t)
+  local i = 0
+  return function() i = i + 1; return t[i] end
+end
 EOF
 
 " from unimpared.vim

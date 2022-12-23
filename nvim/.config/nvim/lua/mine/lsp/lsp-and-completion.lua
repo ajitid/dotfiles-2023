@@ -232,6 +232,38 @@ function typescript_rename_file_command()
   typescript_rename_file(root_dir .. "/" .. old_name, root_dir .. "/" .. new_name, on_ok)
 end
 
+function typescript_go_to_source_definiton()
+  local bufnr = vim.api.nvim_win_get_buf(0);
+  local clients = vim.lsp.buf_get_clients(bufnr)
+  local client = nil
+  for value in values(clients) do
+    if value.name == "tsserver" then
+      client = value
+      break
+    end
+  end
+  if client == nil then
+    echo_warning("tsserver not attached, not invoking go to def")
+    return
+  end
+
+  local offset_encoding = client.positionEncodings or client.offset_encoding
+  local position_params = vim.lsp.util.make_position_params(0, offset_encoding)
+
+  client.request(
+    "workspace/executeCommand", 
+    { command = "_typescript.goToSourceDefinition", arguments = { position_params.textDocument.uri, position_params.position } },
+    function(_, result, params)
+      if vim.tbl_isempty(result) then
+        vim.lsp.buf.definition()
+      else
+        local util = require("vim.lsp.util")
+        util.jump_to_location(result[1], offset_encoding)
+      end
+    end
+  )
+end
+
 lspconfig.tsserver.setup{
   capabilities = capabilities,
   on_attach = function(client, bufnr)
@@ -241,7 +273,11 @@ lspconfig.tsserver.setup{
     -- client.config.flags.allow_incremental_sync = true
 
     common_on_attach(client, bufnr)
-    keymap({ ["<leader>fr"] = { typescript_rename_file_command, "rename using LSP", buffer=0 } })
+    keymap({
+      ["<leader>fr"] = { typescript_rename_file_command, "rename using LSP", buffer=0 },
+      ["gd"] = { typescript_go_to_source_definiton, "go to definiton (DWIM)", buffer=0 },
+      ["<leader>gd"] = { typescript_go_to_source_definiton, "go to definiton (DWIM)", buffer=0 }
+    })
   end,
   handlers = {
     -- usually gets called after a code action
@@ -260,48 +296,6 @@ lspconfig.tsserver.setup{
       vim.api.nvim_win_set_cursor(0, {line+1, column})
       vim.lsp.buf.rename()
       return result
-    end,
-
-    -- skip react types when jumping to definition using `gd`
-    ["textDocument/definition"] = function(_, result, params)
-      local util = require("vim.lsp.util")
-      local client = vim.lsp.get_client_by_id(params.client_id)
-      local offset_encoding = client.positionEncodings or client.offset_encoding -- offset_encoding is off-spec but TS server uses it
-
-      if result == nil or vim.tbl_isempty(result) then
-          -- local _ = vim.lsp.log.info() and vim.lsp.log.info(params.method, "No location found")
-          return nil
-      end
-
-      if vim.tbl_islist(result) then
-          -- this is opens a buffer to that result
-          -- you could loop the result and choose what you want
-          util.jump_to_location(result[1], offset_encoding)
-
-          if #result > 1 then
-              local isReactDTs = false
-              ---@diagnostic disable-next-line: unused-local
-              for key, value in pairs(result) do
-                  -- ref. https://github.com/typescript-language-server/typescript-language-server/issues/216
-                  if string.match(value.targetUri or value.uri, "react/index.d.ts") then
-                      isReactDTs = true
-                      break
-                  end
-              end
-              if not isReactDTs then
-                  -- this sets the value for the quickfix list
-                  vim.fn.setqflist({}, ' ', {
-                      title = 'Language Server',
-                      items = util.locations_to_items(result, offset_encoding),
-                  })
-                  -- this opens the quickfix window
-                  vim.api.nvim_command("copen")
-                  vim.api.nvim_command("wincmd p")
-              end
-          end
-      else
-          util.jump_to_location(result, offset_encoding)
-      end
     end,
   }
 }
