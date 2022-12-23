@@ -233,6 +233,7 @@ function typescript_rename_file_command()
 end
 
 function typescript_go_to_source_definiton()
+  -- there's also vim.api.nvim_get_current_buf()
   local bufnr = vim.api.nvim_win_get_buf(0);
   local clients = vim.lsp.buf_get_clients(bufnr)
   local client = nil
@@ -278,6 +279,29 @@ lspconfig.tsserver.setup{
       ["gd"] = { typescript_go_to_source_definiton, "go to definiton (DWIM)", buffer=0 },
       ["<leader>gd"] = { typescript_go_to_source_definiton, "go to definiton (DWIM)", buffer=0 }
     })
+
+    [[--
+    couldn't make this work https://github.com/jose-elias-alvarez/typescript.nvim/blob/b96b3f8db2c0e156a6f8734bf794cc7803454e21/src/source-actions.ts#L8
+
+    -- you can't call multiple of these in sequence, see https://github.com/jose-elias-alvarez/typescript.nvim/issues/33#issuecomment-1258739999
+    vim.api.nvim_buf_create_user_command(0, 'TypescriptRemoveUnusedImports',
+      function(opts) 
+        local arguments = {
+          table.unpack(vim.lsp.util.make_range_params()),
+          context =  {
+            only = {"source.removeUnused.ts"},
+            diagnostics = vim.diagnostic.get(bufnr),
+          },
+        }
+        -- aysnc op needs a callback to apply changes https://github.com/jose-elias-alvarez/typescript.nvim/blob/b96b3f8db2c0e156a6f8734bf794cc7803454e21/src/source-actions.ts#L76
+        client.request_sync(
+          "workspace/executeCommand",
+          { command = "textDocument/codeAction", arguments = arguments }
+        )
+      end,
+      {nargs = 0}
+    )
+    --]]
   end,
   handlers = {
     -- usually gets called after a code action
@@ -454,7 +478,7 @@ cmp.setup({
 
 local null_ls = require("null-ls")
 
-local prettierd_filetypes = { unpack(null_ls.builtins.formatting.prettierd.filetypes) }
+local prettierd_filetypes = { table.unpack(null_ls.builtins.formatting.prettierd.filetypes) }
 table.insert(prettierd_filetypes, "jsonc")
 
 local sources = {
