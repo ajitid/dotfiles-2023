@@ -632,6 +632,7 @@ command! PutModifiedFilesInArglist
 source ~/.config/nvim/mine/blame.vim
 
 lua <<EOF
+-- we have a way to extact range now https://github.com/neovim/neovim/issues/18533#issuecomment-1131471721
 require"gitlinker".setup({ mappings = false })
 vim.api.nvim_set_keymap('n', '<leader>fgx', '<cmd>lua require"gitlinker".get_buf_range_url("n", {add_current_line_on_normal_mode = false, action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader>cgx', '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>', {})

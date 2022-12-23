@@ -53,7 +53,7 @@ function basic_keymaps()
     c = {
       name = "code",
       r = { vim.lsp.buf.rename, "rename symbol", buffer=0 },
-      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "code actions", buffer=0 },
+      a = { vim.lsp.buf.code_action, "code actions", buffer=0 },
       s = { vim.lsp.buf.signature_help, "fn signature", buffer=0 },
     },
     f = {
@@ -71,7 +71,8 @@ function basic_keymaps()
 
   keymap({
     c = {
-      a = { ":lua vim.lsp.buf.range_code_action()<cr>", "code actions", buffer=0 },
+      -- we have a way to extact range now https://github.com/neovim/neovim/issues/18533#issuecomment-1131471721
+      a = { vim.lsp.buf.code_action, "code actions", buffer=0 },
     },
   }, {
     mode = "v",
@@ -248,6 +249,12 @@ lspconfig.tsserver.setup{
     ["_typescript.rename"] = function(_, result, params)
       local line = result.position.line
       local character = result.position.character
+
+      local client = vim.lsp.get_client_by_id(params.client_id)
+      local offset_encoding = client.positionEncodings or client.offset_encoding
+      assert(offset_encoding == "utf-16", 
+        "`str_byteindex` will fail as it expects encoding to be in utf-16 format. Ajit, you need to accomodate this.")
+
       -- see commit msg to find resources to learn about these fns
       local column = vim.str_byteindex(vim.fn.getline('.'), character, true)
       vim.api.nvim_win_set_cursor(0, {line+1, column})
@@ -259,7 +266,7 @@ lspconfig.tsserver.setup{
     ["textDocument/definition"] = function(_, result, params)
       local util = require("vim.lsp.util")
       local client = vim.lsp.get_client_by_id(params.client_id)
-      local offset_encoding = client.offset_encoding
+      local offset_encoding = client.positionEncodings or client.offset_encoding -- offset_encoding is off-spec but TS server uses it
 
       if result == nil or vim.tbl_isempty(result) then
           -- local _ = vim.lsp.log.info() and vim.lsp.log.info(params.method, "No location found")
