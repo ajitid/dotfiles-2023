@@ -280,28 +280,30 @@ lspconfig.tsserver.setup{
       ["<leader>gd"] = { typescript_go_to_source_definiton, "go to definiton (DWIM)", buffer=0 }
     })
 
-    [[--
-    couldn't make this work https://github.com/jose-elias-alvarez/typescript.nvim/blob/b96b3f8db2c0e156a6f8734bf794cc7803454e21/src/source-actions.ts#L8
-
+    local offset_encoding = client.positionEncodings or client.offset_encoding
     -- you can't call multiple of these in sequence, see https://github.com/jose-elias-alvarez/typescript.nvim/issues/33#issuecomment-1258739999
-    vim.api.nvim_buf_create_user_command(0, 'TypescriptRemoveUnusedImports',
+    vim.api.nvim_buf_create_user_command(bufnr, 'TypescriptRemoveUnusedImports',
       function(opts) 
-        local arguments = {
-          table.unpack(vim.lsp.util.make_range_params()),
-          context =  {
-            only = {"source.removeUnused.ts"},
-            diagnostics = vim.diagnostic.get(bufnr),
-          },
+        local params = vim.lsp.util.make_range_params()
+        params.context = {
+          only = {"source.removeUnused.ts"},
+          diagnostics = vim.diagnostic.get(bufnr)
         }
-        -- aysnc op needs a callback to apply changes https://github.com/jose-elias-alvarez/typescript.nvim/blob/b96b3f8db2c0e156a6f8734bf794cc7803454e21/src/source-actions.ts#L76
-        client.request_sync(
-          "workspace/executeCommand",
-          { command = "textDocument/codeAction", arguments = arguments }
+
+        -- from https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils/blob/0a6a16ef292c9b61eac6dad00d52666c7f84b0e7/lua/nvim-lsp-ts-utils/source-actions.lua#LL32C7-L37C57
+        client.request(
+          "textDocument/codeAction",
+          params,
+          function(err, res)
+            assert(not err, err)
+            if res and res[1] and res[1].edit and res[1].edit.documentChanges and res[1].edit.documentChanges[1] and res[1].edit.documentChanges[1].edits then
+              vim.lsp.util.apply_text_edits(res[1].edit.documentChanges[1].edits, bufnr, offset_encoding)
+            end
+          end
         )
       end,
       {nargs = 0}
     )
-    --]]
   end,
   handlers = {
     -- usually gets called after a code action
