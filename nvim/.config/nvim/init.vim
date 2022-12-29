@@ -45,6 +45,9 @@ if has('termguicolors')
 endif
 
 function! CustomRasmus() abort
+  hi TabLine guibg=#222221
+  hi TabLineSel guifg=#bbbbbb guibg=NONE
+
   hi CmpGhostText guifg=#686868
 
   highlight link PounceMatch NormalFloat
