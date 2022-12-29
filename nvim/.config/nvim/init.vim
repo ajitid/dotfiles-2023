@@ -45,8 +45,9 @@ if has('termguicolors')
 endif
 
 function! CustomRasmus() abort
-  hi TabLine guibg=#222221
-  hi TabLineSel guifg=#bbbbbb guibg=NONE
+  hi TabLineFill guibg=NONE
+  hi TabLine guifg=#6a6a69 guibg=NONE
+  hi TabLineSel guifg=#bbbbbb guibg=#303030
 
   hi CmpGhostText guifg=#686868
 
