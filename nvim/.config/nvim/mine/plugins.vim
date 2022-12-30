@@ -97,6 +97,7 @@ Plug 'tpope/vim-abolish'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'lfv89/vim-interestingwords'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
+Plug 'Pocco81/true-zen.nvim'
 
 " alt ways:
 " - https://stackoverflow.com/a/42249534
@@ -115,8 +116,6 @@ Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-neo-tree/neo-tree.nvim'
-
-Plug 'shortcuts/no-neck-pain.nvim'
 
 """""""" evaluate
 " https://github.com/tommcdo/vim-ninja-feet

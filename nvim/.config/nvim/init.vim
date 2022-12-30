@@ -261,23 +261,6 @@ endfunction
 
 noremap <silent>gf :call Gf()<CR>
 
-" you can also use a combination of `tabedit %` with `tabclose` or `q`
-" taken from https://stackoverflow.com/a/60639802/7683365
-function! ToggleZoom(zoom)
-  if exists("t:restore_zoom") && (a:zoom == v:true || t:restore_zoom.win != winnr())
-    exec t:restore_zoom.cmd
-    unlet t:restore_zoom
-  elseif a:zoom
-    let t:restore_zoom = { 'win': winnr(), 'cmd': winrestcmd() }
-    exec "normal \<C-W>\|\<C-W>_"
-  endif
-endfunction
-
-augroup restorezoom
-  au WinEnter * silent! :call ToggleZoom(v:false)
-augroup END
-nnoremap <silent> <Leader>+ :call ToggleZoom(v:true)<CR>
-
 " from https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
 " and w/ the help of sjl/clam.vim
 function! Redir(cmd, rng, start, end)
@@ -1171,3 +1154,5 @@ let g:indent_blankline_show_first_indent_level = v:false
 let g:smoothie_base_speed = 20
 let g:searchlist_maps = "search_only"
 nnoremap <silent> g/ :<C-u>call searchlist#JumpBackwards()<cr>
+
+lua require("true-zen").setup({ integrations = { lualine = true } })
