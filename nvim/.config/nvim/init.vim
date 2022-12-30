@@ -137,6 +137,13 @@ nnoremap <expr> j v:count == 0 ? 'gj' : "\<Esc>".v:count.'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
 
 set scrolloff=3
+try
+  set smoothscroll
+catch /E518/
+  " if the option isn't present in nvim yet, let it fail silently
+  " https://github.com/vim/vim/issues?q=smoothscroll
+  " https://github.com/neovim/neovim/issues/8715
+endtry
 
 " set list listchars=tab:ᐅ\ ,extends:>,precedes:<,nbsp:~
 set list listchars=tab:\ \ ,extends:>,precedes:<,nbsp:~
