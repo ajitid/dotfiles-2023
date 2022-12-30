@@ -83,7 +83,7 @@ augroup MyColors
 augroup END
 
 let g:rasmus_transparent = 1
-" let g:rasmus_italic_comments = 0
+let g:rasmus_italic_comments = 0
 colorscheme rasmus
 
 nnoremap <space> <nop>
