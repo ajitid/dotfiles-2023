@@ -521,7 +521,7 @@ end
 
 function find_folder()
   fzf.files({
-    fd_opts = "-t d",
+    fd_opts = "--color never -t d --hidden --follow",
     previewer = false,
     actions = {
       ["default"] = default_action,
@@ -839,7 +839,6 @@ keymap({
     ["/"] = { "<cmd>FzfLua live_grep<cr>", "live grep" },
     e  = { "<cmd>FzfLua files previewer=false<cr>", "find files" },
     [">"] = { ":edit in buffer dir" },
-    ["."] = { "find file in buffer dir" },
     ["."] = { "find file in buffer dir" },
   }, {
     prefix = "<leader>",
