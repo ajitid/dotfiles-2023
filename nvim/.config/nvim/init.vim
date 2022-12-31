@@ -217,7 +217,8 @@ set jumpoptions+=stack
 " also see keepjumps command in help, useful in your scripts
 " and changelist for general movements
 
-" goto file and create it if is not present
+" resolve realtive imports properly (in try) and
+" prompt to create it if it's not present (in catch)
 " from https://stackoverflow.com/a/29068665/7683365
 function! Gf()
   let l:filepath = expand('<cfile>')
@@ -269,6 +270,17 @@ function! Gf()
 endfunction
 
 noremap <silent>gf :call Gf()<CR>
+
+" needed so that LSP servers can properly hook into the files
+" this seems to be not needed by typescript LSP anymore
+" I'll enable it if it is reqd.
+augroup auto_create_on_edit
+  autocmd!
+  "" you might need to `:edit` afterwards to re-attach LSP
+  " autocmd BufNewFile * silent! :write | :edit
+  "" but still, try this first:
+  " autocmd BufNewFile * silent! :write
+augroup END
 
 " from https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
 " and w/ the help of sjl/clam.vim
