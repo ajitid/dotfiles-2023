@@ -49,6 +49,8 @@ function! CustomRasmus() abort
   hi TabLine guifg=#6a6a69 guibg=NONE
   hi TabLineSel guifg=#bbbbbb guibg=#303030
 
+  hi Underlined gui=NONE
+
   hi CmpGhostText guifg=#686868
 
   highlight link PounceMatch NormalFloat
