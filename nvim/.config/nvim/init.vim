@@ -109,7 +109,7 @@ autocmd FocusLost * set mouse=
 set wildignore+=*/node_modules/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/dist/*,*/build/*,.idea/**,*DS_Store*,*/coverage/*,*/.git/*,*/package-lock.json,*/yarn.lock,*/go.sum
 
 if executable('rg')
-  set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
+  set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case\ --hidden
   set grepformat=%f:%l:%c:%m
 endif
 
@@ -754,7 +754,7 @@ let g:bettergrep_no_abbrev = 1
 " better if adjusted per-project using .exrc:
 " let g:bettergrepprg = "rg --vimgrep --smart-case -g '!*yarn.lock' -g '!*package-lock.json'"
 " not sure how I can re-use wildignore here (or even if it is needed)
-let g:bettergrepprg = "rg --vimgrep --smart-case"
+let g:bettergrepprg = "rg --vimgrep --smart-case --hidden"
 
 command! -nargs=+ GrepLiteral call GrepLiteral(<q-args>)
 function! GrepLiteral(query, word = v:false)
