@@ -204,8 +204,10 @@ call SetupCommandAlias("nt","tabnew")
 " keeps cursor at same place when cloning the buffer in new tab
 call SetupCommandAlias("bt","tab sb")
 call SetupCommandAlias("rg","GrepLiteral")
+
+" commenting because might not be needed anymore
 " originally was write followed by edit, that's why `we` command
-call SetupCommandAlias("we","update \\| edit")
+" call SetupCommandAlias("we","update \\| edit")
 
 set nowrap
 " https://stackoverflow.com/questions/13294489/make-vim-only-do-a-soft-word-wrap-not-hard-word-wrap
@@ -695,6 +697,12 @@ function values(t)
   local i = 0
   return function() i = i + 1; return t[i] end
 end
+
+-- allows you to write vim.cmd(t('normal <C-e>'))
+-- https://stackoverflow.com/a/69142336/7683365
+function t(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
 EOF
 
 " from unimpared.vim
@@ -1122,6 +1130,14 @@ require"neo-tree".setup({
       ["c"] = "copy_to_clipboard",
       ["p"] = "paste_from_clipboard",
       ["o"] = "toggle_preview",
+      ["O"] = function(state)
+          -- from https://github.com/nvim-neo-tree/neo-tree.nvim/issues/597#issuecomment-1312826244
+          local node = state.tree:get_node()
+          local relative_path = node.path:gsub("^" .. state.path, "")
+          require('neo-tree.sources.common.commands').revert_preview()
+          vim.cmd(t('normal <c-w>p'))
+          vim.cmd('edit ' .. relative_path)
+        end,
     },
   },
   default_component_configs = {
