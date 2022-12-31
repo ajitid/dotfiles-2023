@@ -1121,6 +1121,7 @@ require"neo-tree".setup({
       ["x"] = "cut_to_clipboard",
       ["c"] = "copy_to_clipboard",
       ["p"] = "paste_from_clipboard",
+      ["o"] = "toggle_preview",
     },
   },
   default_component_configs = {
