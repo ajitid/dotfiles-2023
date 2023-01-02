@@ -65,6 +65,7 @@ local ne = require("luasnip.extras").nonempty
 
 local i = ls.insert_node
 local t = ls.text_node
+local f = ls.function_node
 
 -- Repeats a node
 -- rep(<position>)
@@ -72,6 +73,8 @@ local rep = require("luasnip.extras").rep
 
 -- for reason, see https://stackoverflow.com/a/50478498/7683365
 table.unpack = table.unpack or unpack
+
+local date = function() return {os.date('%Y-%m-%d')} end
 
 local js_common = {
   ls.parser.parse_snippet("log", "console.log($0)"),
@@ -103,5 +106,17 @@ ls.add_snippets(nil, {
     table.unpack(js_common),
     -- TODO capitalize doesn't work
   },
+  markdown = {
+    s("!", fmt([[
+      ---
+      title: "{}"
+      created: "{}"
+      ---
+
+      {}
+      ]],
+      { i(1), f(date, {}), i(0) })
+    )
+  }
 })
 
