@@ -115,7 +115,7 @@ Plug 'vim-scripts/CmdlineComplete'
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 
 Plug 'MunifTanjim/nui.nvim'
-Plug 'nvim-neo-tree/neo-tree.nvim'
+Plug 'nvim-neo-tree/neo-tree.nvim', {'commit': '3b41f0d17139bb156f1acd907608f63e0e307caf'}
 
 """""""" evaluate
 " https://github.com/tommcdo/vim-ninja-feet
