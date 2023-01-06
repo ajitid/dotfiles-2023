@@ -186,7 +186,7 @@ function send_client_request(client_name, ...)
 end
 
 echo_warning = function(message)
-    api.nvim_echo({ { "LSP: " .. message, "WarningMsg" } }, true, {})
+    vim.api.nvim_echo({ { "LSP: " .. message, "WarningMsg" } }, true, {})
 end
 
 function noop()
