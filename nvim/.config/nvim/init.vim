@@ -819,7 +819,7 @@ nmap <M-/> /\V\C\<\><left><left>
 vmap <leader>/ <Esc>/\%V
 
 lua <<EOF
-vim.diagnostic.config({ virtual_text = true, severity_sort = true, underline = false })
+vim.diagnostic.config({ virtual_text = false, severity_sort = true, underline = false })
 
 local function toggle_diagnostic()
   local current = vim.diagnostic.config()
