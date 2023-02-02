@@ -471,7 +471,6 @@ luafile ~/.config/nvim/mine/treesitter-and-comment.lua
 set completeopt=menu,menuone,noselect
 set pumheight=8
 
-lua require('nvim-autopairs').setup{ disable_filetype = { "TelescopePrompt", "neo-tree-popup" } }
 autocmd BufRead,BufNewFile */node_modules/* lua vim.diagnostic.disable(0)
 luafile ~/.config/nvim/mine/snippets.lua
 lua require"mine.lsp"

@@ -85,7 +85,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'ajitid/gitlinker.nvim', {'branch': 'fix/mapping'}
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'folke/which-key.nvim'
-Plug 'windwp/nvim-autopairs'
+Plug 'cohama/lexima.vim'
 Plug 'andymass/vim-matchup'
 Plug 'romgrk/nvim-treesitter-context'
 Plug 'unblevable/quick-scope'
