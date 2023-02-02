@@ -47,7 +47,7 @@ endif
 function! CustomTheme() abort
   hi TabLineFill guibg=NONE
   hi TabLine guifg=#6a6a69 guibg=NONE
-  hi TabLineSel guifg=#bbbbbb guibg=#303030
+  hi TabLineSel guifg=#bbbbbb guibg=#202020
 
   " remove underline from markdown links
   hi Underlined gui=NONE
