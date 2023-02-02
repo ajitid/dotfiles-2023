@@ -126,8 +126,11 @@ Plug 'nvim-neo-tree/neo-tree.nvim', {'commit': '3b41f0d17139bb156f1acd907608f63e
 " Plug 'pacha/vem-tabline', https://github.com/nanozuki/tabby.nvim are similar
 " https://github.com/tiagovla/scope.nvim/issues/2 + https://github.com/gcmt/taboo.vim is a good idea, albeit saving globals in sessionoptions isn't, which taboo asks for
 " Plug 'vim-ctrlspace/vim-ctrlspace' and scope.nvim are similar
+" I think integrating vim-ctrlspace into vem-tabline is also a good idea
 
 " color highlight for tailwind https://old.reddit.com/r/neovim/comments/woyyrz/documentcolornvim_lspbased_colorizer_for_neovim/
+" not checked if i can remove vim-hexokinase with it, also check why didn't i
+" opted for https://github.com/ap/vim-css-color
 
 " anuvyklack/hydra.nvim
 " Plug 'tomtom/tinykeymap_vim'
