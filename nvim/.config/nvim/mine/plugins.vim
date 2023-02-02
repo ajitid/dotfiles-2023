@@ -124,6 +124,8 @@ Plug 'nvim-neo-tree/neo-tree.nvim', {'commit': '3b41f0d17139bb156f1acd907608f63e
 " Plug 'eugen0329/vim-esearch'
 " trouble nvim + that plugin that doesn't move splits when folke/trouble.nvim
 
+" color highlight for tailwind https://old.reddit.com/r/neovim/comments/woyyrz/documentcolornvim_lspbased_colorizer_for_neovim/
+
 " anuvyklack/hydra.nvim
 " Plug 'tomtom/tinykeymap_vim'
 " https://github.com/kana/vim-submode
