@@ -106,7 +106,6 @@ Plug 'Pocco81/true-zen.nvim'
 " might not be needed anymore because marksman lsp also provides a code action
 " for this
 
-
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " cd ~; rm (fd -It f '^tags$')
 Plug 'ludovicchabant/vim-gutentags'
@@ -123,6 +122,10 @@ Plug 'nvim-neo-tree/neo-tree.nvim', {'commit': '3b41f0d17139bb156f1acd907608f63e
 " https://github.com/danymat/neogen
 " Plug 'eugen0329/vim-esearch'
 " trouble nvim + that plugin that doesn't move splits when folke/trouble.nvim
+
+" Plug 'pacha/vem-tabline', https://github.com/nanozuki/tabby.nvim are similar
+" https://github.com/tiagovla/scope.nvim/issues/2 + https://github.com/gcmt/taboo.vim is a good idea, albeit saving globals in sessionoptions isn't, which taboo asks for
+" Plug 'vim-ctrlspace/vim-ctrlspace' and scope.nvim are similar
 
 " color highlight for tailwind https://old.reddit.com/r/neovim/comments/woyyrz/documentcolornvim_lspbased_colorizer_for_neovim/
 
