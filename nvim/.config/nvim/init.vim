@@ -44,31 +44,31 @@ if has('termguicolors')
   set termguicolors
 endif
 
-function! CustomRasmus() abort
+function! CustomTheme() abort
   hi TabLineFill guibg=NONE
   hi TabLine guifg=#6a6a69 guibg=NONE
   hi TabLineSel guifg=#bbbbbb guibg=#303030
 
+  " remove underline from markdown links
   hi Underlined gui=NONE
 
   hi CmpGhostText guifg=#686868
 
-  highlight link PounceMatch NormalFloat
-  highlight link PounceGap NormalFloat
+  " text selection color
+  hi Visual ctermbg=242 guibg=#202025
+
+  " alt. color hi Search guibg=peru guifg=#222222
+  hi Search guifg=wheat guibg=#261f18
+  " apply highlight to first match while searching
+  hi IncSearch guifg=wheat guibg=#261f18
+  " apply this highlight instead if cursor on a search term
+  " hi CurSearch guifg=wheat guibg=gold
+
+  hi PounceMatch guibg=#202025
+  hi PounceGap guibg=#202025
   hi PounceKey guifg=wheat guibg=#261f18 gui=bold
   hi link PounceAccept PounceKey
   hi link PounceAcceptBest PounceKey
-
-  hi Visual ctermbg=242 guibg=#303035
-  hi Search guibg=peru guifg=#222222
-  hi TSTagAttribute guifg=#8a8a8f gui=italic
-
-  " NormalFloat, CursorLine:
-  hi link MatchWord CursorLine
-
-  hi LineNr guibg=NONE
-  hi CursorLineNr guibg=NONE
-  hi SignColumn guibg=NONE
 
   sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
   sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
@@ -81,12 +81,10 @@ endfunction
 
 augroup MyColors
   autocmd!
-  autocmd ColorScheme rasmus call CustomRasmus()
+  autocmd ColorScheme no-clown-fiesta call CustomTheme()
 augroup END
 
-let g:rasmus_transparent = 1
-let g:rasmus_italic_comments = 0
-colorscheme rasmus
+colorscheme no-clown-fiesta
 
 nnoremap <space> <nop>
 let mapleader = "\<Space>"
@@ -405,20 +403,6 @@ local function buf_for_file()
   end
   return ''
 end
-
-local colors = {
-  color2   = "#161821",
-  color3   = "#b4be82",
-  -- color4   = "#8c91ab",
-  color4   = "#7f87a5", -- same as color9
-  color5   = "#2e313f",
-  color8   = "#e2a478",
-  color9   = "#7f87a5",
-  color10  = "#0f1117",
-  color11  = "#17171b",
-  color12  = "#818596",
-  color15  = "#84a0c6",
-}
 
 require('lualine').setup({
   options = {
