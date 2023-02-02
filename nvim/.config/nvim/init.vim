@@ -55,7 +55,7 @@ function! CustomTheme() abort
   hi CmpGhostText guifg=#686868
 
   " text selection color
-  hi Visual ctermbg=242 guibg=#202025
+  hi Visual ctermbg=242 guibg=#202020
 
   " alt. color hi Search guibg=peru guifg=#222222
   hi Search guifg=wheat guibg=#261f18
