@@ -9,16 +9,6 @@ require('aerial').setup({})
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require'lspconfig'
 
-require "lsp_signature".setup({
-  bind=true,
-  handler_opts = {
-    border = "none",
-  },
-  padding = ' ',
-  hint_enable = false,
-  doc_lines = 0,
-})
-
 local fzf = require"fzf-lua"
 
 function basic_keymaps()
@@ -429,6 +419,7 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 4, max_item_count = 4 },
