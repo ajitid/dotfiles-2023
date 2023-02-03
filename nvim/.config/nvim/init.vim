@@ -1116,7 +1116,7 @@ require"neo-tree".setup({
       ["O"] = function(state)
           -- from https://github.com/nvim-neo-tree/neo-tree.nvim/issues/597#issuecomment-1312826244
           local node = state.tree:get_node()
-          local relative_path = node.path:gsub("^" .. state.path, "")
+          local relative_path = node.path:gsub("^" .. state.path .. '/', "")
           require('neo-tree.sources.common.commands').revert_preview()
           vim.cmd(t('normal <c-w>p'))
           vim.cmd('edit ' .. relative_path)
