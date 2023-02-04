@@ -57,12 +57,12 @@ function! CustomTheme() abort
   " text selection color
   hi Visual ctermbg=242 guibg=#202020
 
-  " alt. color hi Search guibg=peru guifg=#222222
+  " alt color " hi Search guifg=wheat guibg=#261f18
   hi Search guifg=wheat guibg=#261f18
   " apply highlight to first match while searching
-  hi IncSearch guifg=wheat guibg=#261f18
+  hi IncSearch guibg=peru guifg=#222222
   " apply this highlight instead if cursor on a search term
-  " hi CurSearch guifg=wheat guibg=gold
+  hi CurSearch guibg=peru guifg=#222222
 
   hi PounceMatch guibg=#202025
   hi PounceGap guibg=#202025
