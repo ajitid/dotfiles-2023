@@ -60,9 +60,9 @@ function! CustomTheme() abort
   " alt color " hi Search guifg=wheat guibg=#261f18
   hi Search guifg=wheat guibg=#261f18
   " apply highlight to first match while searching
-  hi IncSearch guibg=peru guifg=#222222
+  hi IncSearch guifg=#b3f5c4 guibg=#202b1b
   " apply this highlight instead if cursor on a search term
-  hi CurSearch guibg=peru guifg=#222222
+  hi CurSearch guifg=#b3f5c4 guibg=#202b1b
 
   hi PounceMatch guibg=#202025
   hi PounceGap guibg=#202025
