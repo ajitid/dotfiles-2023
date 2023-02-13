@@ -1130,7 +1130,7 @@ require"neo-tree".setup({
   },
   filesystem = {
     hijack_netrw_behavior = 'open_current',
-    bind_to_cwd = true,
+    bind_to_cwd = false,
     filtered_items = {
       hide_gitignored = false,
       hide_dotfiles = false,
