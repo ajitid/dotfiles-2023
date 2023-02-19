@@ -182,6 +182,9 @@ endif
 set splitbelow
 set splitright
 
+" https://github.com/luukvbaal/stabilize.nvim
+set splitkeep=screen
+
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
