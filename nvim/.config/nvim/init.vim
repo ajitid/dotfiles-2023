@@ -57,6 +57,8 @@ function! CustomTheme() abort
 
   " text selection color
   hi Visual ctermbg=242 guibg=#202020
+  hi TermCursor guifg=#151515 guibg=#d0d0d0
+  hi link TermCursorNC TermCursor
 
   " alt color " hi Search guifg=wheat guibg=#261f18
   hi Search guifg=wheat guibg=#261f18
