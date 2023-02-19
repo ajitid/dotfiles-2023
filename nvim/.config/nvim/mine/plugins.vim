@@ -49,7 +49,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
 " styling
-Plug 'aktersnurra/no-clown-fiesta.nvim'
+Plug 'ajitid/no-clown-fiesta.nvim', {'branch': 'ajitid'}
 Plug 'nvim-lualine/lualine.nvim'
 
 " others
