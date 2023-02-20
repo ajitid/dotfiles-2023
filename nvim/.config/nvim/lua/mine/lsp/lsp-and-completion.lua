@@ -2,7 +2,16 @@ local keymap = require("which-key").register
 
 require("mason").setup {}
 require("mason-lspconfig").setup({
-  ensure_installed = { 'eslint', 'jsonls', 'pyright', 'tsserver', 'cssls', 'marksman', 'tailwindcss' }
+  ensure_installed = {
+    'eslint',
+    'jsonls',
+    'pyright',
+    'tsserver',
+    'cssls',
+    'marksman',
+    'tailwindcss',
+    'astro'
+  }
 })
 require('aerial').setup({})
 
@@ -350,6 +359,11 @@ lspconfig.marksman.setup{
 }
 
 lspconfig.tailwindcss.setup{
+  capabilities = capabilities,
+  on_attach = common_on_attach,
+}
+
+lspconfig.astro.setup{
   capabilities = capabilities,
   on_attach = common_on_attach,
 }
