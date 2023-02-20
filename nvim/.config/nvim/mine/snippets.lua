@@ -96,16 +96,13 @@ ls.add_snippets(nil, {
     s("req", fmt("local {} = require('{}')", { i(1, "default"), rep(1) })),
     ls.parser.parse_snippet("lf", "local $1 = function($2)\n  $0\nend"),
   },
-  javascript = {
-    table.unpack(js_common),
-  },
-  typescript = {
-    table.unpack(js_common),
-  },
+  javascript = { table.unpack(js_common) },
+  typescript = { table.unpack(js_common), },
   typescriptreact = {
     table.unpack(js_common),
     -- TODO capitalize doesn't work
   },
+  astro = { table.unpack(js_common), },
   markdown = {
     s("!", fmt([[
       ---
