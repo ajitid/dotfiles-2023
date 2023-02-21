@@ -106,8 +106,8 @@ ls.add_snippets(nil, {
   markdown = {
     s("!", fmt([[
       ---
-      title: "{}"
-      created: "{}"
+      title: {}
+      created: {}
       ---
 
       {}

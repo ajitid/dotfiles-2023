@@ -804,8 +804,10 @@ vmap <leader>* :<c-u>execute "GrepLiteral " . GetVisualSelection()<cr>
 
 " do word match
 nmap <M-/> /\V\C\<\><left><left>
-" see "Searching with / and ?" of https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
-vmap <leader>/ <Esc>/\%V
+" Search selected term
+vmap <leader>/ y/<c-r>"<cr>N
+" search within a selection. See "Searching with / and ?" of https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
+vmap <leader>? <Esc>/\%V
 
 lua <<EOF
 vim.diagnostic.config({ virtual_text = false, severity_sort = true, underline = false })
