@@ -275,25 +275,13 @@ abbr -a -- - 'cd -'
 
 # tree -d -L 2 -I 'node_modules|e2e_Tests|*mocks*'
 
-# I don't watch Futurama :(
-function deathbysnusnu
-  # from https://stackoverflow.com/questions/13910087/shell-script-to-capture-process-id-and-kill-it-if-exist#comment83939035_15896729
-  # created this because pkill or killall doesn't work for me and I need to use -9 flag
-  # which results in not allowing to be cleanup to be made, as I really want to force remove the app
-  # there is `ps aux` too, I don't know the difference b/w these
-  # I used `sed` and xargs in my original script but who cares
-
-  set -l grep_arg (string join '|' (string split ' ' $argv))
-
-  # grep -E so that processes can be found using `'nvim|smerge'`
-  set -l ids (ps -ef | grep -E $grep_arg | grep -v grep | awk '{print $2}')
-  if [ "$ids" = "" ]
-    echo "deathbysnusnu: no active program to end"
-    return 1
-  end
-
-  kill -9 $ids
-end
+# deathbysnusnu alternative
+# https://stackoverflow.com/questions/13910087/shell-script-to-capture-process-id-and-kill-it-if-exist#comment84617534_37702359
+# > -9 means send signal 9 instead of the regular 15.
+#   The precise semantics are that this untrappable signal terminates the process without giving it the chance of running any
+#   cleanup code, which is often set up via a signal handler which runs on a trappable signal.
+# kill programs by `killall -9 <program name>`
+# or by `kill -9 (pidof <program name 1> <program name 2>)`
 
 # folder/file size
 # du -h --max-depth=1 | sort -hr
