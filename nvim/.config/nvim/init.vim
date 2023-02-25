@@ -730,6 +730,13 @@ nnoremap ]l <cmd>lnext<cr><cmd>call repeat#set("]l")<cr>
 nnoremap [L <cmd>lpf<cr><cmd>call repeat#set("[L")<cr>
 nnoremap ]L <cmd>lnf<cr><cmd>call repeat#set("]L")<cr>
 
+" Unimpared like mapping for easy time-based step by step undo/redo.
+" Useful for acting after `:earlier` and `:later`.
+" `:later` w/o any arg works as `g+` and one can do `@:` and then `@@`
+" afterwards but this is intuitive.
+nnoremap g+ <cmd>norm! g+<cr><cmd>call repeat#set("g+")<cr>
+nnoremap g- <cmd>norm! g-<cr><cmd>call repeat#set("g-")<cr>
+
 " wrap for comments, see :h gq. Earlier it was mapped to gq_ (not to be
 " confused with g_ which is used to go to last non-whitespace char)
 nmap Q gqic
@@ -817,6 +824,9 @@ local function toggle_diagnostic()
   vim.diagnostic.config({ virtual_text = not current.virtual_text })
 end
 
+local fzf = require('fzf-lua')
+local fzf_defaults = require('fzf-lua.defaults').defaults
+
 local keymap = require("which-key").register
 keymap({
     ["`"] = { "<cmd>e $MYVIMRC<cr>", "edit vimrc" },
@@ -856,7 +866,10 @@ keymap({
     },
     ["<space>"] = { "<cmd>FzfLua tags<cr>", "find symbol" },
     ["-"] = { find_folder, "find dir" },
-    ["/"] = { "<cmd>FzfLua live_grep<cr>", "live grep" },
+    ["/"] = {
+      function() fzf.live_grep({rg_opts = fzf_defaults.grep.rg_opts .. "  --hidden"}) end,
+      "live grep"
+    },
     e  = { "<cmd>FzfLua files previewer=false<cr>", "find files" },
     [">"] = { ":edit in buffer dir" },
     ["."] = { "find file in buffer dir" },
