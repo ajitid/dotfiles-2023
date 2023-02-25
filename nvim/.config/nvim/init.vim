@@ -142,6 +142,7 @@ nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
 set scrolloff=3
 try
   set smoothscroll
+  echo '`smoothscroll` option is present now, you should evaluate to remove vim-smoothie'
 catch /E518/
   " if the option isn't present in nvim yet, let it fail silently
   " https://github.com/vim/vim/issues?q=smoothscroll
