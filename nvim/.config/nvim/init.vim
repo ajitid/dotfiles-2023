@@ -923,7 +923,6 @@ if executable('fd')
 endif
 let g:gutentags_project_root = g:root_markers
 let g:gutentags_generate_on_empty_buffer = 1
-let g:gutentags_ctags_tagfile = '.tags'
 
 function <sid>GutentagsAutoUpdate() abort
   if !exists(':GutentagsUpdate')
