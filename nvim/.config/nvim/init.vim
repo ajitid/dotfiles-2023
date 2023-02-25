@@ -522,10 +522,12 @@ set wildcharm=<c-z>
 " suggestions
 nnoremap <leader>> :e %:.:h<c-z><space><bs>
 
-nmap <leader>. <cmd>lua require("fzf-lua").files({ cwd = vim.fn.expand('%:h') })<cr>
-
 lua <<EOF
 local fzf = require"fzf-lua"
+
+local fzf_defaults = require('fzf-lua.defaults').defaults
+fzf_defaults.grep.rg_opts = fzf_defaults.grep.rg_opts .. "  --hidden"
+fzf_defaults.files.fd_opts = fzf_defaults.files.fd_opts .. "  --strip-cwd-prefix"
 
 local function default_action(selected)
   vim.cmd("call feedkeys(':e " .. selected[1] .. "')")
@@ -533,7 +535,8 @@ end
 
 function find_folder()
   fzf.files({
-    fd_opts = "--color never -t d --hidden --follow",
+    -- LHS of concatenation is fzf_defaults.files.fd_opts but with `--type d`
+    fd_opts = "--color=never --type d --hidden --follow --exclude .git" .. " --strip-cwd-prefix",
     previewer = false,
     actions = {
       ["default"] = default_action,
@@ -541,6 +544,8 @@ function find_folder()
   })
 end
 EOF
+
+nmap <leader>. <cmd>lua require("fzf-lua").files({ cwd = vim.fn.expand('%:h') })<cr>
 
 " indent file without leaving cursor pos
 " from https://stackoverflow.com/a/20110045/7683365
@@ -824,9 +829,6 @@ local function toggle_diagnostic()
   vim.diagnostic.config({ virtual_text = not current.virtual_text })
 end
 
-local fzf = require('fzf-lua')
-local fzf_defaults = require('fzf-lua.defaults').defaults
-
 local keymap = require("which-key").register
 keymap({
     ["`"] = { "<cmd>e $MYVIMRC<cr>", "edit vimrc" },
@@ -866,10 +868,7 @@ keymap({
     },
     ["<space>"] = { "<cmd>FzfLua tags<cr>", "find symbol" },
     ["-"] = { find_folder, "find dir" },
-    ["/"] = {
-      function() fzf.live_grep({rg_opts = fzf_defaults.grep.rg_opts .. "  --hidden"}) end,
-      "live grep"
-    },
+    ["/"] = { "<cmd>FzfLua live_grep<cr>", "live grep" },
     e  = { "<cmd>FzfLua files previewer=false<cr>", "find files" },
     [">"] = { ":edit in buffer dir" },
     ["."] = { "find file in buffer dir" },
@@ -1081,7 +1080,7 @@ require'fzf-lua'.setup {
       ["hl+"]         = { "fg", "Normal" },
       ["bg+"]         = { "bg", "CursorLine" },
       ["pointer"]     = { "fg", "Label" },
-      ["marker"]      = { "fg", "Special" },
+      ["marker"]      = { "fg", "Character" },
       ["spinner"]     = { "fg", "Label" },
       ["gutter"]      = { "bg", "Normal" },
   },
