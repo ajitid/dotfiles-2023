@@ -523,30 +523,7 @@ set wildcharm=<c-z>
 " suggestions
 nnoremap <leader>> :e %:.:h<c-z><space><bs>
 
-lua <<EOF
-local fzf = require"fzf-lua"
-
-local fzf_defaults = require('fzf-lua.defaults').defaults
-fzf_defaults.grep.rg_opts = fzf_defaults.grep.rg_opts .. "  --hidden"
-fzf_defaults.files.fd_opts = fzf_defaults.files.fd_opts .. "  --strip-cwd-prefix"
-
-local function default_action(selected)
-  vim.cmd("call feedkeys(':e " .. selected[1] .. "')")
-end
-
-function find_folder()
-  fzf.files({
-    -- LHS of concatenation is fzf_defaults.files.fd_opts but with `--type d`
-    fd_opts = "--color=never --type d --hidden --follow --exclude .git" .. " --strip-cwd-prefix",
-    previewer = false,
-    actions = {
-      ["default"] = default_action,
-    },
-  })
-end
-EOF
-
-nmap <leader>. <cmd>lua require("fzf-lua").files({ cwd = vim.fn.expand('%:h') })<cr>
+lua require "mine.fzf"
 
 " indent file without leaving cursor pos
 " from https://stackoverflow.com/a/20110045/7683365
@@ -868,11 +845,9 @@ keymap({
       },
     },
     ["<space>"] = { "<cmd>FzfLua tags<cr>", "find symbol" },
-    ["-"] = { find_folder, "find dir" },
     ["/"] = { "<cmd>FzfLua live_grep<cr>", "live grep" },
     e  = { "<cmd>FzfLua files previewer=false<cr>", "find files" },
     [">"] = { ":edit in buffer dir" },
-    ["."] = { "find file in buffer dir" },
   }, {
     prefix = "<leader>",
   })
@@ -923,6 +898,7 @@ if executable('fd')
 endif
 let g:gutentags_project_root = g:root_markers
 let g:gutentags_generate_on_empty_buffer = 1
+let g:gutentags_ctags_extra_args = ['--excmd=combine']
 
 function <sid>GutentagsAutoUpdate() abort
   if !exists(':GutentagsUpdate')
@@ -1041,52 +1017,6 @@ imap <c-;> <c-o>$
 " https://github.com/nvim-treesitter/nvim-treesitter/issues/94#issuecomment-780010595
 " and for vim we have
 " https://github.com/embark-theme/vim/issues/37#issuecomment-824196634
-
-lua <<EOF
-local actions = require "fzf-lua.actions"
-require'fzf-lua'.setup {
-  global_git_icons = false,
-  global_file_icons = false,
-  border = false,
-  fullscreen = true,
-  oldfiles = {
-    cwd_only = true,
-  },
-  winopts = {
-    preview = {
-      layout = 'vertical',
-      vertical = 'up:70%',
-    },
-    hl = {
-      search = 'Visual',
-      border = 'Normal',
-    }
-  },
-  file_ignore_patterns = {
-    ".git/",
-    ".DS_Store", ".vscode/", ".idea/",
-    "node_modules/", "__pycache__/",
-    "package%-lock.json", "yarn.lock", "pnpm%-lock.yaml",
-    "build/", "dist/",
-    "go.sum", "go/src/",
-    "tags",
-  },
-  fzf_opts = {
-    ["--info"] = "default",
-  },
-  fzf_colors = {
-      ["fg"]          = { "fg", "Normal" },
-      ["hl"]          = { "fg", "Normal" },
-      ["fg+"]         = { "fg", "Normal" },
-      ["hl+"]         = { "fg", "Normal" },
-      ["bg+"]         = { "bg", "CursorLine" },
-      ["pointer"]     = { "fg", "Label" },
-      ["marker"]      = { "fg", "Character" },
-      ["spinner"]     = { "fg", "Label" },
-      ["gutter"]      = { "bg", "Normal" },
-  },
-}
-EOF
 
 " keep the current buffer and clean the rest from buffer list
 function! <SID>Bonly()
