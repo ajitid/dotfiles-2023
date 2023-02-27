@@ -843,7 +843,7 @@ keymap({
         N  = { '<cmd>let @+ = expand("%:t")<cr>', "name to clipboard" },
       },
     },
-    ["<space>"] = { "<cmd>FzfLua tags<cr>", "find symbol" },
+    ["<space>"] = { "<cmd>FzfLua lsp_live_workspace_symbols<cr>", "find symbol" },
     ["/"] = { "<cmd>FzfLua live_grep<cr>", "live grep" },
     e  = { "<cmd>FzfLua files previewer=false<cr>", "find files" },
     [">"] = { ":edit in buffer dir" },
@@ -875,41 +875,6 @@ highlight QuickScopePrimary guifg='#6ade93' gui=underline ctermfg=81
 highlight QuickScopeSecondary guifg='#ffa9d5' gui=underline ctermfg=81
 
 let g:rooter_patterns = ['!^node_modules'] + g:root_markers
-
-" don't search for parent directory for tags
-" https://vi.stackexchange.com/questions/13509/use-only-closest-tagfile-to-working-directory-of-buffer-or-of-vim-process
-" (PS: turns out setglobal tags?, set tags? and setlocal tags? give different values)
-set tags=
-" ^ this works perfectly in all cases but doesn't generate tags when Dirvish/nvim-neotree is open. This happens
-" because of https://github.com/ludovicchabant/vim-gutentags/blob/b77b8fabcb0b052c32fe17efcc0d44f020975244/autoload/gutentags.vim#L255
-"
-" unless the repo isn't monorepo, I would suggest to put `.notags`
-" file at root to avoid extraneous tag generation
-" (^ root of what? in projects within the monorepo?? can't understand my past
-" self, though `.notags` is certainly needed in some case)
-"
-" experiencing slowdown when opening tag list using `<space><space>`?
-" check if the repo is initialized with git and has a well defined `.gitignore`
-
-if executable('fd')
-  " for rg it would be `rg --files`
-  let g:gutentags_file_list_command = 'fd . -t f'
-endif
-let g:gutentags_project_root = g:root_markers
-let g:gutentags_generate_on_empty_buffer = 1
-let g:gutentags_ctags_extra_args = ['--excmd=combine']
-
-function <sid>GutentagsAutoUpdate() abort
-  if !exists(':GutentagsUpdate')
-    return
-  endif
-  GutentagsUpdate!
-endfunction
-
-augroup gutentags_auto_update
-  autocmd!
-  autocmd FocusGained * call <sid>GutentagsAutoUpdate()
-augroup END
 
 " what is the point of saving blank (empty) windows?
 set sessionoptions-=blank

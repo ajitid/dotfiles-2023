@@ -107,8 +107,6 @@ Plug 'Pocco81/true-zen.nvim'
 " for this
 
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-" cd ~; rm (fd -It f '^tags$')
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'vim-scripts/CmdlineComplete'
 
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
