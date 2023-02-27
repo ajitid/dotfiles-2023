@@ -3,8 +3,6 @@ call plug#begin()
 " - golang - for vim-hexokinase
 " - yarn - for markdown-preview
 
-Plug 'lewis6991/impatient.nvim'
-
 " sane vim
 " there's also https://github.com/windwp/nvim-projectconfig
 Plug 'ii14/exrc.vim'

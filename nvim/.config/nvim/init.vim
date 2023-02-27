@@ -1,5 +1,4 @@
 source ~/.config/nvim/mine/plugins.vim
-lua require('impatient')
 " didn't worked for me (tell me it could find plug command) but have a look at it anyway:
 " https://github.com/junegunn/vim-plug/issues/954#issuecomment-608878431
 " PlugSnapshot ~/.config/nvim/mine/plug-snapshot.vim
@@ -795,7 +794,7 @@ vmap <leader>* :<c-u>execute "GrepLiteral " . GetVisualSelection()<cr>
 " do word match
 nmap <M-/> /\V\C\<\><left><left>
 " Search selected term
-vmap <leader>/ y/<c-r>"<cr>N
+vmap <leader>/ y/\V<c-r>"<cr>N
 " search within a selection. See "Searching with / and ?" of https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
 vmap <leader>? <Esc>/\%V
 

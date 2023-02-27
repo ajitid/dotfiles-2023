@@ -487,6 +487,7 @@ local null_ls = require("null-ls")
 
 local prettierd_filetypes = { table.unpack(null_ls.builtins.formatting.prettierd.filetypes) }
 table.insert(prettierd_filetypes, "jsonc")
+table.insert(prettierd_filetypes, "astro")
 
 local sources = {
   -- if prettierd is not present, the command will silently fail
