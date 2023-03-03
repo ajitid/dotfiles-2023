@@ -786,17 +786,23 @@ endfunction
 nmap <leader>* <cmd>call GrepLiteral(expand('<cword>'), v:true)<cr>
 vmap <leader>* :<c-u>execute "GrepLiteral " . GetVisualSelection()<cr>
 
+" Search selected term
+function! s:searchSelection()
+  let l:selection = GetVisualSelection()
+  " from https://vi.stackexchange.com/a/17474
+  let @/='\V'.escape(l:selection, '\\')
+endfunction
+xnoremap * :<c-u>call <sid>searchSelection()<cr>n
+
+" do word match
+nmap <M-/> /\V\C\<\><left><left>
+" search within a selection. See "Searching with / and ?" of https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
+vmap <leader>/ <Esc>/\%V
+
 " nmap <leader>/ <plug>(esearch)
 " map  <leader>? <plug>(operator-esearch-prefill)
 " let g:esearch = {}
 " let g:esearch.root_markers = g:root_markers
-
-" do word match
-nmap <M-/> /\V\C\<\><left><left>
-" Search selected term
-vmap <leader>/ y/\V<c-r>"<cr>N
-" search within a selection. See "Searching with / and ?" of https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
-vmap <leader>? <Esc>/\%V
 
 lua <<EOF
 vim.diagnostic.config({ virtual_text = false, severity_sort = true, underline = false })
