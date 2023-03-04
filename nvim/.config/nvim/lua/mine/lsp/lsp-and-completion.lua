@@ -10,7 +10,8 @@ require("mason-lspconfig").setup({
     'cssls',
     'marksman',
     'tailwindcss',
-    'astro'
+    'astro',
+    'html'
   }
 })
 require('aerial').setup({})
@@ -356,6 +357,11 @@ lspconfig.cssls.setup{
 }
 
 lspconfig.marksman.setup{
+  capabilities = capabilities,
+  on_attach = common_on_attach,
+}
+
+lspconfig.html.setup{
   capabilities = capabilities,
   on_attach = common_on_attach,
 }
