@@ -122,6 +122,10 @@ Plug 'nvim-neo-tree/neo-tree.nvim'
 " Plug 'eugen0329/vim-esearch'
 " trouble nvim + that plugin that doesn't move splits when folke/trouble.nvim
 
+" https://github.com/Shougo/echodoc.vim (emacs like eldoc) and
+" auto command hold to show current var type in echo area w/o
+" logging them in `:messages`
+
 " Plug 'pacha/vem-tabline', https://github.com/nanozuki/tabby.nvim are similar
 " https://github.com/tiagovla/scope.nvim/issues/2 + https://github.com/gcmt/taboo.vim is a good idea, albeit saving globals in sessionoptions isn't, which taboo asks for
 " Plug 'vim-ctrlspace/vim-ctrlspace' and scope.nvim are similar
