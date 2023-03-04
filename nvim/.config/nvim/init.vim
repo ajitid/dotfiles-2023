@@ -792,6 +792,7 @@ function! s:searchSelection()
   let l:selection = GetVisualSelection()
   " from https://vi.stackexchange.com/a/17474
   let @/='\V'.escape(l:selection, '\\')
+  call searchlist#AddEntry()
 endfunction
 xnoremap * :<c-u>call <sid>searchSelection()<cr>n
 
