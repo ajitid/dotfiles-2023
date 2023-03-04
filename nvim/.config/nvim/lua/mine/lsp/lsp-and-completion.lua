@@ -363,7 +363,11 @@ lspconfig.marksman.setup{
 
 lspconfig.html.setup{
   capabilities = capabilities,
-  on_attach = common_on_attach,
+  on_attach = function(client, bufnr)
+    disable_formatting(client)
+    common_on_attach(client, bufnr)
+    require('folding').on_attach()
+  end,
 }
 
 lspconfig.tailwindcss.setup{
