@@ -36,6 +36,7 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'zbirenbaum/neodim'
+Plug 'Nicholas-Hein/folding-nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'hrsh7th/cmp-nvim-lsp'

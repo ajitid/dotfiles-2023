@@ -48,7 +48,7 @@ function basic_keymaps()
     --   vim.api.nvim_command [[exe "norm \<c-w>J"]]
     -- end, {buffer=0})
     -- ^ same solution below, but longer (and w/ different a syntax highlight way)
-    K = { require"mine.lsp.hover".hover, "doc in a buffer", buffer=0 },
+    k = { require"mine.lsp.hover".hover, "doc in a buffer", buffer=0 },
     c = {
       name = "code",
       r = { vim.lsp.buf.rename, "rename symbol", buffer=0 },
@@ -171,6 +171,7 @@ lspconfig.gopls.setup{
   on_attach = function(client, bufnr)
     disable_formatting(client)
     common_on_attach(client, bufnr)
+    require('folding').on_attach()
   end,
 }
 
@@ -273,6 +274,7 @@ lspconfig.tsserver.setup{
     -- client.config.flags.allow_incremental_sync = true
 
     common_on_attach(client, bufnr)
+    require('folding').on_attach()
     keymap({
       ["<leader>fr"] = { typescript_rename_file_command, "rename using LSP", buffer=0 },
       ["gd"] = { typescript_go_to_source_definiton, "go to definiton (DWIM)", buffer=0 },
@@ -365,7 +367,11 @@ lspconfig.tailwindcss.setup{
 
 lspconfig.astro.setup{
   capabilities = capabilities,
-  on_attach = common_on_attach,
+  on_attach = function(client, bufnr)
+    disable_formatting(client)
+    common_on_attach(client, bufnr)
+    require('folding').on_attach()
+  end,
 }
 
 local cmp = require'cmp'
