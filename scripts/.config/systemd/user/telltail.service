@@ -1,0 +1,12 @@
+[Unit]
+Description=Telltail server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/ajitid/playground/telltail/telltail
+
+[Install]
+WantedBy=default.target
+
