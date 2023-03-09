@@ -1084,6 +1084,12 @@ require"neo-tree".setup({
         vim.w.neo_tree_before_open_visible_buffer = vim.fn.bufnr('%')
         vim.w.neo_tree_before_open_alternate_buffer = vim.fn.bufnr('#')
       end,
+    },
+    {
+      event = "file_opened",
+      handler = function(arg)
+        vim.fn.setreg('#', vim.w.neo_tree_before_open_visible_buffer)
+      end,
     }
   }
 })
