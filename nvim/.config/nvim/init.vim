@@ -29,7 +29,6 @@ set timeoutlen=1000
 lua << EOF
 require("which-key").setup {
   plugins = {
-    registers = false,
     presets = {
         g = false,
         text_objects = false,
@@ -898,6 +897,7 @@ inoremap <c-s> <esc><cmd>w<cr>
 " to keep yourself in insert mode, use inoremap <c-s> <c-o><cmd>w<cr>
 nnoremap <c-s> <esc><cmd>w<cr>
 xnoremap <c-s> <esc><cmd>w<cr>gv
+nnoremap <c-q> <cmd>qa<cr>
 
 let g:interestingWordsGUIColors =["#ffa724", "#aeee00", "#8cffba", "#b88853", "#ff9eb8", "#ff2c4b"]
 let g:interestingWordsDefaultMappings = 0
