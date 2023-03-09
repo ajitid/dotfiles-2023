@@ -1013,6 +1013,8 @@ command! Bonly call s:Bonly()
 let g:neo_tree_remove_legacy_commands = 1
 
 lua <<EOF
+local commands = require('neo-tree.sources.common.commands')
+
 require"neo-tree".setup({
   enable_git_status = false,
   enable_diagnostics = false,
@@ -1020,7 +1022,10 @@ require"neo-tree".setup({
   window = {
     mappings = {
       -- make j/k behave like j$B and k$B respectively, and do on filetype enter $B
-      ["q"] = "close_window",
+      ["q"] = function(args)
+        commands.close_window(args)
+        vim.fn.setreg('#', vim.w.neo_tree_before_open_alternate_buffer)
+      end,
       ["R"] = "refresh",
       -- ["<bs>"] = "navigate_up",
       -- ["."] = "set_root",
@@ -1071,6 +1076,13 @@ require"neo-tree".setup({
         vim.cmd [[
           setlocal number relativenumber
         ]]
+      end,
+    },
+    {
+      event = "neo_tree_window_before_open",
+      handler = function(arg)
+        vim.w.neo_tree_before_open_visible_buffer = vim.fn.bufnr('%')
+        vim.w.neo_tree_before_open_alternate_buffer = vim.fn.bufnr('#')
       end,
     }
   }
