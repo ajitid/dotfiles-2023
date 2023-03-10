@@ -1072,7 +1072,7 @@ require"neo-tree".setup({
   event_handlers = {
     {
       event = "neo_tree_buffer_enter",
-      handler = function(arg)
+      handler = function(args)
         vim.cmd [[
           setlocal number relativenumber
         ]]
@@ -1080,15 +1080,16 @@ require"neo-tree".setup({
     },
     {
       event = "neo_tree_window_before_open",
-      handler = function(arg)
+      handler = function(args)
         vim.w.neo_tree_before_open_visible_buffer = vim.fn.bufnr('%')
         vim.w.neo_tree_before_open_alternate_buffer = vim.fn.bufnr('#')
       end,
     },
     {
       event = "file_opened",
-      handler = function(arg)
+      handler = function(args)
         vim.fn.setreg('#', vim.w.neo_tree_before_open_visible_buffer)
+        commands.close_window(args)
       end,
     }
   }
