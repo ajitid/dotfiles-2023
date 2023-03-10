@@ -6,8 +6,8 @@ After=graphical.target
 
 [Service]
 Type=simple
-ExecStart=/home/ajitid/playground/telltail-sync/telltail-sync
-Environment="DISPLAY=:0"
+ExecStart=/home/ajitid/playground/telltail-sync/telltail-sync --url https://telltail.alai-owl.ts.net --device sd
+Environment=DISPLAY=:0
 
 [Install]
 WantedBy=default.target

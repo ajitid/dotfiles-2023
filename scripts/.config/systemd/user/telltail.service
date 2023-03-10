@@ -6,6 +6,7 @@ After=network-online.target
 [Service]
 Type=simple
 ExecStart=/home/ajitid/playground/telltail/telltail
+; Environment=TS_AUTHKEY=tskey-auth-keyid-averylooooooooooonnnngvalue
 
 [Install]
 WantedBy=default.target
