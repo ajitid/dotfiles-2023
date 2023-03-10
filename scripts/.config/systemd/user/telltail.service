@@ -7,6 +7,7 @@ After=network-online.target
 Type=simple
 ExecStart=/home/ajitid/playground/telltail/telltail
 ; Environment=TS_AUTHKEY=tskey-auth-keyid-averylooooooooooonnnngvalue
+; ^ here's how you can safely add it ajit w/o pushing it to your dotfiles which are public: https://serverfault.com/a/413408
 
 [Install]
 WantedBy=default.target
