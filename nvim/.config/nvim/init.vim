@@ -897,6 +897,10 @@ inoremap <c-s> <esc><cmd>w<cr>
 " to keep yourself in insert mode, use inoremap <c-s> <c-o><cmd>w<cr>
 nnoremap <c-s> <esc><cmd>w<cr>
 xnoremap <c-s> <esc><cmd>w<cr>gv
+
+" ref. the line below `:h :wqa` to understand what it does
+call SetupCommandAlias("x","confirm xall")
+" incase :x fails; for eg. I have an modifed buffer which is not attached to a file, this will help me to jump to that file
 nnoremap <F4> <cmd>qa<cr>
 
 let g:interestingWordsGUIColors =["#ffa724", "#aeee00", "#8cffba", "#b88853", "#ff9eb8", "#ff2c4b"]
