@@ -1,0 +1,40 @@
+[
+  {
+    "caption": "Create an Empty Commit...",
+    "command": "git",
+    "args": { "argv": ["commit", "--allow-empty", "-m", "$text"] }
+  },
+  {
+    // https://www.atlassian.com/git/tutorials/inspecting-a-repository/git-tag
+    "caption": "Create an Annotated Tag w/o Msg...",
+    "command": "git",
+    "args": { "argv": ["tag", "-a", "$text", "-m", ""] }
+  },
+  {
+    "caption": "Delete Remote Tag (origin)...",
+    "command": "git",
+    "args": { "argv": ["push", "--delete", "origin", "$text"] }
+  },
+  {
+    "caption": "Force Push with Lease + No Verify (origin)",
+    "command": "git",
+    "args": {
+      "argv": ["push", "origin", "HEAD", "--no-verify", "--force-with-lease"]
+    }
+  },
+  {
+    "caption": "Push + Notify (origin)",
+    "command": "git",
+    "args": { "argv": ["gpn", "$select_local_branch"] }
+  },
+  {
+    "caption": "Commit w/o Hooks",
+    "command": "git",
+    "args": { "argv": ["commit", "--no-verify", "-m", "$text"] }
+  },
+  {
+    "caption": "Copy Current Branch Name",
+    "command": "git",
+    "args": { "argv": ["ccb"] }
+  }
+]
