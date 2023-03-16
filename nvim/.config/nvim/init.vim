@@ -181,7 +181,7 @@ endif
 set splitbelow
 set splitright
 
-" https://github.com/luukvbaal/stabilize.nvim
+" https://github.com/luukvbaal/stabilize.nvim (it's stabilize, not stablize ajit)
 set splitkeep=screen
 
 nnoremap <A-h> <C-w>h
@@ -839,7 +839,7 @@ keymap({
       ["/"] = {"<cmd>FzfLua grep_curbuf<cr>", "search buffer"},
       -- https://github.com/ibhagwan/fzf-lua/blob/4707adc1ec9c5019590f6070ce578f68ed3a085c/lua/fzf-lua/providers/oldfiles.lua#L16
       -- current session's oldfiles aren't shown by default
-      o  = { "<cmd>FzfLua oldfiles previewer=false<cr>", "old files" },
+      o  = { "<cmd>FzfLua oldfiles previewer=false include_current_session=true<cr>", "old files" },
       u  = { ":undolist<CR>:u<Space>", "undo list" },
       l = { ":call cursor()<left>", "goto line", silent=false },
       y = {

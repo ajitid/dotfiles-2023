@@ -31,6 +31,10 @@ function basic_keymaps()
   })
 
   keymap({
+    ["<c-w>d"] =  { "<cmd>vsplit | norm gd<cr>", "vsplit and go to def.", buffer=0 },
+  })
+
+  keymap({
     name = "goto",
     d = { vim.lsp.buf.definition, "definition", buffer=0 },
     D = { vim.lsp.buf.type_definition, "type definition", buffer=0 },
