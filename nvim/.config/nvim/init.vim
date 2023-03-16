@@ -1173,6 +1173,6 @@ endfun
 command! Juggle
       \ call s:Juggle()
 
-nnoremap <leader>j <cmd>Juggle<cr>
+" nnoremap <leader>j <cmd>Juggle<cr>
 
 " ---------------------
