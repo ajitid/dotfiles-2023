@@ -1,12 +1,13 @@
 [Unit]
-Description=Telltail sync
+Description=Telltail Sync
 Wants=network-online.target
 After=network-online.target
 After=graphical.target
 
 [Service]
 Type=simple
-ExecStart=/home/ajitid/playground/telltail-sync/telltail-sync --url https://telltail.alai-owl.ts.net --device sd
+WorkingDirectory=/home/ajitid/.local/share/telltail
+ExecStart=/home/ajitid/.local/share/telltail/telltail-sync --url https://telltail.alai-owl.ts.net --device sd
 Environment=DISPLAY=:0
 
 [Install]

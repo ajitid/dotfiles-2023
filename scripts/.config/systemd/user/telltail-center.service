@@ -1,0 +1,11 @@
+[Unit]
+Description=Telltail Center
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/ajitid/.local/share/telltail/telltail-center
+
+[Install]
+WantedBy=default.target
