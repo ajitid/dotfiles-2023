@@ -178,6 +178,7 @@ lspconfig.gopls.setup{
     common_on_attach(client, bufnr)
     require('folding').on_attach()
   end,
+  [[--
   settings = {
     gopls = {
       env = {
@@ -186,6 +187,7 @@ lspconfig.gopls.setup{
       }
     }
   }
+  --]]
 }
 
 -- from https://github.com/williamboman/nvim-lsp-installer/blob/b14bd0c5d75ca9da91d7675e98b89450b08f0143/lua/nvim-lsp-installer/extras/tsserver.lua

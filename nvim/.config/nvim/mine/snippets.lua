@@ -77,8 +77,8 @@ table.unpack = table.unpack or unpack
 local date = function() return {os.date('%Y-%m-%d')} end
 
 local js_common = {
-  ls.parser.parse_snippet("log", "console.log($0)"),
-  ls.parser.parse_snippet("logd", "console.log(\"dbg:\", $0)"),
+  ls.parser.parse_snippet("prn", "console.log($0)"),
+  ls.parser.parse_snippet("prnd", "console.log(\"dbg:\", $0)"),
   s("rus", fmt("const [{}, {}] = useState({})", { i(1), dl(2, "set" .. l._1:gsub("^%l", string.upper), 1), i(3) })),
 }
 
@@ -87,9 +87,8 @@ ls.add_snippets(nil, {
     -- Available in any filetype
   },
   go = {
-    s("log", fmt("fmt.Println({})", i(1))),
+    s("prn", fmt("fmt.Println({})", i(1))),
     s("fn", fmta("func <>(<>) <><>{<>\n}", {i(1), i(2), i(3), ne(3, " ", ""), i(0)})),
-    s("pm", t({"package main", "", ""})),
   },
   lua = {
     -- prefer s( over ls.parser.parse_snippet(

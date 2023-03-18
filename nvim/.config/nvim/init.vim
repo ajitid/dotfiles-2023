@@ -795,10 +795,12 @@ function! s:searchSelection()
 endfunction
 xnoremap * :<c-u>call <sid>searchSelection()<cr>n
 
-" do word match
+" do exact word match
 nmap <M-/> /\V\C\<\><left><left>
 " search within a selection. See "Searching with / and ?" of https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection
 vmap <leader>/ <Esc>/\%V
+" substitute within a selection
+vmap <leader>? <Esc>:s/\%V
 
 " nmap <leader>/ <plug>(esearch)
 " map  <leader>? <plug>(operator-esearch-prefill)

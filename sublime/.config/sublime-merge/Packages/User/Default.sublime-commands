@@ -11,11 +11,6 @@
     "args": { "argv": ["tag", "-a", "$text", "-m", ""] }
   },
   {
-    "caption": "Delete Remote Tag (origin)...",
-    "command": "git",
-    "args": { "argv": ["push", "--delete", "origin", "$text"] }
-  },
-  {
     "caption": "Force Push with Lease + No Verify (origin)",
     "command": "git",
     "args": {
