@@ -304,10 +304,10 @@ function! Redir(cmd, rng, start, end)
       let output = systemlist(cmd)
     else
       let lines = getline(a:start, a:end)
-      let stdin = join(lines, "\n") . "\n"
+      let stdin = join(lines, "\n")
       let output = system(cmd, stdin)
+      let output = split(output, "\n")
     endif
-    let output = split(output, "\n")
   else
     redir => output
     execute a:cmd
