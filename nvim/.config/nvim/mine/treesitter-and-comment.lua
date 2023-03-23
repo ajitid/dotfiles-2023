@@ -4,7 +4,7 @@ ts.setup {
   ensure_installed = "all",
   highlight = {
     enable = true,
-    disable = { "markdown", "markdown_inline" }
+    -- disable = { "markdown", "markdown_inline" }
   },
   indent = {
     -- FIXME commented as it breaks indent https://github.com/nvim-treesitter/nvim-treesitter/issues/2544

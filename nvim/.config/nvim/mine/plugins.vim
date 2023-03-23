@@ -122,6 +122,8 @@ Plug 'nvim-neo-tree/neo-tree.nvim'
 " Plug 'eugen0329/vim-esearch'
 " trouble nvim + that plugin that doesn't move splits when folke/trouble.nvim
 
+" https://github.com/jay-babu/mason-null-ls.nvim
+
 " https://github.com/Shougo/echodoc.vim (emacs like eldoc) and
 " auto command hold to show current var type in echo area w/o
 " logging them in `:messages`

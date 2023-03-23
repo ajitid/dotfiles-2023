@@ -894,12 +894,7 @@ autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb({s
 " runs command on cursor line and replaces the line with shell output
 nmap <leader>! yyp!!$SHELL<CR>
 
-" ctrl+s to save
-inoremap <c-s> <esc><cmd>w<cr>
-" to keep yourself in insert mode, use inoremap <c-s> <c-o><cmd>w<cr>
-nnoremap <c-s> <esc><cmd>w<cr>
-xnoremap <c-s> <esc><cmd>w<cr>gv
-
+nnoremap <cr> <cmd>update<cr>
 " ref. the line below `:h :wqa` to understand what it does
 call SetupCommandAlias("x","confirm xall")
 " incase :x fails; for eg. I have an modifed buffer which is not attached to a file, this will help me to jump to that file

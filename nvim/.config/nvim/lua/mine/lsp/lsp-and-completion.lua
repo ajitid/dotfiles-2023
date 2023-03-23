@@ -11,7 +11,8 @@ require("mason-lspconfig").setup({
     'marksman',
     'tailwindcss',
     'astro',
-    'html'
+    'html',
+    'rust_analyzer',
   }
 })
 require('aerial').setup({})
@@ -169,6 +170,14 @@ function common_on_attach(client, bufnr)
   diagnostic_keymaps()
   format_keymaps(client)
 end
+
+lspconfig.rust_analyzer.setup{
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    common_on_attach(client, bufnr)
+    require('folding').on_attach()
+  end,
+}
 
 -- install manually
 lspconfig.gopls.setup{
