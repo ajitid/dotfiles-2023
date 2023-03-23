@@ -20,6 +20,7 @@ require('aerial').setup({})
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require'lspconfig'
 
+local folding = require('folding')
 local fzf = require"fzf-lua"
 
 function basic_keymaps()
@@ -175,7 +176,7 @@ lspconfig.rust_analyzer.setup{
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     common_on_attach(client, bufnr)
-    require('folding').on_attach()
+    folding.on_attach(client)
   end,
 }
 
@@ -185,7 +186,7 @@ lspconfig.gopls.setup{
   on_attach = function(client, bufnr)
     disable_formatting(client)
     common_on_attach(client, bufnr)
-    require('folding').on_attach()
+    folding.on_attach(client)
   end,
   [[--
   settings = {
@@ -298,7 +299,7 @@ lspconfig.tsserver.setup{
     -- client.config.flags.allow_incremental_sync = true
 
     common_on_attach(client, bufnr)
-    require('folding').on_attach()
+    folding.on_attach(client)
     keymap({
       ["<leader>fr"] = { typescript_rename_file_command, "rename using LSP", buffer=0 },
       ["gd"] = { typescript_go_to_source_definiton, "go to definiton (DWIM)", buffer=0 },
@@ -389,7 +390,7 @@ lspconfig.html.setup{
   on_attach = function(client, bufnr)
     disable_formatting(client)
     common_on_attach(client, bufnr)
-    require('folding').on_attach()
+    folding.on_attach(client)
   end,
 }
 
@@ -403,7 +404,7 @@ lspconfig.astro.setup{
   on_attach = function(client, bufnr)
     disable_formatting(client)
     common_on_attach(client, bufnr)
-    require('folding').on_attach()
+    folding.on_attach(client)
   end,
 }
 
