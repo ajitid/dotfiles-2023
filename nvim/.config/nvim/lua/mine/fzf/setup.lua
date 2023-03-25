@@ -12,6 +12,7 @@ require'fzf-lua'.setup {
     preview = {
       layout = 'vertical',
       vertical = 'up:70%',
+      scrollchars = {'│', ''}
     },
   },
   file_ignore_patterns = {
@@ -36,6 +37,7 @@ require'fzf-lua'.setup {
       ["marker"]      = { "fg", "Character" },
       ["spinner"]     = { "fg", "Label" },
       ["gutter"]      = { "bg", "Normal" },
+      ["border"]      = { "fg", "FzfLuaBorder" },
   },
 }
 

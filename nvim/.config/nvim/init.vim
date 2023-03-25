@@ -58,7 +58,9 @@ function! CustomTheme() abort
   hi TermCursor guifg=#151515 guibg=#d0d0d0
   hi link TermCursorNC TermCursor
   hi! link Cursor TermCursor
+
   hi link FzfLuaCursorLine None
+  hi FzfLuaBorder guifg=#303035
 
   " alt color " hi Search guifg=wheat guibg=#261f18
   hi Search guifg=wheat guibg=#261f18
@@ -1148,7 +1150,7 @@ if exists("+showtabline")
   set tabline=%!MyTabLine()
 endif
 
-" juggle ------------------
+" -------------- juggle ------------------
 
 function! s:CheckJuggle()
   if exists('w:juggle_alt')
@@ -1175,4 +1177,34 @@ command! Juggle
 
 " nnoremap <leader>j <cmd>Juggle<cr>
 
-" ---------------------
+" ------------- don't center line on switching buffer ----------------
+" from https://vim.fandom.com/wiki/Avoid_scrolling_when_switch_buffers
+
+" Save current view settings on a per-window, per-buffer basis.
+function! AutoSaveWinView()
+    if !exists("w:SavedBufView")
+        let w:SavedBufView = {}
+    endif
+    let w:SavedBufView[bufnr("%")] = winsaveview()
+endfunction
+
+" Restore current view settings.
+function! AutoRestoreWinView()
+    let buf = bufnr("%")
+    if exists("w:SavedBufView") && has_key(w:SavedBufView, buf)
+        let v = winsaveview()
+        let atStartOfFile = v.lnum == 1 && v.col == 0
+        if atStartOfFile && !&diff
+            call winrestview(w:SavedBufView[buf])
+        endif
+        unlet w:SavedBufView[buf]
+    endif
+endfunction
+
+" When switching buffers, preserve window view.
+if v:version >= 700
+    autocmd BufLeave * call AutoSaveWinView()
+    autocmd BufEnter * call AutoRestoreWinView()
+endif
+
+" -------------------------
