@@ -13,10 +13,6 @@ require'fzf-lua'.setup {
       layout = 'vertical',
       vertical = 'up:70%',
     },
-    hl = {
-      search = 'Visual',
-      border = 'Normal',
-    }
   },
   file_ignore_patterns = {
     ".git/",

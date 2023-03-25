@@ -75,6 +75,7 @@ Plug 'svermeulen/vim-subversive'
 Plug 'kana/vim-textobj-user'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'Julian/vim-textobj-variable-segment'
+Plug 'kana/vim-textobj-entire'
 " TODO use nvim-ts-context-commentstring to update comment string for
 " JavaScript based files
 Plug 'glts/vim-textobj-comment'
