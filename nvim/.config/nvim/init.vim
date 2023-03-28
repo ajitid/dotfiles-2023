@@ -33,7 +33,7 @@ require("which-key").setup {
         g = false,
         text_objects = false,
         motions = false,
-        operators = false,
+        operators = true,
     },
   },
 }
@@ -58,6 +58,9 @@ function! CustomTheme() abort
   hi TermCursor guifg=#151515 guibg=#d0d0d0
   hi link TermCursorNC TermCursor
   hi! link Cursor TermCursor
+
+  hi MatchParen guibg=#2a555f guifg=NONE gui=NONE
+  hi MatchParenCur gui=NONE
 
   hi link FzfLuaCursorLine None
   hi FzfLuaBorder guifg=#303035
