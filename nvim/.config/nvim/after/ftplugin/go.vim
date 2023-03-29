@@ -12,3 +12,6 @@ command! -buffer -nargs=0 GoFillStruct call go#fillstruct#FillStruct()
 
 " -- impl
 command! -buffer -nargs=* -complete=customlist,go#impl#Complete GoImpl call go#impl#Impl(<f-args>)
+
+" -- errcheck
+command! -nargs=* -bang -complete=customlist,go#package#Complete GoErrCheck call go#lint#Errcheck(<bang>0, <f-args>)
