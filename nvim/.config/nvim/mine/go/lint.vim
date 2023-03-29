@@ -9,6 +9,9 @@ function! go#lint#Errcheck(bang, ...) abort
 
 
   let l:cmd = [go#config#ErrcheckBin(), '-abspath']
+  if a:bang
+    let l:cmd += ['-blank']
+  endif
 
 
   let buildtags = go#config#BuildTags()
@@ -74,11 +77,9 @@ function! go#lint#Errcheck(bang, ...) abort
     if !empty(errors)
       call go#list#Populate(l:listtype, l:errors, 'Errcheck')
       call go#list#Window(l:listtype, len(l:errors))
-      if !a:bang
-        call go#list#JumpToFirst(l:listtype)
-      else
-        call win_gotoid(l:winid)
-      endif
+      "" moves the cursor from qf list back to where it was orginally
+      "" commented it as I don't think I need it
+      " call win_gotoid(l:winid)
     endif
     if go#config#EchoCommandInfo()
       call go#util#EchoError(printf('[%s] %s', l:type, l:state))
