@@ -26,4 +26,8 @@ source ~/.config/nvim/mine/go/commands.vim
 " go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
 " go install golang.org/x/tools/cmd/goimports@latest
 " go install github.com/kisielk/errcheck@latest
+"
+" ci lint: https://golangci-lint.run/usage/install/
+" go install github.com/kisielk/errcheck@latest
+" go install github.com/nishanths/exhaustive/cmd/exhaustive@latest
 " ```

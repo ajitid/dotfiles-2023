@@ -1,0 +1,14 @@
+linters:
+  disable-all: true
+  enable:
+    - govet
+    - errcheck
+    - exhaustive
+linters-settings:
+  errcheck:
+    check-blank: true
+  exhaustive:
+    check:
+      - switch
+      - map
+    default-signifies-exhaustive: true
