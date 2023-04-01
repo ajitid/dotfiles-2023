@@ -1,3 +1,4 @@
+local fzf_defaults = require('fzf-lua.defaults').defaults
 local fzf = require"fzf-lua"
 local keymap = require("which-key").register
 
@@ -17,7 +18,7 @@ local function find_folder()
 end
 
 keymap({
-  ["."] = { function() fzf.files({ cwd = vim.fn.expand('%:h') }) end, 'find file in buffer dir' },
+  ["."] = { function() fzf.files({ cwd = vim.fn.expand('%:h'), fd_opts = fzf_defaults.files.fd_opts .. " --max-depth 1" }) end, 'find file in buffer dir' },
   ["-"] = { find_folder, "find dir" },
 }, {
     prefix = "<leader>"
