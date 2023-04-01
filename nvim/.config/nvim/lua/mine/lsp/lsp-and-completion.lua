@@ -34,6 +34,7 @@ function basic_keymaps()
 
   keymap({
     ["<c-w>d"] =  { "<cmd>vsplit | norm gd<cr>", "vsplit and go to def.", buffer=0 },
+    ["<F2>"] = { vim.lsp.buf.rename, "rename symbol", buffer=0 },
   })
 
   keymap({

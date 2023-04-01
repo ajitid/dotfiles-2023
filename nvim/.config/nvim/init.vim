@@ -860,7 +860,11 @@ keymap({
       },
     },
     ["<space>"] = { "<cmd>FzfLua lsp_live_workspace_symbols<cr>", "find symbol" },
-    ["/"] = { "<cmd>FzfLua live_grep<cr>", "live grep" },
+    ["/"] = {
+      name = "live grep",
+      ["/"] = { "<cmd>FzfLua live_grep<cr>", "whole project" },
+      ["."] = { "<cmd>FzfLua live_grep cwd=%:h<cr>", "current folder" },
+    }, 
     e  = { "<cmd>FzfLua files previewer=false<cr>", "find files" },
     [">"] = { ":edit in buffer dir" },
   }, {
