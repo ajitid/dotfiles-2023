@@ -13,6 +13,8 @@ ts.setup {
   },
   matchup = {
     enable = true,
+    -- toggle key and highlight here https://github.com/andymass/vim-matchup/issues/191
+    disable_virtual_text = true,
   },
   context_commentstring = {
     enable = true,

@@ -44,6 +44,16 @@ if has('termguicolors')
 endif
 
 function! CustomTheme() abort
+  " https://www.reddit.com/r/neovim/comments/m8zedt/how_to_change_a_particular_syntax_token_highlight/
+  " https://github.com/nvim-treesitter/nvim-treesitter/issues/519#issuecomment-712533798
+  hi! link @punctuation.delimiter Comment
+  hi link @text.uri @punctuation.delimiter
+  hi @text.emphasis gui=italic
+  hi @text.strong guifg=#d0d0d0 gui=bold
+  hi Title guifg=#bad7ff gui=bold
+  " means inline code and ``` code w/o syntax highlight
+  hi @text.literal guifg=#88afa2
+
   hi TabLineFill guibg=NONE
   hi TabLine guifg=#6a6a69 guibg=NONE
   hi TabLineSel guifg=#bbbbbb guibg=#202020
@@ -59,8 +69,10 @@ function! CustomTheme() abort
   hi link TermCursorNC TermCursor
   hi! link Cursor TermCursor
 
-  hi MatchParen guibg=#2a555f guifg=NONE gui=NONE
+  hi MatchParen guifg=NONE guibg=#303035 gui=NONE
   hi MatchParenCur gui=NONE
+  hi MatchWord gui=underdotted
+  hi MatchWordCur gui=underdotted
 
   hi link FzfLuaCursorLine None
   hi FzfLuaBorder guifg=#303035
@@ -77,6 +89,8 @@ function! CustomTheme() abort
   hi PounceKey guifg=wheat guibg=#261f18 gui=bold
   hi link PounceAccept PounceKey
   hi link PounceAcceptBest PounceKey
+  " BUG, FIXME has this while TODO has its own highlight key called @text.todo
+  hi link @text.danger Todo
 
   sign define DiagnosticSignError text=│ texthl=DiagnosticSignError
   sign define DiagnosticSignWarn text=│ texthl=DiagnosticSignWarn
@@ -531,10 +545,6 @@ nnoremap <leader>> :e %:.:h<c-z><space><bs>
 
 lua require "mine.fzf"
 
-" indent file without leaving cursor pos
-" from https://stackoverflow.com/a/20110045/7683365
-nnoremap g= :let b:PlugView=winsaveview()<CR>gg=G:call winrestview(b:PlugView) <CR>:echo "file indented"<CR>
-
 runtime macros/sandwich/keymap/surround.vim
 
 nmap s <cmd>Pounce<CR>
@@ -851,6 +861,9 @@ keymap({
       o  = { "<cmd>FzfLua oldfiles previewer=false include_current_session=true<cr>", "old files" },
       u  = { ":undolist<CR>:u<Space>", "undo list" },
       l = { ":call cursor()<left>", "goto line", silent=false },
+      --  indent file without leaving cursor pos
+      -- from https://stackoverflow.com/a/20110045/7683365
+      ["="] = {'<cmd>let b:PlugView=winsaveview()<cr>gg=G<cmd>call winrestview(b:PlugView)<cr>', "format file" },
       y = {
         name = "yank",
         p  = { '<cmd>let @" = expand("%")<cr>', "path" },
@@ -1037,7 +1050,10 @@ require"neo-tree".setup({
       -- make j/k behave like j$B and k$B respectively, and do on filetype enter $B
       ["q"] = function(args)
         commands.close_window(args)
-        vim.fn.setreg('#', vim.w.neo_tree_before_open_alternate_buffer)
+        local altbufnum = vim.w.neo_tree_before_open_alternate_buffer
+        if altbufnum ~= -1 then
+          vim.fn.setreg('#', altbufnum)
+        end
       end,
       ["R"] = "refresh",
       -- ["<bs>"] = "navigate_up",

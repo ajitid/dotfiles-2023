@@ -306,6 +306,11 @@ function ret
   cat /tmp/capture.out
 end
 
+# countdown from https://github.com/antonmedv/countdown
+function timer
+  countdown $argv && notify-send "Timer for $argv finished" && paplay /usr/share/sounds/freedesktop/stereo/complete.oga
+end
+
 set -x EDITOR "nvim.appimage"
 
 # remove duplicate lines (except the blank ones) from welp and put the result into file welp2
