@@ -138,6 +138,11 @@ Plug 'nvim-neo-tree/neo-tree.nvim'
 " not checked if i can remove vim-hexokinase with it, also check why didn't i
 " opted for https://github.com/ap/vim-css-color
 
+" rust
+" https://www.reddit.com/r/neovim/comments/ot33sz/rusttoolsnvim_now_supports_debugging/
+" https://www.reddit.com/r/neovim/comments/whrbzg/setup_rusttools_for_astronvim/
+" https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
+
 " anuvyklack/hydra.nvim
 " Plug 'tomtom/tinykeymap_vim'
 " https://github.com/kana/vim-submode

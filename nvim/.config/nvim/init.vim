@@ -47,8 +47,7 @@ function! CustomTheme() abort
   " https://www.reddit.com/r/neovim/comments/m8zedt/how_to_change_a_particular_syntax_token_highlight/
   " https://github.com/nvim-treesitter/nvim-treesitter/issues/519#issuecomment-712533798
   hi! link @punctuation.delimiter Comment
-  hi link @text.uri @punctuation.delimiter
-  hi @text.emphasis gui=italic
+  hi link @md.link @punctuation.delimiter
   hi @text.strong guifg=#d0d0d0 gui=bold
   hi Title guifg=#bad7ff gui=bold
   " means inline code and ``` code w/o syntax highlight
