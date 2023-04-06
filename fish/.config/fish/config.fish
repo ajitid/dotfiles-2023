@@ -311,6 +311,24 @@ function timer
   countdown $argv && notify-send "Timer for $argv finished" && paplay /usr/share/sounds/freedesktop/stereo/complete.oga
 end
 
+# Needs `pip install --user yq` to get `tomlq`
+# and download to ~/.local/bin from https://watchexec.github.io/downloads/watchexec/ for `watchexec`
+#
+# cargowatch + bacon
+# created so that rust errors and warnings reside separately in https://dystroy.org/bacon/
+function cargowatch
+  if set -l binname (tomlq -r '.package.name' Cargo.toml)
+    set -l init "set_color $fish_color_comment; echo '...'; set_color normal"
+    set -l command "cargo build --bin $binname >/dev/null 2>&1"
+    set -l onsuccess "clear; ./target/debug/$binname"
+    set -l onerror "clear; set_color -o $fish_color_error; echo 'error'; set_color normal"
+    set -l script "$init; if $command; $onsuccess; else; $onerror; end"
+    watchexec --shell (which fish) -rc $script
+  else
+    return $status
+  end
+end
+
 set -x EDITOR "nvim.appimage"
 
 # remove duplicate lines (except the blank ones) from welp and put the result into file welp2

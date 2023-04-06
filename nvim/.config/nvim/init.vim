@@ -202,7 +202,7 @@ set splitbelow
 set splitright
 
 " https://github.com/luukvbaal/stabilize.nvim (it's stabilize, not stablize ajit)
-set splitkeep=screen
+" set splitkeep=screen
 
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
