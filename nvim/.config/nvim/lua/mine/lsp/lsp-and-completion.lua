@@ -171,14 +171,12 @@ function common_on_attach(client, bufnr)
   basic_keymaps()
   diagnostic_keymaps()
   format_keymaps(client)
+  folding.on_attach(client)
 end
 
 lspconfig.rust_analyzer.setup{
   capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    common_on_attach(client, bufnr)
-    folding.on_attach(client)
-  end,
+  on_attach = common_on_attach
 }
 
 -- install manually
@@ -187,7 +185,6 @@ lspconfig.gopls.setup{
   on_attach = function(client, bufnr)
     disable_formatting(client)
     common_on_attach(client, bufnr)
-    folding.on_attach(client)
   end,
   [[--
   settings = {
@@ -300,7 +297,6 @@ lspconfig.tsserver.setup{
     -- client.config.flags.allow_incremental_sync = true
 
     common_on_attach(client, bufnr)
-    folding.on_attach(client)
     keymap({
       ["<leader>fr"] = { typescript_rename_file_command, "rename using LSP", buffer=0 },
       ["gd"] = { typescript_go_to_source_definiton, "go to definiton (DWIM)", buffer=0 },
@@ -391,7 +387,6 @@ lspconfig.html.setup{
   on_attach = function(client, bufnr)
     disable_formatting(client)
     common_on_attach(client, bufnr)
-    folding.on_attach(client)
   end,
 }
 
@@ -405,7 +400,6 @@ lspconfig.astro.setup{
   on_attach = function(client, bufnr)
     disable_formatting(client)
     common_on_attach(client, bufnr)
-    folding.on_attach(client)
   end,
 }
 
