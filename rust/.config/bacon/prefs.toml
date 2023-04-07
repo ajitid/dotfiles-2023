@@ -1,0 +1,16 @@
+# default option list at https://dystroy.org/bacon/config/
+
+default_job = "clippy"
+
+[jobs.clippy]
+command = [
+    "cargo", "clippy",
+    "--all-targets",
+    "--color", "always",
+]
+need_stdout = false
+
+[keybindings]
+k = "scroll-lines(-1)"
+j = "scroll-lines(1)"
+

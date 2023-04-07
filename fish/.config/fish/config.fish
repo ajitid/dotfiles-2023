@@ -311,6 +311,9 @@ function timer
   countdown $argv && notify-send "Timer for $argv finished" && paplay /usr/share/sounds/freedesktop/stereo/complete.oga
 end
 
+# bacon doesn't load global config if one isn't defined in local
+abbr cargolint "touch bacon.toml && bacon"
+
 # Needs `pip install --user yq` to get `tomlq`
 # and download to ~/.local/bin from https://watchexec.github.io/downloads/watchexec/ for `watchexec`
 #

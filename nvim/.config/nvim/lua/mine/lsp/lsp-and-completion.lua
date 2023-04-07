@@ -177,7 +177,14 @@ end
 
 lspconfig.rust_analyzer.setup{
   capabilities = capabilities,
-  on_attach = common_on_attach
+  on_attach = common_on_attach,
+  settings = {
+    ['rust-analyzer'] = {
+      check = {
+        command = "clippy",
+      },
+    },
+  },
 }
 
 -- install manually
