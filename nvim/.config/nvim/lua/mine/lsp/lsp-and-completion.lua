@@ -82,7 +82,7 @@ function basic_keymaps()
       a = { vim.lsp.buf.code_action, "code actions", buffer=0 },
     },
   }, {
-    mode = "v",
+    mode = "x",
     prefix = "<leader>"
   })
 end
@@ -149,11 +149,12 @@ function format_keymaps(client)
 
   if client.server_capabilities.documentRangeFormattingProvider then
     keymap({
+      -- https://github.com/neovim/neovim/pull/19998/files#diff-6b5f3071d65558aab177912061ac6a2f5312660655a449276c83697686f28e72R1139-R1143
       ["<leader>="] = {
-        ":lua vim.lsp.buf.range_formatting()<cr>",
+        ":lua vim.lsp.buf.format()<cr>",
         "block formatting",
-        buffer=0,
-        mode="v"
+        buffer = 0,
+        mode = "x",
       }
     })
   end
