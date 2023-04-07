@@ -824,11 +824,14 @@ vmap <leader>? <Esc>:s/\%V
 " let g:esearch.root_markers = g:root_markers
 
 lua <<EOF
-vim.diagnostic.config({ virtual_text = false, severity_sort = true, underline = false })
+-- local vtext = {prefix = "⍿ ⚇  ◌ ", spacing = 5}
+local vtext = {prefix = " ⚇ "}
+vim.diagnostic.config({ virtual_text = vtext, severity_sort = true, underline = false })
 
 local function toggle_diagnostic()
   local current = vim.diagnostic.config()
-  vim.diagnostic.config({ virtual_text = not current.virtual_text })
+  -- short circuiting to toggle between false and somevalue
+  vim.diagnostic.config({ virtual_text = (not current.virtual_text) and vtext })
 end
 
 local keymap = require("which-key").register
