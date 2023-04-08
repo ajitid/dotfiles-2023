@@ -50,6 +50,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 " styling
 Plug 'ajitid/no-clown-fiesta.nvim', {'branch': 'ajitid'}
 Plug 'nvim-lualine/lualine.nvim'
+" Plug 'https://gitlab.com/__tpb/monokai-pro.nvim'
 
 " others
 Plug 'tpope/vim-eunuch'

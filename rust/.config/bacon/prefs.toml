@@ -5,6 +5,7 @@ default_job = "clippy"
 [jobs.clippy]
 command = [
     "cargo", "clippy",
+    "--quiet",
     "--all-targets",
     "--color", "always",
 ]

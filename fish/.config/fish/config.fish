@@ -312,14 +312,14 @@ function timer
 end
 
 # bacon doesn't load global config if one isn't defined in local
-abbr cargolint "touch bacon.toml && bacon"
+abbr rslint "touch bacon.toml && bacon"
 
 # Needs `pip install --user yq` to get `tomlq`
 # and download to ~/.local/bin from https://watchexec.github.io/downloads/watchexec/ for `watchexec`
 #
 # cargowatch + bacon
 # created so that rust errors and warnings reside separately in https://dystroy.org/bacon/
-function cargowatch
+function rswatch
   if set -l binname (tomlq -r '.package.name' Cargo.toml)
     # you can also store color's output in a var and use it that way
     # refer to fish/.config/fish/functions/fish_prompt.fish to see how you can do it
