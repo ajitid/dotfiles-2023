@@ -4,6 +4,7 @@ linters:
     - govet
     - errcheck
     - exhaustive
+    - staticcheck
 linters-settings:
   errcheck:
     check-blank: true
@@ -12,3 +13,8 @@ linters-settings:
       - switch
       - map
     default-signifies-exhaustive: true
+  staticcheck:
+    # default taken from https://staticcheck.io/docs/configuration/options/#checks
+    # by default naming and writing convention of structs/fns/vars and documentation is excluded
+    checks:
+      ["all", "-ST1000", "-ST1003", "-ST1016", "-ST1020", "-ST1021", "-ST1022"]
