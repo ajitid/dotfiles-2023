@@ -400,7 +400,6 @@ lspconfig.html.setup{
 
 lspconfig.tailwindcss.setup{
   capabilities = capabilities,
-  on_attach = common_on_attach,
 }
 
 lspconfig.astro.setup{

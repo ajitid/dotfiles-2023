@@ -5,7 +5,8 @@ default_job = "clippy"
 [jobs.clippy]
 command = [
     "cargo", "clippy",
-    "--quiet",
+    # commenting until https://github.com/Canop/nvim-bacon/issues/3 is resolved
+    # "--quiet",
     "--all-targets",
     "--color", "always",
 ]

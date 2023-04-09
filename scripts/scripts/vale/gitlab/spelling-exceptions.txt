@@ -340,6 +340,7 @@ checksumming
 clonable
 colocated
 colocating
+combinator
 compilable
 composable
 cron

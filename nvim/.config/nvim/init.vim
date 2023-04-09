@@ -49,6 +49,7 @@ function! CustomTheme() abort
   hi! link @punctuation.delimiter Comment
   hi link @md.link @punctuation.delimiter
   hi @text.strong guifg=#d0d0d0 gui=bold
+  hi @text.emphasis gui=italic
   hi Title guifg=#bad7ff gui=bold
   " means inline code and ``` code w/o syntax highlight
   hi @text.literal guifg=#88afa2
@@ -487,6 +488,7 @@ lua require"mine.lsp"
 
 command! EchoLineDiagnostics lua require('mine.lsp.diagnostics').echo_line_diagnostics()
 command! PutErrorsInLocationList lua vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.ERROR })
+command! PutDiagnosticsInLocationList lua vim.diagnostic.setloclist()
 command! PutQfInLocationList cclose | call setloclist(0, [], ' ', {'items': get(getqflist({'items': 1}), 'items'), 'title': get(getqflist({'title': 1}), 'title')}) | lopen
 
 lua <<EOF
