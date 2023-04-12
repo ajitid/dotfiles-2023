@@ -89,6 +89,7 @@ ls.add_snippets(nil, {
   go = {
     s("prn", fmt("fmt.Println({})", i(1))),
     s("fn", fmta("func <>(<>) <><>{<>\n}", {i(1), i(2), i(3), ne(3, " ", ""), i(0)})),
+    ls.parser.parse_snippet("pt", 'panic("TODO(ajit)")'),
   },
   lua = {
     -- prefer s( over ls.parser.parse_snippet(
