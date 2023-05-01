@@ -341,7 +341,9 @@ set -x EDITOR "nvim.appimage"
 
 # pnpm
 set -gx PNPM_HOME "/home/ajitid/.local/share/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
 # pnpm end
 
 abbr pn "pnpm"
