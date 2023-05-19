@@ -23,7 +23,7 @@
     "args": { "argv": ["gpn", "$select_local_branch"] }
   },
   {
-    "caption": "Commit w/o Hooks",
+    "caption": "Commit w/o Hooks...",
     "command": "git",
     "args": { "argv": ["commit", "--no-verify", "-m", "$text"] }
   },
