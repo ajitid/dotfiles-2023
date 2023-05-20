@@ -22,3 +22,6 @@
 
 [push]
 	default = current
+
+[diff]
+	algorithm = histogram
