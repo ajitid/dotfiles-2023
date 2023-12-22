@@ -13,7 +13,7 @@ require 'fzf-lua'.setup {
       vertical = 'up:70%',
       scrollchars = { '│', '' }
     },
-    -- fullscreen = true,
+    fullscreen = true,
   },
   file_ignore_patterns = {
     ".git/",

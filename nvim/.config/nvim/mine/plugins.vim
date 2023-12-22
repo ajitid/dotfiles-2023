@@ -3,8 +3,6 @@ call plug#begin()
 " - golang - for vim-hexokinase
 " - yarn - for markdown-preview
 
-" TODO(ajit): see line "Plug 'pacha/vem..." near below, enable scope.nvim and maybe the ability to show all tabs (and reorder and pin them)
-
 " sane vim
 " there's also https://github.com/windwp/nvim-projectconfig
 Plug 'ii14/exrc.vim'
