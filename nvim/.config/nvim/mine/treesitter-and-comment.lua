@@ -1,4 +1,4 @@
-local ts = require'nvim-treesitter.configs'
+local ts = require 'nvim-treesitter.configs'
 
 ts.setup {
   ensure_installed = "all",
@@ -15,10 +15,6 @@ ts.setup {
     enable = true,
     -- toggle key and highlight here https://github.com/andymass/vim-matchup/issues/191
     disable_virtual_text = true,
-  },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
   },
   textobjects = {
     select = {
@@ -45,6 +41,10 @@ ts.setup {
       },
     },
   },
+}
+
+require('ts_context_commentstring').setup {
+  enable_autocmd = false,
 }
 
 require('Comment').setup({

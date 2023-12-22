@@ -13,6 +13,7 @@ require("mason-lspconfig").setup({
     'astro',
     'html',
     'rust_analyzer',
+    'lua_ls'
   }
 })
 require('aerial').setup({})
@@ -368,6 +369,11 @@ lspconfig.jsonls.setup{
       schemas = require('schemastore').json.schemas(),
     },
   },
+}
+
+lspconfig.lua_ls.setup{
+  capabilities = capabilities,
+  on_attach = common_on_attach,
 }
 
 lspconfig.pyright.setup{

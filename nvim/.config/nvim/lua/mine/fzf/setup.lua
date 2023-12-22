@@ -1,10 +1,9 @@
 local actions = require "fzf-lua.actions"
 
-require'fzf-lua'.setup {
+require 'fzf-lua'.setup {
   global_git_icons = false,
   global_file_icons = false,
   border = false,
-  fullscreen = true,
   oldfiles = {
     cwd_only = true,
   },
@@ -12,8 +11,9 @@ require'fzf-lua'.setup {
     preview = {
       layout = 'vertical',
       vertical = 'up:70%',
-      scrollchars = {'│', ''}
+      scrollchars = { '│', '' }
     },
+    -- fullscreen = true,
   },
   file_ignore_patterns = {
     ".git/",
@@ -28,16 +28,15 @@ require'fzf-lua'.setup {
     ["--info"] = "default",
   },
   fzf_colors = {
-      ["fg"]          = { "fg", "Normal" },
-      ["hl"]          = { "fg", "Normal" },
-      ["fg+"]         = { "fg", "Normal" },
-      ["hl+"]         = { "fg", "Normal" },
-      ["bg+"]         = { "bg", "CursorLine" },
-      ["pointer"]     = { "fg", "Label" },
-      ["marker"]      = { "fg", "Character" },
-      ["spinner"]     = { "fg", "Label" },
-      ["gutter"]      = { "bg", "Normal" },
-      ["border"]      = { "fg", "FzfLuaBorder" },
+    ["fg"]      = { "fg", "Normal" },
+    ["hl"]      = { "fg", "Normal" },
+    ["fg+"]     = { "fg", "Normal" },
+    ["hl+"]     = { "fg", "Normal" },
+    ["bg+"]     = { "bg", "CursorLine" },
+    ["pointer"] = { "fg", "Label" },
+    ["marker"]  = { "fg", "Character" },
+    ["spinner"] = { "fg", "Label" },
+    ["gutter"]  = { "bg", "Normal" },
+    ["border"]  = { "fg", "FzfLuaBorder" },
   },
 }
-

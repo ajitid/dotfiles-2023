@@ -159,14 +159,7 @@ nnoremap <expr> j v:count == 0 ? 'gj' : "\<Esc>".v:count.'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
 
 set scrolloff=3
-try
-  set smoothscroll
-  echo '`smoothscroll` option is present now, you should evaluate to remove vim-smoothie'
-catch /E518/
-  " if the option isn't present in nvim yet, let it fail silently
-  " https://github.com/vim/vim/issues?q=smoothscroll
-  " https://github.com/neovim/neovim/issues/8715
-endtry
+set smoothscroll
 
 " set list listchars=tab:ᐅ\ ,extends:>,precedes:<,nbsp:~
 set list listchars=tab:\ \ ,extends:>,precedes:<,nbsp:~
@@ -901,6 +894,7 @@ require"bqf".setup {
   preview = {
     win_height = 999,
     border_chars = {'', '', '', '', '', '', '', '', ''},
+    winblend = 0,
   }
 }
 EOF
