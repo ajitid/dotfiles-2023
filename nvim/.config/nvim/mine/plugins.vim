@@ -3,13 +3,15 @@ call plug#begin()
 " - golang - for vim-hexokinase
 " - yarn - for markdown-preview
 
+" TODO(ajit): see line "Plug 'pacha/vem..." near below, enable scope.nvim and maybe the ability to show all tabs (and reorder and pin them)
+
 " sane vim
 " there's also https://github.com/windwp/nvim-projectconfig
 Plug 'ii14/exrc.vim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'romainl/vim-cool'
-Plug 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
+Plug 'yorickpeterse/nvim-pqf'
 " hey, sensible (n)vim already tries to make `Y` consistent, why not `cw`
 Plug 'ap/vim-you-keep-using-that-word'
 
