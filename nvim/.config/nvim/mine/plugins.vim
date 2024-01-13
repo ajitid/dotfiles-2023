@@ -23,7 +23,6 @@ Plug 'tpope/vim-obsession'
 
 Plug 'idbrii/vim-focusclip'
 Plug 'bogado/file-line'
-Plug 'psliwka/vim-smoothie'
 Plug 'ajitid/vim-searchlist'
 
 Plug 'nvim-lua/plenary.nvim'
